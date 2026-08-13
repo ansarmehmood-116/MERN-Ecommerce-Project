@@ -7,9 +7,8 @@ export const requireSignIn = async (req, resp, next) => {
   //"next" parameter is executed till we will be hanged in previous code so it is good for
   //security
   try {
-    const token = req.headers.authorization?.split(" ")[1];
     const decode = JWT.verify(
-      token,
+      req.headers.authorization,
       process.env.JWT_SECRET
     );
     //as token are placed inside headers in authorization so we use req.headers not req.body

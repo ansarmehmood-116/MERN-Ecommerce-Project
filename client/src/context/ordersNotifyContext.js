@@ -10,11 +10,7 @@ const OrdersProvider = ({ children }) => {
 
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("/api/v1/auth/all-orders", {
-        headers: {
-          Authorization: `Bearer ${auth?.token}`,
-        },
-      });
+      const { data } = await axios.get("/api/v1/auth/all-orders");
       setOrders(data);
     } catch (error) {
       console.log(error);

@@ -212,9 +212,7 @@ const Homepage = () => {
                       architecto veritatis delectus repellat modi impedit sequi.
                     </p>
                     <div className="btn-box">
-                      <a className="btn1">
-                        Shop Now
-                      </a>
+                      <a className="btn1">Shop Now</a>
                     </div>
                   </div>
                 </div>
