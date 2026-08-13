@@ -112,6 +112,7 @@ const Homepage = () => {
   useEffect(() => {
     if (page === 1) return;
     loadMore();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
   //________________________________________________________________________________
 
@@ -129,6 +130,7 @@ const Homepage = () => {
   useEffect(() => {
     //for filtered products
     if (checked.length || radio.length) filterProduct();
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked, radio]);
 
   //__________________________________________________________________________
@@ -210,7 +212,7 @@ const Homepage = () => {
                       architecto veritatis delectus repellat modi impedit sequi.
                     </p>
                     <div className="btn-box">
-                      <a href="" className="btn1">
+                      <a className="btn1">
                         Shop Now
                       </a>
                     </div>
@@ -353,7 +355,7 @@ const Homepage = () => {
                           setCart([...cart, p]);
                           localStorage.setItem(
                             "cart",
-                            JSON.stringify([...cart, p])
+                            JSON.stringify([...cart, p]),
                           );
                           toast.success("Item Added to cart Successfully");
                           //...cart means any value in cart should

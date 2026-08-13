@@ -7,7 +7,7 @@ import toast from "react-hot-toast"; // Added for notifications
 import "../styles/Search.css";
 
 const Search = () => {
-  const [values, setValues] = useSearch();
+  const [values] = useSearch();
   const [cart, setCart] = useCart(); // Initialize Cart state
   const navigate = useNavigate(); // Initialize Navigate hook
 

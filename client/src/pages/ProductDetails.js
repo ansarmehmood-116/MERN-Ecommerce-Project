@@ -29,6 +29,7 @@ const ProductDetails = () => {
   //initalp details
   useEffect(() => {
     if (params?.slug) getProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params?.slug]);
 
   //__________________________________________________________________________________
