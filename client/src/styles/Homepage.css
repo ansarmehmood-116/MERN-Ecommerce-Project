@@ -1,0 +1,416 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* .banner-img {
+  margin-top: 60px;
+} */
+.carousel {
+  /* margin-top: 60px; */
+  padding-top: 60px;
+  border: none;
+  z-index: 30;
+}
+.carousel-item {
+  height: 80vh; /* Set height to 80% of the viewport height */
+  border: none;
+  width: 100vw;
+}
+.img1,
+.img2,
+.img3 {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto; /* Ensure the width scales proportionally */
+  height: auto; /* Ensure the image covers the entire area without cutting */
+}
+.carousel-item::before {
+  content: "";
+  background: #03d5fa60;
+  height: 0;
+  width: 100%;
+  border-radius: 1px;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  transition: height 1s;
+}
+
+.carousel-item:hover::before {
+  height: 100%;
+}
+
+.img1 {
+  position: relative;
+  border: none;
+}
+
+.img1-heading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #f7b731; /* A warm gold color that contrasts well */
+  font-size: 4rem;
+  font-family: "Great Vibes", cursive;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  /* background-color: rgba(0, 0, 0, 0.4);*/ /*Optional: Adds a subtle background for readability*/
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.img3-heading {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ec0d0d;
+  font-size: 4rem;
+  font-family: "Great Vibes", cursive;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  /* background-color: rgba(0, 0, 0, 0.4);*/ /*Optional: Adds a subtle background for readability*/
+  padding: 10px 20px;
+  border-radius: 5px;
+
+  letter-spacing: 0.1em;
+  text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a,
+    0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222,
+    0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a,
+    0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212,
+    0 22px 30px rgba(0, 0, 0, 0.9);
+}
+.detail-box {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  transform: translateX(-50%);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  margin: 0;
+  opacity: 0;
+}
+.carousel-item.active .detail-box {
+  transform: translateX(0%);
+  transition: 0.8s all;
+  opacity: 1;
+}
+.detail-box .heading2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #242526;
+  
+}
+.heading2 span {
+  color: red;
+}
+
+.detail-box p {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  /* color: #242526; */
+}
+
+.detail-box .btn-box {
+  margin-top: 30px;
+}
+
+.btn1 {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.btn1:hover {
+  background-color: #d6a626;
+  color: #fff;
+}
+
+/* _----------------------________________----------------------______________________ */
+.home-page h1 {
+  color: gray;
+  font-family: "Playfair Display", serif;
+}
+.home-page {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 9vw;
+
+  /* Mine added properties */
+  position: relative;
+  min-height: 105vh;
+  /* this is added due to the conflict between footer and filters class height and absolute property because .filters class then override the height and overlape the footer */
+}
+.home-page .productBox {
+  /* box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px; */
+  /* box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  /* goto google and search "css box shadows" and you will get 95 best designs */
+}
+.home-page .card {
+  background-color: rgba(128, 128, 128, 0.097);
+  width: 20rem;
+}
+.home-page .card-name-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.home-page .card-price {
+  color: green;
+  font-weight: bold;
+}
+.out-stock {
+  color: red;
+  font-size: medium;
+}
+.home-page button {
+  border-radius: 0;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.home-page .card-text {
+  color: rgb(90, 89, 89);
+}
+
+/* ________________________Image hover style____________________________________ */
+.home-page .card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.home-page .card-image-wrapper::before {
+  content: "";
+  background: #03d5fa60;
+  height: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: height 1s;
+}
+.home-page .card:hover .card-image-wrapper::before {
+  height: 100%;
+}
+/* __________________________________________________________________________________ */
+
+.home-page .card img:hover {
+  transform: scale(0.9);
+}
+
+.home-page .card-img-top {
+  height: 300px !important;
+  object-fit: cover;
+}
+
+/* _________________________filters________________________________*/
+
+.noFilters {
+  position: absolute;
+  top: -100vh;
+  left: 10.57vw;
+  width: 20rem;
+  height: 90vh;
+  padding: 30px;
+  background-color: skyblue;
+  z-index: 0;
+  opacity: 0;
+  border-radius: 6px;
+  overflow-y: auto;
+  /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  transition: 0.8s ease-in-out; /* Smooth transition */
+}
+.filters {
+  position: absolute;
+  top: 11.2vh;
+  left: 10.57vw;
+  width: 20rem;
+  height: 90vh;
+  background: skyblue;
+  padding: 30px;
+  opacity: 1;
+  z-index: 10;
+  border-radius: 6px;
+  cursor: pointer;
+  overflow-y: auto;
+  /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  transition: 0.8s ease-in-out; /* Smooth transition */
+}
+.filterButton {
+  position: absolute;
+  /* background: rgb(255, 255, 255); */
+  left: 15.5vw;
+  top: 1vh;
+  color: gray !important;
+  width: 15vw;
+  z-index: 30;
+  padding-left: 2vw;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.337);
+  cursor: pointer;
+}
+
+.noFilters h4,
+.filters h4 {
+  /* margin-top: 100px; */
+  color: gray !important;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.337);
+}
+.home-page .filters::before {
+  content: "";
+  background: #ffffff42;
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: height 1s;
+}
+
+.home-page .filters:hover::before {
+  height: 0;
+}
+.ant-checkbox-wrapper:first-of-type {
+  margin-left: 0.5px;
+}
+
+.ant-checkbox-wrapper {
+  margin: 2px;
+}
+.ant-radio-wrapper {
+  margin-bottom: 5px !important;
+  margin-left: 10px;
+}
+
+.filters button {
+  background-color: black;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  margin-top: 20px;
+}
+
+.loadmore {
+  color: green;
+  font-weight: bold;
+  font-size: 20px !important;
+}
+
+/* Preventing overscroll and making the layout fixed */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  height: 100%;
+  overflow-y: scroll;
+}
+
+/* To hide the scrollbar on Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+/* _____________________________________________________________ */
+
+/* ____________________________________THEME_______________________ */
+
+/* as we have have used theme id in the App.js so as a whole it will apply theme on every page that are wrapped in routes in App.js the rest if we want to apply custom them on each page the we must used #dark id with each.*/
+#dark .home-page {
+  background-color: #00000027;
+}
+#dark .filters {
+  background: #000000d3;
+}
+#dark .home-page .card-price {
+  color: rgb(0, 255, 98);
+  font-weight: bold;
+}
+
+#dark .home-page .card {
+  background-color: rgba(128, 128, 128, 0.842);
+  width: 20rem;
+}
+
+#dark .home-page .card-text {
+  color: rgb(255, 249, 249);
+}
+#dark .home-page .card-name {
+  color: rgb(255, 249, 249);
+}
+
+#dark .filters h4 {
+  color: rgba(246, 243, 243, 0.784) !important;
+}
+
+#dark .home-page h1 {
+  color: rgb(251, 246, 246);
+  font-family: "Playfair Display", serif;
+}
+
+#dark .prices {
+  color: whitesmoke;
+}
+
+#dark .categories {
+  color: whitesmoke;
+}
+#dark .loadmore {
+  color: rgb(0, 255, 98);
+}
+#dark .home-page .card-image-wrapper::before {
+  content: "";
+  background: #00000069;
+  height: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: height 1s;
+}
+#dark .home-page .card:hover .card-image-wrapper::before {
+  height: 100%;
+}
+
+#dark .carousel-item::before {
+  content: "";
+  background: #00000069;
+  height: 0;
+  width: 100%;
+  border-radius: 1px;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  transition: height 1s;
+}
+
+#dark .carousel-item:hover::before {
+  height: 100%;
+}
+#dark .noProducts {
+  color: #fff;
+}
+/* -------------------------------------------------------- */
+
+/* ---------------Responsiveness--------------- */
+
+@media (max-width: 576px){
+  
+}

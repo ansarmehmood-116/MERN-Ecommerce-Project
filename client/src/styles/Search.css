@@ -1,0 +1,72 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.SearchProductContainer .productBox {
+  /* box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px; */
+  /* box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  /* goto google and search "css box shadows" and you will get 95 best designs */
+}
+.SearchProductContainer .card {
+  background-color: rgba(128, 128, 128, 0.097);
+  width: 20rem;
+}
+.SearchProductContainer .card-name-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.SearchProductContainer .card-price {
+  color: green;
+  font-weight: bold;
+}
+.SearchProductContainer .out-stock {
+  color: red;
+  font-size: medium;
+}
+.SearchProductContainer .productbtn {
+  border-radius: 0;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.SearchProductContainer .card-text {
+  color: rgb(90, 89, 89);
+  text-align: start;
+}
+
+/* ________________________Image hover style____________________________________ */
+.SearchProductContainer .card-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.SearchProductContainer .card-image-wrapper::before {
+  content: "";
+  background: #03d5fa60;
+  height: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: height 1s;
+}
+.SearchProductContainer .card:hover .card-image-wrapper::before {
+  height: 100%;
+}
+/* __________________________________________________________________________________ */
+
+.SearchProductContainer .card img:hover {
+  transform: scale(0.9);
+}
+
+.SearchProductContainer .card-img-top {
+  height: 300px !important;
+}

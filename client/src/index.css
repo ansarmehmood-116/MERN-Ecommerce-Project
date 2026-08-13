@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Poppins',sans-serif; */
+  /* font-family: 'Playfair Display',serif; */
+}
+
+/* //navbar-css */
+.navbar{
+  font-family: 'Poppins',sans-serif;
+  width: 100%;
+  /* font-weight: 600; */
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: uppercase;
+  box-shadow: 0px 8px 6px -6px gray;
+  --webkit-box-shadow: 0px 8px 6px -6px gray;
+  /* incase our browser donot support above line then add this one. */
+
+  border-bottom: 0px !important;
+  /* as we are overriding existing class so we must add this !important otherwise woun't be effected */
+}
+
+.nav-link{
+  font-weight: 300 !important;
+}
+.active{
+  border-bottom: 2px solid ;
+}
+.navbar-brand{
+  font-weight: 700;
+  font-family: 'roboto',sans-serif;
+  letter-spacing: 3px;
+}
+
+/* ___________Catgeories Dropdown in Navbar____________ */
+.categoriesDropdown {
+  position: relative;
+  overflow: hidden;
+  /* Ensure that the background doesn't overflow */
+}
+
+.categoriesDropdown::before {
+  content: '';
+  background: #03d5fa60;
+  height: 100%;
+  width: 0;
+  border-radius: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: width 1s;
+}
+.categoriesDropdown:hover::before {
+  width: 100%;
+}
+
+.nav-item .dropdown-menu {
+  max-height: 80vh;
+  overflow: auto; /* Ensure the dropdown can scroll if it exceeds 60vh */
+}
+/* _____________________________________________________ */
+
+main {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ______________________Search Page and Search Form in Header_____________________ */
+.search-form {
+  margin-right: 10px;
+  margin-top: 4px;
+}
+.search-form input {
+  border: none;
+  border-radius: 0;
+}
+.search-form button {
+  background-color: #000000;
+  border-radius: 0;
+  color: white;
+}
+.Searchcontainer{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100vw;
+}
+.searchData{
+  margin-top: 12vh !important;
+  /* width: 100%; */
+}
+.searchProductcard{
+  justify-content: center !important;
+}
+
+
+/* =====================================
+   ===============Footer================ */
+.footer{
+  color: white;
+  padding: 25px;
+  background: #000000; /* fallback for old browsers */
+  background: --webkit-linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /*chrome 10-25, safari 5.1-6  */
+  background: linear-gradient(to right,#434343, #000000);
+}
+
+.footer a{
+  /* as basically the Link used in footer is ancher tag <a> but in react we use it with
+  Link name and can't use <a> so we can call Link as a selector*/
+ text-decoration: none;
+ color: white;
+ padding: 10px;
+}
+.footer a:hover{
+  color: #ffefba;
+  border-bottom: 1px solid #ffefba;
+}
+
+/* ============================================
+   ================Page not found css========== */
+.pnf{
+  display: flex;
+  min-height: 65vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}   
+.pnf-title {
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.pnf-heading {
+  font-weight: normal;
+}
+.pnf-btn {
+  color: black;
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 10px;
+  margin-top: 10px;
+}
+.pnf-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+/* ========================================= */
+/* =========contact us ========= */
+.contactus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 222, 179, 0.342);
+  margin-top: 57px;
+  padding: 0;
+  height: 70vh;
+
+}
+.contactus img{
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px; 
+}
+#dark .ContactDetails{
+  background: rgba(240, 51, 51, 0.578);
+  color: whitesmoke;
+}
+/* ======================================== */
+.policy{
+  background: rgba(233, 157, 136, 0.695);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px !important;
+  height: 70vh;
+  width: 100vw;
+}
+#dark .policy{
+  color: whitesmoke;
+}
+
+/* =======Product Link======= */
+.product-link {
+  text-decoration: none !important;
+  color: black !important;
+}
+/* ======================================== */
+
+/* ______________________Categories__________________ */
+.AllCategoriesPage{
+  margin-top: 90px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.cat-btn {
+  padding: 40px 0px;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.cat-btn:hover {
+  background-color: #434343;
+  color: white;
+}
+
+
+/* ====================dashboard=================== */
+.dashboard {
+  margin-top: 60px !important;
+  width: 100vw;
+  height: auto;
+}
+.dashboard-menu h4 {
+  background-color: #434343 !important;
+  color: white;
+  padding: 20px 0px;
+}
+.dashboard-menu{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.adminDetails{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  /* goto google and search "css box shadows" and you will get 95 best designs */
+}
+.userDetails{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.usersHeading{
+  background-color: skyblue;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.ordersHeading{
+  background-color: skyblue;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+/* ___________________________________________________________________________*/
+
+/* _________________Global CSS on Products cards design */
+.productBox{
+  transition: 0.25s ease;
+}
+
+.productBox:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+
+
+/* ========================================================================== */
+
+
+/* _________________________________Theme____________________________ */
+
+#dark .navbar{
+  background-color: #242526ee !important;
+  box-shadow:none;
+  color: whitesmoke;
+}
+/* The !important declaration in CSS is used to give a style rule higher priority, overriding any other styles that may conflict with it, even if those styles have higher specificity.In this case the tag has its own bootstrap class for bg color thats why i have used !important to override that*/
+
+#dark .nav-link{
+  color: whitesmoke !important;
+}
+
+#dark .navbar-brand{
+  color: whitesmoke !important;
+}
+
+#dark .cart{
+  color: whitesmoke;
+}
+
+/* _____________________Admin/user/panels/Theme_____________________ */
+#dark .adminDetails{
+  background-color: #000000;
+  color: white;
+}
+
+#dark .usersHeading{
+  background-color: #000000;
+  color: white;
+}
+
+#dark .userDetails{
+  background-color: #000000;
+  color: white;
+  border: 1px solid dodgerblue;
+}
+#dark .userDetails:hover{
+  color: #03d5fa;
+}
+#dark .adminDetails:hover{
+  color: dodgerblue;
+}
+#dark .panelHeading{
+  background-color: #000000 !important;
+  color: white;
+}
+#dark .panelOption{
+  background-color: rgba(255, 255, 255, 0.667);
+  color: #000000;
+}
+.panelOption.active, /* when the NavLink is active */
+.panelOption:active, /* when the link is clicked */
+.panelOption:focus {
+  background-color:#0d6efd !important; 
+  color: #ffffff !important;
+}
+#dark .ordersHeading{
+  color: #ffffff;
+  border: 1px solid black;
+  background: #000000;
+}
+#dark .searchResult{
+  color: #ffffff;
+}
+#dark .carousHeading{
+  color: white;
+}
+#dark .categoryHeading{
+  color: white;
+}
+#dark .productsHeading{
+  color: white;
+}
+#dark .usersHeading{
+  color: white;
+}
+#dark .productPhoto{
+  color: white;
+ }
+.carousHeading, .categoryHeading, .productsHeading, .usersHeading{
+  color: #000000;
+}
+.shadow{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+#dark .form-check-label{
+  color: #ffffff;
+}
+.panelOption::before {
+  content: '';
+  background: #03d5fa60;
+  height: 100%;
+  width: 0;
+  border-radius: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: width 1s;
+}
+.panelOption:hover::before {
+  width: 100%;
+}
+
+/* __________________________Responsiveness____________________ */
+
