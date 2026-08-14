@@ -4,9 +4,6 @@
   margin: 0;
 }
 
-/* .banner-img {
-  margin-top: 60px;
-} */
 .carousel {
   /* margin-top: 60px; */
   padding-top: 60px;
@@ -138,11 +135,11 @@
   color: gray;
   font-family: "Playfair Display", serif;
 }
+
+
 .home-page {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 9vw;
-
   /* Mine added properties */
   position: relative;
   min-height: 105vh;
@@ -221,7 +218,7 @@
 .noFilters {
   position: absolute;
   top: -100vh;
-  left: 10.57vw;
+  left: 11vw;
   width: 20rem;
   height: 90vh;
   padding: 30px;
@@ -237,7 +234,7 @@
 .filters {
   position: absolute;
   top: 11.2vh;
-  left: 10.57vw;
+  left: 11vw;
   width: 20rem;
   height: 90vh;
   background: skyblue;
@@ -311,7 +308,9 @@
   color: green;
   font-weight: bold;
   font-size: 20px !important;
+  
 }
+
 
 /* Preventing overscroll and making the layout fixed */
 html,
@@ -319,7 +318,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Prevent horizontal scrolling */
-  height: 100%;
+  min-height: 100vh;
   overflow-y: scroll;
 }
 

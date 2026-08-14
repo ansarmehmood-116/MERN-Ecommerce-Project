@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
-// import ScrollToTop from "react-scroll-to-top";
 import { useCart } from "../context/cart";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -73,7 +72,9 @@ const Homepage = () => {
 
   useEffect(() => {
     //for all the products
-    if (!checked.length || !radio.length) getAllProducts();
+    if (!checked.length || !radio.length) {
+      getAllProducts();
+    }
   }, [checked.length, radio.length]);
   //actually in dependency array [] we must have to pass the condition value to iterate accordingly
   //_____________________________________________________________________________
@@ -130,7 +131,7 @@ const Homepage = () => {
   useEffect(() => {
     //for filtered products
     if (checked.length || radio.length) filterProduct();
-     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checked, radio]);
 
   //__________________________________________________________________________
@@ -212,7 +213,19 @@ const Homepage = () => {
                       architecto veritatis delectus repellat modi impedit sequi.
                     </p>
                     <div className="btn-box">
-                      <a className="btn1">Shop Now</a>
+                      <a
+                        className="btn1"
+                        style={{ cursor: "pointer" }}
+                        onClick={() => {
+                          const element =
+                            document.getElementById("all-products");
+                          if (element) {
+                            element.scrollIntoView({ behavior: "smooth" });
+                          }
+                        }}
+                      >
+                        Shop Now
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -309,8 +322,8 @@ const Homepage = () => {
           {/* {JSON.stringify(checked,null,4)}  just for testing category based or price 
            based products*/}
 
-          <h1 className="text-center">All Our Products</h1>
-          <div className="d-flex flex-wrap">
+          <h1 className="text-center" id="all-products">All Our Products</h1>
+          <div className="d-flex flex-wrap justify-content-center">
             {products && products.length > 0 ? (
               products?.map((p) => (
                 <div className="card m-2 productBox" key={p._id}>
@@ -395,9 +408,6 @@ const Homepage = () => {
               </button>
             )}
           </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12"></div>
         </div>
       </div>
     </Layout>

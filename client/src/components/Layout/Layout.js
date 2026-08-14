@@ -1,5 +1,5 @@
 // use rafce for shorcuts of react to get the function directly
-import React, { Children } from "react";
+// import React, { Children } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
@@ -9,8 +9,7 @@ import Theme from "./Themes/Theme";
 import ScrollToTop from "react-scroll-to-top";
 
 // const Layout = (props,{title,description,keywords,author}) => {
-//in this case these objects were not working as they works with children-pages but in this
-//case childen is defined inside main which can't communicates with these properties
+//in this case these objects were not working as they works with children-pages but in this case childen is defined inside main which can't communicates with these properties
 const Layout = ({ children, title, description, keywords, author }) => {
   const[theme]=useTheme()
   return (
@@ -20,47 +19,39 @@ const Layout = ({ children, title, description, keywords, author }) => {
       <Helmet>
         <meta charSet="utf-8" />
 
-        {/* copied html meta-tags and convert to jsx and changed the content value to our own
-        dynamically that's why we are passing object parameters in value to trace every-page 
-        wrapped in layout otherwise we will have to add in every-page statically*/}
+        {/* copied html meta-tags and convert to jsx and changed the content value to our own dynamically that's why we are passing object parameters in value to trace every-page wrapped in layout otherwise we will have to add in every-page statically*/}
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
         <meta name="author" content={author} />
 
         <title>{title}</title>
-        {/* by default it will now showing E-commerce Application because we have added this in
-        index.html title*/}
+        {/* by default it will now showing E-commerce Application because we have added this in index.html title*/}
+
       </Helmet>
-
-
       <Header />
-      {/* this is header page we imported here */}
-       
-      <Theme/>
-      <main style={{ minHeight: "80vh"}}>
-       <Toaster />
+ <ScrollToTop
+          smooth
+          // top={100}
+          color="#138781"
+          style={{
+            backgroundColor: "#1E293B",
+            border: "2px solid #334155",
+            borderRadius: "50px",
+            position: "fixed",
+            bottom: "50px",
+            right: "50px",
+            zIndex: 9999,
+          }}
+        />
+      <Theme />
+      <main style={{ minHeight: "80vh" }}>
+        <Toaster />
         {/* {props.children} */}
         {children}
         {/* using props to display the child contents wrapped in <Layout></Layout> tags in app.js */}
         {/* we also can use {children} above as parameter instead of props and here directly use {children} output will be same */}
-
-        <ScrollToTop
-          smooth
-          top={10}  // Adjust top position as needed
-          color="#f29f67"
-          style={{
-            backgroundColor: "#1e1e2c",
-            borderRadius: "80px",
-            zIndex: 1000,
-            position: "fixed",
-            bottom: "40px",
-            right: "20px",
-            // border: "2px solid red",
-          }}
-        />
       </main>
       <Footer />
-      {/* this is Footer page we imported here */}
     </div>
   );
 };

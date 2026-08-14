@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import AdminMenu from "../../components/Layout/AdminMenu";
@@ -12,7 +12,7 @@ const { Option } = Select; //we have destructured these option from select.
 
 
 const AdminOrders = () => {
-  const [status, setStatus] = useState([
+  const [status,setStatus] = useState([
     //here we have filled the useState with enum we have
     //created in orders model.
     "Not Process",
@@ -73,7 +73,7 @@ const AdminOrders = () => {
       let answer = window.prompt("Are You Sure want to delete this order ? ");
       //this is used to prevent from accidental deletion.
       if (!answer) return;
-      const { data } = await axios.delete(
+      const {data} = await axios.delete(
         `/api/v1/auth/delete-order/${orderId}`
       );
       toast.success("Order Deleted Succfully");

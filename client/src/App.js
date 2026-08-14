@@ -29,11 +29,10 @@ import CartPage from "./pages/CartPage";
 import AdminOrders from "./pages/Admin/AdminOrders";
 import AdminUsers from "./pages/Admin/AdminUsers";
 import { useTheme } from "./context/themeContext";
-import ScrollToTop from "react-scroll-to-top";
 import "./App.css";
 
 function App() {
-  const [theme] = useTheme();
+  const [theme, setTheme] = useTheme();
   return (
     <>
       {/* <Layout>
@@ -84,8 +83,10 @@ function App() {
           <Route path="/policy" element={<Policy />} />
           <Route path="*" element={<Pagenotfound />} />
           {/* here we have used a trick i.e '*' so it will be global for all the above rest pages if any one not found it will give pagenot  found error */}
+          
         </Routes>
       </div>
+     
     </>
   );
 }
