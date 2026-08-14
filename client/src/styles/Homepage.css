@@ -422,9 +422,4 @@ body {
   .filterButton{
    display:none;
   }
-  .home-page .card {
-  background-color: rgba(128, 128, 128, 0.097);
-  width: 16rem;
-  height:40vh
-}
 }
