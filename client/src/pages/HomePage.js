@@ -170,7 +170,7 @@ const Homepage = () => {
       {/* banner image */}
       <div
         id="carouselExampleAutoplaying"
-        className="carousel slide"
+        className="carousel slide mobile-carousel"
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">

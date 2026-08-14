@@ -87,3 +87,9 @@
 .input:checked + label svg.moon {
   fill: #fff;
 }
+@media (max-width: 600px) {
+ .Theme-Container{
+  top:0px;
+  zindex: 9999 !important;
+ }
+}

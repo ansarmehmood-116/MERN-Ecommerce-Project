@@ -410,6 +410,8 @@ body {
 
 /* ---------------Responsiveness--------------- */
 
-@media (max-width: 576px){
-  
+@media (max-width: 600px) {
+  .mobile-carousel{
+    display: none;
+  }
 }
