@@ -344,7 +344,7 @@ body {
 
 #dark .home-page .card {
   background-color: rgba(128, 128, 128, 0.842);
-  width: 20rem;
+  /* width: 20rem; */
 }
 
 #dark .home-page .card-text {
@@ -410,8 +410,21 @@ body {
 
 /* ---------------Responsiveness--------------- */
 
-@media (max-width: 600px) {
+@media (max-width: 991px) {
   .mobile-carousel{
     display: none;
   }
+  .mobileProducts{
+    margin-top:10vh;
+    z-index:1000;
+    /* border:2px solid red; */
+  }
+  .filterButton{
+   display:none;
+  }
+  .home-page .card {
+  background-color: rgba(128, 128, 128, 0.097);
+  width: 16rem;
+  height:40vh
+}
 }

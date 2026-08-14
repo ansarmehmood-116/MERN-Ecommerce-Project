@@ -17,7 +17,7 @@ import "aos/dist/aos.css";
 const Header = () => {
   const [theme] = useTheme();
   const [auth, setAuth] = useAuth(); //it is context global
-  const [cart,setCart] = useCart(); //it is context global
+  const [cart, setCart] = useCart(); //it is context global
 
   const categories = useCategory(); //it is hook i.e hooks-->useCategory also imported above
 
@@ -61,6 +61,12 @@ const Header = () => {
         id={theme}
       >
         <div className="container-fluid">
+          {/* Mobile-only brand */}
+          <div className="mobile-brand">
+            <Link to="/" className="navbar-brand">
+              🛒ECOMMERCE APP
+            </Link>
+          </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -73,7 +79,7 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <div data-aos="flip-right">
+            <div className="desktop-brand" data-aos="flip-right">
               <Link to="/" className="navbar-brand">
                 {/* <GiShoppingBag/> */}
                 🛒ECOMMERCE APP
@@ -89,7 +95,9 @@ const Header = () => {
              where we want to insert simply press ctrl+i */}
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               {/* here we have change me to ms-auto it will move margin from start to end */}
-              <SearchInput />
+              <div className="desktop-search">
+                <SearchInput />
+              </div>
               <li className="nav-item">
                 <NavLink
                   to="/"
@@ -200,14 +208,15 @@ const Header = () => {
                 </NavLink>
               </li>
             </ul>
-
-            {/* <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form> */}
           </div>
         </div>
       </nav>
+
+      {/* ________________MObile Search_________________ */}
+      <div className="mobile-search">
+        <SearchInput />
+      </div>
+      {/* _____________________________________________ */}
     </>
   );
 };

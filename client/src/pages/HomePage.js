@@ -322,7 +322,7 @@ const Homepage = () => {
           {/* {JSON.stringify(checked,null,4)}  just for testing category based or price 
            based products*/}
 
-          <h1 className="text-center" id="all-products">All Our Products</h1>
+          <h1 className="text-center mobileProducts" id="all-products">All Our Products</h1>
           <div className="d-flex flex-wrap justify-content-center">
             {products && products.length > 0 ? (
               products?.map((p) => (
