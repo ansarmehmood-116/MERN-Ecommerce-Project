@@ -36,7 +36,7 @@ const Products = () => {
           <div className="col-md-9">
             <h1 className="text-center productsHeading">All Products List</h1>
 
-            <div className="d-flex flex-wrap justify-content-start">
+            <div className="d-flex flex-wrap justify-content-center">
               {products?.map((p) => (
                 <Link
                 //the link is used to show the single product and their details so onclickingany product it will lead to that product details in UpdateProduct page

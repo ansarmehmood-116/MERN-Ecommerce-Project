@@ -97,7 +97,7 @@ const AdminOrders = () => {
             {orders?.map((o, i) => {
               const groupedProducts = groupProducts(o?.products);
               return (
-                <div className="border shadow">
+                <div className="border shadow table-responsive">
                   <table className="table">
                     <thead>
                       <tr>

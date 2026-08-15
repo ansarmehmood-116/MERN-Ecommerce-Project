@@ -211,12 +211,6 @@ const Header = () => {
           </div>
         </div>
       </nav>
-
-      {/* ________________MObile Search_________________ */}
-      <div className="mobile-search">
-        <SearchInput />
-      </div>
-      {/* _____________________________________________ */}
     </>
   );
 };

@@ -121,6 +121,11 @@
 
 /* __________________________Admin-Users-Management______________________ */
 
+@media (max-width: 991px) {
+ .mobile-search {
+  display: none;
+}
+}
 
 
 

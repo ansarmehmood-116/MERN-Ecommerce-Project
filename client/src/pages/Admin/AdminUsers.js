@@ -30,7 +30,7 @@ const AdminUsers = () => {
           <div className="col-md-3">
             <AdminMenu />
           </div>
-          <div className="col-md-9">
+          <div className="col-md-9 table-responsive">
             <h1 className="text-center usersHeading">All Admins</h1>
             <table className="table">
               <thead>

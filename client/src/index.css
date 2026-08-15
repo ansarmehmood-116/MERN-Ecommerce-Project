@@ -378,11 +378,17 @@ main {
 }
 
 /* __________________________Responsiveness____________________ */
-.mobile-brand, .mobile-search {
+
+.mobile-brand {
   display: none;
 }
-@media (max-width: 991px) {
-  .mobile-brand {
+
+/* =========================================================
+   ADMIN DASHBOARD - MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 767px) {
+    .mobile-brand {
     display: block;
     margin-right: 140px;
     position: absolute;
@@ -402,27 +408,302 @@ main {
     margin-left: 0;
     margin-right: 10px;
   }
-
-  .mobile-search {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    top: 60px;
-    width: 100%;
-    /* left: 8px; */
-    padding: 8px 0;
-    z-index: 999;
-    background: white;
-  }
-  .mobile-search > * {
+  /* .mobile-search > * {
     width: 80%;
-  }
-  #dark .mobile-search {
-    background: #00000000;
+  } */
+ 
+  .desktop-brand {
+    display: none !important;
   }
 
-  .desktop-brand,
-  .desktop-search {
-    display: none;
+  /* -------------------------------------------------------
+     DASHBOARD CONTAINER
+     ------------------------------------------------------- */
+
+  .dashboard {
+    width: 100% !important;
+    min-height: calc(100vh - 60px);
+
+    margin-top: 45px !important;
+
+    padding: 10px 8px 25px !important;
+
+    overflow-x: hidden;
   }
+
+
+  .dashboard > .row {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     ADMIN MENU
+     ------------------------------------------------------- */
+
+  .dashboard .col-md-3 {
+    width: 100% !important;
+
+    padding: 0 !important;
+    margin: 0 0 15px 0 !important;
+  }
+
+
+  .dashboard-menu {
+    width: 100% !important;
+
+    margin: 0 !important;
+
+    border-radius: 7px;
+
+    overflow: hidden;
+
+    box-shadow:
+      rgba(0, 0, 0, 0.18) 0px 5px 15px;
+  }
+
+
+  /* Admin Panel heading */
+
+  .dashboard-menu h4 {
+    margin: 0 !important;
+
+    padding: 10px 5px !important;
+
+    font-size: 16px;
+
+    line-height: 1.2;
+  }
+
+
+  /* Menu items */
+
+  .dashboard-menu .panelOption {
+    display: flex !important;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 32px;
+
+    padding: 7px 5px !important;
+
+    font-size: 11px;
+
+    line-height: 1.2;
+
+    text-decoration: none;
+  }
+
+
+  /* Badge */
+
+  .dashboard-menu .ant-badge {
+    font-size: 11px;
+  }
+
+
+  /* -------------------------------------------------------
+     ADMIN DETAILS COLUMN
+     ------------------------------------------------------- */
+
+  .dashboard .col-md-9 {
+    width: 100% !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     ADMIN DETAILS CARD
+     ------------------------------------------------------- */
+
+  .dashboard .adminDetails {
+    width: 100% !important;
+
+    margin: 0 !important;
+
+    padding: 14px !important;
+
+    border-radius: 7px;
+
+    box-shadow:
+      rgba(0, 0, 0, 0.18) 0px 5px 15px;
+  }
+.dashboard .userDetails {
+    width: 100% !important;
+
+    margin: 0 !important;
+
+    padding: 14px !important;
+
+    border-radius: 7px;
+
+    box-shadow:
+      rgba(0, 0, 0, 0.18) 0px 5px 15px;
+  }
+
+  .dashboard .adminDetails h3 {
+    margin: 0 0 9px 0 !important;
+
+    font-size: 13px;
+
+    line-height: 1.35;
+
+    word-break: break-word;
+  }
+
+
+  .dashboard .adminDetails h3:last-child {
+    margin-bottom: 0 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     LIGHT THEME
+     ------------------------------------------------------- */
+
+  #light .dashboard {
+    background: #ffffff;
+  }
+
+
+  #light .dashboard-menu {
+    background: #ffffff;
+  }
+
+
+  #light .dashboard-menu .panelOption {
+    background: #ffffff;
+
+    color: #242526;
+  }
+
+
+  #light .dashboard .adminDetails {
+    background: #ffffff;
+
+    color: #242526;
+  }
+
+
+  /* -------------------------------------------------------
+     DARK THEME
+     ------------------------------------------------------- */
+
+  #dark .dashboard {
+    background: #111111;
+  }
+
+
+  #dark .dashboard-menu {
+    background: #181818;
+  }
+
+
+  #dark .dashboard-menu h4 {
+    background: #000000 !important;
+
+    color: #ffffff;
+  }
+
+
+  #dark .dashboard-menu .panelOption {
+    background: #242424;
+
+    color: #ffffff;
+
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+
+  #dark .dashboard .adminDetails {
+    width: 100% !important;
+
+    background: #181818;
+
+    color: #ffffff;
+  }
+
+
+  #dark .dashboard .adminDetails h3 {
+    color: #ffffff;
+  }
+
+
+  #dark .dashboard .adminDetails h3.text-primary {
+    color: #03a9f4 !important;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES - 400px AND BELOW
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .dashboard {
+    padding: 8px 6px 20px !important;
+    margin-top: 42px !important;
+  }
+
+  /* Admin Panel */
+
+  .dashboard-menu h4 {
+    padding: 9px 4px !important;
+    font-size: 14px;
+  }
+
+  .dashboard-menu .panelOption {
+    min-height: 29px;
+    padding: 6px 4px !important;
+    font-size: 10px;
+  }
+
+  /* Admin details */
+  .dashboard .adminDetails {
+    padding: 11px !important;
+  }
+
+  .dashboard .adminDetails h3 {
+    font-size: 11px;
+    margin-bottom: 7px !important;
+  }
+
+/* Any table container */
+  .table-responsive {
+    width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+/* _____________________________________________ */
+
+  /* Tables keep their natural width */
+  .table-responsive table {
+    min-width: 700px;
+    width: max-content !important;
+    white-space: nowrap;
+  }
+
+  /* Prevent table cells from becoming too narrow */
+  .table-responsive th,
+  .table-responsive td {
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  /* Slightly smaller text on mobile */
+  .table-responsive th,
+  .table-responsive td {
+    font-size: 12px;
+    padding: 8px 10px !important;
+  }
+
 }
