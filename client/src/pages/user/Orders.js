@@ -46,7 +46,7 @@ const Orders = () => {
             {orders?.map((o, i) => {
                const groupedProducts = groupProducts(o?.products);
               return (
-                <div className="border shadow ordersHeading1">
+                <div className="border shadow ordersHeading1 table-responsive">
                   <table className="table">
                     <thead>
                       <tr>

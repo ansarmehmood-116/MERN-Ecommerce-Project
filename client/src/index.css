@@ -388,7 +388,7 @@ main {
    ========================================================= */
 
 @media (max-width: 767px) {
-    .mobile-brand {
+  .mobile-brand {
     display: block;
     margin-right: 140px;
     position: absolute;
@@ -411,7 +411,17 @@ main {
   /* .mobile-search > * {
     width: 80%;
   } */
- 
+  #dark .navbar .navbar-toggler-icon {
+    filter: invert(1) !important;
+  }
+  #dark .navbar-toggler {
+    border-color: transparent !important;
+  }
+
+  #dark .navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
   .desktop-brand {
     display: none !important;
   }
@@ -431,12 +441,10 @@ main {
     overflow-x: hidden;
   }
 
-
   .dashboard > .row {
     width: 100%;
     margin: 0 !important;
   }
-
 
   /* -------------------------------------------------------
      ADMIN MENU
@@ -449,7 +457,6 @@ main {
     margin: 0 0 15px 0 !important;
   }
 
-
   .dashboard-menu {
     width: 100% !important;
 
@@ -459,10 +466,8 @@ main {
 
     overflow: hidden;
 
-    box-shadow:
-      rgba(0, 0, 0, 0.18) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 5px 15px;
   }
-
 
   /* Admin Panel heading */
 
@@ -475,7 +480,6 @@ main {
 
     line-height: 1.2;
   }
-
 
   /* Menu items */
 
@@ -496,13 +500,11 @@ main {
     text-decoration: none;
   }
 
-
   /* Badge */
 
   .dashboard-menu .ant-badge {
     font-size: 11px;
   }
-
 
   /* -------------------------------------------------------
      ADMIN DETAILS COLUMN
@@ -515,7 +517,6 @@ main {
 
     margin: 0 !important;
   }
-
 
   /* -------------------------------------------------------
      ADMIN DETAILS CARD
@@ -530,10 +531,9 @@ main {
 
     border-radius: 7px;
 
-    box-shadow:
-      rgba(0, 0, 0, 0.18) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 5px 15px;
   }
-.dashboard .userDetails {
+  .dashboard .userDetails {
     width: 100% !important;
 
     margin: 0 !important;
@@ -542,8 +542,7 @@ main {
 
     border-radius: 7px;
 
-    box-shadow:
-      rgba(0, 0, 0, 0.18) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 5px 15px;
   }
 
   .dashboard .adminDetails h3 {
@@ -556,11 +555,9 @@ main {
     word-break: break-word;
   }
 
-
   .dashboard .adminDetails h3:last-child {
     margin-bottom: 0 !important;
   }
-
 
   /* -------------------------------------------------------
      LIGHT THEME
@@ -570,11 +567,9 @@ main {
     background: #ffffff;
   }
 
-
   #light .dashboard-menu {
     background: #ffffff;
   }
-
 
   #light .dashboard-menu .panelOption {
     background: #ffffff;
@@ -582,13 +577,11 @@ main {
     color: #242526;
   }
 
-
   #light .dashboard .adminDetails {
     background: #ffffff;
 
     color: #242526;
   }
-
 
   /* -------------------------------------------------------
      DARK THEME
@@ -598,18 +591,15 @@ main {
     background: #111111;
   }
 
-
   #dark .dashboard-menu {
     background: #181818;
   }
-
 
   #dark .dashboard-menu h4 {
     background: #000000 !important;
 
     color: #ffffff;
   }
-
 
   #dark .dashboard-menu .panelOption {
     background: #242424;
@@ -619,7 +609,6 @@ main {
     border-color: rgba(255, 255, 255, 0.12);
   }
 
-
   #dark .dashboard .adminDetails {
     width: 100% !important;
 
@@ -628,25 +617,20 @@ main {
     color: #ffffff;
   }
 
-
   #dark .dashboard .adminDetails h3 {
     color: #ffffff;
   }
 
-
   #dark .dashboard .adminDetails h3.text-primary {
     color: #03a9f4 !important;
   }
-
 }
-
 
 /* =========================================================
    VERY SMALL PHONES - 400px AND BELOW
    ========================================================= */
 
 @media (max-width: 400px) {
-
   .dashboard {
     padding: 8px 6px 20px !important;
     margin-top: 42px !important;
@@ -675,7 +659,7 @@ main {
     margin-bottom: 7px !important;
   }
 
-/* Any table container */
+  /* Any table container */
   .table-responsive {
     width: 100% !important;
     overflow-x: auto !important;
@@ -683,7 +667,7 @@ main {
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
   }
-/* _____________________________________________ */
+  /* _____________________________________________ */
 
   /* Tables keep their natural width */
   .table-responsive table {
@@ -705,5 +689,4 @@ main {
     font-size: 12px;
     padding: 8px 10px !important;
   }
-
 }
