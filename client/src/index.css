@@ -217,7 +217,8 @@ main {
 .dashboard {
   margin-top: 60px !important;
   width: 100vw;
-  height: auto;
+  min-height:80vh;
+  /* height:auto; */
 }
 .dashboard-menu h4 {
   background-color: #434343 !important;
@@ -417,7 +418,6 @@ main {
   #dark .navbar-toggler {
     border-color: transparent !important;
   }
-
   #dark .navbar-toggler:focus {
     outline: none !important;
     box-shadow: none !important;
@@ -433,7 +433,6 @@ main {
   .dashboard {
     width: 100% !important;
     min-height: calc(100vh - 60px);
-
     margin-top: 45px !important;
 
     padding: 10px 8px 25px !important;

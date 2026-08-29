@@ -207,10 +207,7 @@ const Homepage = () => {
                       On Everything
                     </h1>
                     <p>
-                      Explicabo esse amet tempora quibusdam laudantium, laborum
-                      eaque magnam fugiat hic? Esse dicta aliquid error
-                      repudiandae earum suscipit fugiat molestias, veniam, vel
-                      architecto veritatis delectus repellat modi impedit sequi.
+                      Empower your business operations with scalable software solutions built on robust, industry-standard modern frameworks. We specialize in developing fast, secure, and highly efficient digital ecosystems designed to streamline your workflow and drive measurable growth. Let us help you navigate the evolving digital landscape with technology you can rely on.
                     </p>
                     <div className="btn-box">
                       <a
