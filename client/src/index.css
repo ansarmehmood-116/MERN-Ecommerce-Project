@@ -217,7 +217,7 @@ main {
 .dashboard {
   margin-top: 60px !important;
   width: 100vw;
-  min-height:80vh;
+  min-height:100vh;
   /* height:auto; */
 }
 .dashboard-menu h4 {

@@ -11,7 +11,7 @@ body, html {
 .cart-page {
     margin-top: 61px;
     width: 100vw;
-    min-height: 80vh;
+    min-height: 100vh;
   }
   
   .cart-page h1 {
