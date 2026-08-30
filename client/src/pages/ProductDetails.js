@@ -12,18 +12,28 @@ const ProductDetails = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   //getProduct
   const getProduct = async () => {
     try {
+      setLoading(true);
       const { data } = await axios.get(
         `/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
-      getSimilarProduct(data?.product._id, data?.product.category._id);
+
+      // getSimilarProduct(data.product._id, data.product.category._id);
+      //added condition to above commented line just for loading similar products after getting product details at same time
+      if (data?.product?._id && data?.product?.category?._id) {
+        await getSimilarProduct(data.product._id, data.product.category._id);
+      }
     } catch (error) {
       console.log(error);
     }
+    finally {
+    setLoading(false);
+  }
   };
 
   //initalp details
@@ -52,6 +62,16 @@ const ProductDetails = () => {
   return (
     <Layout>
       <div className="productContainer">
+
+        {/* i have put this to prevent out of stock appearance for half second while clicking on product details */}
+        {loading ? ( 
+
+          <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "70vh" }}>
+            <div className="spinner-border text-grey" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        ) :( <> 
         <div className="row product-details">
           <div className="col-md-6">
             <img
@@ -106,6 +126,7 @@ const ProductDetails = () => {
             </button>
           </div>
         </div>
+        
         <hr />
         <div className="row container similar-products">
           <h4>Similar Products ➡️</h4>
@@ -159,6 +180,7 @@ const ProductDetails = () => {
             ))}
           </div>
         </div>
+        </>)}
       </div>
     </Layout>
   );
