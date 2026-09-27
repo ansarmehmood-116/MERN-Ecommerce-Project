@@ -1,0 +1,137 @@
+/* ======= FOOTER - UNIQUE WRAPPER ======== */
+.site-footer {
+  width: 100%;
+  min-width: 0;
+  max-width: 1380px;
+  margin: auto;
+}
+
+/* ========= MAIN FOOTER =========== */
+.site-footer .footer {
+  box-sizing: border-box;
+  width: 100%;
+  color: #ffffff;
+  padding: 25px;
+  background: #000000; /* fallback for old browsers */
+  background: --webkit-linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /*chrome 10-25, safari 5.1-6  */
+  background: linear-gradient(to right, #434343, #000000);
+  border-top: 1px solid #303846 !important;
+}
+
+/* ============= FOOTER HEADING =============== */
+.site-footer .footer h4 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.site-footer .footer a {
+  /* as basically the Link used in footer is ancher tag <a> but in react we use it with
+  Link name and can't use <a> so we can call Link as a selector*/
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px;
+  display: inline-block;
+  padding: 5px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+.site-footer .footer a:hover {
+  color: #ffefba;
+  border-bottom: 1px solid #ffefba;
+}
+
+.site-footer .footer-separator {
+  color: #6f7782;
+  font-size: 14px;
+  user-select: none;
+}
+
+/* ========================================= DARK MODE - ANALYTICS PALETTE ========================================= */
+#dark .site-footer .footer {
+  background: #171b23;
+  background: linear-gradient(to right, #171b23, #101318);
+  color: #f1f3f5;
+  border-top: 1px solid #303846;
+}
+#dark .site-footer .footer h4 {
+  color: #f1f3f5;
+}
+#dark .site-footer .footer-links {
+  color: #aeb7c4;
+}
+#dark .site-footer .footer a {
+  color: #dce1e7;
+  border-bottom-color: transparent;
+}
+#dark .site-footer .footer a:hover {
+  color: #4dabf7;
+  border-bottom-color: #4dabf7;
+}
+#dark .site-footer .footer-separator {
+  color: #596372;
+} /* ========================================= TABLET ========================================= */
+@media (max-width: 767.98px) {
+  .site-footer .footer {
+    padding: 22px 15px;
+  }
+  .site-footer .footer h4 {
+    font-size: 17px;
+  }
+  .site-footer .footer-links {
+    margin-top: 12px !important;
+    gap: 1px;
+  }
+  .site-footer .footer a {
+    padding: 5px 7px;
+    font-size: 14px;
+  }
+} /* ========================================= MOBILE ========================================= */
+@media (max-width: 575.98px) {
+  .site-footer .footer {
+    padding: 20px 10px;
+  }
+  .site-footer .footer h4 {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .site-footer .footer-links {
+    margin-top: 10px !important;
+    gap: 0;
+    line-height: 1.8;
+  }
+  .site-footer .footer a {
+    padding: 4px 6px;
+    font-size: 13px;
+  }
+  .site-footer .footer-separator {
+    font-size: 13px;
+  }
+} /* ========================================= EXTRA SMALL MOBILE ========================================= */
+@media (max-width: 380px) {
+  .site-footer .footer {
+    padding: 18px 8px;
+  }
+  .site-footer .footer h4 {
+    font-size: 15px;
+  }
+  .site-footer .footer-links {
+    margin-top: 8px !important;
+  }
+  .site-footer .footer a {
+    padding: 4px 5px;
+    font-size: 12px;
+  }
+  .site-footer .footer-separator {
+    font-size: 12px;
+  }
+}

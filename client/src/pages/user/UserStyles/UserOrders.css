@@ -1,0 +1,520 @@
+/* =========================================================
+   USER ORDERS PAGE
+   All styles isolated to .user-orders-page
+   Existing Bootstrap alignment/layout preserved
+   ========================================================= */
+
+.user-orders-page {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.user-orders-page .dashboard {
+  margin-top: 60px;
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 30px;
+  min-width: 0;
+}
+
+.user-orders-page .dashboard > .row {
+  min-width: 0;
+}
+
+.user-orders-page .ordersHeading {
+  width: 100%;
+  margin-bottom: 10px !important;
+  background-color: skyblue !important;
+  color: #212529;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.user-orders-page .shadow.rounded-2 {
+  overflow: hidden;
+}
+
+.user-orders-page td strong {
+  font-size: 14px;
+}
+
+.user-orders-page .card {
+  min-width: 0;
+}
+
+.user-orders-page .card img {
+  flex-shrink: 0;
+}
+
+.user-orders-page .card .col {
+  min-width: 0;
+}
+
+.user-orders-page .card p {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.user-orders-page .card .d-flex {
+  flex-wrap: wrap;
+}
+.user-orders-page .UserOrdersLodmoreContainer{
+ width: 100%;
+  margin: 30px 0 0 !important;
+  padding: 10px !important;
+  display: flex;
+  justify-content: center;
+}
+
+.user-orders-page .loadmore {
+  max-width: 100%;
+  /* width: 100%; */
+    min-width: 180px;
+  padding: 11px 22px;
+  border: 1px solid rgba(3, 191, 227, 0.4);
+  color: #1ba0d9;
+  font-size: 16px !important;
+  font-weight: 700;
+  white-space: nowrap;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.user-orders-page .loadmore:hover {
+  color: #071419;
+  transform: translateY(-2px);
+  background-color: #37b8f0d2;
+}
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+#dark .user-orders-page {
+  background-color: #101318 !important;
+  color: #e9ecef;
+}
+
+#dark .user-orders-page .dashboard {
+  background-color: #101318 !important;
+  color: #e9ecef;
+}
+
+#dark .user-orders-page .ordersHeading {
+  background: linear-gradient(
+    135deg,
+    #171b23 0%,
+    #000000 50%,
+    #1d2530 100%
+  ) !important;
+  color: #f1f3f5 !important;
+  border: 1px solid #303846 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+}
+
+#dark .user-orders-page .shadow.rounded-2 {
+  background-color: #171b23 !important;
+  border-color: #2d3542 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+#dark .user-orders-page .table {
+  --bs-table-bg: #171b23;
+  --bs-table-color: #dfe4ea;
+  --bs-table-hover-bg: #1d2530;
+  --bs-table-hover-color: #f1f3f5;
+  --bs-table-border-color: #303846;
+  color: #dfe4ea !important;
+}
+
+#dark .user-orders-page .table-light {
+  --bs-table-bg: #1d232d !important;
+  --bs-table-color: #f1f3f5 !important;
+  background-color: #1d232d !important;
+  color: #f1f3f5 !important;
+}
+
+#dark .user-orders-page .table-light th {
+  color: #aeb7c4 !important;
+  background-color: #1d232d !important;
+  border-color: #3a4350 !important;
+}
+
+#dark .user-orders-page td {
+  color: #dfe4ea !important;
+  border-color: #303846 !important;
+}
+
+#dark .user-orders-page th {
+  border-color: #303846 !important;
+}
+
+#dark .user-orders-page .table tbody tr:hover {
+  background-color: #1d2530 !important;
+}
+
+#dark .user-orders-page .table tbody tr:hover td {
+  color: #f1f3f5 !important;
+}
+
+#dark .user-orders-page td strong {
+  color: #f1f3f5 !important;
+}
+
+#dark .user-orders-page .bg-light {
+  background-color: #1b222c !important;
+  border-color: #303a49 !important;
+}
+
+#dark .user-orders-page .card {
+  background-color: #1b2029 !important;
+  color: #dfe4ea !important;
+  border-color: #303846 !important;
+}
+
+#dark .user-orders-page .card h6 {
+  color: #f1f3f5 !important;
+}
+
+#dark .user-orders-page .card .text-muted {
+  color: #aeb7c4 !important;
+}
+
+#dark .user-orders-page .card .text-secondary {
+  color: #c5ccd5 !important;
+}
+
+#dark .user-orders-page .loadmore {
+  color: #4dabf7;
+  border-color: #3d8bfd;
+}
+
+#dark .user-orders-page .loadmore:hover {
+  background-color: #1d2d45;
+  color: #6cb6ff;
+}
+
+#dark .user-orders-page .spinner-border {
+  color: #4dabf7 !important;
+}
+
+/* =========================================================
+   TABLET
+   768px - 991px
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .user-orders-page .dashboard {
+    margin-top: 55px !important;
+    padding: 14px !important;
+  }
+
+  .user-orders-page .dashboard > .row {
+    --bs-gutter-x: 12px;
+    --bs-gutter-y: 14px;
+  }
+
+  .user-orders-page .ordersHeading {
+    font-size: 28px !important;
+    padding: 8px !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Keep table readable; scroll only inside the order card. */
+  .user-orders-page .table {
+    min-width: 850px;
+  }
+
+  .user-orders-page .shadow.rounded-2 {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .user-orders-page .card {
+    padding: 8px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   max-width: 767px
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .user-orders-page {
+    width: 100% !important;
+    overflow-x: hidden;
+  }
+
+  .user-orders-page .dashboard {
+    width: 100% !important;
+    min-height: calc(100vh - 60px);
+    margin-top: 45px !important;
+    padding: 10px 8px 25px !important;
+    overflow-x: hidden;
+  }
+
+  .user-orders-page .dashboard > .row {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  /* Preserve the existing Bootstrap columns; only make them stack cleanly. */
+  .user-orders-page .col-md-3,
+  .user-orders-page .col-md-9 {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .user-orders-page .col-md-3 {
+    margin-bottom: 15px !important;
+  }
+
+  .user-orders-page .ordersHeading {
+    width: 100% !important;
+    margin: 0 0 15px 0 !important;
+    padding: 8px !important;
+    min-height: 42px;
+    font-size: 20px !important;
+    line-height: 1.2;
+  }
+
+  /*
+    IMPORTANT:
+    The desktop table is not squeezed on mobile.
+    It scrolls horizontally inside its own order card.
+  */
+  .user-orders-page .shadow.rounded-2 {
+    width: 100%;
+    margin-bottom: 18px !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .user-orders-page .table {
+    min-width: 850px;
+    margin-bottom: 0 !important;
+    font-size: 12px;
+  }
+
+  .user-orders-page th,
+  .user-orders-page td {
+    padding: 8px 7px !important;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .user-orders-page td strong {
+    font-size: 11px;
+  }
+
+  /* Product section */
+  .user-orders-page .bg-light {
+    padding: 10px !important;
+  }
+
+  .user-orders-page .card {
+    width: 100% !important;
+    min-width: 0;
+    margin-bottom: 8px !important;
+    padding: 7px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .user-orders-page .card img {
+    width: 70px !important;
+    height: 70px !important;
+    object-fit: cover;
+  }
+
+  .user-orders-page .card .col {
+    min-width: 0;
+    margin-left: 8px !important;
+  }
+
+  .user-orders-page .card h6 {
+    font-size: 12px !important;
+    line-height: 1.3;
+  }
+
+  .user-orders-page .card p {
+    font-size: 10px !important;
+    line-height: 1.35;
+    margin-bottom: 5px !important;
+  }
+
+  .user-orders-page .card .d-flex {
+    gap: 6px !important;
+    flex-wrap: wrap;
+    font-size: 9px !important;
+    line-height: 1.3;
+  }
+
+  .user-orders-page .loadmore {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+
+  #dark .user-orders-page .dashboard {
+    background-color: #101318 !important;
+  }
+
+  #dark .user-orders-page .ordersHeading {
+    background: linear-gradient(
+      135deg,
+      #171b23 0%,
+      #1d2530 100%
+    ) !important;
+    color: #f1f3f5 !important;
+  }
+
+  #dark .user-orders-page .shadow.rounded-2 {
+    background-color: #171b23 !important;
+    border-color: #2d3542 !important;
+  }
+
+  #dark .user-orders-page .table {
+    --bs-table-bg: #171b23;
+    --bs-table-color: #dfe4ea;
+    --bs-table-border-color: #303846;
+  }
+
+  #dark .user-orders-page .table-light {
+    --bs-table-bg: #1d232d !important;
+    --bs-table-color: #f1f3f5 !important;
+    background-color: #1d232d !important;
+  }
+
+  #dark .user-orders-page .bg-light {
+    background-color: #1b222c !important;
+  }
+
+  #dark .user-orders-page .card {
+    background-color: #1b2029 !important;
+    color: #dfe4ea !important;
+    border-color: #303846 !important;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   max-width: 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .user-orders-page .dashboard {
+    margin-top: 46px !important;
+    padding: 8px 6px 20px !important;
+  }
+
+  .user-orders-page .ordersHeading {
+    min-height: 38px;
+    padding: 7px !important;
+    font-size: 17px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .user-orders-page .table {
+    min-width: 800px;
+    font-size: 10px;
+  }
+
+  .user-orders-page th,
+  .user-orders-page td {
+    padding: 7px 6px !important;
+    font-size: 10px;
+  }
+
+  .user-orders-page .bg-light {
+    padding: 8px !important;
+  }
+
+  .user-orders-page .card {
+    padding: 6px !important;
+  }
+
+  .user-orders-page .card img {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .user-orders-page .card h6 {
+    font-size: 11px !important;
+  }
+
+  .user-orders-page .card p {
+    font-size: 9px !important;
+  }
+
+  .user-orders-page .card .d-flex {
+    font-size: 8px !important;
+    gap: 5px !important;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+   max-width: 360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .user-orders-page .dashboard {
+    padding: 7px 5px 18px !important;
+  }
+
+  .user-orders-page .ordersHeading {
+    font-size: 15px !important;
+    min-height: 34px;
+    padding: 6px !important;
+  }
+
+  .user-orders-page .table {
+    min-width: 760px;
+  }
+
+  .user-orders-page th,
+  .user-orders-page td {
+    padding: 6px 5px !important;
+    font-size: 9px;
+  }
+
+  .user-orders-page .card img {
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .user-orders-page .card h6 {
+    font-size: 10px !important;
+  }
+
+  .user-orders-page .card p {
+    font-size: 8px !important;
+  }
+
+  .user-orders-page .card .d-flex {
+    font-size: 7px !important;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .user-orders-page .ordersHeading,
+  .user-orders-page .loadmore {
+    transition: none !important;
+  }
+}

@@ -1,27 +1,11 @@
 import categoryModel from "../models/categoryModel.js";
 import productModel from "../models/productModel.js";
-import orderModel from "../models/orderModel.js";
 
 import fs from "fs";
 import slugify from "slugify";
-import braintree from "braintree";
-import dotenv from "dotenv";
 
-//for photo we have to install 'express-formidable' package so it will store in database
-//other wise to add directly it will get the photo as a string.And we have to use 'fs module'
-//i.e file system with it also so that is come with node by default we don't need to install it.
-//now we will use req.fields instead of req.body beacuse of uploading file.
-
-dotenv.config();
-
-//payment gateway
-var gateway = new braintree.BraintreeGateway({
-  environment: braintree.Environment.Sandbox,
-  merchantId: process.env.BRAINTREE_MERCHANT_ID,
-  publicKey: process.env.BRAINTREE_PUBLIC_KEY,
-  privateKey: process.env.BRAINTREE_PRIVATE_KEY,
-});
-//_________________________________________________________________________________
+//for photo we have to install 'express-formidable' package so it will store in database other wise to add directly it will get the photo as a string.And we have to use 'fs module' i.e file system with it also so that is come with node by default we don't need to install it.now we will use req.fields instead of req.body beacuse of uploading file.
+//__________________________________________________________________________________
 
 export const createProductController = async (req, res) => {
   try {
@@ -48,9 +32,15 @@ export const createProductController = async (req, res) => {
           .send({ error: "photo is Required and should be less then 1mb" });
     }
 
-    const products = new productModel({ ...req.fields, slug: slugify(name) });
-    //three dots(...) are spread operators they will select all the input related field of
-    //the request parameter to get all the properties
+    // Convert string "1"/"0" or "true"/"false" explicitly to a real Boolean
+    const isShippingAvailable =
+      shipping === "1" || shipping === "true" || shipping === true;
+    const products = new productModel({
+      ...req.fields,
+      shipping: isShippingAvailable,
+      slug: slugify(name),
+    });
+    //three dots(...) are spread operators they will select all the input related field of the request parameter to get all the properties
     if (photo) {
       products.photo.data = fs.readFileSync(photo.path);
       products.photo.contentType = photo.type;
@@ -73,20 +63,58 @@ export const createProductController = async (req, res) => {
 //__________________________________________________________________________________
 
 //get all products
+//This is for admin get all Products we also could use homepage product-list api but that has 6 products per page and we want to render 9 products per page and this donot need separate productCount API while that one needs
 export const getProductController = async (req, res) => {
-  try {
-    const products = await productModel
-      .find({})
-      .populate("category") //the "category" name must be matched with the parameter of product
-      //model i.e "category:" otherwise it will give error
-      .select("-photo")
-      .limit(12)
-      .sort({ createdAt: -1 });
-    res.status(200).send({
+
+try{
+ const page = Math.max(Number(req.query.page) || 1, 1);
+ const limit = Math.min(Math.max(Number(req.query.limit) || 9, 1), 50);
+ const skip = (page - 1) * limit; 
+
+  //for fetching products without paging usethis format before res.status(200).send({
+  // try {
+  //   const products = await productModel
+  //     .find({})
+  //     .populate("category") 
+  //     //the "category" name must be matched with the parameter of product model 
+  //     //i.e "category:" otherwise it will give error
+  //     .select("-photo")
+  //     .limit(12) //only 12 products shown to admin
+  //     .sort({ createdAt: -1 });
+
+  //using this only for paging purpose
+  const [products, totalProducts] = await Promise.all([
+        //used for concurrent fetching i.e orders and totalOrders
+        productModel
+          .find({})
+          .populate("category")
+          .select("-photo")
+          .sort({ createdAt: -1 })
+
+          //__For Paging_Purpose__
+          .skip(skip)
+          .limit(limit),
+        productModel.countDocuments({}), //used for all products count 
+      ]);
+      //__This is also perfect instead of above array [orders, totalOrders]_but it is sequential while above promise.all is concurrent and that is best for performance
+      // const products = await productModel
+      //   .find({})
+      //   .skip((page - 1) * perPage)
+      //   .limit(perPage);
+      // const totalProducts = await productModel.countDocuments({});
+
+    // res.status(200).send({
+    res.status(200).json({
       success: true,
-      counTotal: products.length,
-      message: "Al-products",
+      //counTotal: products.length, while using paging it will return current page products count
+      message: "Al-products fetched successfully",
       products,
+      
+      //__for paging_Purpose__
+      totalProducts,
+      currentPage: page,
+      totalPages: Math.ceil(totalProducts / limit),
+      hasMore: skip + products.length < totalProducts,
     });
   } catch (error) {
     console.log(error);
@@ -97,7 +125,7 @@ export const getProductController = async (req, res) => {
     });
   }
 };
-//____________________________________________________________________________________
+//__________________________________________________________________________________
 
 //get single product
 export const getSingleProductController = async (req, res) => {
@@ -129,6 +157,14 @@ export const getSingleProductController = async (req, res) => {
 //get photo
 export const productPhotoController = async (req, res) => {
   try {
+    const { pid } = req.params;
+
+    if (!pid || pid === "undefined") {
+      return res.status(400).send({
+        success: false,
+        message: "Valid product ID is required",
+      });
+    }
     const product = await productModel.findById(req.params.pid).select("photo");
     if (product.photo.data) {
       res.set("Content-type", product.photo.contentType);
@@ -150,7 +186,7 @@ export const productPhotoController = async (req, res) => {
 };
 //_______________________________________________________________________________
 
-//delete controller
+//delete Product controller
 export const deleteProductController = async (req, res) => {
   try {
     // for delete we will use directly await no need to stire in a variable.
@@ -199,7 +235,7 @@ export const updateProductController = async (req, res) => {
     const products = await productModel.findByIdAndUpdate(
       req.params.pid,
       { ...req.fields, slug: slugify(name) },
-      { new: true }
+      { new: true },
     );
     if (photo) {
       products.photo.data = fs.readFileSync(photo.path);
@@ -222,7 +258,7 @@ export const updateProductController = async (req, res) => {
 };
 //________________________________________________________________________________
 
-// filters
+//products filters
 export const productFiltersController = async (req, res) => {
   try {
     const { checked, radio } = req.body;
@@ -236,19 +272,16 @@ export const productFiltersController = async (req, res) => {
     //inside object and then stored that object in args variable and then passed this
     //args variable inside .find(args) function so it is an efficient way.
 
-    if (checked.length > 0) {
+    if (checked?.length > 0) {
       args.category = checked; //query1
     }
     //here we are checking the length of checked because initially checked value is 0 and after
     //select it is 1 so to fulfill the condition we use length>0
 
-    if (radio.length) {
+    if (radio?.length) {
       args.price = { $gte: radio[0], $lte: radio[1] }; //query2
     }
-    //in radio button there is no indexing as we can select one radio button at time so we donot checked length>0
-    //mogodb query $gte greater than equalto $lte less than equalto this is because
-    //we have put two indexes in front end array i.e search by price so we have set two
-    //prices in each array so we are getting both category and price from front end req.body
+    //in radio button there is no indexing as we can select one radio button at time so we donot checked length>0 mogodb query $gte greater than equalto $lte less than equalto this is because we have put two indexes in front end array i.e search by price so we have set two prices in each array so we are getting both category and price from front end req.body
     const products = await productModel.find(args);
     res.status(200).send({
       success: true,
@@ -263,9 +296,9 @@ export const productFiltersController = async (req, res) => {
     });
   }
 };
-//______________________________________________________________________________________
+//_____________________________________________________________________________________
 
-// product count
+//product count
 export const productCountController = async (req, res) => {
   try {
     const total = await productModel.find({}).estimatedDocumentCount();
@@ -285,25 +318,20 @@ export const productCountController = async (req, res) => {
 };
 //______________________________________________________________________________
 
-// product list base on page
+//product list based on page pattern during learning phase
 export const productListController = async (req, res) => {
   try {
     const perPage = 6; //we will show 6 products per page
     const page = req.params.page ? req.params.page : 1;
-    //it will get page dynamically so if we click on a page it will give us page other wise
-    //default it will give page 1.It is ternary condition
+    //it will get page dynamically so if we click on a page it will give us page other wise default it will give page 1.It is ternary condition
     const products = await productModel
       .find({})
       .select("-photo")
       .skip((page - 1) * perPage)
       //it is mongoose function see details and documentation on google
       //The Formula: (page - 1) * perPage
-      // page - 1: This gives the zero-based index of the page. For example, if page is 1
-      //(the first page), page - 1 is 0. If page is 2 (the second page), page - 1 is 1.Multiply
-      //by perPage: This calculates how many items to skip. For Example:
-      // If page is 1 and perPage is 6, the calculation is (1 - 1) * 6 = 0. So, skip 0 items
-      //(start from the first item).If page is 2 and perPage is 6, the calculation is
-      //(2 - 1) * 6 = 6. So, skip the first 10 items (start from the 11th item).
+      // page - 1: This gives the zero-based index of the page. For example, if page is 1 (the first page), page - 1 is 0. If page is 2 (the second page), page - 1 is 1.Multiply by perPage: This calculates how many items to skip. For Example:
+      // If page is 1 and perPage is 6, the calculation is (1 - 1) * 6 = 0. So, skip 0 items (start from the first item).If page is 2 and perPage is 6, the calculation is (2 - 1) * 6 = 6. So, skip the first 6 items (start from the 11th item).
 
       .limit(perPage) //limit will be 6
       .sort({ createdAt: -1 });
@@ -322,7 +350,7 @@ export const productListController = async (req, res) => {
 };
 //___________________________________________________________________________________
 
-// search product
+//search product
 export const searchProductController = async (req, res) => {
   try {
     const { keyword } = req.params;
@@ -347,7 +375,7 @@ export const searchProductController = async (req, res) => {
 };
 //_____________________________________________________________________________________
 
-// similar products
+//similar products
 export const realtedProductController = async (req, res) => {
   try {
     const { pid, cid } = req.params;
@@ -374,10 +402,10 @@ export const realtedProductController = async (req, res) => {
 };
 //_______________________________________________________________________________
 
-// get prdocyst by catgory
+//get prdocyst by category
 export const productCategoryController = async (req, res) => {
-  //  const catName = req.params.slug; //we also could assign req.params like this.
-  // const category = await categoryModel.findOne({ slug: catName}); //but we have used direct queries
+  //const catName = req.params.slug; //we also could assign req.params like this.
+  //const category = await categoryModel.findOne({ slug: catName}); //but we have used direct queries
   try {
     const category = await categoryModel.findOne({ slug: req.params.slug }); //query 1
     const products = await productModel.find({ category }).populate("category"); //query 2
@@ -397,119 +425,61 @@ export const productCategoryController = async (req, res) => {
 };
 //___________________________________________________________________________________
 
-//payment gateway api
-//token
-export const braintreeTokenController = async (req, res) => {
+// Get all out of stock products
+export const getOutOfStockProductsController = async (req, res) => {
   try {
-    //getway is defined in start.
-    //this code is availabale in documentation of braintree in npm js
-    gateway.clientToken.generate({}, function (err, response) {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.send(response);
-      }
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-//____________________________________________________________________________________
+    const products = await productModel
+      .find({ quantity: { $lte: 0 } })
+      .select("-photo")
+      .sort({ createdAt: -1 });
 
-//payment
-export const brainTreePaymentController = async (req, res) => {
-  try {
-    const { nonce, cart } = req.body;
-    let total = 0;
-    cart.map((i) => {
-      //in map the argument i will get all the values and we can get further
-      //value from i then.
-      total += i.price;
+    res.status(200).send({
+      success: true,
+      message: "Out of stock products fetched successfully",
+      count: products.length,
+      products,
     });
-    let newTransaction = gateway.transaction.sale(
-      {
-        amount: total,
-        paymentMethodNonce: nonce, //When a user submits their payment details (like credit
-        // card information) on the frontend (often through a payment
-        //form), Braintree tokenizes this sensitive information.
-        //This tokenization process generates a nonce, which is a
-        //short-lived, one-time-use identifier.The nonce is then
-        //sent to your backend server, where it is used to initiate a
-        //transaction.
-        options: {
-          submitForSettlement: true,
-        },
-      },
-      function (error, result) {
-        //The result argument in the callback function of
-        //gateway.transaction.sale is provided by the Braintree
-        //payment gateway when a transaction is processed.
-        if (result) {
-          const order = new orderModel({
-            products: cart,
-            payment: result,
-            buyer: req.user._id, //as we have added requireSignIn middleware in productRoutes
-            //-->payment i.e /braintree/payment so it will get user from
-            //there and the ._id will be extract from it.
-          }).save();
-          res.json({ ok: true });
-        } else {
-          res.status(500).send(error);
-        }
-      }
-    );
   } catch (error) {
     console.log(error);
-  }
-};
-//__________________________________________________________________________________________
-export const carouselController=async(req,res)=>{
-    
-}
-//__________________________________________________________________________________________
-//reduced-quantity Controller
-export const reducedQuantityController = async (req, res) => {
-  const { productId, quantity } = req.body;
-  //here we have used req.body because quantity exist in body not in params
-  try {
-    const product = await productModel.findById(productId).select("-photo");
-    if (product) {
-      product.quantity -= quantity;
-      await product.save();
-      res.status(200).json({ success: true });
-    } else {
-      res.status(404).json({ success: false, message: "Product not found" });
-    }
-  } catch (error) {
-    res.status(500).json({
+
+    res.status(500).send({
       success: false,
-      message: "Server error",
+      message: "Error while fetching out of stock products",
       error,
     });
   }
 };
-//____________________________OR 2ndway_______________________________
+//__________________________________________________________________
+// 1. What is $inc?
+// $inc stands for Increment. It is a MongoDB update operator used to increase or decrease a numeric field directly in the database.
 
-// export const reducedQuantityController= async (req, res) => {
-//   const { productId, quantity } = req.body;
-//   try {
-//     // Use findByIdAndUpdate with $inc to atomically update the stock
-//     const result = await productModel.findByIdAndUpdate(
-//       productId,
-//       { $inc: { quantity: -quantity } }, // Decrease stock by the specified quantity
-//       { new: true }                   // Return the updated document
-//     );
+// To increase a value: { $inc: { quantity: 1 } } (Adds 1)
 
-//     if (result) {
-//       res.status(200).json({ success: true });
-//     } else {
-//       res.status(404).json({ success: false, message: "Product not found" });
-//     }
-//   } catch (error) {
-//     res.status(500).json({ success: false, message: "Server error", error });
-//   }
-// };
-//_____________________________________________________________________________________
+// To decrease a value: { $inc: { quantity: -1 } } or { $inc: { quantity: -quantity } } (Subtracts the amount)
+
+// Why use $inc instead of product.quantity -= quantity?
+// When you use product.quantity -= quantity, your server first reads the data from MongoDB, changes it in Node.js memory, and then saves it back. If two users buy at the same millisecond, both read the same old stock number, causing inaccurate inventory calculation.
+
+// $inc executes directly inside the MongoDB engine atomically, making it race-condition safe.
+
+// 2. Why do images still appear on the frontend if we use .select("-photo")?
+// In your app, product details/lists and product photos are fetched using two separate API requests:
+
+// Product Info Endpoint (/api/v1/product/get-product or /get-singleproduct):
+
+// This endpoint fetches text data (name, description, price, category, stock) and uses .select("-photo").
+
+// Excluding the photo keeps JSON responses small (a few kilobytes instead of megabytes), ensuring fast page loads.
+
+// Photo Endpoint (/api/v1/product/product-photo/:pid):
+
+// In your React component, you render an HTML <img> tag whose src attribute points directly to the photo API route:
+
+// JavaScript
+// <img src={`/api/v1/product/product-photo/${product._id}`} />
+// When the browser renders this <img> tag, it makes a separate HTTP request specifically to productPhotoController.
+
+// In productPhotoController, you do NOT use .select("-photo"). Instead, you explicitly use .select("photo") to fetch the image buffer from MongoDB and send it back as binary image data with the proper Content-Type._____________________________________________________________________________________
 
 // The difference between res.json() and res.send() in Express.js is subtle:
 
@@ -519,7 +489,7 @@ export const reducedQuantityController = async (req, res) => {
 // for sending JSON responses, while res.send() is more general-purpose.Both methods work
 // similarly when sending JSON, but res.json() is slightly more explicit for JSON data.For
 // consistency in API responses, res.json() is often preferred for sending JSON objects.
-//______________________________________________________________________________________
+//_____________________________________________________________________________________
 
 // 1. JSON String:
 // JSON (JavaScript Object Notation) is a lightweight data-interchange format that's easy for
@@ -535,9 +505,9 @@ export const reducedQuantityController = async (req, res) => {
 // content. For example, if you're sending JSON data, the Content-Type should be application/json.
 
 // 3. application/json:
-// application/json is a specific value for the Content-Type header that indicates the data 
-// being sent is in JSON format.When a server responds with application/json, it tells the 
-// client that the body of the response contains JSON data, and the client should parse it 
-// accordingly.So, when you use res.json(), Express automatically converts your data to a 
-// JSON string, and sets the Content-Type header to application/json, making it clear to the 
+// application/json is a specific value for the Content-Type header that indicates the data
+// being sent is in JSON format.When a server responds with application/json, it tells the
+// client that the body of the response contains JSON data, and the client should parse it
+// accordingly.So, when you use res.json(), Express automatically converts your data to a
+// JSON string, and sets the Content-Type header to application/json, making it clear to the
 // client that the data is in JSON format.

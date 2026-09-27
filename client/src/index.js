@@ -9,12 +9,14 @@ import { SearchProvider } from "./context/search";
 import { CartProvider } from "./context/cart";
 import { ThemeProvider } from "./context/themeContext";
 import { OrdersProvider } from "./context/ordersNotifyContext";
+import { OutOfStockProvider } from "./context/outOfStockContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthProvider>
     {/* added this auth globally. */}
     <ThemeProvider>
+    <OutOfStockProvider>
       <OrdersProvider>
         <SearchProvider>
           <CartProvider>
@@ -26,6 +28,7 @@ root.render(
           </CartProvider>
         </SearchProvider>
       </OrdersProvider>
+    </OutOfStockProvider>
     </ThemeProvider>
   </AuthProvider>
 );

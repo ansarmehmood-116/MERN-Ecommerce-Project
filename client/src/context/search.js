@@ -4,13 +4,13 @@
 import { useState, useContext, createContext } from "react";
 
 const SearchContext = createContext();
-const SearchProvider = ({ children }) => { //this {children} props will consider all the components
-                                           //wraped or nested inside SearchProvider
+const SearchProvider = ({ children }) => { //this {children} props will consider all the components wraped or nested inside SearchProvider
   const [auth, setAuth] = useState({
     keyword: "",//req object
     results: [],//response object
   });
-
+  if(auth?.values){
+  }
   return (
     <SearchContext.Provider value={[auth, setAuth]}>
       {children}

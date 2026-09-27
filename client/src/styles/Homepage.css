@@ -1,87 +1,175 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
+/* Preventing overscroll and making the layout fixed */
+html,
+body {
   margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  /* min-height: 100vh; */
+  overflow-y: scroll;
 }
 
-.carousel {
+/* To hide the scrollbar on Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+/* _____________________________________________________________ */
+
+.homepage-page,
+.homepage-page * {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   PAGE BASE
+   ========================================================= */
+.homepage-page {
+  --page-bg: #ffffff;
+  --surface: #ffffff;
+  --surface-soft: #f7f9fc;
+  --surface-hover: #f1f5f9;
+  --border: #e3e8ef;
+
+  --text-main: #171a1f;
+  --text-secondary: #667085;
+  --text-muted: #8b95a5;
+
+  --accent: #03bfe3;
+  --accent-dark: #009fbd;
+  --accent-soft: #03d5fa3f;
+
+  --price: #159447;
+  --danger: #ef3340;
+  --hero-overlay: rgba(3, 213, 250, 0.18);
+
+  /* for largest screen to prevent from splitting */
+  max-width: 1380px;
+  margin: auto;
+
+  width: 100%;
+  min-height: 100vh;
   /* margin-top: 60px; */
+  background: var(--page-bg);
+  color: var(--text-main);
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   HERO / CAROUSEL
+========================================================= */
+.homepage-page .carousel {
+  width: 100% !important;
   padding-top: 60px;
   border: none;
   z-index: 30;
+  overflow: hidden;
+  background: #111;
 }
-.carousel-item {
+
+.homepage-page .carousel-item {
+  position: relative;
   height: 80vh; /* Set height to 80% of the viewport height */
+  width: 100% !important;
   border: none;
-  width: 100vw;
+  overflow: hidden;
 }
-.img1,
-.img2,
-.img3 {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto; /* Ensure the width scales proportionally */
-  height: auto; /* Ensure the image covers the entire area without cutting */
+.homepage-page .img1,
+.homepage-page .img2,
+.homepage-page .img3 {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none;
+  max-height: none;
+  display: block;
 }
-.carousel-item::before {
+
+/* subtle cyan image overlay */
+.homepage-page .carousel-item::before {
   content: "";
-  background: #03d5fa60;
+  background: #03d5fa36;
   height: 0;
   width: 100%;
   border-radius: 1px;
   position: absolute;
   top: 0;
+  inset: 0;
   z-index: 1;
-  transition: height 1s;
+  transition: height 0.8s ease;
 }
 
-.carousel-item:hover::before {
+.homepage-page .carousel-item:hover::before {
   height: 100%;
 }
 
-.img1 {
-  position: relative;
-  border: none;
-}
-
-.img1-heading {
+/* =========================================================
+   HERO TYPEWRITER #1
+========================================================= */
+.homepage-page .img1-heading {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #f7b731; /* A warm gold color that contrasts well */
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
   font-family: "Great Vibes", cursive;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
-  z-index: 1;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 2px 3px 8px rgba(0, 0, 0, 0.75);
+  z-index: 3;
   /* background-color: rgba(0, 0, 0, 0.4);*/ /*Optional: Adds a subtle background for readability*/
-  padding: 10px 20px;
+  padding: 12px 25px;
+  margin: 0;
   border-radius: 5px;
+  pointer-events: none;
 }
-.img3-heading {
+
+/* =========================================================
+   HERO TYPEWRITER #3
+========================================================= */
+.homepage-page .img3-heading {
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ec0d0d;
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-family: "Great Vibes", cursive;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
   z-index: 1;
   /* background-color: rgba(0, 0, 0, 0.4);*/ /*Optional: Adds a subtle background for readability*/
-  padding: 10px 20px;
+  padding: 20px 20px !important;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
   border-radius: 5px;
-
-  letter-spacing: 0.1em;
-  text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a,
-    0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222,
-    0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a,
-    0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212,
+  letter-spacing: 0.08em;
+  text-shadow:
+    0 -1px 0 #fff,
+    0 1px 0 #2e2e2e,
+    0 2px 0 #2c2c2c,
+    0 3px 0 #2a2a2a,
+    0 4px 0 #282828,
+    0 5px 0 #262626,
+    0 6px 0 #242424,
+    0 7px 0 #222,
+    0 8px 0 #202020,
+    0 9px 0 #1e1e1e,
+    0 10px 0 #1c1c1c,
+    0 11px 0 #1a1a1a,
+    0 12px 0 #181818,
+    0 13px 0 #161616,
+    0 14px 0 #141414,
+    0 15px 0 #121212,
     0 22px 30px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
 }
-.detail-box {
+
+/* =========================================================
+   SALE HERO
+  ========================================================= */
+.homepage-page .detail-box {
   position: absolute;
-  top: 5%;
+  top: 8%;
   left: 10%;
   transform: translateX(-50%);
   color: white;
@@ -90,170 +178,419 @@
   margin: 0;
   opacity: 0;
 }
-.carousel-item.active .detail-box {
+.homepage-page .carousel-item.active .detail-box {
   transform: translateX(0%);
-  transition: 0.8s all;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  /* transition: 0.8s all; */
   opacity: 1;
 }
-.detail-box .heading2 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #242526;
-  
-}
-.heading2 span {
-  color: red;
-}
 
-.detail-box p {
-  margin-top: 20px;
-  font-size: 1.2rem;
+/* Sale heading */
+.homepage-page .detail-box .heading2 {
+  margin: 0;
+  /* font-size: 3rem; */
+  /* font-weight: bold; */
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 1.05;
+  font-weight: 800;
   /* color: #242526; */
+  color: #15171a;
+  letter-spacing: -0.02em;
 }
 
-.detail-box .btn-box {
-  margin-top: 30px;
+.homepage-page .heading2 span {
+  /* color: red; */
+  color: #ff1010;
 }
 
-.btn1 {
-  background-color: red;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  border-radius: 5px;
-  text-decoration: none;
+/* Hero paragraph */
+.homepage-page .detail-box p {
+  margin-top: 25px;
+  margin-bottom: 0;
+  /* font-size: 1.2rem; */
+  color: #ffffff;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.75;
+  /* color: #242526; */
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.65);
 }
 
-.btn1:hover {
-  background-color: #d6a626;
+/* =========================================================
+   SHOP NOW BUTTON
+========================================================= */
+.homepage-page .detail-box .btn-box {
+  margin-top: 32px;
+}
+
+.homepage-page .btn1 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  padding: 12px 24px;
+  /* background-color: red; */
+  background: linear-gradient(135deg, #ff1010, #e60000);
   color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(255, 0, 0, 0.25);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
-/* _----------------------________________----------------------______________________ */
-.home-page h1 {
-  color: gray;
+.homepage-page .btn1:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #d90000, #ff3030);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(255, 0, 0, 0.35);
+}
+
+/* =========================================================
+   CAROUSEL CONTROLS
+  ========================================================= */
+.homepage-page .carousel-control-prev,
+.homepage-page .carousel-control-next {
+  z-index: 5;
+  width: 7%;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.homepage-page .carousel-control-prev:hover,
+.homepage-page .carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* =========================================================
+   PRODUCTS AREA
+========================================================= */
+.homepage-page .products-section {
+  position: relative;
+  width: 100%;
+  min-height: 105vh;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 20px clamp(18px, 4vw, 65px) 30px;
+  background: var(--page-bg);
+  color: var(--text-main);
+  /* border: 2px solid red; */
+}
+.homepage-page .products-section .mobileProducts {
+  position: relative;
+  width: 100%;
+  margin: 10px 0px 20px 0px !important;
+  padding: 0;
+  color: rgba(82, 80, 80, 0.778);
+  /* color: var(--text-main); */
+  /* font-size: clamp(2rem, 3.5vw, 3rem); */
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   font-family: "Playfair Display", serif;
 }
 
-
-.home-page {
-  display: flex;
-  flex-wrap: wrap;
-  /* Mine added properties */
-  position: relative;
-  min-height: 105vh;
-  /* this is added due to the conflict between footer and filters class height and absolute property because .filters class then override the height and overlape the footer */
+/* small decorative line */
+.homepage-page .products-section .mobileProducts::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  margin: 14px auto 0;
+  border-radius: 20px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
-.home-page .productBox {
+
+/* =========================================================
+   PRODUCTS COLUMN
+========================================================= */
+.homepage-page .products-section > .col-md-12 {
+  width: 100%;
+  /* border: 2px solid red; */
+  padding: 0;
+}
+
+/* =========================================================
+   PRODUCT GRID
+   ========================================================= */
+
+.homepage-page .products-section .col-md-12 > .d-flex {
+  width: 100%;
+  align-items: stretch;
+  gap: 20px !important;
+}
+
+.homepage-page .products-section .productBox {
+  position: relative;
+  width: 20rem !important;
+  max-width: 20rem;
+  flex: 0 1 20rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 !important;
+  overflow: hidden;
+  background: var(--surface);
+  /* background-color: rgba(128, 128, 128, 0.097); */
+  border-radius: 20px 3px 20px 3px;
   /* box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px; */
   /* box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px; */
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
     rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   /* goto google and search "css box shadows" and you will get 95 best designs */
-}
-.home-page .card {
-  background-color: rgba(128, 128, 128, 0.097);
-  width: 20rem;
-}
-.home-page .card-name-price {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
 }
 
-.home-page .card-price {
-  color: green;
-  font-weight: bold;
-}
-.out-stock {
-  color: red;
-  font-size: medium;
-}
-.home-page button {
-  border-radius: 0;
-  width: 100%;
-  border-top-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  font-size: 14px;
-  font-weight: bold;
-}
-.home-page .card-text {
-  color: rgb(90, 89, 89);
+.homepage-page .products-section .productBox:hover {
+  transform: translateY(-2px);
+  /* border-color: rgba(3, 191, 227, 0.45); */
+  box-shadow:
+    0 18px 38px rgba(15, 23, 42, 0.13),
+    0 4px 12px rgba(3, 191, 227, 0.08);
 }
 
-/* ________________________Image hover style____________________________________ */
-.home-page .card-image-wrapper {
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+.homepage-page .products-section .card-image-wrapper {
   position: relative;
+  width: 100%;
+  height: 270px;
   overflow: hidden;
+  background: #f1f5f9;
 }
-.home-page .card-image-wrapper::before {
+.homepage-page .products-section .card-image-wrapper::before {
   content: "";
-  background: #03d5fa60;
-  height: 0;
+  /* background: #03d5fa60; */
+  background: #aadde63f;
+  height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
-  transition: height 1s;
+  transition: height 0.8s ease;
 }
-.home-page .card:hover .card-image-wrapper::before {
-  height: 100%;
-}
-/* __________________________________________________________________________________ */
-
-.home-page .card img:hover {
-  transform: scale(0.9);
+.homepage-page .products-section .productBox:hover .card-image-wrapper::before {
+  height: 0%;
 }
 
-.home-page .card-img-top {
-  height: 300px !important;
+.homepage-page .products-section .card img:hover {
+   transform: scale(0.94);
+}
+
+.homepage-page .products-section .card-img-top {
+  display: block;
+  width: 100%;
+  height: 270px !important;
   object-fit: cover;
+  transition: transform 0.45s ease;
 }
 
-/* _________________________filters________________________________*/
+/* =========================================================
+   CARD BODY
+   ========================================================= */
 
-.noFilters {
+.homepage-page .productBox .card-body {
+  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  padding: 17px !important;
+  background: var(--surface);
+  color: var(--text-main);
+}
+
+/* =========================================================
+   PRODUCT NAME + PRICE
+  ========================================================= */
+.homepage-page .productBox .card-name-price {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+/* Product name */
+.homepage-page .productBox .card-name {
+  min-width: 0;
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--text-main);
+  /* font-weight: bold; */
+  line-height: 1.3;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* Price */
+.homepage-page .productBox .card-price {
+  flex: 0 0 auto;
+  margin: 0;
+  color: var(--price);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+/* Out of stock */
+.homepage-page .out-stock {
+  color: var(--danger);
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   REVIEW SUMMARY
+========================================================= */
+.homepage-page .productBox .review-summary {
+  margin-top: 10px;
+}
+/*
+   This keeps ReviewSummary visually integrated even
+   if its own component has different internal markup.
+*/
+/* .homepage-page .productBox .card-body > div:nth-child(2) {
+  margin-top: 10px;
+} */
+
+/* =========================================================
+   DESCRIPTION
+ ========================================================= */
+.homepage-page .products-section .card-text {
+  /* color: rgb(90, 89, 89); */
+  margin: 10px 0 16px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* =========================================================
+   PRODUCT BUTTONS
+   ========================================================= */
+  .homepage-page .productBox .card-body > .card-name-price:last-child {
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+}
+.homepage-page .productBox .card-body > .card-name-price:last-child button {
+  min-height: 42px;
+  margin: 0 !important;
+  padding: 8px 12px;
+  border-radius: 0;
+  /* width: 100%; */
+  border: none;
+  border-top-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.homepage-page .productBox .card-body > .card-name-price:last-child
+  button:first-child {
+  flex: 1;
+  background: linear-gradient(
+    135deg,
+    #03c6e8,
+    #08afd1
+  );
+  color: #06151a;
+}
+
+.homepage-page .productBox .card-body > .card-name-price:last-child
+  button:first-child:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 14px rgba(3, 198, 232, 0.25);
+}
+
+.homepage-page .productBox .cartBtn {
+  flex: 0 0 58px;
+  width: 60px !important;
+  background: #20252c;
+  color: #fff;
+  font-size: 17px !important;
+}
+
+.homepage-page .productBox .cartBtn:hover {
+  background: #101419;
+  transform: translateY(-1.5px);
+}
+
+
+/* =========================================================
+   FILTER BUTTON
+========================================================= */
+.homepage-page .noFilters {
   position: absolute;
   top: -100vh;
-  left: 11vw;
+  left: 10.7vw;
   width: 20rem;
   height: 90vh;
   padding: 30px;
   background-color: skyblue;
   z-index: 0;
   opacity: 0;
-  border-radius: 6px;
+  border-radius: 12px;
   overflow-y: auto;
   /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
   box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
   transition: 0.8s ease-in-out; /* Smooth transition */
 }
-.filters {
+.homepage-page .filters {
   position: absolute;
-  top: 11.2vh;
-  left: 11vw;
+  top: 17vh;
+  left: 10.7vw;
   width: 20rem;
   height: 90vh;
-  background: skyblue;
+  background: rgb(141, 210, 237);
+  border: 1px solid var(--border);
   padding: 30px;
   opacity: 1;
-  z-index: 10;
-  border-radius: 6px;
+  z-index: 30;
+  border-radius: 12px;
   cursor: pointer;
   overflow-y: auto;
   /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   transition: 0.8s ease-in-out; /* Smooth transition */
 }
-.filterButton {
+.homepage-page .filterButton {
   position: absolute;
+  height: 30px;
   /* background: rgb(255, 255, 255); */
-  left: 15.5vw;
-  top: 1vh;
-  color: gray !important;
+  left: 16vw;
+  top: 6vh;
+  /* color: gray !important; */
+  color: var(--text-secondary) !important;
   width: 15vw;
   z-index: 30;
   padding-left: 2vw;
@@ -262,15 +599,49 @@
   cursor: pointer;
 }
 
-.noFilters h4,
-.filters h4 {
+/* Filter headings */
+.homepage-page .noFilters h4,
+.homepage-page .filters h4 {
   /* margin-top: 100px; */
-  color: gray !important;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.337);
+  /* color: gray !important; */
+  /* border-bottom: 1px solid rgba(128, 128, 128, 0.337); */
+  position: relative;
+  /* margin-bottom: 18px; */
+  padding-bottom: 10px;
+  color: var(--text-main) !important;
+  border-bottom: 1px solid var(--border);
+  font-size: 1rem;
+  font-weight: 700;
 }
-.home-page .filters::before {
+
+/* =========================================================
+   ANT DESIGN FILTERS
+   ========================================================= */
+.homepage-page .ant-checkbox-wrapper,
+.homepage-page .ant-radio-wrapper {
+  margin: 2px !important;
+  color: var(--text-secondary);
+}
+
+.homepage-page .categories,
+.homepage-page .prices {
+  color: var(--text-secondary);
+}
+.homepage-page .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.homepage-page .ant-radio-checked .ant-radio-inner {
+  border-color: var(--accent);
+}
+
+.homepage-page .ant-radio-inner::after {
+  background-color: var(--accent);
+}
+.products-section .filters::before {
   content: "";
-  background: #ffffff42;
+  background: #ffffff1c;
   height: 100%;
   width: 100%;
   border-radius: 3px;
@@ -281,101 +652,243 @@
   transition: height 1s;
 }
 
-.home-page .filters:hover::before {
+.products-section .filters:hover::before {
   height: 0;
 }
-.ant-checkbox-wrapper:first-of-type {
-  margin-left: 0.5px;
-}
 
-.ant-checkbox-wrapper {
-  margin: 2px;
-}
-.ant-radio-wrapper {
-  margin-bottom: 5px !important;
-  margin-left: 10px;
-}
-
-.filters button {
-  background-color: black;
+.homepage-page .filters button {
   width: 100%;
+  margin-top: 22px;
+  padding: 10px;
   border: none;
-  border-radius: 0;
-  margin-top: 20px;
+  border-radius: 6px;
+  background: #20252c;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+.homepage-page .filters button:hover {
+  background: #11151a;
+  transform: translateY(-1px);
 }
 
-.loadmore {
-  color: green;
-  font-weight: bold;
-  font-size: 20px !important;
-  
+/* =========================================================
+   LOAD MORE
+   ========================================================= */
+.homepage-page .HomeLoadMoreContainer {
+  width: 100%;
+  margin: 30px 0 0 !important;
+  padding: 10px !important;
+  display: flex;
+  justify-content: center;
+}
+.homepage-page .Homeloadmore {
+  /* color: green; */
+  /* font-weight: bold; */
+  /* font-size: 20px !important; */
+  /* width: 100%; */
+  /* border: none !important; */
+  min-width: 180px;
+  padding: 11px 22px;
+  border: 1px solid rgba(3, 191, 227, 0.4);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--accent-dark);
+  font-size: 16px !important;
+  font-weight: 700;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+.homepage-page .Homeloadmore:hover {
+  background: var(--accent);
+  color: #071419;
+  transform: translateY(-2px);
 }
 
-
-/* Preventing overscroll and making the layout fixed */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  min-height: 100vh;
-  overflow-y: scroll;
+/* =========================================================
+   NO PRODUCTS
+   ========================================================= */
+.homepage-page .noProducts {
+  padding: 60px 20px;
+  color: var(--text-secondary);
+  font-size: 1rem;
 }
 
-/* To hide the scrollbar on Webkit browsers (Chrome, Safari) */
-::-webkit-scrollbar {
-  display: none;
-}
-/* _____________________________________________________________ */
+/* ____________________THEME_______________________ */
+/* =========================================================
+   DARK MODE
+   ========================================================= */
 
-/* ____________________________________THEME_______________________ */
+#dark .homepage-page {
+  --page-bg: #101318;
+  --surface: #171b23;
+  --surface-soft: #1b2029;
+  --surface-hover: #202833;
+  --border: #303846;
+  --text-main: #f1f3f5;
+  --text-secondary: #aeb7c4;
+  --text-muted: #7f8998;
+  --accent: #4dabf7;
+  --accent-dark: #4dabf7;
+  --price: #5ee28b;
+  --danger: #ff6b6b;
+  --hero-overlay: rgba(0, 0, 0, 0.28);
+}
 
-/* as we have have used theme id in the App.js so as a whole it will apply theme on every page that are wrapped in routes in App.js the rest if we want to apply custom them on each page the we must used #dark id with each.*/
-#dark .home-page {
-  background-color: #00000027;
+/* Main */
+#dark .homepage-page .home-page {
+  background: #101318;
 }
-#dark .filters {
-  background: #000000d3;
+
+/* Heading */
+#dark .homepage-page .mobileProducts {
+  color: #f1f3f5;
 }
-#dark .home-page .card-price {
+
+/* Filter button */
+#dark .homepage-page .filterButton {
+  border-color: #303846;
+  color: #aeb7c4 !important;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.22);
+}
+#dark .homepage-page .filterButton:hover {
+  color: #4dabf7 !important;
+  border-color: #4dabf7;
+}
+
+/* Cards */
+#dark .homepage-page .productBox {
+  background: #171b23;
+  border-color: #303846;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.24);
+}
+
+#dark .homepage-page .productBox:hover {
+  background: #1b2029;
+  border-color: rgba(77, 171, 247, 0.55);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(77, 171, 247, 0.08);
+}
+
+/* Image background */
+#dark .homepage-page .card-image-wrapper {
+  background: #1b2029;
+}
+
+/* Preserve cyan image feel */
+#dark .homepage-page .card-image-wrapper::before {
+  background: #03d5fa3f;
+}
+
+/* Card body */
+#dark .homepage-page .productBox .card-body {
+  background: #171b23;
+  color: #f1f3f5;
+}
+
+/* Product name */
+#dark .homepage-page .productBox .card-name {
+  color: #f1f3f5;
+}
+
+/* Price */
+#dark .homepage-page .productBox .card-price {
+  color: #5ee28b;
+}
+
+/* Description */
+#dark .homepage-page .productBox .card-text {
+  color: #aeb7c4;
+}
+
+/* More details */
+#dark .homepage-page .productBox
+  .card-body
+  > .card-name-price:last-child
+  button:first-child {
+  background: linear-gradient(
+    135deg,
+    #4dabf7,
+    #339af0
+  );
+  color: #07111b;
+}
+
+/* Cart */
+#dark .homepage-page .productBox .cartBtn {
+  background: #202833;
+  color: #f1f3f5;
+}
+
+#dark .homepage-page .productBox .cartBtn:hover {
+  background: #11161d;
+}
+
+/* Filter panel */
+#dark .homepage-page .noFilters,
+#dark .homepage-page .filters {
+  background: #171b23;
+  border-color: #303846;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45);
+    /* border: 2px solid red; */
+}
+
+#dark .homepage-page .filters h4,
+#dark .homepage-page .noFilters h4 {
+  color: #f1f3f5 !important;
+  border-color: #303846;
+}
+
+#dark .homepage-page .categories,
+#dark .homepage-page .prices {
+  color: #aeb7c4;
+}
+
+#dark .homepage-page .ant-checkbox-wrapper,
+#dark .homepage-page .ant-radio-wrapper {
+  color: #aeb7c4;
+}
+
+/* Reset */
+#dark .homepage-page .filters button {
+  background: #202833;
+}
+
+#dark .homepage-page .filters button:hover {
+  background: #0e1217;
+}
+
+/* Load more */
+#dark .homepage-page .Homeloadmore {
+  /* color: #4dabf7; */
+  border-color: rgba(77, 171, 247, 0.4);
   color: rgb(0, 255, 98);
-  font-weight: bold;
 }
 
-#dark .home-page .card {
-  background-color: rgba(128, 128, 128, 0.842);
-  /* width: 20rem; */
+#dark .homepage-page .Homeloadmore:hover {
+  background: #4dabf7;
+  color: #07111b;
 }
 
-#dark .home-page .card-text {
-  color: rgb(255, 249, 249);
-}
-#dark .home-page .card-name {
-  color: rgb(255, 249, 249);
+/* No products */
+#dark .homepage-page .noProducts {
+  color: #aeb7c4;
 }
 
-#dark .filters h4 {
-  color: rgba(246, 243, 243, 0.784) !important;
-}
-
-#dark .home-page h1 {
-  color: rgb(251, 246, 246);
-  font-family: "Playfair Display", serif;
-}
-
-#dark .prices {
-  color: whitesmoke;
-}
-
-#dark .categories {
-  color: whitesmoke;
-}
-#dark .loadmore {
-  color: rgb(0, 255, 98);
-}
-#dark .home-page .card-image-wrapper::before {
+/* _______PRODUCT__IMAGE__BEFORE_____ */
+#dark .homepage-page .products-section .card-image-wrapper::before {
   content: "";
-  background: #00000069;
+  background: #1b202969;
   height: 0;
   width: 100%;
   position: absolute;
@@ -384,13 +897,14 @@ body {
   z-index: 1;
   transition: height 1s;
 }
-#dark .home-page .card:hover .card-image-wrapper::before {
+#dark .homepage-page .products-section .productBox:hover .card-image-wrapper::before {
   height: 100%;
 }
 
+/* _________MAIN HERO AREA___________ */
 #dark .carousel-item::before {
   content: "";
-  background: #00000069;
+  background: #1b202969;
   height: 0;
   width: 100%;
   border-radius: 1px;
@@ -403,762 +917,1036 @@ body {
 #dark .carousel-item:hover::before {
   height: 100%;
 }
-#dark .noProducts {
-  color: #fff;
-}
+
 /* -------------------------------------------------------- */
 
-/* ---------------Responsiveness--------------- */
-
 /* =========================================================
-   MOBILE RESPONSIVENESS
+   RESPONSIVE DESIGN
+   TABLET + MOBILE
    ========================================================= */
 
-@media (max-width: 767px) {
+/* =========================================================
+   TABLET
+   ========================================================= */
 
-  /* ---------------- Banner ---------------- */
+@media (max-width: 991px) {
 
-  .mobile-carousel {
-    display: none;
+  /* ---------------------------------------------------------
+     HERO / CAROUSEL
+     --------------------------------------------------------- */
+
+  .homepage-page .carousel {
+    padding-top: 60px;
   }
 
-
-  /* ---------------- Home Products Section ---------------- */
-
-  .home-page {
-    display: block;
-    width: 100%;
-    min-height: 100vh;
-    margin-top: 0 !important;
-    padding: 15px 8px 30px;
+  .homepage-page .carousel-item {
+    height: 62vh;
+    min-height: 420px;
   }
 
-
-  /* ---------------- Product Heading ---------------- */
-
-  .mobileProducts {
-    margin: 10px 0 20px !important;
-    padding: 0 5px;
-    font-size: 1.8rem;
-    line-height: 1.3;
-    z-index: 1;
-  }
-
-
-  /* ---------------- Filter ---------------- */
-
-  .filterButton {
-    display: none !important;
-  }
-
-  .noFilters,
-  .filters {
-    display: none !important;
-  }
-
-
-  /* ---------------- Product Container ---------------- */
-
-  .home-page .col-md-12 {
-    width: 100%;
-    padding: 0;
-  }
-
-  .home-page .col-md-12 > .d-flex {
-    width: 100%;
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-  }
-
-
-  /* ---------------- Product Card ---------------- */
-
-  .home-page .card {
+  .homepage-page .img1,
+  .homepage-page .img2,
+  .homepage-page .img3 {
     width: 100% !important;
-    max-width: 430px;
-    margin: 0 0 20px 0 !important;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-
-  /* ---------------- Product Image ---------------- */
-
-  .home-page .card-img-top {
-    width: 100%;
-    height: 240px !important;
+    height: 100% !important;
     object-fit: cover;
   }
 
-
-  /* ---------------- Card Body ---------------- */
-
-  .home-page .card-body {
-    padding: 15px;
+  /* Sale content */
+  .homepage-page .detail-box {
+    left: 7%;
+    width: 88%;
   }
 
-
-  /* ---------------- Product Name + Price ---------------- */
-
-  .home-page .card-name-price {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+  .homepage-page .detail-box .heading2 {
+    font-size: 2.7rem;
   }
 
-  .home-page .card-name {
-    font-size: 1.15rem;
-    margin: 0;
-    word-break: break-word;
-  }
-
-  .home-page .card-price {
-    font-size: 1.05rem;
-    white-space: nowrap;
-  }
-
-  .out-stock {
-    font-size: 0.85rem;
-    white-space: nowrap;
-  }
-
-
-  /* ---------------- Description ---------------- */
-
-  .home-page .card-text {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-top: 10px;
-    min-height: auto;
-  }
-
-
-  /* ---------------- Buttons ---------------- */
-
-  .home-page .card-body > .card-name-price:last-child {
-    display: flex;
-    width: 100%;
-    gap: 5px;
-  }
-
-  .home-page .card-body > .card-name-price:last-child button {
-    flex: 1;
-    width: auto;
-    min-height: 45px;
-    font-size: 14px;
-    margin: 0 !important;
-  }
-
-  .home-page .card-body > .card-name-price:last-child .cartBtn {
-    max-width: 80px;
-  }
-
-
-  /* ---------------- Image Hover ---------------- */
-
-  .home-page .card img:hover {
-    transform: none;
-  }
-
-
-  /* ---------------- Load More ---------------- */
-
-  .home-page .m-2.p-3 {
-    margin: 5px 0 !important;
-    padding: 10px !important;
-    text-align: center;
-  }
-
-  .loadmore {
-    font-size: 18px !important;
-  }
-
-
-  /* ---------------- No Products ---------------- */
-
-  .noProducts {
+  .homepage-page .detail-box p {
     font-size: 1rem;
-    padding: 20px;
+    line-height: 1.55;
   }
 
+  /* ---------------------------------------------------------
+     PRODUCTS SECTION
+     --------------------------------------------------------- */
 
-  /* ---------------- Light Theme ---------------- */
-
-  #light .home-page {
-    background-color: #ffffff;
+  .homepage-page .products-section {
+    padding: 30px 25px 45px;
   }
 
-  #light .home-page .card {
-    background-color: rgba(128, 128, 128, 0.08);
-  }
-
-  #light .home-page .card-name {
-    color: #242526;
-  }
-
-  #light .home-page .card-text {
-    color: rgb(90, 89, 89);
-  }
-
-  #light .home-page h1 {
-    color: gray;
-  }
-
-
-  /* ---------------- Dark Theme ---------------- */
-
-  #dark .home-page {
-    background-color: #111111;
-  }
-
-  #dark .home-page .card {
-    background-color: #242424;
-    color: white;
-  }
-
-  #dark .home-page .card-name {
-    color: #ffffff;
-  }
-
-  #dark .home-page .card-text {
-    color: #dddddd;
-  }
-
-  #dark .home-page h1 {
-    color: #ffffff;
-  }
-
-  #dark .home-page .card-price {
-    color: rgb(0, 255, 98);
-  }
-
-  #dark .home-page .card-image-wrapper::before {
-    background: #00000069;
-  }
-
-}
-
-
-
-/* =========================================================
-   MOBILE RESPONSIVE DESIGN
-   ========================================================= */
-
-@media (max-width: 767px) {
-
-  /* =====================================================
-     BANNER
-     ===================================================== */
-
-  .mobile-carousel {
-    display: none !important;
-  }
-
-
-  /* =====================================================
-     HOME PAGE
-     ===================================================== */
-
-  .home-page {
-    display: block;
-    width: 100%;
-    min-height: 100vh;
-    margin: 0 !important;
-    padding: 10px 8px 30px;
-  }
-
-
-  /* =====================================================
-     ALL PRODUCTS HEADING
-     ===================================================== */
-
-  .mobileProducts {
-    display: block !important;
+  /* Filter button */
+  .homepage-page .filterButton {
     position: relative;
-    width: 100%;
-    margin: 55px 0 18px !important;
-    padding: 0;
-    font-size: 1.7rem;
-    line-height: 1.3;
+    top: auto;
+    left: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 220px;
+    min-height: 42px;
+
+    margin: 0 auto 25px;
+    padding: 8px 15px;
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--text-secondary) !important;
+
     text-align: center;
-    z-index: 2;
-  }
-
-
-  /* =====================================================
-     PRODUCT FILTER BUTTON
-     ===================================================== */
-
-  .home-page > .filterButton {
-    display: flex !important;
-
-    position: relative !important;
-
-    top: 50px !important;
-    left: auto !important;
-
-    transform: none !important;
-
-    width: 190px !important;
-    height: 40px !important;
-
-    margin: 5px auto 12px auto !important;
-    padding: 7px 12px !important;
-
-    justify-content: center !important;
-    align-items: center !important;
-
-    color: #666 !important;
-
-    background: transparent !important;
-
-    border: none !important;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.4) !important;
-
-    font-size: 15px !important;
-    font-weight: 600 !important;
-
-    opacity: 1 !important;
-    visibility: visible !important;
-
-    z-index:2 !important;
+    font-size: 14px;
+    font-weight: 700;
 
     cursor: pointer;
   }
 
+  /* Filter panel */
+  .homepage-page .noFilters {
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 20rem;
+  }
+
+  .homepage-page .filters {
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 20rem;
+  }
+
+  /* ---------------------------------------------------------
+     PRODUCT GRID
+     --------------------------------------------------------- */
+
+  .homepage-page .products-section > .col-md-12 {
+    width: 100%;
+    padding: 0 !important;
+  }
+
+  .homepage-page .products-section .col-md-12 > .d-flex {
+    display: grid !important;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px !important;
+
+    width: 100%;
+  }
+
+  /* ---------------------------------------------------------
+     PRODUCT CARD
+     --------------------------------------------------------- */
+
+  .homepage-page .products-section .productBox {
+    width: 100% !important;
+    max-width: none;
+
+    flex: none;
+
+    margin: 0 !important;
+  }
+
+  /* ---------------------------------------------------------
+     PRODUCT IMAGE
+     --------------------------------------------------------- */
+
+  .homepage-page .products-section .card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+
+    overflow: hidden;
+  }
+
+  .homepage-page .products-section .card-img-top {
+    width: 100%;
+    height: 100% !important;
+
+    object-fit: contain;
+
+    background: #f1f5f9;
+  }
+
+  /* ---------------------------------------------------------
+     PRODUCT BODY
+     --------------------------------------------------------- */
+
+  .homepage-page .productBox .card-body {
+    min-height: 215px;
+    padding: 15px !important;
+  }
+}
 
 
-  /* =====================================================
-     FILTER CLOSED
-     ===================================================== */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
-  .noFilters {
+@media (max-width: 767px) {
+
+  /* ---------------------------------------------------------
+     MAIN PAGE
+     --------------------------------------------------------- */
+
+  .homepage-page {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ---------------------------------------------------------
+     HERO / CAROUSEL
+     --------------------------------------------------------- */
+
+  .homepage-page .mobile-carousel {
+    display: block !important;
+    width: 100% !important;
+    padding-top: 55px;
+    overflow: hidden;
+  }
+
+  /*
+     Mobile hero becomes almost square.
+
+     This keeps the image proportional to the mobile width
+     instead of using a large viewport-based height.
+  */
+
+  .homepage-page .carousel-item {
+    width: 100% !important;
+
+    height: 92vw;
+    min-height: 0;
+
+    max-height: 390px;
+
+    overflow: hidden;
+  }
+
+  .homepage-page .img1,
+  .homepage-page .img2,
+  .homepage-page .img3 {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Carousel controls */
+  .homepage-page .carousel-control-prev,
+  .homepage-page .carousel-control-next {
+    width: 13%;
+
+    opacity: 0.8;
+  }
+
+  /* ---------------------------------------------------------
+     TYPEWRITER HERO TEXT
+     --------------------------------------------------------- */
+
+  .homepage-page .img1-heading,
+  .homepage-page .img3-heading {
+    top: 50%;
+    left: 50%;
+
+    width: 90%;
+
+    padding: 8px 10px;
+
+    font-size: 2.25rem;
+
+    line-height: 1.15;
+
+    white-space: normal;
+
+    text-align: center;
+  }
+
+  .homepage-page .img3-heading {
+    top: 42%;
+  }
+
+  /* ---------------------------------------------------------
+     SALE HERO
+     --------------------------------------------------------- */
+
+  .homepage-page .detail-box {
+    top: 50%;
+    left: 6%;
+
+    width: 88%;
+
+    transform: translateY(-50%);
+
+    padding: 0;
+  }
+
+  .homepage-page .carousel-item.active .detail-box {
+    transform: translateY(-50%);
+  }
+
+  .homepage-page .detail-box .heading2 {
+    font-size: 2rem;
+
+    line-height: 1.08;
+
+    letter-spacing: -0.02em;
+  }
+
+  .homepage-page .detail-box p {
+    margin-top: 12px;
+
+    max-width: 100%;
+
+    font-size: 0.82rem;
+
+    line-height: 1.45;
+  }
+
+  /* Shop Now */
+  .homepage-page .detail-box .btn-box {
+    margin-top: 17px;
+  }
+
+  .homepage-page .btn1 {
+    min-width: 120px;
+
+    padding: 9px 16px;
+
+    font-size: 0.85rem;
+  }
+
+
+  /* =========================================================
+     PRODUCTS SECTION
+     ========================================================= */
+
+  .homepage-page .products-section {
+    display: block;
+
+    width: 100%;
+
+    min-height: auto;
+
+    margin: 0 !important;
+
+    padding: 24px 12px 35px;
+
+    overflow: hidden;
+  }
+
+
+  /* =========================================================
+     FILTER BUTTON
+     ========================================================= */
+
+  .homepage-page .filterButton {
+    position: relative;
+
+    top: auto;
+    left: auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: min(100%, 280px);
+
+    min-height: 44px;
+
+    margin: 0 auto 22px;
+
+    padding: 9px 16px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: var(--surface);
+
+    color: var(--text-secondary) !important;
+
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.08);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .homepage-page .filterButton:hover {
+    transform: translateY(-1px);
+
+    border-color: var(--accent);
+  }
+
+
+  /* =========================================================
+     FILTER PANEL
+     ========================================================= */
+
+  .homepage-page .noFilters {
     display: none !important;
   }
 
+  .homepage-page .filters {
+    position: relative;
 
-  /* =====================================================
-     FILTER OPEN
-     ===================================================== */
+    top: auto;
+    left: auto;
 
-  .home-page > .filters {
-    position: relative !important;
+    transform: none;
 
-    top: 50px !important;
-    left: auto !important;
+    width: 100%;
+    height: auto;
 
-    display: block !important;
+    max-height: none;
 
-    width: 100% !important;
+    margin: 0 0 22px;
 
-    height: auto !important;
+    padding: 18px;
 
-    margin: 0 0 15px 0 !important;
+    border-radius: 10px;
 
-    padding: 15px !important;
+    overflow: visible;
 
-    opacity: 1 !important;
-    visibility: visible !important;
+    z-index: 20;
+  }
 
-    z-index: 1000 !important;
+  .homepage-page .filters h4,
+  .homepage-page .noFilters h4 {
+    font-size: 0.95rem;
+  }
 
-    overflow: visible !important;
+  .homepage-page .filter-container {
+    gap: 2px;
   }
 
 
-  .filters h4 {
-    font-size: 1rem;
-    margin-bottom: 10px;
+  /* =========================================================
+     PRODUCTS HEADING
+     ========================================================= */
+
+  .homepage-page .products-section .mobileProducts {
+    width: 100%;
+    margin: 0 0 24px !important;
+    padding: 0;
+    font-size: 1.65rem;
+    line-height: 1.25;
+    text-align: center;
   }
 
 
-  .filters .filter-container {
-    max-height: 160px;
-    overflow-y: auto;
-  }
+  /* =========================================================
+     PRODUCT COLUMN
+     ========================================================= */
 
-
-  .filters button {
-    margin-top: 12px;
-  }
-
-
-  /* =====================================================
-     PRODUCTS COLUMN
-     ===================================================== */
-
-  .home-page .col-md-12 {
+  .homepage-page .products-section > .col-md-12 {
     width: 100%;
     padding: 0 !important;
   }
 
 
-  /* =====================================================
-     PRODUCT GRID
-     ===================================================== */
-
-  .home-page .col-md-12 > .d-flex {
+  /* =========================================================
+     ONE PRODUCT PER ROW
+     ========================================================= */
+  .homepage-page .products-section .col-md-12 > .d-flex {
     display: grid !important;
-
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    gap: 10px;
-
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px !important;
     width: 100%;
-    align-items: stretch;
-  }
-
-
-  /* =====================================================
-     PRODUCT CARD
-     ===================================================== */
-
-  .home-page .card {
-    width: 100% !important;
-
-    max-width: none;
-
-    margin: 0 !important;
-
-    border-radius: 8px;
-
-    overflow: hidden;
-  }
-
-
-  /* =====================================================
-     PRODUCT IMAGE
-     ===================================================== */
-
-  .home-page .card-img-top {
-  width: 100%;
-  height: 145px !important;
-  object-fit: fill !important;
-  /* background: white; */
-}
-
-
-  /* =====================================================
-     CARD BODY
-     ===================================================== */
-
-  .home-page .card-body {
-    padding: 9px !important;
-  }
-
-
-  /* =====================================================
-     PRODUCT NAME + PRICE
-     ===================================================== */
-
-  .home-page .card-name-price {
-    display: flex;
-
-    align-items: flex-start;
-
-    justify-content: space-between;
-
-    gap: 5px;
-  }
-
-
-  .home-page .card-name {
-    font-size: 0.95rem;
-
-    line-height: 1.2;
-
     margin: 0;
-
-    word-break: break-word;
   }
 
 
-  .home-page .card-price {
-    font-size: 0.9rem;
+  /* =========================================================
+     PRODUCT CARD
+     ========================================================= */
 
-    white-space: nowrap;
-  }
-
-
-  .out-stock {
-    font-size: 0.68rem;
-
-    white-space: normal;
-
-    text-align: right;
-
-    line-height: 1.1;
-  }
-
-
-  /* =====================================================
-     DESCRIPTION
-     ===================================================== */
-
-  .home-page .card-text {
-    font-size: 0.75rem;
-
-    line-height: 1.35;
-
-    margin-top: 7px;
-    margin-bottom: 9px;
-
-    height: 32px;
-
+  .homepage-page .products-section .productBox {
+    width: 100% !important;
+    max-width: 520px;
+    margin: 0 auto !important;
+    flex: none;
+    border-radius: 15px 2px 15 2px !important;
     overflow: hidden;
   }
 
 
-  /* =====================================================
-     PRODUCT BUTTONS
-     ===================================================== */
+  /* =========================================================
+     PRODUCT IMAGE
+     ========================================================= */
 
-  .home-page .card-body > .card-name-price:last-child {
-    display: flex;
+  /*
+     Square image area.
 
+     object-fit: contain ensures the COMPLETE product image
+     remains visible instead of being cropped.
+  */
+
+  .homepage-page .products-section .card-image-wrapper {
     width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    overflow: hidden;
+    background: #f1f5f9;
+  }
 
-    gap: 4px;
+  .homepage-page .products-section .card-img-top {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+    object-position: center;
+    background: #f1f5f9;
+    transition: transform 0.45s ease;
   }
 
 
-  .home-page .card-body > .card-name-price:last-child button {
-    flex: 1;
-
-    width: auto !important;
-
-    min-height: 34px;
-
-    padding: 4px 3px;
-
-    margin: 0 !important;
-
-    font-size: 10px;
+  /* Keep your image overlay */
+  .homepage-page
+    .products-section
+    .card-image-wrapper::before {
+    width: 100%;
+    height: 100%;
   }
 
-
-  .home-page .card-body > .card-name-price:last-child .cartBtn {
-    flex: 0 0 35px;
-
-    max-width: 35px;
+  /* ---------------------------------------------------------
+     Disable image zoom on touch
+     --------------------------------------------------------- */
+  .homepage-page .productBox:hover {
+    transform: none;
   }
 
-
-  /* =====================================================
-     DISABLE HOVER IMAGE ZOOM ON MOBILE
-     ===================================================== */
-
-  .home-page .card img:hover {
+  .homepage-page .productBox:hover .card-img-top {
     transform: none;
   }
 
 
-  /* =====================================================
+  /* =========================================================
+     CARD BODY
+     ========================================================= */
+  .homepage-page .productBox .card-body {
+    min-height: auto;
+    padding: 15px !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  /* =========================================================
+     PRODUCT NAME + PRICE
+     ========================================================= */
+  .homepage-page .productBox .card-name-price {
+    width: 100%;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .homepage-page .productBox .card-name {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .homepage-page .productBox .card-price {
+    font-size: 0.92rem;
+    line-height: 1.3;
+  }
+
+
+  /* =========================================================
+     REVIEW
+     ========================================================= */
+  .homepage-page .productBox .review-summary {
+    margin-top: 9px;
+  }
+
+
+  /* =========================================================
+     DESCRIPTION
+     ========================================================= */
+  .homepage-page .products-section .card-text {
+    margin: 9px 0 14px;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    -webkit-line-clamp: 2;
+  }
+
+
+  /* =========================================================
+     PRODUCT BUTTONS
+     ========================================================= */
+  .homepage-page
+    .productBox
+    .card-body
+    > .card-name-price:last-child {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    align-items: stretch;
+    gap: 7px;
+  }
+
+  .homepage-page
+    .productBox
+    .card-body
+    > .card-name-price:last-child
+    button {
+    min-height: 40px;
+    margin: 0 !important;
+    padding: 7px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+
+  .homepage-page
+    .productBox
+    .card-body
+    > .card-name-price:last-child
+    button:first-child {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .homepage-page .productBox .cartBtn {
+    flex: 0 0 48px;
+    width: 48px !important;
+    font-size: 16px !important;
+  }
+
+
+  /* =========================================================
+     OUT OF STOCK
+     ========================================================= */
+  .homepage-page .out-stock {
+    font-size: 0.72rem;
+    white-space: normal;
+    text-align: right;
+  }
+
+
+  /* =========================================================
      LOAD MORE
-     ===================================================== */
-
-  .home-page .m-2.p-3 {
-    margin: 10px 0 !important;
-
-    padding: 10px !important;
-
-    text-align: center;
+     ========================================================= */
+  .homepage-page .HomeLoadMoreContainer {
+    width: 100%;
+    margin: 24px 0 0 !important;
+    padding: 5px !important;
+    display: flex;
+    justify-content: center;
   }
 
-
-  .loadmore {
-    font-size: 17px !important;
+  .homepage-page .Homeloadmore {
+    width: min(100%, 220px);
+    min-width: 0;
+    padding: 10px 18px;
+    font-size: 14px !important;
   }
-
-
-  /* =====================================================
-     LIGHT THEME
-     ===================================================== */
-
-  #light .home-page {
-    background-color: #ffffff;
-  }
-
-  #light .home-page .card {
-    background-color: rgba(128, 128, 128, 0.08);
-  }
-
-  #light .home-page .card-name {
-    color: #242526;
-  }
-
-  #light .home-page .card-text {
-    color: rgb(90, 89, 89);
-  }
-
-  #light .home-page h1 {
-    color: gray;
-  }
-
-
-  /* =====================================================
-     DARK THEME
-     ===================================================== */
-
-  #dark .home-page {
-    background-color: #111111;
-  }
-
-  #dark .home-page .card {
-    background-color: #242424;
-    color: white;
-  }
-
-  #dark .home-page .card-name {
-    color: #ffffff;
-  }
-
-  #dark .home-page .card-text {
-    color: #dddddd;
-  }
-
-  #dark .home-page h1 {
-    color: #ffffff;
-  }
-
-  #dark .home-page .card-price {
-    color: rgb(0, 255, 98);
-  }
-
-  #dark .home-page .filters {
-    background: #181818;
-  }
-
-  #dark .filters h4 {
-    color: #ffffff !important;
-  }
-
-  #dark .categories,
-  #dark .prices {
-    color: #eeeeee;
-  }
-
-  #dark .filterButton {
-    color: #dddddd !important;
-  }
-
-  #dark .home-page .card-image-wrapper::before {
-    background: #00000069;
-  }
-
 }
 
 
 /* =========================================================
-   VERY SMALL PHONES — 400px AND BELOW
+   SMALL PHONES
+   500px
    ========================================================= */
 
-@media (max-width: 400px) {
-
-  .home-page {
-    padding-left: 6px;
-    padding-right: 6px;
-  }
-  .home-page > .filterButton {
-    display: flex !important;
-
-    width: 175px !important;
-
-    height: 38px !important;
-
-    margin: 5px auto 10px auto !important;
-
-    font-size: 14px !important;
+@media (max-width: 500px) {
+  /* ---------------------------------------------------------
+     HERO
+     --------------------------------------------------------- */
+  .homepage-page .mobile-carousel {
+    padding-top: 52px;
   }
 
-  /* Heading */
+  .homepage-page .carousel-item {
+    /*
+       Square-ish hero.
+       Example:
+       390px screen = ~359px hero
+       360px screen = ~331px hero
+    */
 
-  .mobileProducts {
-    font-size: 1.45rem;
-
-    margin-top: 55px !important;
-
-    margin-bottom: 15px !important;
+    height: 75vw;
+    min-height: 0;
+    max-height: 360px;
   }
 
-
-  /* Filter */
-
-  .filterButton {
-    min-width: 170px;
-
-    font-size: 14px;
+  .homepage-page .img1,
+  .homepage-page .img2,
+  .homepage-page .img3 {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center;
   }
 
 
-  /* Two compact cards */
+  /* ---------------------------------------------------------
+     HERO TEXT
+     --------------------------------------------------------- */
+  .homepage-page .img1-heading,
+  .homepage-page .img3-heading {
+    width: 92%;
+    font-size: 2rem;
+    padding: 5px;
+  }
 
-  .home-page .col-md-12 > .d-flex {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    gap: 8px;
+  .homepage-page .img3-heading {
+    top: 40%;
   }
 
 
-  /* Smaller image */
-
-  .home-page .card-img-top {
-  height: 135px !important;
-  object-fit: fill !important;
-  /* background: white; */
-}
-
-
-  /* Smaller body */
-
-  .home-page .card-body {
-    padding: 8px !important;
+  /* ---------------------------------------------------------
+     SALE HERO
+     --------------------------------------------------------- */
+  .homepage-page .detail-box {
+    top: 50%;
+    left: 7%;
+    width: 80% !important;
   }
 
-
-  /* Product name */
-
-  .home-page .card-name {
-    font-size: 0.85rem;
+  .homepage-page .detail-box .heading2 {
+    font-size: 1.75rem;
+    line-height: 1.08;
   }
 
+  .homepage-page .detail-box p {
+    margin-top: 10px;
+    font-size: 0.74rem;
+    line-height: 1.4;
+  }
 
-  /* Price */
+  .homepage-page .detail-box .btn-box {
+    margin-top: 14px;
+  }
 
-  .home-page .card-price {
+  .homepage-page .btn1 {
+    min-width: 110px;
+    padding: 8px 14px;
     font-size: 0.8rem;
   }
 
 
-  /* Description */
-
-  .home-page .card-text {
-    font-size: 0.7rem;
-
-    height: 30px;
+  /* ---------------------------------------------------------
+     PRODUCTS SECTION
+     --------------------------------------------------------- */
+  .homepage-page .products-section {
+    padding: 20px 9px 30px;
   }
 
 
-  /* Buttons */
+  /* ---------------------------------------------------------
+     FILTER
+     --------------------------------------------------------- */
+  .homepage-page .filterButton {
+    width: min(100%, 250px);
+    min-height: 42px;
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
 
-  .home-page .card-body > .card-name-price:last-child button {
-    min-height: 32px;
+  .homepage-page .filters {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
 
+
+  /* ---------------------------------------------------------
+     HEADING
+     --------------------------------------------------------- */
+  .homepage-page .mobileProducts {
+    font-size: 1.5rem;
+    margin-bottom: 20px !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     PRODUCT GRID
+     --------------------------------------------------------- */
+  .homepage-page .products-section .col-md-12 > .d-flex {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 15px !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     PRODUCT CARD
+     --------------------------------------------------------- */
+  .homepage-page .products-section .productBox {
+    width: 100% !important;
+    max-width: 100%;
+    border-radius: 15px 2px 15 2px !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     SQUARE PRODUCT IMAGE
+     --------------------------------------------------------- */
+
+  .homepage-page .products-section .card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: 320px;
+  }
+
+  .homepage-page .products-section .card-img-top {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+  }
+
+
+  /* ---------------------------------------------------------
+     CARD BODY
+     --------------------------------------------------------- */
+  .homepage-page .productBox .card-body {
+    padding: 12px !important;
+  }
+
+  .homepage-page .productBox .card-name {
+    font-size: 0.92rem;
+  }
+
+  .homepage-page .productBox .card-price {
+    font-size: 0.84rem;
+  }
+
+  .homepage-page .productBox .card-text {
+    font-size: 0.74rem;
+    line-height: 1.4;
+    margin-top: 8px;
+    margin-bottom: 11px;
+  }
+
+
+  /* ---------------------------------------------------------
+     BUTTONS
+     --------------------------------------------------------- */
+
+  .homepage-page
+    .productBox
+    .card-body
+    > .card-name-price:last-child {
+    gap: 5px;
+  }
+
+  .homepage-page
+    .productBox
+    .card-body
+    > .card-name-price:last-child
+    button {
+    min-height: 36px;
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+
+  .homepage-page .productBox .cartBtn {
+    flex: 0 0 42px;
+    width: 42px !important;
+    font-size: 14px !important;
+  }
+
+  .homepage-page .out-stock {
+    font-size: 0.65rem;
+  }
+
+
+  /* ---------------------------------------------------------
+     LOAD MORE
+     --------------------------------------------------------- */
+  .homepage-page .HomeLoadMoreContainer {
+    margin-top: 20px !important;
+  }
+
+  .homepage-page .Homeloadmore {
+    width: 100%;
+    max-width: 220px;
+    font-size: 13px !important;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   370px
+   ========================================================= */
+
+@media (max-width: 370px) {
+
+  /* ---------------------------------------------------------
+     HERO
+     --------------------------------------------------------- */
+  .homepage-page .mobile-carousel {
+    padding-top: 50px;
+  }
+
+  .homepage-page .carousel-item {
+    /*
+       Still square.
+       Never use 0fr here.
+    */
+    height: 94vw;
+    min-height: 0;
+    max-height: 350px;
+    width: 70px !important;
+  }
+
+  .homepage-page .img1-heading,
+  .homepage-page .img3-heading {
+    font-size: 1.75rem;
+    width: 92%;
+  }
+
+  /* Sale hero */
+  .homepage-page .detail-box {
+    left: 7%;
+    width: 86%;
+  }
+
+  .homepage-page .detail-box .heading2 {
+    font-size: 1.55rem;
+  }
+
+  .homepage-page .detail-box p {
+    font-size: 0.68rem;
+    line-height: 1.35;
+    margin-top: 8px;
+  }
+
+  .homepage-page .detail-box .btn-box {
+    margin-top: 11px;
+  }
+
+  .homepage-page .btn1 {
+    min-width: 100px;
+    padding: 7px 12px;
+    font-size: 0.72rem;
+  }
+
+
+  /* ---------------------------------------------------------
+     PRODUCTS
+    --------------------------------------------------------- */
+  .homepage-page .products-section {
+    padding: 18px 8px 28px;
+  }
+
+  /* ---------------------------------------------------------
+     FILTER BUTTON
+  --------------------------------------------------------- */
+  .homepage-page .filterButton {
+    width: 100%;
+    max-width: 240px;
+    min-height: 40px;
+    margin-bottom: 18px;
+    font-size: 12px;
+  }
+
+  /* ---------------------------------------------------------
+     HEADING
+     --------------------------------------------------------- */
+  .homepage-page .mobileProducts {
+    font-size: 1.35rem;
+    margin-bottom: 18px !important;
+  }
+
+  /* ---------------------------------------------------------
+     ONE CARD PER ROW
+  --------------------------------------------------------- */
+  .homepage-page .products-section .col-md-12 > .d-flex {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  /* ---------------------------------------------------------
+     CARD
+     --------------------------------------------------------- */
+  .homepage-page .products-section .productBox {
+    width: 100% !important;
+    max-width: 100%;
+    margin: 0 !important;
+    border-radius: 15px 2px 15 2px !important;
+  }
+
+
+  /* ---------------------------------------------------------
+     PRODUCT IMAGE
+     --------------------------------------------------------- */
+
+  .homepage-page .products-section .card-image-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+
+  .homepage-page .products-section .card-img-top {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain;
+  }
+
+
+  /* ---------------------------------------------------------
+     BODY
+     --------------------------------------------------------- */
+  .homepage-page .productBox .card-body {
+    min-height: auto;
+
+    padding: 11px !important;
+  }
+
+  .homepage-page .productBox .card-name {
+    font-size: 0.86rem;
+  }
+
+  .homepage-page .productBox .card-price {
+    font-size: 0.78rem;
+  }
+
+  .homepage-page .productBox .card-text {
+    font-size: 0.69rem;
+    line-height: 1.35;
+    margin: 7px 0 9px;
+  }
+
+
+  /* ---------------------------------------------------------
+     BUTTONS
+     --------------------------------------------------------- */
+  .homepage-page
+    .productBox
+    .card-body
+    > .card-name-price:last-child
+    button {
+    min-height: 34px;
+    padding: 5px 7px;
     font-size: 9px;
   }
 
-
-  .home-page .card-body > .card-name-price:last-child .cartBtn {
-    flex: 0 0 32px;
-
-    max-width: 32px;
+  .homepage-page .productBox .cartBtn {
+    flex: 0 0 38px;
+    width: 38px !important;
+    font-size: 13px !important;
   }
 
-
-  /* Out of stock */
-
-  .out-stock {
-    font-size: 0.62rem;
+  .homepage-page .out-stock {
+    font-size: 0.6rem;
+    white-space: normal;
+    text-align: right;
   }
 }

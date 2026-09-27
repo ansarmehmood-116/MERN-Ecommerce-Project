@@ -1,0 +1,377 @@
+/*navbar-css */
+.navbar {
+  font-family: "Poppins", sans-serif;
+  max-width: 1380px;
+  margin: auto;
+  width: 100%;
+  /* font-weight: 600; */
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: uppercase;
+  box-shadow: 0px 8px 6px -6px gray;
+  --webkit-box-shadow: 0px 8px 6px -6px gray;
+  /* incase our browser donot support above line then add this one. */
+
+  border-bottom: 0px !important;
+  /* as we are overriding existing class so we must add this !important otherwise woun't be effected */
+  z-index: 1030;
+}
+.navbar .container-fluid {
+  min-height: 46px;
+}
+.nav-link {
+  font-weight: 300 !important;
+  white-space: nowrap;
+}
+.active {
+  border-bottom: 2px solid;
+}
+.navbar-brand {
+  font-weight: 700;
+  font-family: "roboto", sans-serif;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   DESKTOP BRAND
+   ========================================================= */
+
+.desktop-brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.desktop-search {
+  margin-right: 10px;
+}
+
+/* =========================================================
+   ___________Catgeories Dropdown in Navbar____________ 
+   ========================================================= */
+.categoriesDropdown {
+  position: relative;
+  overflow: hidden;
+  /* Ensure that the background doesn't overflow */
+  z-index: 0;
+}
+
+.categoriesDropdown::before {
+  content: "";
+  background: #03d5fa60;
+  height: 100%;
+  width: 0;
+  border-radius: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: width 1s;
+}
+.categoriesDropdown:hover::before {
+  width: 100%;
+}
+
+.nav-item .dropdown-menu {
+  max-height: 80vh;
+  /* overflow: auto; Ensure the dropdown can scroll if it exceeds 60vh */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+/* =========================================================
+   CART
+   ========================================================= */
+
+.navbar .cart {
+  margin-right: 3px;
+}
+/* _____________________________________________________________________ */
+
+/* =========================================================
+   DARK MODE
+   Analytics-style palette
+   ========================================================= */
+
+#dark .navbar {
+  background: #171b23 !important;
+  color: #f1f3f5 !important;
+  border-bottom: 1px solid #303846 !important;
+  /* box-shadow: none; */
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+}
+/* The !important declaration in CSS is used to give a style rule higher priority, overriding any other styles that may conflict with it, even if those styles have higher specificity.In this case the tag has its own bootstrap class for bg color thats why i have used !important to override that*/
+
+#dark .nav-link {
+  /* color: whitesmoke !important; */
+    color: #dfe4ea !important;
+}
+
+#dark .navbar .nav-link:hover {
+  color: #f1f3f5 !important;
+}
+#dark .navbar .nav-link.active {
+  color: #4dabf7 !important;
+  border-bottom-color: #4dabf7 !important;
+}
+#dark .navbar-brand {
+  /* color: whitesmoke !important; */
+  color: #f1f3f5 !important;
+}
+
+#dark .cart {
+  /* color: whitesmoke; */
+    color: #f1f3f5 !important;
+}
+/* ________________________________________________________________ */
+
+.mobile-brand {
+  display: none;
+}
+
+/* =========================================================
+   DARK DROPDOWNS
+   ========================================================= */
+
+#dark .navbar .dropdown-menu {
+  background-color: #1b2029 !important;
+  border: 1px solid #303846 !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.30);
+}
+
+#dark .navbar .dropdown-item {
+  color: #dfe4ea !important;
+  background-color: transparent !important;
+}
+
+#dark .navbar .dropdown-item:hover,
+#dark .navbar .dropdown-item:focus {
+  background-color: #202833 !important;
+  color: #f1f3f5 !important;
+}
+
+#dark .navbar .dropdown-item.active {
+  background-color: #263447 !important;
+  color: #4dabf7 !important;
+}
+
+/* =========================================================
+   DARK CATEGORY HOVER
+   ========================================================= */
+
+#dark .categoriesDropdown::before {
+  background: rgba(77, 171, 247, 0.14);
+}
+
+/* =========================================================
+   DARK SEARCH AREA
+   Works with common Bootstrap/SearchInput elements
+   ========================================================= */
+
+#dark .desktop-search input,
+#dark .desktop-search .form-control {
+  background-color: #1b2029 !important;
+  color: #f1f3f5 !important;
+  border-color: #303846 !important;
+}
+
+#dark .desktop-search input::placeholder,
+#dark .desktop-search .form-control::placeholder {
+  color: #aeb7c4 !important;
+}
+
+#dark .desktop-search input:focus,
+#dark .desktop-search .form-control:focus {
+  background-color: #1b2029 !important;
+  color: #f1f3f5 !important;
+  border-color: #4dabf7 !important;
+  box-shadow: 0 0 0 0.15rem rgba(77, 171, 247, 0.15) !important;
+}
+
+/* =========================================================
+   MOBILE / TABLET
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .navbar {
+    font-size: 16px;
+  }
+
+  .navbar .container-fluid {
+    position: relative;
+  }
+
+  .desktop-brand {
+    display: none !important;
+  }
+
+  .mobile-brand {
+    display: block;
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    margin: 0;
+    padding: 0;
+
+    z-index: 2;
+  }
+
+  .mobile-brand .navbar-brand {
+    display: block;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .navbar-toggler {
+    position: relative;
+    z-index: 3;
+
+    margin-left: 0;
+    margin-right: auto;
+
+    border-color: #6c757d;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+
+  .navbar-collapse {
+    width: 100%;
+  }
+
+  .navbar-nav {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 8px;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 9px 10px;
+    border-bottom: none !important;
+  }
+
+  .navbar-nav .nav-link.active {
+    border-left: 3px solid;
+    padding-left: 7px;
+  }
+
+  .desktop-search {
+    width: 100%;
+    margin: 4px 0 8px;
+  }
+
+  .desktop-search > * {
+    width: 100%;
+    max-width: none;
+  }
+
+  .navbar .dropdown-menu {
+    position: static !important;
+    float: none;
+    width: 100%;
+    margin: 4px 0 8px;
+    border-radius: 8px;
+    max-height: 45vh;
+  }
+
+  .user-dropdown-menu {
+    right: auto !important;
+    left: auto !important;
+  }
+
+  #dark .navbar-toggler {
+    border-color: #3b4350 !important;
+  }
+
+  #dark .navbar-toggler-icon {
+    filter: invert(1) !important;
+  }
+
+  #dark .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.15rem rgba(77, 171, 247, 0.15) !important;
+  }
+
+  #dark .navbar-collapse {
+    background-color: #171b23;
+    border-top: 1px solid #303846;
+    margin-top: 8px;
+    padding: 0 4px;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .navbar {
+    font-size: 15px;
+  }
+
+  .navbar .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .mobile-brand .navbar-brand {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .navbar-toggler {
+    padding: 5px 8px;
+  }
+
+  .navbar-toggler-icon {
+    width: 1.25em;
+    height: 1.25em;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  .desktop-search {
+    margin-top: 2px;
+  }
+
+  .navbar .dropdown-menu {
+    max-height: 40vh;
+  }
+}
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .mobile-brand .navbar-brand {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+
+  .navbar-toggler {
+    padding: 4px 6px;
+  }
+}

@@ -1,0 +1,641 @@
+/* =========================================================
+   CREATE PRODUCT PAGE
+   ========================================================= */
+
+.create-product-page {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.create-product-page .dashboard {
+  margin-top: 60px !important;
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 30px;
+}
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.create-product-page .CreateproductsHeading {
+  background-color: skyblue;
+  color: #212529;
+
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px !important;
+
+  border: 1px solid transparent;
+}
+
+.create-product-page .headLine {
+  color: hsla(205, 7%, 36%, 0.906) !important;
+}
+
+/* =========================================================
+   MAIN FORM CARD
+   ========================================================= */
+
+.create-product-page .card {
+  border: 0 !important;
+  overflow: visible;
+
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px !important;
+}
+
+.create-product-page .card-body {
+  width: 100%;
+}
+
+/* =========================================================
+   FORM LABELS
+   ========================================================= */
+
+.create-product-page .form-label {
+  margin-bottom: 7px;
+}
+
+.create-product-page .text-secondary {
+  color: #495057 !important;
+}
+
+/* =========================================================
+   INPUTS / TEXTAREA
+   ========================================================= */
+
+.create-product-page .form-control {
+  min-height: 44px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.create-product-page textarea.form-control {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.create-product-page .form-control:focus {
+  border-color: #4dabf7;
+
+  box-shadow: 0 0 0 0.15rem rgba(77, 171, 247, 0.15);
+}
+
+/* =========================================================
+   ANT DESIGN SELECT
+   ========================================================= */
+
+.create-product-page .ant-select {
+  width: 100%;
+}
+
+.create-product-page .ant-select-selector {
+  min-height: 44px !important;
+
+  display: flex !important;
+  align-items: center !important;
+}
+
+.create-product-page .ant-select-selection-item,
+.create-product-page .ant-select-selection-placeholder {
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================================
+   IMAGE UPLOAD AREA
+   ========================================================= */
+
+.create-product-page .border-dashed {
+  min-height: 145px;
+
+  border-style: dashed !important;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.create-product-page .border-dashed:hover {
+  border-color: #4dabf7 !important;
+}
+
+.create-product-page .cursor-pointer {
+  cursor: pointer;
+}
+
+/* =========================================================
+   IMAGE PREVIEW
+   ========================================================= */
+
+.create-product-page .img-thumbnail {
+  width: 180px;
+  height: 180px;
+
+  object-fit: cover;
+  display: block;
+}
+
+.create-product-page .position-relative.d-inline-block {
+  max-width: 100%;
+}
+
+.create-product-page .position-relative.d-inline-block .btn {
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   CREATE BUTTON
+   ========================================================= */
+
+.create-product-page .create-product-btn {
+  background-color: #0087f6 !important;
+  border-color: #00bfff !important;
+}
+
+.create-product-page .create-product-btn:hover {
+  background-color: #0075d8 !important;
+  border-color: #00a9e6 !important;
+}
+
+.create-product-page .create-product-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   DARK MODE
+   Analytics-style palette
+   ========================================================= */
+
+#dark .create-product-page {
+  background-color: #101318;
+  color: #dfe4ea;
+}
+
+#dark .create-product-page .CreateproductsHeading {
+  background: linear-gradient(
+    135deg,
+    #171b23 0%,
+    #000000 50%,
+    #1d2530 100%
+  ) !important;
+
+  color: #f1f3f5 !important;
+  border: 1px solid #303846 !important;
+
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+}
+
+#dark .create-product-page .headLine {
+  color: #aeb7c4 !important;
+}
+
+/* =========================================================
+   DARK MODE - CARD
+   ========================================================= */
+
+#dark .create-product-page .card {
+  background-color: #171b23 !important;
+  color: #dfe4ea !important;
+
+  border-color: #303846 !important;
+
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* =========================================================
+   DARK MODE - LABELS
+   ========================================================= */
+
+#dark .create-product-page .form-label {
+  color: #c5ccd5 !important;
+}
+
+#dark .create-product-page .text-secondary {
+  color: #c5ccd5 !important;
+}
+
+/* =========================================================
+   DARK MODE - INPUTS
+   ========================================================= */
+
+#dark .create-product-page .form-control {
+  background-color: #1b2029 !important;
+  color: #f1f3f5 !important;
+  border-color: #303846 !important;
+}
+
+#dark .create-product-page .form-control::placeholder {
+  color: #aeb7c4 !important;
+}
+
+#dark .create-product-page .form-control:focus {
+  background-color: #1b2029 !important;
+  color: #f1f3f5 !important;
+
+  border-color: #4dabf7 !important;
+
+  box-shadow: 0 0 0 0.15rem rgba(77, 171, 247, 0.15) !important;
+}
+
+/* =========================================================
+   DARK MODE - ANT SELECT
+   ========================================================= */
+
+#dark .create-product-page .ant-select-selector {
+  background-color: #1b2029 !important;
+  border-color: #303846 !important;
+  color: #f1f3f5 !important;
+}
+
+#dark .create-product-page .ant-select-selection-item {
+  color: #f1f3f5 !important;
+}
+
+#dark .create-product-page .ant-select-selection-placeholder {
+  color: #aeb7c4 !important;
+}
+
+#dark .create-product-page .ant-select-arrow {
+  color: #aeb7c4 !important;
+}
+
+#dark .create-product-page .ant-select-focused .ant-select-selector {
+  border-color: #4dabf7 !important;
+
+  box-shadow: 0 0 0 0.15rem rgba(77, 171, 247, 0.15) !important;
+}
+
+/*
+   Ant Design dropdown is rendered outside
+   the page wrapper, therefore these remain global.
+*/
+
+#dark .ant-select-dropdown {
+  background-color: #1b2029 !important;
+  border: 1px solid #303846 !important;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+#dark .ant-select-item {
+  color: #dfe4ea !important;
+}
+
+#dark .ant-select-item-option-active {
+  background-color: #202833 !important;
+}
+
+#dark .ant-select-item-option-selected {
+  background-color: #263447 !important;
+  color: #f1f3f5 !important;
+}
+
+/* =========================================================
+   DARK MODE - UPLOAD AREA
+   ========================================================= */
+
+#dark .create-product-page .border-dashed {
+  background-color: #1b222c !important;
+  border-color: #303846 !important;
+}
+
+#dark .create-product-page .border-dashed:hover {
+  background-color: #202833 !important;
+  border-color: #4dabf7 !important;
+}
+
+#dark .create-product-page .text-muted {
+  color: #aeb7c4 !important;
+}
+
+/* =========================================================
+   DARK MODE - IMAGE PREVIEW
+   ========================================================= */
+
+#dark .create-product-page .img-thumbnail {
+  background-color: #1b2029 !important;
+  border-color: #303846 !important;
+}
+
+/* =========================================================
+   DARK MODE - CREATE BUTTON
+   ========================================================= */
+
+#dark .create-product-page .create-product-btn {
+  background-color: #1689e8 !important;
+  border-color: #4dabf7 !important;
+  color: #ffffff !important;
+}
+
+#dark .create-product-page .create-product-btn:hover {
+  background-color: #267fd0 !important;
+  border-color: #6cb6ff !important;
+}
+
+/* =========================================================
+   DARK MODE - REMOVE PHOTO BUTTON
+   ========================================================= */
+
+#dark .create-product-page .btn-danger {
+  border-color: #ff6b6b;
+}
+
+/* =========================================================
+   TABLET 768px - 991px
+   ========================================================= */
+@media (max-width: 991.98px) {
+
+  /* ---------- Main Page ----------- */
+  .create-product-page {
+    width: 100% !important;
+    overflow-x: hidden;
+  }
+  .create-product-page .dashboard {
+    width: 100% !important;
+    min-height: calc(100vh - 60px);
+    margin-top: 45px !important;
+    padding: 10px 8px 25px !important;
+    overflow-x: hidden;
+  } 
+
+  /* ---------- Bootstrap Row ------------ */
+  .create-product-page .dashboard > .row {
+    width: 100%;
+    margin: 0 !important;
+    
+  }
+  
+  /* ---------- Admin Menu ----------- */
+  .create-product-page .col-lg-3,
+  .create-product-page .col-md-4 {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 0 15px 0 !important;
+
+  } 
+  
+  /* --------- Main Content ---------- */
+  .create-product-page .col-lg-9,
+  .create-product-page .col-md-8 {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  } 
+  
+  /* ---------- Heading ----------- */
+  .create-product-page .CreateproductsHeading {
+    width: 100% !important;
+    padding: 16px !important;
+    margin: 0 0 18px 0 !important;
+  }
+  .create-product-page .CreateproductsHeading h2 {
+    font-size: 1.5rem;
+    line-height: 1.35;
+  }
+  .create-product-page .CreateproductsHeading .headLine {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  } 
+  
+  /* ----------- Form Card ------------ */
+  .create-product-page .card-body {
+    padding: 24px !important;
+  }
+  .create-product-page .img-thumbnail {
+    width: 170px;
+    height: 170px;
+  }
+} 
+
+/* =========== MOBILE max-width: 767.98px ============ */
+@media (max-width: 767.98px) {
+
+  /* ------ Main Page Same spacing ratio as Create Category ------- */
+  .create-product-page {
+    width: 100% !important;
+    overflow-x: hidden;
+  }
+
+  .create-product-page .dashboard {
+    width: 100% !important;
+    min-height: calc(100vh - 60px);
+    margin-top: 45px !important;
+    padding: 10px 8px 25px !important;
+    overflow-x: hidden;
+  } 
+  
+  /* -------- Bootstrap Row -------- */
+  .create-product-page .dashboard > .row {
+    width: 100%;
+    margin: 0 !important;
+  } 
+
+  /* -------- Admin Menu Full width on mobile -------- */
+  .create-product-page .col-lg-3,
+  .create-product-page .col-md-4 {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 0 15px 0 !important;
+  } 
+
+  /* ---------- Main Content ----------- */
+  .create-product-page .col-lg-9,
+  .create-product-page .col-md-8 {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* ---------- Heading ----------- */
+  .create-product-page .CreateproductsHeading {
+    width: 100% !important;
+    padding: 14px !important;
+    margin: 0 0 18px 0 !important;
+    border-radius: 10px !important;
+  }
+  .create-product-page .CreateproductsHeading h2 {
+    font-size: 1.35rem;
+    line-height: 1.4;
+  }
+  .create-product-page .CreateproductsHeading .headLine {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  } 
+
+  /* ---------- Form Card ---------- */
+  .create-product-page .card-body {
+    padding: 18px !important;
+  }
+  .create-product-page .row.g-3 {
+    --bs-gutter-y: 1rem;
+  } 
+
+  /* ---------Labels ---------- */
+  .create-product-page .form-label {
+    font-size: 0.9rem;
+  } 
+  
+  /* ---------- Inputs ---------- */
+  .create-product-page .form-control {
+    min-height: 42px;
+  }
+  .create-product-page textarea.form-control {
+    /* here we have written both .textarea.form-control without spacing this is because when we applying both classes/wrappers on same element to maintain uniquness not effect other classes*/
+    min-height: 105px;
+  } 
+  
+  /* --------- Upload Area --------- */
+  .create-product-page .border-dashed {
+    min-height: 135px;
+    padding: 18px !important;
+  } 
+  
+  /* --------- Image Preview ---------*/
+  .create-product-page .img-thumbnail {
+    width: 160px;
+    height: 160px;
+  } 
+  
+  /* --------- Submit Button --------- */
+  .create-product-page .col-12.mt-4 {
+    margin-top: 1.25rem !important;
+  }
+  .create-product-page .create-product-btn {
+    width: 100%;
+    justify-content: center;
+  } 
+  
+  /* ---------- Dark Mobile ----------- */
+  #dark .create-product-page {
+    background-color: #101318;
+  }
+  #dark .create-product-page .dashboard {
+    background-color: #101318 !important;
+  }
+  #dark .create-product-page .CreateproductsHeading {
+    background: linear-gradient(135deg, #171b23 0%, #1d2530 100%) !important;
+  }
+} 
+
+/* ============== SMALL MOBILE max-width: 480px ============== */
+@media (max-width: 480px) {
+  .create-product-page .dashboard {
+    margin-top: 50px !important;
+    padding: 8px 6px 20px !important;
+  }
+
+  /* --------- Heading --------- */
+  .create-product-page .CreateproductsHeading {
+    padding: 12px !important;
+    margin-bottom: 16px !important;
+    border-radius: 10px !important;
+  }
+  .create-product-page .CreateproductsHeading h2 {
+    font-size: 1.15rem;
+  }
+  .create-product-page .CreateproductsHeading .headLine {
+    font-size: 0.75rem;
+    line-height: 1.45;
+  } 
+  
+  /* ---------- Card ----------- */
+  .create-product-page .card {
+    border-radius: 10px !important;
+  }
+  .create-product-page .card-body {
+    padding: 14px !important;
+  } 
+  
+  /* ---------- Labels ----------- */
+  .create-product-page .form-label {
+    font-size: 0.85rem;
+  } 
+  
+  /* ---------- Inputs ----------- */
+  .create-product-page .form-control {
+    font-size: 0.9rem !important;
+  }
+  
+  /* ---------- Ant Select ---------- */
+  .create-product-page .ant-select-selector {
+    min-height: 42px !important;
+  } 
+  
+  /* ---------- Upload ----------- */
+  .create-product-page .border-dashed {
+    min-height: 125px;
+    padding: 14px !important;
+  }
+  .create-product-page .border-dashed .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    font-size: 0.85rem;
+  }
+  
+  /* ----------- Image ----------- */
+  .create-product-page .img-thumbnail {
+    width: 145px;
+    height: 145px;
+  }
+  
+  /* ---------- Create Button ----------- */
+  .create-product-page .create-product-btn {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 10px 16px !important;
+  }
+} 
+
+/* =========== VERY SMALL PHONES max-width: 360px =========== */
+@media (max-width: 360px) {
+  .create-product-page .dashboard {
+    padding: 7px 5px 18px !important;
+  }
+  .create-product-page .CreateproductsHeading h2 {
+    font-size: 1.05rem;
+  }
+  .create-product-page .CreateproductsHeading .headLine {
+    font-size: 0.7rem;
+  }
+  .create-product-page .card-body {
+    padding: 12px !important;
+  }
+  .create-product-page .border-dashed {
+    padding: 12px !important;
+  }
+  .create-product-page .border-dashed .btn {
+    font-size: 0.78rem;
+    padding: 8px 10px !important;
+  }
+  .create-product-page .img-thumbnail {
+    width: 130px;
+    height: 130px;
+  }
+  .create-product-page .create-product-btn {
+    font-size: 0.8rem;
+  }
+} 
+
+/* =========== REDUCED MOTION ===========*/
+@media (prefers-reduced-motion: reduce) {
+  .create-product-page .CreateproductsHeading,
+  .create-product-page .btn {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,730 @@
+/* =========================================================
+   ABOUT PAGE
+   Unique wrapper: .about-page
+   Analytics-inspired light/dark design
+   ========================================================= */
+
+.about-page,
+.about-page * {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   ROOT & WRAPPER
+   ========================================================= */
+
+.about-page {
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 60px;
+  padding: 0;
+  background: #f8f9fa;
+  color: #212529;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+.about-page > .container:first-child {
+  width: 100%;
+  max-width: 1400px;
+  padding-top: 42px !important;
+  padding-bottom: 48px !important;
+}
+
+/* Keep columns vertically balanced */
+.about-page .row {
+  --bs-gutter-x: 24px;
+  --bs-gutter-y: 24px;
+}
+
+.about-page .about-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 0;
+}
+
+/* =========================================================
+   MAIN IMAGE
+   ========================================================= */
+
+.about-page .about-main-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 470px;
+  object-fit: cover;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px !important;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.10) !important;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.about-page .about-main-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.15) !important;
+}
+
+/* =========================================================
+   EXPERIENCE BADGE
+   ========================================================= */
+
+.about-page .experience-badge {
+  right: -12px;
+  bottom: 22px;
+  z-index: 2;
+  min-width: 190px;
+  min-height: 82px;
+  padding: 14px 18px !important;
+  background: linear-gradient(
+    135deg,
+    #138781 0%,
+    #0f706b 100%
+  ) !important;
+  border: 3px solid #ffffff;
+  border-radius: 16px !important;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.18) !important;
+}
+
+.about-page .experience-badge .fs-1 {
+  font-size: 34px !important;
+  line-height: 1;
+}
+
+.about-page .badge-text {
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+/* =========================================================
+   ABOUT CONTENT
+   ========================================================= */
+
+.about-page .about-content {
+  width: 100%;
+  max-width: 650px;
+  padding-left: 8px;
+}
+
+.about-page .sub-title {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 1.8px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.about-page .about-content h1 {
+  max-width: 620px;
+  margin-top: 9px !important;
+  margin-bottom: 17px !important;
+  color: #212529;
+  font-size: clamp(30px, 3.2vw, 45px);
+  line-height: 1.13;
+  letter-spacing: -0.7px;
+}
+
+.about-page .about-content .lead {
+  max-width: 620px;
+  margin-bottom: 18px !important;
+  color: #5f6b7a;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.about-page .about-content > p.text-secondary {
+  max-width: 620px;
+  color: #6c757d !important;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   QUICK STATS
+   ========================================================= */
+
+.about-page .stats-grid {
+  margin-top: 22px !important;
+}
+
+.about-page .stats-grid > div {
+  display: flex;
+}
+
+.about-page .stat-card {
+  width: 100%;
+  min-height: 105px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 10px !important;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px !important;
+  box-shadow: 0 5px 16px rgba(15, 23, 42, 0.045);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.about-page .stat-card:hover {
+  transform: translateY(-4px);
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.about-page .stat-card h3 {
+  margin-bottom: 4px !important;
+  color: #4dabf7 !important;
+  font-size: 23px;
+  line-height: 1.2;
+}
+
+.about-page .stat-card p {
+  color: #6c757d !important;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+/* =========================================================
+   WHY US SECTION
+   ========================================================= */
+
+.about-page .why-us-section {
+  width: 100%;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 58px !important;
+  padding-bottom: 65px !important;
+  background: #ffffff !important;
+  border-top: 1px solid #e2e8f0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.about-page .why-us-section > .container {
+  max-width: 1200px;
+}
+
+.about-page .why-us-section .mb-5 {
+  margin-bottom: 38px !important;
+}
+
+.about-page .why-us-section h2 {
+  margin-top: 7px !important;
+  color: #212529;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.about-page .why-us-section .row {
+  --bs-gutter-x: 20px;
+  --bs-gutter-y: 20px;
+}
+
+/* =========================================================
+   FEATURE CARDS
+   ========================================================= */
+
+.about-page .feature-card {
+  width: 100%;
+  min-height: 235px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 27px 24px !important;
+  background: #f8f9fa;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px !important;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.035);
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.about-page .feature-card:hover {
+  transform: translateY(-6px);
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+}
+
+.about-page .feature-icon {
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 17px !important;
+  border-radius: 16px;
+  font-size: 27px;
+  line-height: 1;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.about-page .feature-card:hover .feature-icon {
+  transform: scale(1.06);
+}
+
+.about-page .feature-card h5 {
+  margin-bottom: 9px !important;
+  color: #212529;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.about-page .feature-card p {
+  max-width: 300px;
+  color: #6c757d !important;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   DARK MODE
+   Analytics Palette
+   Trigger: #dark
+   ========================================================= */
+
+#dark .about-page {
+  background: #101318 !important;
+  color: #f1f3f5;
+}
+
+/* =========================================================
+   DARK HERO CONTENT
+   ========================================================= */
+
+#dark .about-page .about-content h1 {
+  color: #f1f3f5 !important;
+}
+
+#dark .about-page .about-content .lead {
+  color: #aeb7c4 !important;
+}
+
+#dark .about-page .about-content > p.text-secondary {
+  color: #8f9aaa !important;
+}
+
+#dark .about-page .sub-title {
+  color: #4dabf7 !important;
+}
+
+/* =========================================================
+   DARK IMAGE
+   ========================================================= */
+
+#dark .about-page .about-main-img {
+  border-color: #303846;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35) !important;
+}
+
+#dark .about-page .about-main-img:hover {
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* =========================================================
+   DARK EXPERIENCE BADGE
+   ========================================================= */
+
+#dark .about-page .experience-badge {
+  border-color: #171b23;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* =========================================================
+   DARK STAT CARDS
+   ========================================================= */
+
+#dark .about-page .stat-card {
+  background: #171b23;
+  border-color: #303846;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+
+#dark .about-page .stat-card:hover {
+  background: #202833;
+  border-color: #3b4655;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+#dark .about-page .stat-card h3 {
+  color: #4dabf7 !important;
+}
+
+#dark .about-page .stat-card p {
+  color: #aeb7c4 !important;
+}
+
+/* =========================================================
+   DARK WHY US SECTION
+   ========================================================= */
+
+#dark .about-page .why-us-section {
+  background: #171b23 !important;
+  border-top-color: #303846 !important;
+  border-bottom-color: #303846 !important;
+}
+
+#dark .about-page .why-us-section h2 {
+  color: #f1f3f5 !important;
+}
+
+/* =========================================================
+   DARK FEATURE CARDS
+   ========================================================= */
+
+#dark .about-page .feature-card {
+  background: #1b2029;
+  border-color: #303846;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+}
+
+#dark .about-page .feature-card:hover {
+  background: #202833;
+  border-color: #3b4655;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+}
+
+#dark .about-page .feature-card h5 {
+  color: #f1f3f5 !important;
+}
+
+#dark .about-page .feature-card p {
+  color: #aeb7c4 !important;
+}
+
+/* =========================================================
+   DARK BOOTSTRAP SUBTLE BACKGROUNDS
+   ========================================================= */
+
+#dark .about-page .bg-primary-subtle {
+  background: rgba(77, 171, 247, 0.12) !important;
+}
+
+#dark .about-page .bg-success-subtle {
+  background: rgba(64, 192, 87, 0.12) !important;
+}
+
+#dark .about-page .bg-warning-subtle {
+  background: rgba(255, 193, 7, 0.12) !important;
+}
+
+#dark .about-page .text-primary {
+  color: #4dabf7 !important;
+}
+
+#dark .about-page .text-success {
+  color: #51cf66 !important;
+}
+
+#dark .about-page .text-warning {
+  color: #ffd43b !important;
+}
+
+#dark .about-page .text-muted,
+#dark .about-page .text-secondary {
+  color: #aeb7c4 !important;
+}
+
+/* =========================================================
+   LARGE TABLET
+   ========================================================= */
+
+@media (max-width: 1199.98px) {
+  .about-page > .container:first-child {
+    padding-top: 35px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .about-page .about-main-img {
+    height: 430px;
+  }
+
+  .about-page .about-content {
+    padding-left: 0;
+  }
+
+  .about-page .about-content h1 {
+    font-size: 38px;
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+  .about-page {
+    margin-top: 58px;
+  }
+
+  .about-page > .container:first-child {
+    padding: 32px 20px 42px !important;
+  }
+
+  .about-page .about-main-img {
+    height: 420px;
+  }
+
+  .about-page .experience-badge {
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .about-page .about-content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .about-page .about-content h1 {
+    max-width: 700px;
+    font-size: 36px;
+  }
+
+  .about-page .about-content .lead,
+  .about-page .about-content > p.text-secondary {
+    max-width: 750px;
+  }
+
+  .about-page .why-us-section {
+    padding-top: 50px !important;
+    padding-bottom: 55px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+  .about-page {
+    margin-top: 56px;
+  }
+
+  .about-page > .container:first-child {
+    padding: 24px 12px 34px !important;
+  }
+
+  .about-page .row {
+    --bs-gutter-x: 12px;
+    --bs-gutter-y: 22px;
+  }
+
+  .about-page .about-main-img {
+    height: 340px;
+    border-radius: 14px !important;
+  }
+
+  .about-page .experience-badge {
+    right: 10px;
+    bottom: 10px;
+    min-width: 165px;
+    min-height: 70px;
+    padding: 11px 14px !important;
+    border-width: 2px;
+    border-radius: 13px !important;
+  }
+
+  .about-page .experience-badge .fs-1 {
+    font-size: 29px !important;
+  }
+
+  .about-page .badge-text {
+    font-size: 11px;
+  }
+
+  .about-page .about-content h1 {
+    margin-top: 7px !important;
+    margin-bottom: 14px !important;
+    font-size: 30px;
+    line-height: 1.16;
+  }
+
+  .about-page .about-content .lead {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .about-page .about-content > p.text-secondary {
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+
+  .about-page .stats-grid {
+    margin-top: 18px !important;
+    --bs-gutter-x: 7px;
+    --bs-gutter-y: 7px;
+  }
+
+  .about-page .stat-card {
+    min-height: 92px;
+    padding: 12px 5px !important;
+    border-radius: 10px !important;
+  }
+
+  .about-page .stat-card h3 {
+    font-size: 20px;
+  }
+
+  .about-page .stat-card p {
+    font-size: 10.5px;
+  }
+
+  .about-page .why-us-section {
+    padding: 43px 12px 48px !important;
+  }
+
+  .about-page .why-us-section .container {
+    padding: 0;
+  }
+
+  .about-page .why-us-section .mb-5 {
+    margin-bottom: 28px !important;
+  }
+
+  .about-page .why-us-section h2 {
+    font-size: 26px;
+  }
+
+  .about-page .why-us-section .row {
+    --bs-gutter-x: 10px;
+    --bs-gutter-y: 12px;
+  }
+
+  .about-page .feature-card {
+    min-height: 205px;
+    padding: 23px 18px !important;
+    border-radius: 14px !important;
+  }
+
+  .about-page .feature-icon {
+    width: 53px;
+    height: 53px;
+    min-width: 53px;
+    margin-bottom: 14px !important;
+    font-size: 24px;
+  }
+
+  .about-page .feature-card h5 {
+    font-size: 16px;
+  }
+
+  .about-page .feature-card p {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+  .about-page > .container:first-child {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .about-page .about-main-img {
+    height: 300px;
+    border-radius: 12px !important;
+  }
+
+  .about-page .about-content h1 {
+    font-size: 27px;
+  }
+
+  .about-page .about-content .lead {
+    font-size: 14px;
+  }
+
+  .about-page .about-content > p.text-secondary {
+    font-size: 13px;
+  }
+
+  .about-page .stat-card {
+    min-height: 88px;
+    padding: 10px 4px !important;
+  }
+
+  .about-page .stat-card h3 {
+    font-size: 18px;
+  }
+
+  .about-page .stat-card p {
+    font-size: 9.5px;
+  }
+
+  .about-page .why-us-section {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .about-page .feature-card {
+    min-height: 190px;
+    padding: 20px 15px !important;
+  }
+}
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 379.98px) {
+  .about-page > .container:first-child {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .about-page .about-main-img {
+    height: 270px;
+  }
+
+  .about-page .experience-badge {
+    min-width: 145px;
+    padding: 9px 11px !important;
+  }
+
+  .about-page .experience-badge .fs-1 {
+    font-size: 25px !important;
+  }
+
+  .about-page .badge-text {
+    font-size: 10px;
+  }
+
+  .about-page .about-content h1 {
+    font-size: 24px;
+  }
+
+  .about-page .stats-grid {
+    --bs-gutter-x: 4px;
+  }
+
+  .about-page .stat-card {
+    min-height: 82px;
+  }
+
+  .about-page .stat-card h3 {
+    font-size: 16px;
+  }
+
+  .about-page .stat-card p {
+    font-size: 8.5px;
+  }
+}

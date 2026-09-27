@@ -7,12 +7,14 @@ import toast from "react-hot-toast";
 import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
-import { Badge } from "antd"; //it is very best in antd design see for details ant design
+import { Badge } from "antd"; //it is very best in ant-design see details ant design
 //use for notification view
 import { useTheme } from "../../context/themeContext";
 import SizeContext from "antd/es/config-provider/SizeContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "./LayoutStyles/Header.css";
+
 
 const Header = () => {
   const [theme] = useTheme();
@@ -120,19 +122,20 @@ const Header = () => {
                   Categories
                 </Link>
                 <ul className="dropdown-menu">
-                  <li>
+                  <li className="px-2">
                     <Link
-                      className="dropdown-item categoriesDropdown"
+                      className="dropdown-item categoriesDropdown rounded-2"
                       to={"/categories"}
+                      /*here the /categories are above imported hook i.e useCategory hook from hooks folder */
                     >
-                      {/*here the /categories are above imported hook i.e useCategory hook from hooks folder */}
                       All Categories
                     </Link>
                   </li>
+
                   {categories?.map((c) => (
-                    <li>
+                    <li key={c._id || c.slug} className="px-2">
                       <Link
-                        className="dropdown-item categoriesDropdown"
+                        className="dropdown-item categoriesDropdown rounded-2"
                         to={`/category/${c.slug}`}
                       >
                         {c.name}
@@ -160,7 +163,7 @@ const Header = () => {
                 <>
                   <li className="nav-item dropdown">
                     <NavLink
-                      className="nav-link dropdown-toggle"
+                      className="nav-link dropdown-toggle user-nav-link"
                       role="button"
                       data-bs-toggle="dropdown"
                       // aria-expanded="false"
@@ -168,22 +171,22 @@ const Header = () => {
                     >
                       {auth?.user?.name}
                     </NavLink>
-                    <ul className="dropdown-menu">
-                      <li>
+                    <ul className="dropdown-menu" style={{ right: "-57px", left: "auto" }}>
+                      <li className="px-2 rounded-2">
                         <NavLink
                           to={`/dashboard/${
                             auth?.user?.role === 1 ? "admin" : "user"
                           }`}
-                          className="dropdown-item"
+                          className="dropdown-item rounded-2"
                         >
                           Dashboard
                         </NavLink>
                       </li>
-                      <li className="nav-item">
+                      <li className="nav-item px-2 rounded-2">
                         <NavLink
                           onClick={handleLogout}
                           to="/login"
-                          className="dropdown-item"
+                          className="dropdown-item rounded-2"
                         >
                           Logout
                         </NavLink>

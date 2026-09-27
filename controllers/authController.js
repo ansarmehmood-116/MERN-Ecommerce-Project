@@ -1,5 +1,5 @@
 import userModel from "../models/userModel.js";
-import orderModel from "../models/orderModel.js";
+import productModel from "../models/productModel.js";
 import { comparePassword, hashPassword } from "../helpers/authHelpers.js";
 import JWT from "jsonwebtoken";
 
@@ -34,7 +34,7 @@ export const registerController = async (req, resp) => {
     if (existingUser) {
       return resp.status(200).send({
         success: false,
-        message: "Already Register please login",
+        message: "This email is already Registered, please login to access",
       });
     }
 
@@ -211,83 +211,7 @@ export const updateProfileController = async (req, res) => {
   }
 };
 
-//user orders
-export const getOrdersController = async (req, res) => {
-  try {
-    const orders = await orderModel
-      .find({ buyer: req.user._id })
-      .populate("products", "-photo")
-      .populate("buyer", "name")
-      .sort({ createdAt: -1 });
-    res.json(orders);
-  } catch (error) {
-    console.log(error);
-    res.status(500).send({
-      success: false,
-      message: "Error WHile Geting Orders",
-      error,
-    });
-  }
-};
-
-//All orders //for Admin
-export const getAllOrdersController = async (req, res) => {
-  try {
-    const orders = await orderModel
-      .find({})
-      .populate("products", "-photo")
-      .populate("buyer", "name")
-      .sort({ createdAt: -1 }); //it will show all latest orders
-    res.json(orders);
-  } catch (error) {
-    console.log(error);
-    res.status(500).send({
-      success: false,
-      message: "Error WHile Geting Orders",
-      error,
-    });
-  }
-};
-
-//order status
-export const orderStatusController = async (req, res) => {
-  try {
-    const { orderId } = req.params;
-    const { status } = req.body;
-    const orders = await orderModel.findByIdAndUpdate(
-      orderId,
-      { status },
-      { new: true },
-    );
-    res.json(orders);
-  } catch (error) {
-    console.log(error);
-    res.status(500).send({
-      success: false,
-      message: "Error While Updateing Order",
-      error,
-    });
-  }
-};
-
-// delete order controller for admin
-export const deleteOrderController = async (req, res) => {
-  try {
-    // Delete the order directly without storing it in a variable
-    await orderModel.findByIdAndDelete(req.params.oid);
-    res.status(200).send({
-      success: true,
-      message: "Order deleted successfully",
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).send({
-      success: false,
-      message: "Error while deleting order",
-      error,
-    });
-  }
-};
+//_____________________________________________________________________
 
 // @desc    Get all users
 // @route   GET /api/v1/admin/users
@@ -309,6 +233,7 @@ export const getAllUsers = async (req, res) => {
     res.status(500).json({ success: false, message: "Failed to fetch users" });
   }
 };
+//_____________________________________________________________________
 
 // @desc    Delete a user
 // @route   DELETE /api/v1/admin/user/:id
@@ -328,6 +253,7 @@ export const deleteUser = async (req, res) => {
     res.status(500).json({ success: false, message: "Failed to delete user" });
   }
 };
+//______________________________________________________________________________
 
 export const getAllAdmins = async (req, res) => {
   try {
@@ -341,3 +267,4 @@ export const getAllAdmins = async (req, res) => {
     res.status(500).json({ success: false, message: "Failed to fetch users" });
   }
 };
+//______________________________________________________________________________

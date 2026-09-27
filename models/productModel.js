@@ -35,8 +35,22 @@ const productSchema = new mongoose.Schema(
     shipping: {
       type: Boolean,
     },
+    
+    //for reviewing products
+    averageRating: {
+      type: Number,
+      default: 0,
+      min: 0,
+      max: 5,
+    },
+
+    reviewCount: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export default mongoose.model("Products", productSchema);

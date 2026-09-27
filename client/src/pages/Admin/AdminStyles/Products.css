@@ -1,0 +1,900 @@
+
+/* =========================================================
+   ADMIN PRODUCTS PAGE
+   UNIQUE WRAPPER
+   ========================================================= */
+
+.admin-products-page {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.admin-products-page .dashboard {
+  margin-top: 60px !important;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   ADMIN PRODUCT SEARCH
+   ========================================================= */
+
+.admin-products-page .admin-product-search {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.admin-products-page .productsHeading {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.admin-products-page .headLine {
+  color: hsla(205, 7%, 36%, 0.906) !important;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   PRODUCT LINK
+   ========================================================= */
+
+.admin-products-page .product-link {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+
+/* =========================================================
+   PRODUCT BOX
+   ========================================================= */
+
+.admin-products-page .productBox {
+  transition: 0.25s ease;
+  overflow: hidden;
+}
+
+.admin-products-page .productBox:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
+
+.admin-products-page .card-image-wrapper {
+  overflow: hidden;
+}
+
+.admin-products-page .productBox .card-img-top {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+
+/* =========================================================
+   PRODUCT CARD BODY
+   ========================================================= */
+
+/*
+   JSX mein justifyContent: "Center" inline hai.
+   Isliye !important se body ko top se start karwa rahe hain.
+*/
+
+.admin-products-page .productBox .card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start !important;
+  align-items: stretch;
+  padding: 15px !important;
+}
+
+
+/* =========================================================
+   TITLE + PRICE ROW
+   ========================================================= */
+
+.admin-products-page .productBox .card-name-price {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 0 9px 0;
+}
+
+
+/* Product title */
+
+.admin-products-page .productBox .card-title {
+  margin: 0 !important;
+  padding: 0;
+  min-width: 0;
+  flex: 1 1 auto;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.35;
+
+  color: #212529;
+
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+
+/* Product price */
+.admin-products-page .productBox .card-price {
+  flex: 0 0 auto;
+
+  margin: 0 !important;
+  padding: 0;
+
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+
+  color: #28a745;
+
+  white-space: nowrap;
+}
+
+
+/* Out of stock */
+
+.admin-products-page .productBox .out-stock {
+  color: #dc3545;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   PRODUCT DESCRIPTION
+   ========================================================= */
+
+.admin-products-page .productBox .card-text {
+  width: 100%;
+
+  margin: 0 !important;
+  padding: 0;
+
+  font-size: 0.9rem;
+  line-height: 1.5;
+
+  color: #666;
+
+  text-align: left;
+
+  word-break: break-word;
+  overflow-wrap: anywhere;
+
+  /*
+     Description ko maximum 2 lines rakhta hai.
+     Card body ki spacing stable rahegi.
+  */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SEARCH BAR
+   ========================================================= */
+.admin-products-page .remove-native-x::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.admin-products-page .search-hover-btn {
+  transition: all 0.2s ease-in-out !important;
+}
+
+.admin-products-page .search-hover-btn:hover {
+  background-color: var(--btn-hover-bg) !important;
+  border-color: var(--btn-hover-bg) !important;
+  transform: translateY(-1px);
+}
+
+.admin-products-page .custom-search-bar {
+  transition: all 0.2s ease-in-out;
+}
+
+.admin-products-page .custom-search-bar:focus-within {
+  border-color: #00bfff !important;
+  box-shadow: 0 0 0 0.25rem rgba(0, 191, 255, 0.25) !important;
+}
+
+
+/* =========================================================
+   LOAD MORE
+   ========================================================= */
+ .admin-products-page .ProductLoadMoreContainer{
+  width: 100%;
+  margin: 30px 0 0 !important;
+  padding: 10px !important;
+  display: flex;
+  justify-content: center;
+}
+.admin-products-page .loadmore {
+  /* max-width: 100% !important; */
+  min-width: 180px;
+  padding: 11px 22px;
+  border: 1px solid rgba(3, 191, 227, 0.4);
+  border-radius: 7px;
+  font-size: 16px !important;
+  font-weight: 700;
+  color: #4dabf7;
+  white-space: nowrap;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-products-page .loadmore:hover {
+  transform: translateY(-2px);
+  background-color: #3398ebd6;
+  color: #071419;
+}
+
+/* =========================================================
+   DARK MODE — ANALYTICS STYLE
+   ========================================================= */
+
+#dark .admin-products-page {
+  background-color: #101318;
+  color: #dfe4ea;
+}
+
+#dark .admin-products-page .dashboard {
+  background: #101318;
+}
+
+
+/* =========================================================
+   DARK — HEADING
+   ========================================================= */
+
+#dark .admin-products-page .productsHeading {
+  color: #f1f3f5 !important;
+}
+
+#dark .admin-products-page .headLine {
+  color: #aeb7c4 !important;
+}
+
+
+/* =========================================================
+   DARK — SEARCH CARD
+   ========================================================= */
+
+#dark .admin-products-page .AdminProducts .card.bg-light {
+  background: #171b23 !important;
+  border: 1px solid #303846 !important;
+}
+
+
+/* =========================================================
+   DARK — SEARCH INPUT
+   ========================================================= */
+
+#dark .admin-products-page .custom-search-bar {
+  background: #1b2029 !important;
+  border-color: #303846 !important;
+}
+
+#dark .admin-products-page .custom-search-bar .input-group-text {
+  background: #1b2029 !important;
+  color: #aeb7c4 !important;
+}
+
+#dark .admin-products-page .custom-search-bar .form-control {
+  background: #1b2029 !important;
+  color: #f1f3f5 !important;
+}
+
+#dark .admin-products-page .custom-search-bar .form-control::placeholder {
+  color: #7f8a99 !important;
+}
+
+#dark .admin-products-page .custom-search-bar .btn-link {
+  color: #aeb7c4 !important;
+}
+
+
+/* =========================================================
+   DARK — PRODUCT CARDS
+   ========================================================= */
+
+#dark .admin-products-page .product-link {
+  color: #f1f3f5 !important;
+}
+
+#dark .admin-products-page .productBox {
+  background: #171b23 !important;
+  border: 1px solid #303846 !important;
+  box-shadow: none;
+}
+
+#dark .admin-products-page .productBox:hover {
+  background: #1b2029 !important;
+  border-color: #3b4655 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   DARK — CARD BODY
+   ========================================================= */
+
+#dark .admin-products-page .productBox .card-body {
+  background: #171b23 !important;
+}
+
+
+/* =========================================================
+   DARK — TITLE
+   ========================================================= */
+
+#dark .admin-products-page .productBox .card-title {
+  color: #f1f3f5 !important;
+}
+
+
+/* =========================================================
+   DARK — DESCRIPTION
+   ========================================================= */
+
+#dark .admin-products-page .productBox .card-text {
+  color: #aeb7c4 !important;
+}
+
+
+/* =========================================================
+   DARK — PRICE
+   ========================================================= */
+
+#dark .admin-products-page .productBox .card-price {
+  color: #4dabf7 !important;
+}
+
+
+/* =========================================================
+   DARK — OUT OF STOCK
+   ========================================================= */
+
+#dark .admin-products-page .productBox .out-stock {
+  color: #ff6b6b !important;
+}
+
+
+/* =========================================================
+   DARK — LOAD MORE
+   ========================================================= */
+
+.admin-products-page .loadmore {
+  transition: all 0.2s ease-in-out;
+}
+
+#dark .admin-products-page .loadmore {
+  background: #1b2029 !important;
+  color: #4dabf7 !important;
+  border: 1px solid #303846 !important;
+  /* width: 100% !important; */
+}
+
+#dark .admin-products-page .loadmore:hover {
+  background: #202833 !important;
+  border-color: #4dabf7 !important;
+}
+
+#dark .admin-products-page .NoData{
+  background-color: #202833 !important;
+  margin-left: 30px;
+  margin-right: 30px;
+  border: 1px solid rgb(54, 57, 75) !important;
+
+}
+#dark .admin-products-page p{
+  color: #4dabf7 !important;
+}
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .admin-products-page .dashboard {
+    width: 100% !important;
+    min-height: calc(100vh - 60px);
+
+    margin-top: 45px !important;
+
+    padding: 10px 8px 25px !important;
+
+    overflow-x: hidden;
+  }
+
+
+  /* Main row */
+
+  .admin-products-page .dashboard > .row {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+
+  /* Left Admin Menu */
+
+  .admin-products-page .col-md-3 {
+    width: 25% !important;
+
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+
+  /* Right Products */
+
+  .admin-products-page .AdminProducts {
+    width: 75% !important;
+
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+
+  /* Search Card */
+
+  .admin-products-page .AdminProducts > .card {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+
+  /* Product Cards */
+
+  .admin-products-page .productBox {
+    width: 18rem !important;
+    max-width: 100%;
+  }
+
+
+  /* Product body */
+
+  .admin-products-page .productBox .card-body {
+    padding: 14px !important;
+  }
+
+  .admin-products-page .productBox .card-name-price {
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .admin-products-page .productBox .card-title {
+    font-size: 1rem;
+  }
+
+  .admin-products-page .productBox .card-price {
+    font-size: 0.95rem;
+  }
+
+  .admin-products-page .productBox .card-text {
+    font-size: 0.86rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   LEFT ADMIN MENU
+   RIGHT PRODUCTS
+   -> STACKED
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+  .admin-products-page {
+    width: 100% !important;
+    overflow-x: hidden;
+  }
+
+
+  .admin-products-page .dashboard {
+    width: 100% !important;
+
+    min-height: calc(100vh - 60px);
+
+    margin-top: 45px !important;
+
+    padding: 10px 8px 25px !important;
+
+    overflow-x: hidden;
+  }
+
+
+  .admin-products-page .dashboard > .row {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+
+  /* =====================================================
+     LEFT — ADMIN PANEL
+     ===================================================== */
+
+  .admin-products-page .col-md-3 {
+    width: 100% !important;
+
+    padding: 0 !important;
+
+    margin: 0 0 15px 0 !important;
+  }
+
+
+  /* =====================================================
+     RIGHT — ADMIN PRODUCTS
+     ===================================================== */
+
+  .admin-products-page .AdminProducts {
+    width: 100% !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+  }
+
+
+  /* Heading */
+
+  .admin-products-page .productsHeading {
+    font-size: 1.7rem;
+    margin-bottom: 5px;
+  }
+
+  .admin-products-page .headLine {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+
+  /* =====================================================
+     SEARCH
+     ===================================================== */
+
+  .admin-products-page .AdminProducts > .card {
+    width: 100% !important;
+
+    margin-bottom: 20px !important;
+
+    padding: 10px !important;
+  }
+
+  .admin-products-page .custom-search-bar {
+    min-width: 0;
+  }
+
+  .admin-products-page .custom-search-bar .form-control {
+    min-width: 0;
+    font-size: 0.9rem !important;
+  }
+
+  .admin-products-page .search-hover-btn {
+    padding: 8px 12px !important;
+  }
+
+
+  /* =====================================================
+     PRODUCT CARDS
+     ===================================================== */
+
+  .admin-products-page .productBox {
+    width: 18rem !important;
+    height: 400px !important;
+
+    margin: 6px !important;
+  }
+
+
+  .admin-products-page .card-image-wrapper {
+    height: 200px !important;
+  }
+
+
+  /* =====================================================
+     PRODUCT BODY
+     ===================================================== */
+
+  .admin-products-page .productBox .card-body {
+    padding: 14px !important;
+  }
+
+
+  .admin-products-page .productBox .card-name-price {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 8px;
+
+    margin-bottom: 8px;
+  }
+
+
+  .admin-products-page .productBox .card-title {
+    flex: 1 1 auto;
+    min-width: 0;
+
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+
+  .admin-products-page .productBox .card-price {
+    flex: 0 0 auto;
+
+    font-size: 0.92rem;
+
+    white-space: nowrap;
+  }
+
+
+  .admin-products-page .productBox .card-text {
+    font-size: 0.84rem;
+    line-height: 1.45;
+
+    margin-bottom: 0 !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .admin-products-page .dashboard {
+    margin-top: 50px !important;
+
+    padding: 8px 6px 20px !important;
+  }
+
+
+  .admin-products-page .dashboard > .row {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+
+  /* =====================================================
+     LEFT — ADMIN PANEL
+     ===================================================== */
+
+  .admin-products-page .col-md-3 {
+    width: 100% !important;
+
+    padding: 0 !important;
+
+    margin: 0 0 15px 0 !important;
+  }
+
+
+  /* =====================================================
+     RIGHT — ADMIN PRODUCTS
+     ===================================================== */
+
+  .admin-products-page .AdminProducts {
+    width: 100% !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+  }
+
+
+  /* Heading */
+
+  .admin-products-page .productsHeading {
+    font-size: 1.45rem;
+  }
+
+  .admin-products-page .headLine {
+    font-size: 0.82rem;
+
+    margin-bottom: 12px;
+  }
+
+
+  /* =====================================================
+     SEARCH
+     ===================================================== */
+
+  .admin-products-page .AdminProducts > .card {
+    padding: 8px !important;
+  }
+
+  .admin-products-page .custom-search-bar .form-control {
+    font-size: 0.82rem !important;
+  }
+
+  .admin-products-page .custom-search-bar .input-group-text {
+    padding-left: 10px !important;
+    padding-right: 6px !important;
+  }
+
+  .admin-products-page .search-hover-btn {
+    padding: 7px 10px !important;
+  }
+
+
+  /* =====================================================
+     PRODUCT
+     ===================================================== */
+
+  .admin-products-page .productBox {
+    width: calc(100vw - 35px) !important;
+
+    max-width: 18rem !important;
+
+    height: 380px !important;
+  }
+
+
+  .admin-products-page .card-image-wrapper {
+    height: 190px !important;
+  }
+
+
+  /* =====================================================
+     PRODUCT BODY
+     ===================================================== */
+
+  .admin-products-page .productBox .card-body {
+    padding: 13px !important;
+  }
+
+
+  .admin-products-page .productBox .card-name-price {
+    gap: 7px;
+    margin-bottom: 7px;
+  }
+
+
+  .admin-products-page .productBox .card-title {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+
+  .admin-products-page .productBox .card-price {
+    font-size: 0.88rem;
+  }
+
+
+  .admin-products-page .productBox .card-text {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .admin-products-page .dashboard {
+    padding: 7px 5px 18px !important;
+  }
+
+
+  .admin-products-page .dashboard > .row {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+
+  /* =====================================================
+     LEFT — ADMIN PANEL
+     ===================================================== */
+
+  .admin-products-page .col-md-3 {
+    width: 100% !important;
+
+    padding: 0 !important;
+
+    margin: 0 0 15px 0 !important;
+  }
+
+
+  /* =====================================================
+     RIGHT — ADMIN PRODUCTS
+     ===================================================== */
+
+  .admin-products-page .AdminProducts {
+    width: 100% !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+  }
+
+
+  .admin-products-page .productsHeading {
+    font-size: 1.3rem;
+  }
+
+  .admin-products-page .headLine {
+    font-size: 0.78rem;
+  }
+
+
+  /* Product */
+
+  .admin-products-page .productBox {
+    width: calc(100vw - 25px) !important;
+
+    height: 370px !important;
+  }
+
+
+  .admin-products-page .card-image-wrapper {
+    height: 180px !important;
+  }
+
+
+  /* Product body */
+
+  .admin-products-page .productBox .card-body {
+    padding: 12px !important;
+  }
+
+
+  .admin-products-page .productBox .card-name-price {
+    gap: 6px;
+
+    margin-bottom: 6px;
+  }
+
+
+  .admin-products-page .productBox .card-title {
+    font-size: 0.9rem;
+    line-height: 1.28;
+  }
+
+
+  .admin-products-page .productBox .card-price {
+    font-size: 0.82rem;
+  }
+
+
+  .admin-products-page .productBox .card-text {
+    font-size: 0.76rem;
+    line-height: 1.35;
+  }
+}
+

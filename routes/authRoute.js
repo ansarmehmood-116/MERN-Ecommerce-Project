@@ -1,14 +1,11 @@
 import express from "express";
 import {
-  deleteOrderController,
+  
   deleteUser,
   forgotPasswordController,
   getAllAdmins,
-  getAllOrdersController,
   getAllUsers,
-  getOrdersController,
   loginController,
-  orderStatusController,
   registerController,
   testController,
   updateProfileController,
@@ -55,24 +52,6 @@ router.get('/admin-auth',requireSignIn,isAdmin,(req,resp)=>{
 //update profile
 router.put("/profile", requireSignIn, updateProfileController);
 
-//orders
-router.get("/orders", requireSignIn, getOrdersController);
-
-//all orders
-router.get("/all-orders", requireSignIn, isAdmin, getAllOrdersController);
-
-// order status update
-router.put(
-  "/order-status/:orderId",
-  requireSignIn,
-  isAdmin,
-  orderStatusController
-);
-
-//order delete
-router.delete("/delete-order/:oid",requireSignIn,isAdmin,deleteOrderController)
-export default router;
-
 // Route to get all users (Admin only)
 router.get('/users', requireSignIn,isAdmin, getAllUsers);
 
@@ -81,3 +60,6 @@ router.delete('/user/:id', requireSignIn,isAdmin, deleteUser);
 
 // Route to get all admins (Admin only)
 router.get('/admins', requireSignIn,isAdmin, getAllAdmins);
+
+
+export default router;

@@ -1,0 +1,49 @@
+.favourite-button {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #dee2e6;
+  background: #ffffff;
+  color: #6c757d;
+  border-radius: 50%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 21px;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.favourite-button:hover {
+  color: #dc3545;
+  border-color: #dc3545;
+  transform: translateY(-2px);
+}
+
+.favourite-button.active {
+  color: #dc3545;
+  border-color: #dc3545;
+  background: #fff5f5;
+}
+
+.favourite-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Dark mode */
+
+#dark .favourite-button {
+  background: #111827;
+  border-color: #374151;
+  color: #9ca3af;
+}
+
+#dark .favourite-button:hover,
+#dark .favourite-button.active {
+  color: #ff4d6d;
+  border-color: #ff4d6d;
+  background: #1f2937;
+}

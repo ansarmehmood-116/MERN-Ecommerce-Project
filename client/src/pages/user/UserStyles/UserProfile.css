@@ -1,0 +1,660 @@
+/* =========================================================
+   USER PROFILE PAGE
+   Unique wrapper: .user-profile-page
+   Dashboard class intentionally preserved
+   ========================================================= */
+
+.user-profile-page,
+.user-profile-page * {
+  box-sizing: border-box;
+}
+
+.user-profile-page {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #f8f9fa;
+  color: #212529;
+}
+
+/* =========================================================
+   MAIN DASHBOARD CONTAINER
+   ========================================================= */
+
+.user-profile-page .dashboard {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 60px;
+  /* padding: 0 12px 30px !important; */
+    /* height:auto; */
+}
+
+
+
+/* Prevent Bootstrap columns from creating unwanted overflow */
+.user-profile-page .dashboard > .row > [class*="col-"] {
+  min-width: 0;
+}
+
+/* =========================================================
+   PROFILE CARD
+   ========================================================= */
+
+.user-profile-page .updateContainer {
+  width: 100%;
+  margin: 0 !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================================================
+   PROFILE HEADER / BANNER
+   ========================================================= */
+
+.user-profile-page .dashboardHeading {
+  width: 100%;
+  min-height: 92px;
+  padding: 18px 22px !important;
+  background:linear-gradient(
+      135deg,
+      skyblue 0%,
+      #80c3e7ca 55%,
+      #5bbef38b 100%
+    );
+  color: #172033;
+}
+
+.user-profile-page .dashboardHeading h4 {
+  margin: 0 0 4px !important;
+  font-size: 20px;
+  line-height: 1.25;
+  letter-spacing: 0.3px;
+}
+
+.user-profile-page .dashboardHeading p {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.user-profile-page .dashboardHeading i {
+  font-size: 42px !important;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   FORM BODY
+   ========================================================= */
+
+.user-profile-page .updateContainer .card-body {
+  width: 100%;
+  padding: 24px !important;
+  background: #ffffff !important;
+}
+
+/* Form row */
+.user-profile-page .updateContainer form > .row {
+  margin-left: -7px;
+  margin-right: -7px;
+  --bs-gutter-x: 14px;
+  --bs-gutter-y: 8px;
+}
+
+/* Form columns */
+.user-profile-page .updateContainer form > .row > [class*="col-"] {
+  min-width: 0;
+}
+
+/* =========================================================
+   FORM LABELS
+   ========================================================= */
+
+.user-profile-page .form-label {
+  display: block;
+  margin-bottom: 7px;
+  color: #495057 !important;
+  font-size: 14px;
+  font-weight: 600 !important;
+  line-height: 1.3;
+}
+
+.user-profile-page .form-label .text-muted {
+  color: #868e96 !important;
+  font-weight: 400;
+}
+
+/* =========================================================
+   INPUT GROUP
+   ========================================================= */
+
+.user-profile-page .input-group {
+  width: 100%;
+  min-width: 0;
+}
+
+.user-profile-page .input-group-text {
+  width: 46px;
+  min-width: 46px;
+  justify-content: center;
+  padding: 0;
+  border-color: #dee2e6;
+  background: #f8f9fa !important;
+  color: #6c757d;
+}
+
+.user-profile-page .input-group-text i {
+  font-size: 16px;
+}
+
+/* =========================================================
+   FORM CONTROLS
+   ========================================================= */
+
+.user-profile-page .form-control {
+  min-width: 0;
+  min-height: 44px;
+  border-color: #dee2e6;
+  background: #f8f9fa !important;
+  color: #212529 !important;
+    padding-left: 10px !important;
+  font-size: 14px;
+  box-shadow: none !important;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.user-profile-page .form-control::placeholder {
+  color: #adb5bd;
+  opacity: 1;
+}
+
+.user-profile-page .form-control:focus {
+  border-color: #00bfff;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 0.15rem rgba(0, 191, 255, 0.12) !important;
+}
+
+/* Disabled / read-only email field */
+.user-profile-page .form-control:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+  color: #6c757d !important;
+  background: #e9ecef !important;
+}
+
+/* Disabled input icon */
+.user-profile-page .input-group-text.bg-secondary-subtle {
+  background: #e9ecef !important;
+}
+
+/* =========================================================
+   TEXTAREA
+   ========================================================= */
+.user-profile-page textarea.form-control {
+  min-height: 88px;
+  resize: vertical;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  line-height: 1.5;
+}
+
+.user-profile-page .form-control:focus {
+  border-color: #4dabf7 !important;
+  /* background: #202833 !important; */
+  color: #ffffff !important;
+  outline: none !important;
+  box-shadow:none !important;
+
+}
+.user-profile-page .input-group:focus-within .input-group-text {
+  border-top-color: #4dabf7 !important;
+  border-left-color: #4dabf7 !important;
+  border-bottom-color: #4dabf7 !important;
+}
+
+/* Icon also changes during input focus */
+.user-profile-page .input-group:focus-within .input-group-text i {
+  color: #4dabf7 !important;
+}
+
+/* Keep textarea icon aligned at the top */
+.user-profile-page .input-group:has(textarea) .input-group-text {
+  align-items: flex-start;
+  padding-top: 12px;
+}
+
+/* =========================================================
+   UPDATE BUTTON
+   ========================================================= */
+
+.user-profile-page form > .d-flex {
+  margin-top: 18px !important;
+}
+
+.user-profile-page form > .d-flex .btn {
+  min-height: 44px;
+  padding: 9px 18px !important;
+  border: 1px solid #00bfff !important;
+  border-radius: 8px !important;
+  background: #00bfff !important;
+  color: #ffffff !important;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.user-profile-page form > .d-flex .btn:hover:not(:disabled) {
+  background: #009fe3 !important;
+  border-color: #009fe3 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 191, 255, 0.22) !important;
+}
+
+.user-profile-page form > .d-flex .btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.user-profile-page form > .d-flex .btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+/* =========================================================
+   LOADING SPINNER
+   ========================================================= */
+
+.user-profile-page .spinner-border {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+/* =========================================================
+   DARK MODE
+   Trigger: #dark
+   ========================================================= */
+
+#dark .user-profile-page {
+  background: #101318;
+  color: #f1f3f5;
+}
+
+/* Dashboard background */
+#dark .user-profile-page .dashboard {
+  background: #101318;
+}
+
+/* =========================================================
+   DARK PROFILE CARD
+   ========================================================= */
+
+#dark .user-profile-page .updateContainer {
+  background: #171b23;
+  border-color: #303846 !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   DARK HEADER
+   ========================================================= */
+
+#dark .user-profile-page .dashboardHeading {
+  background: linear-gradient(
+    135deg,
+    #000000 0%,
+    #11161d 55%,
+    #1d2530 100%
+  );
+  border-bottom: 1px solid #303846;
+  color: #f1f3f5;
+}
+
+#dark .user-profile-page .dashboardHeading h4 {
+  color: #f1f3f5;
+}
+
+#dark .user-profile-page .dashboardHeading p {
+  color: #aeb7c4;
+}
+
+#dark .user-profile-page .dashboardHeading i {
+  color: #4dabf7;
+  opacity: 0.55 !important;
+}
+
+/* =========================================================
+   DARK FORM BODY
+   ========================================================= */
+
+#dark .user-profile-page .updateContainer .card-body {
+  background: #171b23 !important;
+}
+
+/* =========================================================
+   DARK LABELS
+   ========================================================= */
+
+#dark .user-profile-page .form-label {
+  color: #d8dee7 !important;
+}
+
+#dark .user-profile-page .form-label .text-muted {
+  color: #8f9aaa !important;
+}
+
+/* =========================================================
+   DARK INPUT GROUP
+   ========================================================= */
+
+#dark .user-profile-page .input-group-text {
+  border-color: #303846;
+  background: #1b2029 !important;
+  color: #aeb7c4;
+}
+
+#dark .user-profile-page .input-group-text i {
+  color: #aeb7c4 !important;
+}
+
+/* =========================================================
+   DARK FORM CONTROLS
+   ========================================================= */
+
+#dark .user-profile-page .form-control {
+  border-color: #303846;
+  background: #1b2029 !important;
+  color: #f1f3f5 !important;
+  padding-left: 10px !important;
+}
+
+#dark .user-profile-page .form-control::placeholder {
+  color: #7f8998;
+}
+
+#dark .user-profile-page .form-control:focus {
+  border-color: #4dabf7 !important;
+  background: #202833 !important;
+  color: #ffffff !important;
+  outline: none !important;
+  box-shadow:none !important;
+
+}
+#dark .user-profile-page .input-group:focus-within .input-group-text {
+  border-top-color: #4dabf7 !important;
+  border-left-color: #4dabf7 !important;
+  border-bottom-color: #4dabf7 !important;
+  border-right-color: #303846 !important;
+  background-color: #4dabf718 !important;
+  box-shadow: 0 0 0 0.15rem rgba(77, 171, 247, 0.14) !important;
+}
+
+/* Icon also changes during input focus */
+#dark .user-profile-page .input-group:focus-within .input-group-text i {
+  color: #4dabf7 !important;
+}
+
+/* Dark disabled email */
+#dark .user-profile-page .form-control:disabled {
+  color: #8f9aaa !important;
+  background: #151a21 !important;
+  border-color: #303846;
+}
+
+#dark .user-profile-page .input-group-text.bg-secondary-subtle {
+  background: #151a21 !important;
+  border-color: #303846;
+}
+
+/* =========================================================
+   DARK TEXTAREA
+   ========================================================= */
+
+#dark .user-profile-page textarea.form-control {
+  background: #1b2029 !important;
+  color: #f1f3f5 !important;
+}
+
+/* =========================================================
+   DARK UPDATE BUTTON
+   ========================================================= */
+
+#dark .user-profile-page form > .d-flex .btn {
+  background: #4dabf7 !important;
+  border-color: #4dabf7 !important;
+  color: #ffffff !important;
+}
+
+#dark .user-profile-page form > .d-flex .btn:hover:not(:disabled) {
+  background: #339af0 !important;
+  border-color: #339af0 !important;
+  box-shadow: 0 4px 14px rgba(77, 171, 247, 0.22) !important;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+  .user-profile-page .dashboard {
+    margin-top: 60px;
+    padding: 0 10px 25px !important;
+  }
+
+  .user-profile-page .dashboard > .row {
+    --bs-gutter-x: 10px;
+    --bs-gutter-y: 12px;
+  }
+
+  /* User menu gets full width before profile content */
+  .user-profile-page .dashboard > .row > .col-lg-3,
+  .user-profile-page .dashboard > .row > .col-lg-9 {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .user-profile-page .updateContainer .card-body {
+    padding: 20px !important;
+  }
+
+  .user-profile-page .dashboardHeading {
+    padding: 17px 20px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+  .user-profile-page .dashboard {
+    margin-top: 61px;
+    padding: 10px 8px 25px !important;
+  }
+
+  .user-profile-page .dashboard > .row {
+    --bs-gutter-x: 6px;
+    --bs-gutter-y: 8px;
+  }
+
+  /* Profile card */
+  .user-profile-page .updateContainer {
+    border-radius: 8px !important;
+  }
+
+  /* Header */
+  .user-profile-page .dashboardHeading {
+    min-height: 82px;
+    padding: 15px 16px !important;
+  }
+
+  .user-profile-page .dashboardHeading h4 {
+    font-size: 18px;
+  }
+
+  .user-profile-page .dashboardHeading p {
+    font-size: 12px;
+  }
+
+  .user-profile-page .dashboardHeading i {
+    font-size: 34px !important;
+  }
+
+  /* Form body */
+  .user-profile-page .updateContainer .card-body {
+    padding: 16px !important;
+  }
+
+  .user-profile-page .updateContainer form > .row {
+    margin-left: -4px;
+    margin-right: -4px;
+    --bs-gutter-x: 8px;
+    --bs-gutter-y: 5px;
+  }
+
+  /* Form fields */
+  .user-profile-page .form-label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .user-profile-page .input-group-text {
+    width: 42px;
+    min-width: 42px;
+  }
+
+  .user-profile-page .form-control {
+    min-height: 42px;
+    font-size: 13px;
+  }
+
+  .user-profile-page textarea.form-control {
+    min-height: 82px;
+  }
+
+  /* Update button */
+  .user-profile-page form > .d-flex {
+    justify-content: stretch !important;
+    margin-top: 14px !important;
+  }
+
+  .user-profile-page form > .d-flex .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 43px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 479.98px) {
+  .user-profile-page .dashboard {
+    margin-top: 62px;
+    padding: 8px 6px 20px !important;
+  }
+
+  .user-profile-page .dashboard > .row {
+    --bs-gutter-x: 4px;
+    --bs-gutter-y: 6px;
+  }
+
+  .user-profile-page .updateContainer {
+    border-radius: 6px !important;
+  }
+
+  .user-profile-page .dashboardHeading {
+    min-height: 76px;
+    padding: 13px 14px !important;
+  }
+
+  .user-profile-page .dashboardHeading h4 {
+    font-size: 16px;
+  }
+
+  .user-profile-page .dashboardHeading p {
+    font-size: 11px;
+  }
+
+  .user-profile-page .dashboardHeading i {
+    font-size: 29px !important;
+  }
+
+  .user-profile-page .updateContainer .card-body {
+    padding: 13px !important;
+  }
+
+  .user-profile-page .updateContainer form > .row {
+    margin-left: -3px;
+    margin-right: -3px;
+    --bs-gutter-x: 6px;
+  }
+
+  .user-profile-page .form-label {
+    font-size: 12.5px;
+  }
+
+  .user-profile-page .input-group-text {
+    width: 39px;
+    min-width: 39px;
+  }
+
+  .user-profile-page .form-control {
+    min-height: 40px;
+    font-size: 12.5px;
+  }
+
+  .user-profile-page .form-control::placeholder {
+    font-size: 12px;
+  }
+
+  .user-profile-page textarea.form-control {
+    min-height: 78px;
+  }
+
+  .user-profile-page form > .d-flex .btn {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 359.98px) {
+  .user-profile-page .dashboard {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .user-profile-page .dashboardHeading {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .user-profile-page .updateContainer .card-body {
+    padding: 11px !important;
+  }
+
+  .user-profile-page .dashboardHeading i {
+    font-size: 25px !important;
+  }
+
+  .user-profile-page .form-control {
+    font-size: 12px;
+  }
+
+  .user-profile-page .form-control::placeholder {
+    font-size: 11px;
+  }
+}

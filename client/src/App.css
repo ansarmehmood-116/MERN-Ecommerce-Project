@@ -1,12 +1,54 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-#dark{
-    background-color: #000000c2;
+#dark {
+  background: #101318;
+  color: #dfe4ea;
 }
-body{
-    /* position: fixed; */
-    min-height: 100vh;
+
+
+/* 1. Page Pull-Down / Pull-Up/rubber-bands Bounce Effect Ko Lock Karein */
+html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* Scroll restoration ko smooth aur functional rakhne ke liye */
+  scroll-behavior: smooth;
+  /* Ye property Chrome, Edge aur Safari mein page drag/bounce ko rokti hai */
+  overscroll-behavior-y: none;
 }
+body {
+  /* min-height: 100vh; */
+  /* height: 100%; */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* Scroll restoration ko smooth aur functional rakhne ke liye */
+  scroll-behavior: smooth;
+}
+
+/* 2. React Root Container Ko Lock Karein */
+#root {
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  overscroll-behavior: contain;
+}
+
+/*flex: 1 0 auto; Ka Asli Matlab Kya Hai?
+ Ye short-hand CSS property hai jo 3 alag-alag Flexbox rules ko milakar banti hai:
+   {flex: [flex-grow] [flex-shrink] [flex-basis]}
+
+1__flex-grow: 1 (Phailna): Iska matlab hai ke <main> container ko jitni bhi khali space (empty space) milegi, wo us poori space ko occupy karke khud ko phaila lega. Is se Footer screen ke sab se niche chala jata hai.
+2__flex-shrink: 0 (Pichakna/Chota hona): Iska matlab hai ke jab screen choti ho ya content barhe, to ye element zabardasti squeeze (pichak) nahi hoga, balki apni normal space barkarar rakhega.
+3__flex-basis: auto (Initial Size): Element ki shuruaati height/width uske andar ke content ke hisab se set hogi.
+__Short me: Jab aap <main> par flex: 1 0 auto; lagate hain, to Header aur Footer ke beech jitni bhi jagah bachti hai, <main> us poori space ko cover kar leta hai. Is wajah se Footer hamesha screen ke bottom par rehta hai aur page kabhi ajeeb tarah se stretch nahi hota! */
+/* _________________________________________________________________________ */

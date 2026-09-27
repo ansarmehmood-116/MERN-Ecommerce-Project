@@ -12,7 +12,14 @@ const Theme = () => {
   return (
     <>
       <div className="Theme-Container">
-          <input type="checkbox" id="darkmode-toggle" className="input" onClick={handleTheme} />
+          <input 
+          type="checkbox" 
+          id="darkmode-toggle" 
+          className="input" 
+          checked={theme === "dark"}
+          onClick={handleTheme} 
+          />
+
           <label htmlFor="darkmode-toggle" className="label">
             <svg
               className="sun"

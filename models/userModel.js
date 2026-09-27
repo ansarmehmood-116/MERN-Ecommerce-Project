@@ -34,7 +34,15 @@ const userSchema=new mongoose.Schema({
     default:0
     // 0 is for false, 1 is for true
     //so here role:0 means it is normal customer while role:1 means it will be Admin
-   }
+   },
+
+   // just added this filed for favourite so user can access everywhere his favourites 14/09/2026
+   favourites: [
+  {
+    type: mongoose.ObjectId,
+    ref: "Products",
+  },
+],
 },{timestamps:true});
 // here timestamps will add the created time for each new user.
 export default mongoose.model('users',userSchema);

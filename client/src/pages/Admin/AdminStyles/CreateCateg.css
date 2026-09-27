@@ -1,0 +1,612 @@
+/* =========================================================
+   CREATE CATEGORY PAGE
+   Fully scoped with unique wrapper
+   ========================================================= */
+.admin-create-category-page {
+  width: 100%;
+  min-width: 0;
+}
+.admin-create-category-page .dashboard {
+  margin-top: 60px !important;
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 30px;
+}
+
+.admin-create-category-page .categoryHeading {
+  background-color: skyblue;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px !important;
+  border: 1px solid transparent;
+   transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.admin-create-category-page .headLine {
+  color: hsla(205, 7%, 36%, 0.906) !important;
+}
+
+/* =========================================================
+   DARK MODE
+   Analytics-style palette
+   ========================================================= */
+#dark .admin-create-category-page{
+    background-color: #101318;
+  }
+
+#dark .admin-create-category-page .categoryHeading {
+  background: linear-gradient(
+    135deg,
+    #171b23 0%,
+    #000000 50%,
+    #1d2530 100%
+  ) !important;
+
+  color: #f1f3f5 !important;
+  border: 1px solid #303846 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+}
+
+#dark .admin-create-category-page .categoryHeading .headLine {
+  color: #aeb7c4 !important;
+}
+
+/* =========================================================
+   DARK MODE - CARDS
+   ========================================================= */
+
+#dark .admin-create-category-page .dashboard .categoryHeading ~ .card {
+  background-color: #171b23 !important;
+  color: #dfe4ea !important;
+  border-color: #303846 !important;
+}
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  .card-title {
+  color: #f1f3f5 !important;
+}
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  .card-header {
+  background-color: transparent !important;
+  color: #f1f3f5 !important;
+}
+
+/* =========================================================
+   DARK MODE - FORM INPUTS
+   ========================================================= */
+
+#dark .admin-create-category-page .dashboard .categoryHeading ~ .card input,
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  .form-control {
+  background-color: #1b2029 !important;
+  color: #f1f3f5 !important;
+  border-color: #303846 !important;
+}
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  input::placeholder,
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  .form-control::placeholder {
+  color: #aeb7c4 !important;
+}
+
+/* Focus state */
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  input:focus,
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  .form-control:focus {
+  background-color: #1b2029 !important;
+  color: #f1f3f5 !important;
+  border-color: #4dabf7 !important;
+  box-shadow: 0 0 0 0.15rem rgba(77, 171, 247, 0.15) !important;
+}
+
+/* =========================================================
+   DARK MODE - TABLE
+   ========================================================= */
+
+#dark .admin-create-category-page .dashboard .categoryHeading ~ .card .table {
+  --bs-table-bg: #171b23;
+  --bs-table-color: #dfe4ea;
+  --bs-table-hover-bg: #1d2530;
+  --bs-table-hover-color: #f1f3f5;
+  --bs-table-border-color: #303846;
+
+  color: #dfe4ea !important;
+}
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  .table-light {
+  --bs-table-bg: #1d232d !important;
+  --bs-table-color: #f1f3f5 !important;
+
+  background-color: #1d232d !important;
+  color: #f1f3f5 !important;
+}
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  .table-light
+  th {
+  background-color: #1d232d !important;
+  color: #aeb7c4 !important;
+  border-color: #3a4350 !important;
+}
+
+#dark .admin-create-category-page .dashboard .categoryHeading ~ .card td {
+  color: #dfe4ea !important;
+  border-color: #303846 !important;
+}
+
+#dark .admin-create-category-page .dashboard .categoryHeading ~ .card th {
+  border-color: #303846 !important;
+}
+
+/* Table hover */
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  tbody
+  tr:hover {
+  background-color: #1d2530 !important;
+}
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  tbody
+  tr:hover
+  td {
+  color: #f1f3f5 !important;
+}
+
+/* =========================================================
+   DARK MODE - SEARCH INPUT
+   ========================================================= */
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  input[placeholder="Search categories..."] {
+  background-color: #1b2029 !important;
+  color: #f1f3f5 !important;
+  border-color: #303846 !important;
+}
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  input[placeholder="Search categories..."]::placeholder {
+  color: #aeb7c4 !important;
+}
+
+/* Search focus */
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  input[placeholder="Search categories..."]:focus {
+  background-color: #1b2029 !important;
+  color: #f1f3f5 !important;
+  border-color: #4dabf7 !important;
+  box-shadow: 0 0 0 0.15rem rgba(77, 171, 247, 0.15) !important;
+}
+
+/* =========================================================
+   DARK MODE - TOTAL BADGE
+   ========================================================= */
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  .badge.bg-primary {
+  background-color: #263447 !important;
+  color: #6cb6ff !important;
+}
+
+/* =========================================================
+   DARK MODE - EDIT / DELETE BUTTONS
+   ========================================================= */
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  .btn-light {
+  background-color: #202833 !important;
+  border-color: #303846 !important;
+}
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  .btn-light:hover {
+  background-color: #263447 !important;
+}
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  .text-primary {
+  color: #4dabf7 !important;
+}
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  .text-danger {
+  color: #ff6b6b !important;
+}
+
+/* =========================================================
+   DARK MODE - NO RESULTS
+   ========================================================= */
+
+#dark
+  .admin-create-category-page
+  .dashboard
+  .categoryHeading
+  ~ .card
+  .text-muted {
+  color: #aeb7c4 !important;
+}
+
+/* =========================================================
+   ANT DESIGN MODAL - DARK MODE
+   Modal is rendered outside the page wrapper,
+   so these selectors intentionally remain global.
+   ========================================================= */
+
+#dark .ant-modal-content {
+  background-color: #171b23 !important;
+  color: #dfe4ea !important;
+}
+
+#dark .ant-modal-header {
+  background-color: #171b23 !important;
+  border-bottom-color: #303846 !important;
+}
+
+#dark .ant-modal-title {
+  color: #f1f3f5 !important;
+}
+
+#dark .ant-modal-close {
+  color: #aeb7c4 !important;
+}
+
+#dark .ant-modal-close:hover {
+  color: #f1f3f5 !important;
+}
+
+#dark .ant-modal-body {
+  color: #dfe4ea !important;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+  /* -------------------------------------------------------
+     Main Page
+     ------------------------------------------------------- */
+
+  .admin-create-category-page {
+    width: 100% !important;
+    overflow-x: hidden;
+  }
+
+  .admin-create-category-page .dashboard {
+    width: 100% !important;
+    min-height: calc(100vh - 60px);
+    margin-top: 45px !important;
+    padding: 10px 8px 25px !important;
+    overflow-x: hidden;
+  }
+
+  /* -------------------------------------------------------
+     Bootstrap Row
+     Remove Bootstrap negative row margins
+     ------------------------------------------------------- */
+
+  .admin-create-category-page .dashboard > .row {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  /* -------------------------------------------------------
+     Admin Menu Column
+     Full width on mobile
+     ------------------------------------------------------- */
+
+  .admin-create-category-page .col-lg-3,
+  .admin-create-category-page .col-md-4 {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 0 15px 0 !important;
+  }
+
+  /* -------------------------------------------------------
+     Main Content Column
+     Full width on mobile
+     ------------------------------------------------------- */
+
+  .admin-create-category-page .col-lg-9,
+  .admin-create-category-page .col-md-8 {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* -------------------------------------------------------
+     Heading
+     ------------------------------------------------------- */
+
+  .admin-create-category-page .categoryHeading {
+    width: 100% !important;
+    padding: 14px !important;
+    margin: 0 0 18px 0 !important;
+  }
+
+  .admin-create-category-page .categoryHeading h2 {
+    font-size: 1.35rem;
+    line-height: 1.4;
+  }
+
+  .admin-create-category-page .categoryHeading .headLine {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  /* -------------------------------------------------------
+     Add Category Card
+     ------------------------------------------------------- */
+
+  .admin-create-category-page .dashboard .card .card-body {
+    padding: 18px !important;
+  }
+
+  .admin-create-category-page .dashboard .card .card-header {
+    padding: 18px !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Search becomes full width */
+  .admin-create-category-page
+  .dashboard
+  .card
+  .card-header > div[style] {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* -------------------------------------------------------
+     Horizontal Table Scroll
+     ------------------------------------------------------- */
+
+  .admin-create-category-page .dashboard .card .table {
+    min-width: 520px;
+  }
+
+  .admin-create-category-page .dashboard .card .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .admin-create-category-page .dashboard .card .table th,
+  .admin-create-category-page .dashboard .card .table td {
+    white-space: nowrap;
+  }
+
+  /* -------------------------------------------------------
+     Buttons
+     ------------------------------------------------------- */
+
+  .admin-create-category-page .dashboard .card .btn {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  /* -------------------------------------------------------
+     Dark Mobile
+     ------------------------------------------------------- */
+
+  #dark .admin-create-category-page {
+    background-color: #101318;
+  }
+
+  #dark .admin-create-category-page .dashboard {
+    background-color: #101318 !important;
+  }
+
+  #dark .admin-create-category-page .categoryHeading {
+    background: linear-gradient(
+      135deg,
+      #171b23 0%,
+      #1d2530 100%
+    ) !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   max-width: 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .admin-create-category-page .dashboard {
+    margin-top: 50px !important;
+    padding: 8px 6px 20px !important;
+  }
+
+  .admin-create-category-page .categoryHeading {
+    padding: 12px !important;
+    margin-bottom: 16px !important;
+    border-radius: 10px !important;
+  }
+
+  .admin-create-category-page .categoryHeading h2 {
+    font-size: 1.15rem;
+  }
+
+  .admin-create-category-page .categoryHeading .headLine {
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+
+  /* Cards */
+  .admin-create-category-page .dashboard .card .card-body {
+    padding: 14px !important;
+  }
+
+  .admin-create-category-page .dashboard .card .card-header {
+    padding: 14px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .admin-create-category-page .dashboard .card .card-title {
+    font-size: 1rem;
+  }
+
+  /* Table buttons */
+  .admin-create-category-page .dashboard .card .table .btn {
+    padding: 6px 9px !important;
+    font-size: 0.78rem;
+  }
+
+  /* Keep actions usable */
+  .admin-create-category-page
+  .dashboard
+  .card
+  .table
+  td.text-end {
+    min-width: 175px;
+  }
+
+  #dark .admin-create-category-page .dashboard .categoryHeading ~ .card {
+    background-color: #171b23 !important;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   max-width: 360px
+   ========================================================= */
+@media (max-width: 360px) {
+  .admin-create-category-page .dashboard {
+    padding: 7px 5px 18px !important;
+  }
+  .admin-create-category-page .categoryHeading h2 {
+    font-size: 1.05rem;
+  }
+  .admin-create-category-page .categoryHeading .headLine {
+    font-size: 0.7rem;
+  }
+  .admin-create-category-page
+  .dashboard
+  .card
+  .card-body,
+  .admin-create-category-page
+  .dashboard
+  .card
+  .card-header {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  /* Hide button text, keep icons */
+  .admin-create-category-page
+  .dashboard
+  .card
+  .table
+  .btn
+  span {
+    display: none;
+  }
+  .admin-create-category-page
+  .dashboard
+  .card
+  .table
+  .btn {
+    padding: 6px 8px !important;
+  }
+  .admin-create-category-page
+  .dashboard
+  .card
+  .table
+  td.text-end {
+    min-width: 95px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .admin-create-category-page .categoryHeading,
+  .admin-create-category-page .btn {
+    transition: none !important;
+  }
+}

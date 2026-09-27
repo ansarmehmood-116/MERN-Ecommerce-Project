@@ -1,0 +1,452 @@
+/* =========================================================
+   ADMIN MENU PAGE
+   All styles are isolated to .admin-menu-page
+   ========================================================= */
+.admin-menu-page {
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================================================
+   MAIN ADMIN MENU
+   ========================================================= */
+.admin-menu-page .dashboard-menu {
+  width: 100%;
+  background-color: #ffffff !important;
+  color: #242526;
+  border-radius: 7px !important;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  /* goto google and search "css box shadows" and you will get 95 best designs */
+  overflow: hidden;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* =========================================================
+   ADMIN PANEL HEADING
+   ========================================================= */
+.admin-menu-page .dashboard-menu h4 {
+  width: 100%;
+  background-color: skyblue;
+  color: #242526;
+  padding: 20px 20px !important;
+  /* border-color: #dee2e6 !important;  for this the inline border bottom is enabled in <h4>*/
+  /* min-height: 62px; */
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease !important;
+}
+
+/* Prevent heading text/icon from causing overflow */
+.admin-menu-page .dashboard-menu h4 > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   MENU OPTIONS
+   ========================================================= */
+.admin-menu-page .panelOption {
+  position: relative;
+  width: 100%;
+  /* min-height: 48px; */
+  /* padding: 11px 14px !important; */
+  background-color: #ffffff !important;
+  color: #242526 !important;
+  border-left: 4px solid transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-decoration: none;
+  overflow: hidden;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Keep icon/text above hover overlay */
+.admin-menu-page .panelOption > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   HOVER ANIMATION
+   ========================================================= */
+.admin-menu-page .panelOption::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #03d5fa60;
+  border-radius: 1px;
+  z-index: 1;
+  transition: width 0.5s ease;
+}
+.admin-menu-page .panelOption:hover::before {
+  width: 100%;
+}
+.admin-menu-page .panelOption:hover {
+  background-color: #f8f9fa !important;
+  color: #242526 !important;
+  border-left-color: #00bfff !important; /* Reserve left border slot */
+}
+
+/* =========================================================
+   ACTIVE LINK
+   ========================================================= */
+
+.admin-menu-page .panelOption.active {
+  background-color: #e6f9ff !important;
+  color: #00bfff !important;
+  font-weight: 600;
+  border-top: 1px solid #dee2e6 !important; /* Keeps removed blue default border */
+  border-right: 1px solid #dee2e6 !important;
+  border-bottom: 1px solid #dee2e6 !important;
+  border-left: 4px solid #00bfff !important; /* Active sky blue accent */
+  outline: none !important; /* Removes default browser blue focus ring */
+  box-shadow: none !important; /* Removes Bootstrap focus glow */
+}
+
+/* Active link should keep text/icon above hover layer */
+.admin-menu-page .panelOption.active > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   FOCUS / CLICK
+   ========================================================= */
+
+.admin-menu-page .panelOption:focus,
+.admin-menu-page .panelOption:focus-visible {
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+.admin-menu-page .panelOption:active {
+  background-color: #e6f9ff !important;
+  color: #00bfff !important;
+  border-left: 4px solid #00bfff !important;
+}
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.admin-menu-page .ant-badge {
+  position: relative;
+  z-index: 3;
+  color: inherit;
+  min-width: 0;
+}
+
+/* Badge text should not break */
+.admin-menu-page .ant-badge-wrapper {
+  min-width: 0;
+}
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+#dark .admin-menu-page .dashboard-menu {
+  background-color: #171b23 !important;
+  color: #f1f3f5 !important;
+  border: 1px solid #303846 !important;
+  box-shadow:
+    rgba(0, 0, 0, 0.3) 0px 14px 28px,
+    rgba(0, 0, 0, 0.25) 0px 10px 10px;
+} 
+
+/* Dark heading */
+#dark .admin-menu-page .dashboard-menu h4 {
+   background: linear-gradient(
+    135deg,
+   #171b23 0%,
+   #000000 50%,
+   #1d2530 100%) !important;
+  color: #f1f3f5 !important;
+  border-color: #303846 !important;
+} 
+
+/* Dark menu options */
+#dark .admin-menu-page .panelOption {
+  background-color: #1b2029 !important;
+  color: #dfe4ea !important;
+  border-color: #303846 !important;
+  border-left-color: transparent !important;
+  /* border-top: none !important; */
+} 
+
+/* Dark hover */
+#dark .admin-menu-page .panelOption:hover {
+  background-color: #202833 !important;
+  color: #f1f3f5 !important;
+  border-left-color: #4dabf7 !important;
+}
+
+/* Keep hover animation compatible with dark palette */
+#dark .admin-menu-page .panelOption::before {
+  background: rgba(77, 171, 247, 0.12);
+}
+
+/* Dark active */
+#dark .admin-menu-page .panelOption.active {
+  background-color: #1d2d45 !important;
+  color: #4dabf7 !important;
+  border-top-color: #303846 !important;
+  border-right-color: #303846 !important;
+  border-bottom-color: #303846 !important;
+  border-left: 4px solid #4dabf7 !important;
+}
+
+/* Dark active click */
+#dark .admin-menu-page .panelOption:active {
+  background-color: #1d2d45 !important;
+  color: #4dabf7 !important;
+  border-left: 4px solid #4dabf7 !important;
+} 
+
+/* Dark focus */
+#dark .admin-menu-page .panelOption:focus,
+#dark .admin-menu-page .panelOption:focus-visible {
+  outline: 0 !important;
+  box-shadow: none !important;
+} 
+
+/* Dark badges */
+#dark .admin-menu-page .ant-badge {
+  color: inherit;
+}
+
+.mobile-brand {
+  display: none;
+}
+
+/* =========================================================
+   TABLET
+   768px - 991px
+   ========================================================= */
+@media (min-width: 768px) and (max-width: 991px) {
+  .admin-menu-page .dashboard-menu {
+    width: 100% !important;
+  }
+  .admin-menu-page .dashboard-menu h4 {
+    min-height: 56px;
+    padding: 12px 10px !important;
+    font-size: 20px !important;
+  }
+  .admin-menu-page .dashboard-menu h4 svg {
+    font-size: 26px !important;
+  }
+  .admin-menu-page .panelOption {
+    min-height: 44px;
+    padding: 10px 12px !important;
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   max-width: 767px
+   ========================================================= */
+@media (max-width: 767px) {
+  .admin-menu-page {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .admin-menu-page .dashboard-menu {
+    width: 100% !important;
+    margin: 0 !important;
+    margin-top: 12px !important;
+    border-radius: 7px !important;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 5px 15px;
+  }
+
+  /* -------------------------------------------------------
+     Heading
+     ------------------------------------------------------- */
+
+  .admin-menu-page .dashboard-menu h4 {
+    width: 100% !important;
+    min-height: 46px;
+    margin: 0 !important;
+    padding: 9px 7px !important;
+    font-size: 16px !important;
+    line-height: 1.2;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .admin-menu-page .dashboard-menu h4 svg {
+    font-size: 22px !important;
+    margin-right: 6px !important;
+    flex-shrink: 0;
+  }
+
+  .admin-menu-page .dashboard-menu h4 > span {
+    padding-right: 20px !important;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* -------------------------------------------------------
+     Menu Items
+     ------------------------------------------------------- */
+
+  .admin-menu-page .panelOption {
+    width: 100% !important;
+    min-height: 40px;
+    padding: 8px 9px !important;
+    font-size: 12px;
+    line-height: 1.25;
+    gap: 7px !important;
+    display: flex !important;
+    align-items: center;
+    text-decoration: none;
+    overflow: hidden;
+  }
+
+  .admin-menu-page .panelOption svg {
+    font-size: 17px !important;
+    flex-shrink: 0;
+  }
+
+  /* Badge container */
+  .admin-menu-page .panelOption .ant-badge {
+    font-size: 12px;
+    max-width: calc(100% - 25px);
+  }
+
+  /* Remove old fixed badge offsets on mobile */
+  .admin-menu-page .panelOption .ant-badge-count {
+    transform: translate(50%, -50%) !important;
+  }
+
+  /* -------------------------------------------------------
+     Dark mobile
+     ------------------------------------------------------- */
+
+  #dark .admin-menu-page .dashboard-menu {
+     background-color: #171b23 !important; 
+     border-color: #303846 !important;
+     box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 15px;
+     }
+
+  #dark .admin-menu-page .dashboard-menu h4 {
+     background: linear-gradient( 135deg, #171b23 0%, #1d2530 100% ) !important; color: #f1f3f5 !important;
+     border-color: #303846 !important;
+     }
+
+ #dark .admin-menu-page .panelOption { 
+  background-color: #1b2029 !important; 
+  color: #dfe4ea !important; 
+  border-color: #303846 !important; 
+  border-left-color: transparent !important; 
+}
+
+  #dark .admin-menu-page .panelOption:hover {
+    background-color: #202833 !important;
+    color: #f1f3f5 !important; 
+    border-left-color: #4dabf7 !important;
+   } 
+   
+   #dark .admin-menu-page .panelOption.active { 
+    background-color: #1d2d45 !important; 
+    color: #4dabf7 !important; 
+    border-left-color: #4dabf7 !important; 
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   max-width: 480px
+   ========================================================= */
+@media (max-width: 480px) {
+  .admin-menu-page .dashboard-menu {
+    border-radius: 6px !important;
+  }
+  .admin-menu-page .dashboard-menu h4 {
+    min-height: 42px;
+    padding: 8px 5px !important;
+    font-size: 14px !important;
+  }
+  .admin-menu-page .dashboard-menu h4 svg {
+    font-size: 19px !important;
+    margin-right: 5px !important;
+  }
+  .admin-menu-page .dashboard-menu h4 > span {
+    padding-right: 15px !important;
+  }
+  .admin-menu-page .panelOption {
+    min-height: 36px;
+    padding: 7px 7px !important;
+    font-size: 11px;
+    gap: 6px !important;
+  }
+  .admin-menu-page .panelOption svg {
+    font-size: 15px !important;
+  }
+  .admin-menu-page .panelOption .ant-badge {
+    font-size: 11px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+   max-width: 360px
+   ========================================================= */
+@media (max-width: 360px) {
+  .admin-menu-page .dashboard-menu h4 {
+    min-height: 39px;
+    padding: 7px 4px !important;
+    font-size: 12px !important;
+  }
+  .admin-menu-page .dashboard-menu h4 svg {
+    font-size: 17px !important;
+    margin-right: 4px !important;
+  }
+  .admin-menu-page .dashboard-menu h4 > span {
+    padding-right: 10px !important;
+  }
+  .admin-menu-page .panelOption {
+    min-height: 33px;
+    padding: 6px 6px !important;
+    font-size: 10px;
+    gap: 5px !important;
+  }
+  .admin-menu-page .panelOption svg {
+    font-size: 14px !important;
+  }
+  .admin-menu-page .panelOption .ant-badge {
+    font-size: 10px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .admin-menu-page .dashboard-menu,
+  .admin-menu-page .panelOption,
+  .admin-menu-page .panelOption::before {
+    transition: none !important;
+  }
+}

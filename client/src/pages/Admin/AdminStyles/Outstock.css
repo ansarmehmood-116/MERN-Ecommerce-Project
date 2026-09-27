@@ -1,0 +1,417 @@
+/* =========================================================
+   OUT OF STOCK PAGE
+   ========================================================= */
+
+.out-stock-page {
+  width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.out-stock-page .dashboard {
+  margin-top: 60px !important;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   PRODUCT CARD
+   ========================================================= */
+
+.out-stock-page .productBox {
+  transition: 0.25s ease;
+  overflow: hidden;
+  border-radius: 18px 5px 18px 5px;
+}
+
+.out-stock-page .productBox:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Inner Bootstrap card */
+.out-stock-page .productBox > .card {
+  height: 100% !important;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Product image */
+.out-stock-page .productBox > .card > .card-img-top {
+  width: 100% !important;
+  height: 260px !important;
+  flex-shrink: 0;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================================
+   CARD BODY
+   ========================================================= */
+.out-stock-page .productBox .card-body {
+  width: 100%;
+  padding: 14px 15px !important;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* =========================================================
+   TITLE + PRICE
+   SAME ROW
+   ========================================================= */
+.out-stock-page .productBox .card-name-price {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Product title */
+.out-stock-page .productBox .card-name-price .card-title {
+  min-width: 0;
+  flex: 1;
+  margin: 0 !important;
+  padding: 0;
+  color: #263238;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Price */
+.out-stock-page .productBox .card-name-price .text-success {
+  flex: 0 0 auto;
+  margin: 0 !important;
+  padding: 0;
+  /* color: #03a9f4 !important; */
+  font-size: 14px;
+  font-weight: 770;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.out-stock-page .productBox .card-text {
+  margin: 10px 0 0 !important;
+  padding: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* =========================================================
+   OUT OF STOCK
+   ========================================================= */
+.out-stock-page .productBox .text-danger {
+  margin: 10px 0 0 !important;
+  padding: 0;
+  color: #dc3545 !important;
+  font-size: 13px;
+  font-weight: 730;
+  line-height: 1.3;
+}
+
+/* =========================================================
+   DARK MODE — ANALYTICS PALETTE
+   ========================================================= */
+
+#dark .out-stock-page {
+  background: #101318;
+}
+
+#dark .out-stock-page .OutStock {
+  color: #f1f3f5 !important;
+}
+
+#dark .out-stock-page .productBox {
+  background: #171b23 !important;
+  border: 1px solid #303846 !important;
+
+  box-shadow: none;
+}
+
+#dark .out-stock-page .productBox:hover {
+  background: #1b2029 !important;
+  border-color: #3b4655 !important;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* Inner card */
+#dark .out-stock-page .productBox > .card {
+  background: #171b23 !important;
+  border: none !important;
+}
+
+/* Image */
+#dark .out-stock-page .productBox > .card > .card-img-top {
+  background: #1b2029;
+}
+
+/* Card body */
+#dark .out-stock-page .productBox .card-body {
+  background: #171b23 !important;
+}
+
+/* Title */
+#dark .out-stock-page .productBox .card-title {
+  color: #f1f3f5 !important;
+}
+
+/* Price */
+#dark .out-stock-page .productBox .card-body .text-success {
+  color: #4dabf7 !important;
+}
+
+/* Description */
+#dark .out-stock-page .productBox .card-text {
+  color: #aeb7c4 !important;
+}
+
+/* Out of stock text */
+#dark .out-stock-page .productBox .text-danger {
+  color: #ff6b6b !important;
+}
+
+/* Loading / empty state */
+#dark .out-stock-page .col-md-9 h4 {
+  color: #aeb7c4 !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+   Same spacing ratio as CreateCategory
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+  .out-stock-page {
+    width: 100% !important;
+    overflow-x: hidden;
+  }
+
+  .out-stock-page .dashboard {
+    width: 100% !important;
+    min-height: calc(100vh - 60px);
+    margin-top: 45px !important;
+    padding: 10px 8px 25px !important;
+    overflow-x: hidden;
+  }
+
+  .out-stock-page .dashboard > .row {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  .out-stock-page .productBox {
+    max-width: calc(100vw - 35px);
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+@media (max-width: 767.98px) {
+  .out-stock-page .dashboard {
+    width: 100% !important;
+    min-height: calc(100vh - 60px);
+    margin-top: 45px !important;
+    padding: 10px 8px 25px !important;
+    overflow-x: hidden;
+  }
+
+  .out-stock-page .dashboard > .row {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  /* Admin menu */
+  .out-stock-page .col-md-3 {
+    width: 100% !important;
+
+    padding: 0 !important;
+
+    margin: 0 0 15px 0 !important;
+  }
+
+  /* Main content */
+  .out-stock-page .col-md-9 {
+    width: 100% !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+  }
+
+  .out-stock-page .OutStock {
+    font-size: 1.7rem;
+
+    margin-bottom: 18px !important;
+  }
+
+  /* =======================================================
+     PRODUCT CARDS
+     ======================================================= */
+
+  .out-stock-page .productBox {
+    width: 18rem !important;
+
+    max-width: calc(100vw - 35px);
+
+    height: 400px !important;
+
+    margin: 6px !important;
+  }
+
+  .out-stock-page .productBox > .card {
+    height: 100% !important;
+  }
+
+  .out-stock-page .productBox > .card > .card-img-top {
+    height: 200px !important;
+  }
+
+  /* Card body */
+  .out-stock-page .productBox .card-body {
+    padding: 13px !important;
+  }
+
+  /* Title + price */
+  .out-stock-page .productBox .card-name-price {
+    gap: 8px;
+  }
+
+  .out-stock-page .productBox .card-name-price .card-title {
+    font-size: 15px;
+
+    line-height: 1.3;
+  }
+
+  .out-stock-page .productBox .card-name-price .text-success {
+    font-size: 13px;
+  }
+
+  /* Description */
+  .out-stock-page .productBox .card-text {
+    margin-top: 9px !important;
+
+    font-size: 12px;
+
+    line-height: 1.45;
+  }
+
+  /* Out of stock */
+  .out-stock-page .productBox .text-danger {
+    margin-top: 10px !important;
+
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .out-stock-page .dashboard {
+    margin-top: 50px !important;
+
+    padding: 8px 6px 20px !important;
+  }
+
+  .out-stock-page .OutStock {
+    font-size: 1.45rem;
+
+    margin-bottom: 15px !important;
+  }
+
+  .out-stock-page .productBox {
+    width: calc(100vw - 35px) !important;
+
+    max-width: 18rem !important;
+
+    height: 380px !important;
+  }
+
+  .out-stock-page .productBox > .card > .card-img-top {
+    height: 190px !important;
+  }
+
+  .out-stock-page .productBox .card-body {
+    padding: 12px !important;
+  }
+
+  .out-stock-page .productBox .card-name-price {
+    gap: 7px;
+  }
+
+  .out-stock-page .productBox .card-name-price .card-title {
+    font-size: 14px;
+  }
+
+  .out-stock-page .productBox .card-name-price .text-success {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .out-stock-page .dashboard {
+    padding: 7px 5px 18px !important;
+  }
+
+  .out-stock-page .OutStock {
+    font-size: 1.3rem;
+  }
+
+  .out-stock-page .productBox {
+    width: calc(100vw - 25px) !important;
+
+    height: 370px !important;
+  }
+
+  .out-stock-page .productBox > .card > .card-img-top {
+    height: 180px !important;
+  }
+
+  .out-stock-page .productBox .card-body {
+    padding: 11px !important;
+  }
+
+  .out-stock-page .productBox .card-name-price .card-title {
+    font-size: 13px;
+  }
+
+  .out-stock-page .productBox .card-name-price .text-success {
+    font-size: 11px;
+  }
+
+  .out-stock-page .productBox .text-danger {
+    margin-top: 9px !important;
+
+    font-size: 11px;
+  }
+}

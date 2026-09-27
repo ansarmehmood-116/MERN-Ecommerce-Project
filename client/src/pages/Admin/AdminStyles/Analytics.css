@@ -1,0 +1,1344 @@
+/* =========================================================
+ANALYTICS PAGE
+Fully scoped to .analytics-page
+========================================================= */
+
+.analytics-page {
+  max-width: 1380px;
+  margin: auto;
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 60px !important;
+  padding-bottom: 30px;
+  background: #f5f7fb;
+  color: #212529;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+LOADING
+========================================================= */
+
+.analytics-loading {
+  /* min-height: 60vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  font-size: 1.2rem;
+  color: #6c757d !important;
+  text-align: center;
+  z-index: 9999;
+}
+
+/* =========================================================
+HEADER
+========================================================= */
+
+.analytics-page .analytics-header {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid #e9ecef;
+  border-radius: 16px;
+  padding: 22px 24px;
+  margin-bottom: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 18px rgba(13, 110, 253, 0.06);
+  min-width: 0;
+}
+
+.analytics-page .analytics-header > div:first-child {
+  min-width: 0;
+  flex: 1;
+}
+
+.analytics-page .analytics-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+  color: #172033;
+  overflow-wrap: anywhere;
+}
+
+.analytics-page .analytics-header p {
+  margin: 6px 0 0;
+  color: #6c757d;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.analytics-page .analytics-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.analytics-page .analytics-actions .form-select {
+  min-width: 160px;
+  border-radius: 8px;
+  color: #212529;
+  background-color: #fff;
+  border-color: #ced4da;
+}
+
+.analytics-page .analytics-actions .btn {
+  border-radius: 8px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* =========================================================
+KPI CARDS
+========================================================= */
+
+.analytics-page .analytics-card {
+  background: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 14px;
+  padding: 20px;
+  min-height: 125px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.045);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  min-width: 0;
+}
+
+.analytics-page .analytics-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 24px rgba(0, 0, 0, 0.08);
+  border-color: #dbe7f7;
+}
+
+.analytics-page .analytics-icon {
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eef5ff;
+  color: #0d6efd;
+  font-size: 22px;
+}
+
+.analytics-page .analytics-card > div:last-child {
+  min-width: 0;
+}
+
+.analytics-page .analytics-card span {
+  display: block;
+  color: #6c757d;
+  font-size: 13px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.analytics-page .analytics-card h3 {
+  margin: 4px 0;
+  font-size: 25px;
+  font-weight: 750;
+  color: #172033;
+  letter-spacing: -0.3px;
+  overflow-wrap: anywhere;
+}
+
+.analytics-page .analytics-card small {
+  color: #198754;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* =========================================================
+COMMON SECTIONS
+========================================================= */
+
+.analytics-page .analytics-section {
+  background: #ffffff;
+  border: 1px solid #edf0f4;
+  border-radius: 14px;
+  padding: 20px;
+
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.045);
+
+  margin-bottom: 20px;
+
+  min-width: 0;
+  overflow: hidden;
+}
+
+.analytics-page .section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  margin-bottom: 20px;
+  min-width: 0;
+}
+
+.analytics-page .section-heading h3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  color: #172033;
+  overflow-wrap: anywhere;
+}
+
+.analytics-page .section-heading span {
+  color: #6c757d;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* =========================================================
+SALES SUMMARY
+========================================================= */
+
+.analytics-page .sales-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 25px;
+}
+
+.analytics-page .sales-summary div {
+  background: #f8fbff;
+  border: 1px solid #e8f0fa;
+  border-radius: 11px;
+  padding: 15px;
+  min-width: 0;
+
+  transition: 0.2s ease;
+}
+
+.analytics-page .sales-summary div:hover {
+  transform: translateY(-2px);
+  border-color: #cfe2ff;
+  background: #f4f9ff;
+}
+
+.analytics-page .sales-summary span {
+  display: block;
+  color: #6c757d;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.analytics-page .sales-summary strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 20px;
+  color: #0d6efd;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+SALES CHART
+========================================================= */
+
+.analytics-page .sales-chart {
+  height: 310px;
+
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+
+  gap: 16px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 15px 8px 5px;
+  min-width: 0;
+}
+
+.analytics-page .chart-column {
+  flex: 0 0 48px;
+  width: 48px;
+  min-width: 48px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.analytics-page .chart-value {
+  font-size: 10px;
+  color: #6c757d;
+  font-weight: 500;
+  margin-bottom: 6px;
+  white-space: nowrap;
+}
+
+.analytics-page .chart-bar-container {
+  height: 220px;
+  width: 32px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.analytics-page .chart-bar {
+  width: 26px;
+  min-height: 3px;
+
+  border-radius: 7px 7px 3px 3px;
+
+  background: linear-gradient(to top, #0d6efd, #4dabf7);
+
+  box-shadow: 0 3px 8px rgba(13, 110, 253, 0.18);
+
+  transition:
+    height 0.3s ease,
+    transform 0.2s ease;
+}
+
+.analytics-page .chart-bar:hover {
+  transform: scaleX(1.08);
+}
+
+.analytics-page .chart-column small {
+  margin-top: 8px;
+  color: #6c757d;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* =========================================================
+ORDER STATUS
+========================================================= */
+
+.analytics-page .status-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.analytics-page .status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  padding: 13px 15px;
+
+  background: #f8f9fa;
+  border: 1px solid #edf0f4;
+  border-radius: 9px;
+
+  transition: 0.2s ease;
+
+  min-width: 0;
+}
+
+.analytics-page .status-item:hover {
+  background: #f1f6fc;
+  transform: translateX(2px);
+}
+
+.analytics-page .status-item span {
+  color: #495057;
+  font-size: 14px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.analytics-page .status-item strong {
+  flex-shrink: 0;
+  font-size: 18px;
+  color: #0d6efd;
+}
+
+.analytics-page .status-item:nth-child(1) strong {
+  color: #fd7e14;
+}
+
+.analytics-page .status-item:nth-child(2) strong,
+.analytics-page .status-item:nth-child(3) strong {
+  color: #0d6efd;
+}
+
+.analytics-page .status-item:nth-child(4) strong {
+  color: #198754;
+}
+
+.analytics-page .status-item:nth-child(5) strong {
+  color: #dc3545;
+}
+
+/* =========================================================
+CUSTOMERS
+========================================================= */
+
+.analytics-page .customer-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.analytics-page .customer-stat {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px;
+
+  background: #f8f9fa;
+  border: 1px solid #edf0f4;
+  border-radius: 9px;
+
+  transition: 0.2s ease;
+}
+
+.analytics-page .customer-stat:hover {
+  background: #f3f8ff;
+  border-color: #dce9f8;
+}
+
+.analytics-page .customer-stat svg {
+  font-size: 17px;
+  color: #0d6efd;
+}
+
+.analytics-page .customer-stat span {
+  color: #495057;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.analytics-page .customer-stat strong {
+  font-size: 18px;
+  color: #0d6efd;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+TABLES
+========================================================= */
+
+.analytics-page .table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.analytics-page .analytics-table {
+  margin-bottom: 0;
+  width: 100%;
+  min-width: 620px;
+}
+
+.analytics-page .analytics-table thead {
+  background: #f8f9fa;
+}
+
+.analytics-page .analytics-table th {
+  font-size: 12px;
+  color: #6c757d;
+
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+
+  white-space: nowrap;
+
+  border-bottom: 1px solid #e9ecef;
+}
+
+.analytics-page .analytics-table td {
+  font-size: 14px;
+  border-color: #f0f1f3;
+  vertical-align: middle;
+}
+
+.analytics-page .analytics-table tbody tr {
+  transition: 0.15s ease;
+}
+
+.analytics-page .analytics-table tbody tr:hover {
+  background: #f8fbff;
+}
+
+.analytics-page .analytics-table td strong {
+  color: #212529;
+  overflow-wrap: anywhere;
+}
+
+.analytics-page .analytics-table .badge {
+  border-radius: 20px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* =========================================================
+INVENTORY
+========================================================= */
+
+.analytics-page .inventory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.analytics-page .inventory-item {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) auto;
+
+  gap: 10px;
+  align-items: center;
+
+  padding: 14px;
+
+  background: #f8f9fa;
+  border: 1px solid #edf0f4;
+  border-radius: 9px;
+
+  transition: 0.2s ease;
+}
+
+.analytics-page .inventory-item:hover {
+  background: #f8fbff;
+}
+
+.analytics-page .inventory-item svg {
+  color: #0d6efd;
+}
+
+.analytics-page .inventory-item span {
+  color: #495057;
+  font-size: 14px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.analytics-page .inventory-item strong {
+  font-size: 18px;
+  color: #198754;
+  flex-shrink: 0;
+}
+
+.analytics-page .inventory-item:nth-child(2) svg,
+.analytics-page .inventory-item:nth-child(2) strong {
+  color: #dc3545;
+}
+
+.analytics-page .inventory-item:nth-child(3) svg,
+.analytics-page .inventory-item:nth-child(3) strong {
+  color: #fd7e14;
+}
+
+/* =========================================================
+PAYMENTS
+========================================================= */
+
+.analytics-page .payment-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.analytics-page .payment-stat {
+  padding: 18px;
+
+  background: #f8f9fa;
+  border: 1px solid #edf0f4;
+  border-radius: 10px;
+
+  text-align: center;
+
+  transition: 0.2s ease;
+
+  min-width: 0;
+}
+
+.analytics-page .payment-stat:hover {
+  transform: translateY(-2px);
+  background: #f8fbff;
+}
+
+.analytics-page .payment-stat svg {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #0d6efd;
+}
+
+.analytics-page .payment-stat span {
+  display: block;
+  color: #6c757d;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.analytics-page .payment-stat strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 20px;
+  color: #0d6efd;
+  overflow-wrap: anywhere;
+}
+
+.analytics-page .payment-stat:nth-child(1) svg,
+.analytics-page .payment-stat:nth-child(1) strong {
+  color: #198754;
+}
+
+.analytics-page .payment-stat:nth-child(2) svg,
+.analytics-page .payment-stat:nth-child(2) strong {
+  color: #dc3545;
+}
+
+.analytics-page .payment-stat:nth-child(3) svg,
+.analytics-page .payment-stat:nth-child(3) strong {
+  color: #0d6efd;
+}
+
+/* =========================================================
+TRAFFIC
+========================================================= */
+
+.analytics-page .traffic-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.analytics-page .traffic-stats div {
+  background: #f8f9fa;
+  border: 1px solid #edf0f4;
+  padding: 15px;
+  border-radius: 9px;
+  text-align: center;
+
+  transition: 0.2s ease;
+
+  min-width: 0;
+}
+
+.analytics-page .traffic-stats div:hover {
+  background: #f1f7ff;
+  border-color: #d9e8fa;
+}
+
+.analytics-page .traffic-stats span {
+  display: block;
+  font-size: 12px;
+  color: #6c757d;
+  overflow-wrap: anywhere;
+}
+
+.analytics-page .traffic-stats strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 20px;
+  color: #0d6efd;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+VISIT CHART
+========================================================= */
+
+.analytics-page .visit-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+
+  max-height: 260px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding-right: 4px;
+}
+
+.analytics-page .visit-row {
+  display: grid;
+  grid-template-columns: 55px minmax(0, 1fr) 40px;
+
+  align-items: center;
+  gap: 8px;
+
+  font-size: 12px;
+
+  min-width: 0;
+}
+
+.analytics-page .visit-row > span {
+  color: #6c757d;
+  white-space: nowrap;
+}
+
+.analytics-page .visit-row strong {
+  text-align: right;
+  color: #198754;
+}
+
+.analytics-page .visit-bar-container {
+  height: 10px;
+  background: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.analytics-page .visit-bar {
+  height: 100%;
+  min-width: 3px;
+
+  background: linear-gradient(90deg, #198754, #5cb85c);
+
+  border-radius: 10px;
+
+  transition: width 0.3s ease;
+}
+
+/* =========================================================
+NO DATA
+========================================================= */
+
+.analytics-page .no-data {
+  padding: 30px;
+  text-align: center;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+/* =========================================================
+SCROLLBARS
+========================================================= */
+
+.analytics-page .sales-chart::-webkit-scrollbar,
+.analytics-page .visit-chart::-webkit-scrollbar,
+.analytics-page .table-responsive::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.analytics-page .sales-chart::-webkit-scrollbar-track,
+.analytics-page .visit-chart::-webkit-scrollbar-track,
+.analytics-page .table-responsive::-webkit-scrollbar-track {
+  background: #f1f3f5;
+  border-radius: 10px;
+}
+
+.analytics-page .sales-chart::-webkit-scrollbar-thumb,
+.analytics-page .visit-chart::-webkit-scrollbar-thumb,
+.analytics-page .table-responsive::-webkit-scrollbar-thumb {
+  background: #ced4da;
+  border-radius: 10px;
+}
+
+.analytics-page .sales-chart::-webkit-scrollbar-thumb:hover,
+.analytics-page .visit-chart::-webkit-scrollbar-thumb:hover,
+.analytics-page .table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #adb5bd;
+}
+
+/* =========================================================
+DARK MODE
+========================================================= */
+
+#dark .analytics-page {
+  background: #101318;
+  color: #dfe4ea !important;
+}
+
+/* Loading */
+#dark .analytics-loading {
+  color: #adb5bd;
+}
+
+/* Header */
+#dark .analytics-page .analytics-header {
+  /*
+!important is required because JSX has:
+style={{ background: "skyblue" }}
+*/
+  background: linear-gradient(
+    135deg,
+    #000000 0%,
+    #171b23 50%,
+    #1d2530 100%
+  ) !important;
+
+  border-color: #303846;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+}
+
+#dark .analytics-page .analytics-header h1 {
+  color: #f1f3f5;
+}
+
+#dark .analytics-page .analytics-header p {
+  color: #aeb7c4;
+}
+
+#dark .analytics-page .analytics-actions .form-select {
+  background-color: #1b2029;
+  color: #f1f3f5;
+  border-color: #3b4350;
+}
+
+#dark .analytics-page .analytics-actions .form-select:focus {
+  background-color: #1b2029;
+  color: #f1f3f5;
+  border-color: #4dabf7;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+#dark .analytics-page .analytics-actions .form-select option {
+  background: #1b2029;
+  color: #f1f3f5;
+}
+
+#dark .analytics-page .analytics-actions .btn-outline-secondary {
+  color: #cbd3dd;
+  border-color: #596273;
+}
+
+#dark .analytics-page .analytics-actions .btn-outline-secondary:hover {
+  background: #596273;
+  color: #ffffff;
+}
+
+/* KPI Cards */
+
+#dark .analytics-page .analytics-card {
+  background: #171b23;
+  border-color: #2d3542;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+#dark .analytics-page .analytics-card:hover {
+  border-color: #3c4a5d;
+  box-shadow: 0 9px 24px rgba(0, 0, 0, 0.35);
+}
+
+#dark .analytics-page .analytics-icon {
+  background: #1d2d45;
+  color: #4dabf7;
+}
+
+#dark .analytics-page .analytics-card span {
+  color: #aeb7c4;
+}
+
+#dark .analytics-page .analytics-card h3 {
+  color: #f1f3f5;
+}
+
+#dark .analytics-page .analytics-card small {
+  color: #5bd08a;
+}
+
+/* Sections */
+
+#dark .analytics-page .analytics-section {
+  background: #171b23;
+  border-color: #2d3542;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+#dark .analytics-page .section-heading h3 {
+  color: #f1f3f5;
+}
+
+#dark .analytics-page .section-heading span {
+  color: #aeb7c4;
+}
+
+/* Sales Summary */
+
+#dark .analytics-page .sales-summary div {
+  background: #1b222c;
+  border-color: #303a49;
+}
+
+#dark .analytics-page .sales-summary div:hover {
+  background: #202a37;
+  border-color: #3b4d63;
+}
+
+#dark .analytics-page .sales-summary span {
+  color: #aeb7c4;
+}
+
+#dark .analytics-page .sales-summary strong {
+  color: #4dabf7;
+}
+
+/* Sales Chart */
+
+#dark .analytics-page .chart-value,
+#dark .analytics-page .chart-column small {
+  color: #9da8b7;
+}
+
+/* Status */
+
+#dark .analytics-page .status-item {
+  background: #1b2029;
+  border-color: #303846;
+}
+
+#dark .analytics-page .status-item:hover {
+  background: #202833;
+}
+
+#dark .analytics-page .status-item span {
+  color: #c5ccd5;
+}
+
+/* Customers */
+
+#dark .analytics-page .customer-stat {
+  background: #1b2029;
+  border-color: #303846;
+}
+
+#dark .analytics-page .customer-stat:hover {
+  background: #202833;
+  border-color: #3a4758;
+}
+
+#dark .analytics-page .customer-stat span {
+  color: #c5ccd5;
+}
+
+#dark .analytics-page .customer-stat svg {
+  color: #4dabf7;
+}
+
+#dark .analytics-page .customer-stat strong {
+  color: #4dabf7;
+}
+
+/* Tables */
+
+#dark .analytics-page .analytics-table {
+  --bs-table-bg: transparent;
+  --bs-table-color: #dfe4ea;
+  --bs-table-border-color: #303846;
+}
+
+#dark .analytics-page .analytics-table thead {
+  background: #1d232d;
+}
+
+#dark .analytics-page .analytics-table th {
+  color: #aeb7c4;
+  border-bottom-color: #3a4350;
+}
+
+#dark .analytics-page .analytics-table td {
+  color: #dfe4ea;
+  border-color: #303846;
+}
+
+#dark .analytics-page .analytics-table td strong {
+  color: #f1f3f5;
+}
+
+#dark .analytics-page .analytics-table tbody tr:hover {
+  background: #1d2530;
+}
+
+#dark .analytics-page .analytics-table .badge {
+  color: #ffffff;
+}
+
+/* Inventory */
+
+#dark .analytics-page .inventory-item {
+  background: #1b2029;
+  border-color: #303846;
+}
+
+#dark .analytics-page .inventory-item:hover {
+  background: #202833;
+}
+
+#dark .analytics-page .inventory-item span {
+  color: #c5ccd5;
+}
+
+#dark .analytics-page .inventory-item svg {
+  color: #4dabf7;
+}
+
+/* Payments */
+
+#dark .analytics-page .payment-stat {
+  background: #1b2029;
+  border-color: #303846;
+}
+
+#dark .analytics-page .payment-stat:hover {
+  background: #202833;
+}
+
+#dark .analytics-page .payment-stat span {
+  color: #aeb7c4;
+}
+
+/* Traffic */
+
+#dark .analytics-page .traffic-stats div {
+  background: #1b2029;
+  border-color: #303846;
+}
+
+#dark .analytics-page .traffic-stats div:hover {
+  background: #202833;
+  border-color: #3a4758;
+}
+
+#dark .analytics-page .traffic-stats span {
+  color: #aeb7c4;
+}
+
+/* Visit Chart */
+
+#dark .analytics-page .visit-row > span {
+  color: #aeb7c4;
+}
+
+#dark .analytics-page .visit-bar-container {
+  background: #303846;
+}
+
+/* No Data */
+
+#dark .analytics-page .no-data {
+  color: #9da8b7;
+}
+
+/* Scrollbars */
+
+#dark .analytics-page .sales-chart::-webkit-scrollbar-track,
+#dark .analytics-page .visit-chart::-webkit-scrollbar-track,
+#dark .analytics-page .table-responsive::-webkit-scrollbar-track {
+  background: #1b2029;
+}
+
+#dark .analytics-page .sales-chart::-webkit-scrollbar-thumb,
+#dark .analytics-page .visit-chart::-webkit-scrollbar-thumb,
+#dark .analytics-page .table-responsive::-webkit-scrollbar-thumb {
+  background: #4a5565;
+}
+
+#dark .analytics-page .sales-chart::-webkit-scrollbar-thumb:hover,
+#dark .analytics-page .visit-chart::-webkit-scrollbar-thumb:hover,
+#dark .analytics-page .table-responsive::-webkit-scrollbar-thumb:hover {
+  background: #647184;
+}
+
+/* =========================================================
+LARGE TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+  .analytics-page .sales-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media (max-width: 992px) {
+  .analytics-page {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .analytics-page .analytics-header {
+    padding: 20px;
+  }
+
+  .analytics-page .payment-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .analytics-page .analytics-section {
+    padding: 18px;
+  }
+}
+
+/* =========================================================
+MOBILE TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+  .analytics-page {
+    margin-top: 55px !important;
+    padding: 12px !important;
+  }
+
+  .analytics-page .analytics-header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .analytics-page .analytics-header h1 {
+    font-size: 24px;
+  }
+
+  .analytics-page .analytics-header p {
+    font-size: 13px;
+  }
+
+  .analytics-page .analytics-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .analytics-page .analytics-actions .form-select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .analytics-page .analytics-actions .btn {
+    width: auto;
+  }
+
+  .analytics-page .analytics-section {
+    padding: 17px;
+  }
+
+  .analytics-page .sales-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .analytics-page .payment-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-page .traffic-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-page .sales-chart {
+    height: 280px;
+    gap: 14px;
+  }
+
+  .analytics-page .chart-bar-container {
+    height: 195px;
+  }
+
+  .analytics-page .analytics-table {
+    min-width: 620px;
+  }
+}
+
+/* =========================================================
+SMALL MOBILE
+========================================================= */
+
+@media (max-width: 576px) {
+  .analytics-page {
+    margin-top: 65px !important;
+    padding: 10px !important;
+  }
+
+  .analytics-page .analytics-header {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .analytics-page .analytics-header h1 {
+    font-size: 21px;
+  }
+
+  .analytics-page .analytics-header p {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .analytics-page .analytics-actions {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .analytics-page .analytics-actions .form-select,
+  .analytics-page .analytics-actions .btn {
+    width: 100%;
+  }
+
+  .analytics-page .analytics-section {
+    padding: 15px;
+    border-radius: 11px;
+  }
+
+  .analytics-page .section-heading {
+    align-items: flex-start;
+  }
+
+  .analytics-page .section-heading h3 {
+    font-size: 17px;
+  }
+
+  .analytics-page .section-heading span {
+    font-size: 11px;
+    white-space: normal;
+    text-align: right;
+  }
+
+  .analytics-page .sales-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-page .analytics-card {
+    min-height: 108px;
+    padding: 17px;
+  }
+
+  .analytics-page .analytics-card h3 {
+    font-size: 21px;
+  }
+
+  .analytics-page .analytics-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  .analytics-page .sales-chart {
+    height: 250px;
+    gap: 12px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .analytics-page .chart-column {
+    flex-basis: 44px;
+    width: 44px;
+    min-width: 44px;
+  }
+
+  .analytics-page .chart-bar-container {
+    height: 170px;
+  }
+
+  .analytics-page .chart-bar {
+    width: 24px;
+  }
+
+  .analytics-page .customer-stat,
+  .analytics-page .inventory-item {
+    padding: 12px;
+  }
+
+  .analytics-page .customer-stat span,
+  .analytics-page .inventory-item span {
+    font-size: 13px;
+  }
+
+  .analytics-page .analytics-table th,
+  .analytics-page .analytics-table td {
+    font-size: 12px;
+  }
+
+  .analytics-page .analytics-table {
+    min-width: 600px;
+  }
+
+  .analytics-page .visit-row {
+    grid-template-columns: 50px minmax(0, 1fr) 35px;
+  }
+}
+
+/* =========================================================
+VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+  .analytics-page {
+    padding: 8px !important;
+  }
+
+  .analytics-page .analytics-header {
+    padding: 14px;
+  }
+
+  .analytics-page .analytics-header h1 {
+    font-size: 19px;
+  }
+
+  .analytics-page .analytics-section {
+    padding: 13px;
+  }
+
+  .analytics-page .analytics-card {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .analytics-page .analytics-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .analytics-page .analytics-card h3 {
+    font-size: 19px;
+  }
+
+  .analytics-page .status-item {
+    padding: 11px 12px;
+  }
+
+  .analytics-page .customer-stat,
+  .analytics-page .inventory-item {
+    grid-template-columns: 26px minmax(0, 1fr) auto;
+    gap: 7px;
+    padding: 11px;
+  }
+
+  .analytics-page .payment-stat {
+    padding: 15px;
+  }
+}
+
+/* =========================================================
+REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .analytics-page *,
+  .analytics-page *::before,
+  .analytics-page *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

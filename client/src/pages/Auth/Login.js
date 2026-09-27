@@ -1,200 +1,234 @@
-import React from "react";
-import { useState } from "react";
-import Layout from "./../../components/Layout/Layout";
+import React, { useState } from "react";
+import Layout from "../../components/Layout/Layout";
 import toast from "react-hot-toast";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import "../../styles/AuthStyles.css";
-//this our own css so we have imported it.
 import { useAuth } from "../../context/auth";
+import { useTheme } from "../../context/themeContext";
+import { Eye, EyeOff, LockKeyhole, Mail, ShieldCheck } from "lucide-react";
+import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const [auth, setAuth] = useAuth();
+  const [theme] = useTheme();
+
   const navigate = useNavigate();
   const location = useLocation();
 
-  //form handle function to evolve each time refresh behavior of form
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(name,email,password,phone,address);
+
     try {
-      const res = await axios.post(
-        // `${process.env.REACT_APP_API}/api/v1/auth/register`, we will use env later as we have already added proxy
-        "/api/v1/auth/login",
-        {
-          email,
-          password,
-        },
-      );
-      if (res && res.data.success) {
-        toast.success(res.data && res.data.message);
+      setLoading(true);
+
+      const res = await axios.post("/api/v1/auth/login", {
+        email,
+        password,
+      });
+
+      if (res && res?.data?.success) {
+        toast.success(res?.data?.message);
+
         setAuth({
           ...auth,
-          user: res.data.user,
-          token: res.data.token,
+          user: res?.data?.user,
+          token: res?.data?.token,
         });
-        localStorage.setItem("auth", JSON.stringify(res.data));
+
+        localStorage.setItem("auth", JSON.stringify(res?.data));
+
         navigate(location.state || "/");
-        //it will check if we were in some page so it will navigate to that page after login
-        //otherwise move to home page.
       } else {
         toast.error(res.data.message);
       }
     } catch (error) {
       console.log(error);
-      toast.error("Please check your email and password and try again");
+
+      toast.error(
+        error?.response?.data?.message ||
+          "Please check your email and password and try again",
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <Layout>
-      <div className="form-container" style={{ minHeight: "90vh" }}>
-        <form onSubmit={handleSubmit}>
-          <h4 className="title">Login Form</h4>
-          <div className="mb-3">
-            {/* <label htmlFor="exampleInputName" className="form-label">
-              Email
-            </label> */}
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="Enter Your Email"
-              required
-              // aria-describedby="emailHelp"
-            />
-            {/* <div id="emailHelp" className="form-text">
-              We'll never share your email with anyone else.
-            </div> */}
+      <div className="login-page">
+        <div className="login-wrapper">
+
+          {/* ================= LEFT SIDE ================= */}
+          <div className="login-showcase">
+            <div className="showcase-overlay"></div>
+
+            <div className="showcase-content">
+              <div className="brand-badge">
+                <span className="brand-dot"></span>
+                Ecommerce App
+              </div>
+
+              <h1>
+                Welcome
+                <br />
+                <span>back.</span>
+              </h1>
+
+              <p>
+                Discover a smarter way to shop. Sign in to continue your
+                journey and access your personalized shopping experience.
+              </p>
+
+              <div className="showcase-features">
+                <div className="showcase-feature">
+                  <div className="feature-icon">
+                    <ShieldCheck size={19} />
+                  </div>
+                  <div>
+                    <strong>Secure Shopping</strong>
+                    <span>Your account is protected</span>
+                  </div>
+                </div>
+
+                <div className="showcase-feature">
+                  <div className="feature-icon">
+                    <LockKeyhole size={19} />
+                  </div>
+                  <div>
+                    <strong>Private & Secure</strong>
+                    <span>Your information stays protected</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="mb-3">
-            {/* <label htmlFor="exampleInputPassword1" className="form-label">
-              Password
-            </label> */}
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Enter Your Password"
-              required
-            />
+
+          {/* ================= LOGIN SIDE ================= */}
+          <div className="login-form-side">
+            <div className="login-card">
+
+              <div className="mobile-brand">
+                <div className="mobile-brand-icon">Y</div>
+                <span>YourStore</span>
+              </div>
+
+              <div className="login-header">
+                <span className="login-eyebrow">WELCOME BACK</span>
+                <h2>Sign in to your account</h2>
+                <p>
+                  Enter your details below to continue.
+                </p>
+              </div>
+
+              <form onSubmit={handleSubmit}>
+
+                {/* EMAIL */}
+                <div className="login-field">
+                  <label htmlFor="login-email">Email Address</label>
+
+                  <div className="input-wrapper">
+                    <Mail className="input-icon" size={19} />
+
+                    <input
+                      type="email"
+                      id="login-email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="you@example.com"
+                      autoComplete="email"
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* PASSWORD */}
+                <div className="login-field">
+                  <div className="password-label-row">
+                    <label htmlFor="login-password">Password</label>
+
+                    <button
+                      type="button"
+                      className="forgot-link"
+                      onClick={() => navigate("/forgot-password")}
+                    >
+                      Forgot password?
+                    </button>
+                  </div>
+
+                  <div className="input-wrapper">
+                    <LockKeyhole className="input-icon" size={19} />
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      id="login-password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Enter your password"
+                      autoComplete="current-password"
+                      required
+                    />
+
+                    <button
+                      type="button"
+                      className="password-toggle"
+                      onClick={() =>
+                        setShowPassword((prev) => !prev)
+                      }
+                      aria-label={
+                        showPassword
+                          ? "Hide password"
+                          : "Show password"
+                      }
+                    >
+                      {showPassword ? (
+                        <EyeOff size={19} />
+                      ) : (
+                        <Eye size={19} />
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                {/* LOGIN BUTTON */}
+                <button
+                  type="submit"
+                  className="login-submit"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <>
+                      <span className="login-spinner"></span>
+                      Signing in...
+                    </>
+                  ) : (
+                    <>
+                      Sign In
+                      <span className="login-arrow">→</span>
+                    </>
+                  )}
+                </button>
+
+              </form>
+
+              <div className="login-divider">
+                <span>Secure authentication</span>
+              </div>
+
+              <p className="login-footer-text">
+                By signing in, you agree to our terms and privacy policy.
+              </p>
+
+            </div>
           </div>
-          <div className="mb-3">
-            <button
-              type="button"
-              className="btn forgot-btn"
-              onClick={() => {
-                navigate("/forgot-password");
-              }}
-            >
-              Forgot Password
-            </button>
-          </div>
-          <button type="submit" className="btn btn-primary">
-            LOGIN
-          </button>
-        </form>
+
+        </div>
       </div>
     </Layout>
   );
 };
 
 export default Login;
-
-// import React, { useState } from "react";
-// import Layout from "./../../components/Layout/Layout";
-// import axios from "axios";
-// import { useNavigate, useLocation } from "react-router-dom";
-// import toast from "react-hot-toast";
-// import "../../styles/AuthStyles.css";
-// import { useAuth } from "../../context/auth";
-// const Login = () => {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [auth, setAuth] = useAuth();
-
-//   const navigate = useNavigate();
-//   const location = useLocation();
-
-//   // form function
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const res = await axios.post("/api/v1/auth/login", {
-//         email,
-//         password,
-//       });
-//       if (res && res.data.success) {
-//         toast.success(res.data && res.data.message);
-//         setAuth({
-//           ...auth,
-//           user: res.data.user,
-//           token: res.data.token,
-//         });
-//         localStorage.setItem("auth", JSON.stringify(res.data));
-//         navigate(location.state || "/");
-//       } else {
-//         toast.error(res.data.message);
-//       }
-//     } catch (error) {
-//       console.log(error);
-//       toast.error("Something went wrong");
-//     }
-//   };
-//   return (
-//     <Layout title="Register - Ecommer App">
-//       <div className="form-container " style={{ minHeight: "90vh" }}>
-//         <form onSubmit={handleSubmit}>
-//           <h4 className="title">LOGIN FORM</h4>
-
-//           <div className="mb-3">
-//             <input
-//               type="email"
-//               autoFocus
-//               value={email}
-//               onChange={(e) => setEmail(e.target.value)}
-//               className="form-control"
-//               id="exampleInputEmail1"
-//               placeholder="Enter Your Email "
-//               required
-//             />
-//           </div>
-//           <div className="mb-3">
-//             <input
-//               type="password"
-//               value={password}
-//               onChange={(e) => setPassword(e.target.value)}
-//               className="form-control"
-//               id="exampleInputPassword1"
-//               placeholder="Enter Your Password"
-//               required
-//             />
-//           </div>
-//           <div className="mb-3">
-//             <button
-//               type="button"
-//               className="btn forgot-btn"
-//               onClick={() => {
-//                 navigate("/forgot-password");
-//               }}
-//             >
-//               Forgot Password
-//             </button>
-//           </div>
-
-//           <button type="submit" className="btn btn-primary">
-//             LOGIN
-//           </button>
-//         </form>
-//       </div>
-//     </Layout>
-//   );
-// };
-
-// export default Login;

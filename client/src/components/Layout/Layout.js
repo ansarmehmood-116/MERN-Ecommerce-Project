@@ -3,19 +3,19 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import { Helmet } from "react-helmet";
-import { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
 import { useTheme } from "../../context/themeContext";
 import Theme from "./Themes/Theme";
 import ScrollToTop from "react-scroll-to-top";
+import "./LayoutStyles/Layout.css";
 
 // const Layout = (props,{title,description,keywords,author}) => {
 //in this case these objects were not working as they works with children-pages but in this case childen is defined inside main which can't communicates with these properties
 const Layout = ({ children, title, description, keywords, author }) => {
-  const[theme]=useTheme()
+  const [theme] = useTheme();
   return (
     <div>
       {/* <h1>Layout</h1> */}
-
       <Helmet>
         <meta charSet="utf-8" />
 
@@ -26,31 +26,30 @@ const Layout = ({ children, title, description, keywords, author }) => {
 
         <title>{title}</title>
         {/* by default it will now showing E-commerce Application because we have added this in index.html title*/}
-
       </Helmet>
       <Header />
- <ScrollToTop
-          smooth
-          // top={100}
-          color="#138781"
-          style={{
-            backgroundColor: "#1E293B",
-            border: "2px solid #334155",
-            borderRadius: "50px",
-            position: "fixed",
-            bottom: "50px",
-            right: "50px",
-            zIndex: 9999,
-          }}
-        />
       <Theme />
-      <main style={{ minHeight: "80vh" }}>
+      <main>
         <Toaster />
         {/* {props.children} */}
         {children}
         {/* using props to display the child contents wrapped in <Layout></Layout> tags in app.js */}
         {/* we also can use {children} above as parameter instead of props and here directly use {children} output will be same */}
       </main>
+        <ScrollToTop
+        smooth
+        // top={100}
+        color="#138781"
+        style={{
+          backgroundColor: "#1E293B",
+          border: "2px solid #334155",
+          borderRadius: "50px",
+          position: "fixed",
+          bottom: "50px",
+          right: "50px",
+          zIndex: 9999,
+        }}
+      />
       <Footer />
     </div>
   );

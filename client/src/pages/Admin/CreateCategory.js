@@ -3,75 +3,58 @@ import Layout from "../../components/Layout/Layout";
 import AdminMenu from "../../components/Layout/AdminMenu";
 import toast from "react-hot-toast";
 import axios from "axios";
-import CategoryForm from "../../components/Form/CategoryForm";
+import CategoryFormInput from "../../components/Form/CategoryFormInput";
 import { Modal } from "antd";
+import "./AdminStyles/CreateCateg.css";
 
 const CreateCategory = () => {
   const [categories, setCategories] = useState([]);
-  //as we will have multipple values in categories so we have added array in useState i.e []
   const [name, setName] = useState("");
-  const [visible, setVisible] = useState(false); //this will work with modal i.e visible and nonVisible
+  const [visible, setVisible] = useState(false);
   const [selected, setSelected] = useState(null);
   const [updatedName, setUpdatedName] = useState("");
-  //___________________________________________________________________//
+  const [searchQuery, setSearchQuery] = useState("");
 
-  //handle Form
+  // Create Category
   const handleSubmit = async (e) => {
-    e.preventDefault(); //to close form from default behaviour
+    e.preventDefault();
+    if (!name.trim()) return toast.error("Category name is required");
+
     try {
       const { data } = await axios.post("/api/v1/category/create-category", {
         name,
       });
       if (data?.success) {
-        toast.success(`${name} is created`);
+        toast.success(`${name} created successfully`);
+        setName(""); // Clear input on success
         getAllCategory();
       } else {
         toast.error(data.message);
       }
     } catch (error) {
       console.log(error);
-      toast.error("somthing went wrong in input form");
+      toast.error("Something went wrong in creating category");
     }
   };
-  //_______________________________________________________________________________
 
-  //get all categories
+  // Get All Categories
   const getAllCategory = async () => {
     try {
-      // const response=await axios.get("/api/v1/category/get-category");
       const { data } = await axios.get("/api/v1/category/get-category");
-      //here we have destructured data directly instead of storing it in response variable
-      //above because if we store above object in response variable above then we will use
-      //response.data every where so it is shorcut to get data directly in {data} object.
-
-      //Destructuring:Destructuring is a syntax in JavaScript that allows you to extract values
-      //from arrays or properties from objects and assign them to variables in a more concise
-      //and readable way. For example, const { data } = response; extracts the data property
-      //from the response object and assigns it to the variable data.
-      //________________________________________________________________________________
       if (data?.success) {
         setCategories(data?.category);
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something wwent wrong in getting catgeory");
+      toast.error("Something went wrong in getting category list");
     }
   };
 
-  //The useEffect hook with an empty dependency array ([]) runs the code inside it (e.g.,
-  //getAllCategory()) only once/initially, right after the component is first shown on the
-  //screen.We can pass multipple functions inside useEffect.
-  //The dependency array [] is used to list values that the useEffect depends on.
-  //When the values in this array change, the useEffect runs again
-  //An empty array [] means the useEffect runs only once, after the initial render.
-  //when it is first displayed, useEffect ensures this happens only once, preventing
-  //multiple fetches.
   useEffect(() => {
     getAllCategory();
   }, []);
-  //________________________________________________________________________________
 
-  //update category
+  // Update Category
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
@@ -80,7 +63,7 @@ const CreateCategory = () => {
         { name: updatedName }
       );
       if (data?.success) {
-        toast.success(`${updatedName} is updated`);
+        toast.success(`${updatedName} updated successfully`);
         setSelected(null);
         setUpdatedName("");
         setVisible(false);
@@ -90,108 +73,164 @@ const CreateCategory = () => {
       }
     } catch (error) {
       console.log(error);
+      toast.error("Error updating category");
     }
   };
-  //___________________________________________________________________________________
 
-  //delete category
+  // Delete Category
   const handleDelete = async (pId) => {
     try {
       const { data } = await axios.delete(
         `/api/v1/category/delete-category/${pId}`
       );
-      if (data.success) {
-        toast.success(`category is deleted`);
-
+      if (data?.success) {
+        toast.success(`Category deleted successfully`);
         getAllCategory();
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error("Somtihing went wrong");
+      toast.error("Something went wrong during deletion");
     }
   };
+
+  // Filter categories by search
+  const filteredCategories = categories?.filter((c) =>
+    c.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <Layout title={"Dashboard - Create-Category"}>
-      {/* <h1>Create Category</h1> */}
-      <div className="container-fluid p-3 dashboard">
-        <div className="row">
-          <div className="col-md-3">
+    <Layout title={"Dashboard - Create Category"}>
+      <div className="admin-create-category-page">
+      <div className="container-fluid py-3 px-3 dashboard">
+        <div className="row g-3">
+          {/* Admin Sidebar */}
+          <div className="col-lg-3 col-md-4">
             <AdminMenu />
           </div>
-          <div className="col-md-9">
-            {/* <h1>Create Category</h1> */}
-            <h1 className="text-center categoryHeading">Manage Category</h1>
-            <div className="p-3 w-50">
-              <CategoryForm  //Below we have passed the props values which we have used in
-                             //category form
-                handleSubmit={handleSubmit}
-                value={name}
-                setValue={setName}
-              />
+
+          {/* Main Content Area */}
+          <div className="col-lg-9 col-md-8">
+            {/* Centered Sky Blue Page Header */}
+            <div 
+              className="p-3 mb-4 rounded-3 text-center shadow categoryHeading"
+            >
+              <h2 className="fw-bold mb-1">Category Management</h2>
+              <p className="small mb-0 opacity-90 headLine">
+                Add, update, or remove product categories for your catalog
+              </p>
             </div>
-            <div>
-              {/* we have created this div and copied table from Bootsrap and converted it
-              to jsx and removed exrat <tr></tr> i.e rows */}
-              <table className="table">
-                <thead>
-                  <tr className="td">
-                    <th scope="col">Name</th>
-                    <th scope="col">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {categories?.map((c) => (
-                    //The question mark (?.) in categories?.map((c) => ...) is the optional
-                    //chaining operator. It allows you to safely access properties or call
-                    //methods on an object that might be null or undefined.
-                    //In this case, categories?.map((c) => ...) ensures that the map method
-                    //is only called if categories is not null or undefined. If categories is
-                    //null or undefined, the expression will short-circuit and return undefined
-                    //instead of throwing an error.
-                    <>
+
+            {/* Create Category Form Card */}
+            <div className="card border-0 shadow-sm rounded-3 mb-4">
+              <div className="card-body p-4">
+                <div className="d-flex justify-content-between align-items-center mb-3">
+                  <h5 className="card-title fw-semibold mb-0">Add New Category</h5>
+                  <span className="badge bg-primary rounded-pill px-3 py-2 fs-6">
+                    Total: {categories?.length || 0}
+                  </span>
+                </div>
+                <CategoryFormInput
+                  handleSubmit={handleSubmit}
+                  value={name}
+                  setValue={setName}
+                />
+              </div>
+            </div>
+
+            {/* Category Data Table Card */}
+            <div className="card border-0 shadow-sm rounded-3">
+              <div className="card-header bg-transparent border-0 p-4 pb-0 d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <h5 className="card-title fw-semibold mb-0">All Categories</h5>
+                
+                {/* Real-time Search Input */}
+                <div style={{ maxWidth: "260px", width: "100%" }}>
+                  <input
+                    type="text"
+                    className="form-control form-control-sm rounded-2"
+                    placeholder="Search categories..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className="card-body p-4">
+                <div className="table-responsive">
+                  <table className="table table-hover align-middle mb-0">
+                    <thead className="table-light">
                       <tr>
-                        <td key={c._id}>{c.name}</td>
-                        <td>
-                          <button
-                            className="btn btn-primary  ms-2"
-                            onClick={() => {
-                              setVisible(true);
-                              setUpdatedName(c.name);
-                              setSelected(c);
-                            }}
-                          >
-                            Edit
-                          </button>
-                          {/* for edit button we have used another css librarya ant-
-                          design see in notes-0 folder for details we have to install its
-                          package*/}
-                          <button 
-                          className="btn btn-danger ms-2"
-                          onClick={()=>handleDelete(c._id)}
-                          >
-                            Delete
-                          </button>
-                        </td>
+                        <th scope="col" className="py-3 ps-3">Category Name</th>
+                        <th scope="col" className="py-3 text-end pe-3">Actions</th>
                       </tr>
-                    </>
-                  ))}
-                </tbody>
-              </table>
+                    </thead>
+                    <tbody>
+                      {filteredCategories && filteredCategories.length > 0 ? (
+                        filteredCategories.map((c) => (
+                          <tr key={c._id}>
+                            <td className="fw-medium ps-3">{c.name}</td>
+                            <td className="text-end pe-3">
+                              {/* Redesigned Edit Button */}
+                              <button
+                                className="btn btn-sm btn-light text-primary border-primary-subtle me-2 rounded-2 px-3 shadow-sm d-inline-flex align-items-center gap-1 fw-medium"
+                                style={{ transition: "all 0.2s ease" }}
+                                title="Edit Category"
+                                onClick={() => {
+                                  setVisible(true);
+                                  setUpdatedName(c.name);
+                                  setSelected(c);
+                                }}
+                              >
+                                <i className="bi bi-pencil-square fs-6"></i>
+                                <span>Edit</span>
+                              </button>
+
+                              {/* Redesigned Delete Button */}
+                              <button
+                                className="btn btn-sm btn-light text-danger border-danger-subtle rounded-2 px-3 shadow-sm d-inline-flex align-items-center gap-1 fw-medium"
+                                style={{ transition: "all 0.2s ease" }}
+                                title="Delete Category"
+                                onClick={() => handleDelete(c._id)}
+                              >
+                                <i className="bi bi-trash3 fs-6"></i>
+                                <span>Delete</span>
+                              </button>
+                            </td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan="2" className="text-center py-4 text-muted">
+                            No categories found
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
+
+            {/* Ant Design Modal for Updating Category */}
             <Modal
+              title="Update Category"
+              open={visible}
+              visible={visible}
               onCancel={() => setVisible(false)}
               footer={null}
-              visible={visible}
+              centered
             >
-              <CategoryForm
-                value={updatedName}
-                setValue={setUpdatedName}
-                handleSubmit={handleUpdate}
-              />
+              <div className="pt-3">
+                <CategoryFormInput
+                  value={updatedName}
+                  setValue={setUpdatedName}
+                  handleSubmit={handleUpdate}
+                />
+              </div>
             </Modal>
           </div>
         </div>
+      </div>
       </div>
     </Layout>
   );

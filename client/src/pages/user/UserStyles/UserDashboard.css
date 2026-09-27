@@ -1,0 +1,1334 @@
+/* =========================================================
+   USER DASHBOARD
+   Premium E-Commerce Dashboard
+   Light + Dark Theme
+   Fully Responsive
+========================================================= */
+
+
+/* =========================================================
+   UNIQUE ROOT WRAPPER
+   ========================================================= */
+.user-dashboard-page,
+.user-dashboard-page * {
+  box-sizing: border-box;
+}
+
+.user-dashboard-page {
+  width: 100% !important;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   DASHBOARD MAIN CONTAINER
+   IMPORTANT:
+   .dashboard class is intentionally kept because it provides
+   the required top spacing for the Layout / Navbar.
+   ========================================================= */
+.user-dashboard-page .dashboard {
+  position: relative;
+  width: 100% !important;
+  min-width: 0;
+  min-height: calc(100vh - 60px);
+  margin-top: 60px !important;
+  /* padding-right: 0px !important; */
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(19, 135, 129, 0.06),
+      transparent 28%
+    ),
+    #f5f7fb;
+  color: #202938;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+.user-dashboard-page .dashboard > .row {
+  min-width: 0;
+}
+
+/* =========================================================
+   WELCOME BANNER
+   ========================================================= */
+.user-dashboard-page .dashboard-welcome {
+  position: relative;
+  width: 100%;
+  min-height: 145px;
+  padding: 28px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      135deg,
+      skyblue 0%,
+      #eef6ff 55%,
+      #f8f5ff 100%
+    );
+  border: 1px solid rgba(19, 135, 129, 0.12);
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.05),
+    0 18px 45px rgba(15, 23, 42, 0.06);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.35s ease;
+}
+/* Decorative circles */
+.user-dashboard-page .dashboard-welcome::before {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  right: -70px;
+  top: -125px;
+  border-radius: 50%;
+  background: rgba(19, 135, 129, 0.08);
+  pointer-events: none;
+  /* border: 2px solid red; */
+}
+
+.user-dashboard-page .dashboard-welcome::after {
+  content: "";
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  right: 100px;
+  bottom: -90px;
+  border-radius: 50%;
+  background: rgba(13, 110, 253, 0.06);
+  pointer-events: none;
+  /* border: 2px solid red; */
+}
+/* Welcome content */
+.user-dashboard-page .dashboard-welcome > div:first-child {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+/* Welcome heading */
+.user-dashboard-page .dashboard-welcome h2 {
+  margin: 0;
+  color: #172033;
+  font-size: 27px;
+  line-height: 1.25;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+  overflow-wrap: anywhere;
+}
+/* Welcome paragraph */
+.user-dashboard-page .dashboard-welcome p {
+  margin: 8px 0 0;
+  max-width: 600px;
+  color: #687589;
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 1;
+}
+
+/* =========================================================
+   WELCOME ICON
+   ========================================================= */
+.user-dashboard-page .welcome-icon {
+  position: relative;
+  z-index: 2;
+  width: 68px;
+  height: 68px;
+  min-width: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(19, 135, 129, 0.15),
+      rgba(13, 110, 253, 0.1)
+    );
+  border: 1px solid rgba(19, 135, 129, 0.12);
+  color: #138781;
+  font-size: 31px;
+  box-shadow:
+    0 8px 20px rgba(19, 135, 129, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.user-dashboard-page .dashboard-welcome:hover .welcome-icon {
+  transform: translateY(-3px) rotate(2deg);
+  box-shadow:
+    0 12px 25px rgba(19, 135, 129, 0.14);
+}
+
+/* =========================================================
+   STATISTICS SECTION
+   ========================================================= */
+.user-dashboard-page .dashboard-stats {
+  margin-top: 10px !important;
+  margin-bottom: 14px !important;
+  --bs-gutter-x: 12px;
+  --bs-gutter-y: 12px;
+}
+
+/* =========================================================
+   STAT CARD
+   ========================================================= */
+.user-dashboard-page .dashboard-stat-card {
+  position: relative;
+  min-height: 118px;
+  padding: 19px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e7ebf1;
+  border-radius: 14px;
+  box-shadow:
+    0 5px 12px rgba(15, 23, 42, 0.035),
+    0 12px 28px rgba(15, 23, 42, 0.045);
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background-color 0.28s ease;
+}
+
+/* Decorative glow */
+.user-dashboard-page .dashboard-stat-card::after {
+  content: "";
+  position: absolute;
+  width: 105px;
+  height: 105px;
+  right: -48px;
+  bottom: -55px;
+  border-radius: 50%;
+  background: rgba(19, 135, 129, 0.035);
+  pointer-events: none;
+}
+
+/* Hover */
+.user-dashboard-page .dashboard-stat-card:hover {
+  transform: translateY(-4px);
+  border-color: #d9e1ea;
+  box-shadow:
+    0 10px 22px rgba(15, 23, 42, 0.07),
+    0 20px 35px rgba(15, 23, 42, 0.05);
+}
+
+/* =========================================================
+   STAT ICON
+   ========================================================= */
+.user-dashboard-page .stat-icon {
+  position: relative;
+  z-index: 1;
+  min-width: 54px;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 14px;
+  font-size: 25px;
+  transition:
+    transform 0.28s ease;
+}
+
+.user-dashboard-page .dashboard-stat-card:hover .stat-icon {
+  transform: scale(1.07);
+}
+
+/* =========================================================
+   INDIVIDUAL STAT ICONS
+   ========================================================= */
+.user-dashboard-page .orders-icon {
+  background: #eaf2ff;
+  color: #0d6efd;
+}
+
+.user-dashboard-page .active-icon {
+  background: #fff5df;
+  color: #f59f00;
+}
+
+.user-dashboard-page .favourite-icon {
+  background: #ffeaf0;
+  color: #e64980;
+}
+
+/* =========================================================
+   STAT CONTENT
+   ========================================================= */
+.user-dashboard-page .dashboard-stat-card > div:last-child {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.user-dashboard-page .dashboard-stat-card h6 {
+  width: 100%;
+  margin: 0 0 2px;
+  color: #7b8798;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.55px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-dashboard-page .dashboard-stat-card h3 {
+  width: 100%;
+  margin: 2px 0 3px 3px;
+  color: #202938;
+  font-size: 25px;
+  line-height: 1.15;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+}
+
+.user-dashboard-page .dashboard-stat-card span {
+  display: block;
+  width: 100%;
+  color: #8b96a7;
+  font-size: 10px;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+   MAIN DASHBOARD CARD
+   ========================================================= */
+.user-dashboard-page .dashboard-card {
+  position: relative;
+  width: 100%;
+  padding: 23px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e6eaf0;
+  border-radius: 14px;
+  box-shadow:
+    0 5px 12px rgba(15, 23, 42, 0.035),
+    0 14px 32px rgba(15, 23, 42, 0.045);
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.3s ease;
+}
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+   
+.user-dashboard-page .dashboard-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.user-dashboard-page .dashboard-card-header > div:first-child {
+  min-width: 0;
+}
+
+.user-dashboard-page .dashboard-card-header h4 {
+  margin: 0;
+  color: #202938;
+  font-size: 19px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.user-dashboard-page .dashboard-card-header p {
+  margin: 5px 0 0;
+  color: #8993a3;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   CARD HEADER ICON
+   ========================================================= */
+.user-dashboard-page .card-header-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #edf7f6;
+  color: #138781;
+  font-size: 20px;
+  border: 1px solid rgba(19, 135, 129, 0.08);
+}
+
+/* =========================================================
+   ACCOUNT INFORMATION
+   ========================================================= */
+.user-dashboard-page .account-info {
+  padding-top: 5px;
+}
+
+/* =========================================================
+   INFO ROW
+   ========================================================= */
+.user-dashboard-page .info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding: 14px 2px;
+  border-bottom: 1px solid #f0f2f5;
+  transition:
+    background-color 0.2s ease,
+    padding-left 0.2s ease,
+    padding-right 0.2s ease;
+}
+
+.user-dashboard-page .info-row:last-child {
+  border-bottom: none;
+}
+
+/* subtle row hover */
+
+.user-dashboard-page .info-row:hover {
+  background: #fafbfc;
+
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+/* =========================================================
+   INFO LABEL
+   ========================================================= */
+
+.user-dashboard-page .info-label {
+  flex-shrink: 0;
+  color: #7b8798;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.35px;
+}
+
+/* =========================================================
+   INFO VALUE
+   ========================================================= */
+.user-dashboard-page .info-value {
+  max-width: 65%;
+  min-width: 0;
+  color: #273142;
+  font-size: 13px;
+  font-weight: 550;
+  text-align: right;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* =========================================================
+   ACCOUNT STATUS BADGE
+   ========================================================= */
+
+.user-dashboard-page .status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #e9f8f0;
+  color: #198754;
+  border: 1px solid #d3f0df;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Status dot */
+.user-dashboard-page .status-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #20c997;
+  box-shadow:
+    0 0 0 3px rgba(32, 201, 151, 0.1);
+    
+}
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+#dark .user-dashboard-page .dashboard {
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(19, 135, 129, 0.08),
+      transparent 28%
+    ),
+    #0d1117 !important;
+
+  color: #e7edf4;
+}
+
+/* =========================================================
+   DARK WELCOME
+   ========================================================= */
+
+#dark .user-dashboard-page .dashboard-welcome {
+  background:
+    linear-gradient(
+      135deg,
+      #000000 0%,
+      #17242c 52%,
+      #1d202d 100%
+    );
+
+  border-color: #293640;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.22),
+    0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+#dark .user-dashboard-page .dashboard-welcome::before {
+  background: rgba(32, 201, 151, 0.055);
+}
+
+#dark .user-dashboard-page .dashboard-welcome::after {
+  background: rgba(77, 171, 247, 0.045);
+}
+
+#dark .user-dashboard-page .dashboard-welcome h2 {
+  color: #f1f5f9;
+}
+
+#dark .user-dashboard-page .dashboard-welcome p {
+  color: #9ba8b7;
+}
+
+#dark .user-dashboard-page .welcome-icon {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(32, 201, 151, 0.12),
+      rgba(77, 171, 247, 0.1)
+    );
+
+  border-color: rgba(32, 201, 151, 0.13);
+
+  color: #20c997;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================================================
+   DARK STAT CARDS
+   ========================================================= */
+
+#dark .user-dashboard-page .dashboard-stat-card {
+  background: #151a21;
+  border-color: #2a323d;
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.2),
+    0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+#dark .user-dashboard-page .dashboard-stat-card:hover {
+  background: #181e26;
+  border-color: #394553;
+  box-shadow:
+    0 9px 20px rgba(0, 0, 0, 0.3),
+    0 18px 35px rgba(0, 0, 0, 0.2);
+}
+
+#dark .user-dashboard-page .dashboard-stat-card::after {
+  background: rgba(32, 201, 151, 0.025);
+}
+
+#dark .user-dashboard-page .dashboard-stat-card h6 {
+  color: #8996a7;
+}
+
+#dark .user-dashboard-page .dashboard-stat-card h3 {
+  color: #edf2f7;
+}
+
+#dark .user-dashboard-page .dashboard-stat-card span {
+  color: #7f8b9b;
+}
+
+/* =========================================================
+   DARK STAT ICONS
+   ========================================================= */
+#dark .user-dashboard-page .orders-icon {
+  background: rgba(13, 110, 253, 0.13);
+  color: #4dabf7;
+}
+
+#dark .user-dashboard-page .active-icon {
+  background: rgba(245, 159, 0, 0.12);
+  color: #ffb52e;
+}
+
+#dark .user-dashboard-page .favourite-icon {
+  background: rgba(230, 73, 128, 0.12);
+  color: #f783ac;
+}
+
+/* =========================================================
+   DARK MAIN CARD
+   ========================================================= */
+#dark .user-dashboard-page .dashboard-card {
+  background: #151a21;
+  border-color: #2a323d;
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.2),
+    0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================================
+   DARK CARD HEADER
+   ========================================================= */
+#dark .user-dashboard-page .dashboard-card-header {
+  border-color: #2a323d;
+}
+
+#dark .user-dashboard-page .dashboard-card-header h4 {
+  color: #edf2f7;
+}
+
+#dark .user-dashboard-page .dashboard-card-header p {
+  color: #8996a7;
+}
+
+#dark .user-dashboard-page .card-header-icon {
+  background: rgba(32, 201, 151, 0.1);
+
+  border-color: rgba(32, 201, 151, 0.08);
+
+  color: #20c997;
+}
+
+/* =========================================================
+   DARK ACCOUNT INFO
+   ========================================================= */
+#dark .user-dashboard-page .info-row {
+  border-color: #262e38;
+}
+
+#dark .user-dashboard-page .info-row:hover {
+  background: #191f27;
+}
+
+#dark .user-dashboard-page .info-label {
+  color: #8996a7;
+}
+
+#dark .user-dashboard-page .info-value {
+  color: #e5ebf2;
+}
+
+/* =========================================================
+   DARK STATUS
+   ========================================================= */
+#dark .user-dashboard-page .status-badge {
+  background: rgba(32, 201, 151, 0.1);
+  color: #4ade80;
+  border-color: rgba(32, 201, 151, 0.16);
+}
+
+#dark .user-dashboard-page .status-badge::before {
+  background: #20c997;
+  box-shadow:
+    0 0 0 3px rgba(32, 201, 151, 0.08);
+}
+
+
+
+/* =========================================================
+   RESPONSIVE - TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 991px) {
+  /* Main dashboard */
+  .user-dashboard-page .dashboard {
+    width: 100% !important;
+    margin-top: 60px !important;
+    padding: 8px !important;
+    overflow-x: hidden;
+  }
+
+  .user-dashboard-page .dashboard > .row {
+    width: 100%;
+    margin: 0 !important;
+    --bs-gutter-x: 10px;
+    --bs-gutter-y: 10px;
+  }
+
+  .user-dashboard-page .dashboard > .row > [class*="col-"] {
+    min-width: 0;
+  }
+
+  /* Welcome */
+  .user-dashboard-page .dashboard-welcome {
+    min-height: 125px;
+    padding: 22px;
+    border-radius: 14px;
+  }
+
+  .user-dashboard-page .dashboard-welcome h2 {
+    font-size: 23px;
+  }
+
+  .user-dashboard-page .dashboard-welcome p {
+    font-size: 12px;
+  }
+
+  .user-dashboard-page .welcome-icon {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    border-radius: 15px;
+    font-size: 26px;
+  }
+
+  /* Statistics */
+  .user-dashboard-page .dashboard-stats {
+    margin-top: 8px !important;
+    margin-bottom: 10px !important;
+    --bs-gutter-x: 8px;
+    --bs-gutter-y: 8px;
+  }
+
+  .user-dashboard-page .dashboard-stat-card {
+    min-height: 105px;
+    padding: 13px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+  .user-dashboard-page .stat-icon {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    border-radius: 11px;
+    font-size: 21px;
+  }
+
+  .user-dashboard-page .dashboard-stat-card h6 {
+    font-size: 9px;
+  }
+
+  .user-dashboard-page .dashboard-stat-card h3 {
+    font-size: 21px;
+  }
+
+  .user-dashboard-page .dashboard-stat-card span {
+    font-size: 8.5px;
+  }
+
+  /* Main card */
+  .user-dashboard-page .dashboard-card {
+    padding: 17px;
+    border-radius: 12px;
+  }
+
+}
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  /* ---------------------------------------------------------
+     Main container
+     --------------------------------------------------------- */
+  .user-dashboard-page {
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow-x: hidden;
+  }
+
+  .user-dashboard-page .dashboard {
+    width: 100% !important;
+
+    /*
+      Keep the 60px dashboard offset.
+      No additional top margin/padding is added here.
+    */
+    margin-top: 60px !important;
+    padding: 5px 5px 20px !important;
+    min-height: calc(100vh - 60px);
+  }
+
+  /* Remove unnecessary Bootstrap column spacing */
+
+  .user-dashboard-page .dashboard > .row {
+    width: 100%;
+
+    margin: 0 !important;
+
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 8px;
+  }
+
+  .user-dashboard-page .dashboard > .row > [class*="col-"] {
+    width: 100%;
+    max-width: 100%;
+
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* ---------------------------------------------------------
+     Welcome
+     --------------------------------------------------------- */
+
+  .user-dashboard-page .dashboard-welcome {
+    width: 100%;
+
+    min-height: 105px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+  }
+
+  .user-dashboard-page .dashboard-welcome h2 {
+    font-size: 18px;
+
+    letter-spacing: -0.2px;
+  }
+
+  .user-dashboard-page .dashboard-welcome p {
+    margin-top: 5px;
+
+    max-width: 92%;
+
+    font-size: 10px;
+
+    line-height: 1.45;
+  }
+
+  .user-dashboard-page .welcome-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+
+    border-radius: 11px;
+
+    font-size: 20px;
+  }
+
+  /* ---------------------------------------------------------
+     Statistics
+     --------------------------------------------------------- */
+
+  .user-dashboard-page .dashboard-stats {
+    width: 100%;
+
+    margin: 7px 0 9px !important;
+
+    --bs-gutter-x: 6px;
+    --bs-gutter-y: 6px;
+  }
+
+  .user-dashboard-page .dashboard-stats > [class*="col-"] {
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+  }
+
+  /*
+     col-sm-6 remains active here:
+     2 cards per row on mobile.
+  */
+
+  .user-dashboard-page .dashboard-stat-card {
+    width: 100%;
+
+    min-height: 88px;
+
+    padding: 10px;
+
+    gap: 8px;
+
+    border-radius: 10px;
+  }
+
+  .user-dashboard-page .stat-icon {
+    width: 37px;
+    height: 37px;
+    min-width: 37px;
+
+    border-radius: 9px;
+
+    font-size: 16px;
+  }
+
+  .user-dashboard-page .dashboard-stat-card > div:last-child {
+    min-width: 0;
+  }
+
+  .user-dashboard-page .dashboard-stat-card h6 {
+    font-size: 7.5px;
+
+    letter-spacing: 0.25px;
+
+    line-height: 1.2;
+  }
+
+  .user-dashboard-page .dashboard-stat-card h3 {
+    margin: 2px 0;
+
+    font-size: 18px;
+
+    line-height: 1.1;
+  }
+
+  .user-dashboard-page .dashboard-stat-card span {
+    font-size: 7.5px;
+
+    line-height: 1.2;
+  }
+
+  /* ---------------------------------------------------------
+     Account card
+     --------------------------------------------------------- */
+
+  .user-dashboard-page .dashboard-card {
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 11px;
+  }
+
+  .user-dashboard-page .dashboard-card-header {
+    gap: 10px;
+
+    padding-bottom: 12px;
+  }
+
+  .user-dashboard-page .dashboard-card-header h4 {
+    font-size: 16px;
+  }
+
+  .user-dashboard-page .dashboard-card-header p {
+    margin-top: 4px;
+
+    font-size: 9px;
+  }
+
+  .user-dashboard-page .card-header-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+
+    border-radius: 9px;
+
+    font-size: 16px;
+  }
+
+  /* ---------------------------------------------------------
+     Account rows
+     --------------------------------------------------------- */
+
+  .user-dashboard-page .account-info {
+    padding-top: 2px;
+  }
+
+  .user-dashboard-page .info-row {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    padding: 10px 0;
+  }
+
+  .user-dashboard-page .info-row:hover {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .user-dashboard-page .info-label {
+    font-size: 8.5px;
+
+    letter-spacing: 0.3px;
+  }
+
+  .user-dashboard-page .info-value {
+    max-width: 100%;
+
+    text-align: left;
+
+    font-size: 11.5px;
+
+    line-height: 1.45;
+  }
+
+  .user-dashboard-page .status-badge {
+    padding: 5px 10px;
+
+    font-size: 10px;
+  }
+
+  /* ---------------------------------------------------------
+     Orders
+     --------------------------------------------------------- */
+
+  .user-dashboard-page .orders-overview {
+    margin-top: 12px;
+  }
+
+  .user-dashboard-page .orders-overview-content {
+    padding-top: 13px;
+
+    align-items: stretch;
+
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .user-dashboard-page .orders-description {
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+
+  .user-dashboard-page .orders-large-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+
+    border-radius: 10px;
+
+    font-size: 19px;
+  }
+
+  .user-dashboard-page .orders-description h5 {
+    font-size: 12px;
+  }
+
+  .user-dashboard-page .orders-description p {
+    margin-top: 4px;
+
+    font-size: 9px;
+  }
+
+  .user-dashboard-page .view-orders-btn {
+    width: 100%;
+
+    padding: 9px 10px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .user-dashboard-page .dashboard {
+    margin-top: 55px !important;
+    padding: 7px !important;
+  }
+
+  /* Welcome */
+  .user-dashboard-page .dashboard-welcome {
+    min-height: 96px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+  .user-dashboard-page .dashboard-welcome h2 {
+    font-size: 15px;
+  }
+  .user-dashboard-page .dashboard-welcome p {
+    font-size: 8.5px;
+  }
+  .user-dashboard-page .welcome-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 9px;
+    font-size: 17px;
+  }
+
+  /* Statistics */
+  .user-dashboard-page .dashboard-stats {
+    margin-top: 1px !important;
+    margin-bottom: 7px !important;
+
+    --bs-gutter-x: 4px;
+    --bs-gutter-y: 5px;
+  }
+
+  .user-dashboard-page .dashboard-stats > [class*="col-"] {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+
+  .user-dashboard-page .dashboard-stat-card {
+    min-height: 80px;
+
+    padding: 8px;
+
+    gap: 6px;
+
+    border-radius: 9px;
+  }
+
+  .user-dashboard-page .stat-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+  }
+
+  .user-dashboard-page .dashboard-stat-card h6 {
+    font-size: 6.8px;
+
+    letter-spacing: 0.2px;
+  }
+
+  .user-dashboard-page .dashboard-stat-card h3 {
+    font-size: 16px;
+
+    margin: 2px 0;
+  }
+
+  .user-dashboard-page .dashboard-stat-card span {
+    font-size: 6.8px;
+  }
+
+  /* Account card */
+
+  .user-dashboard-page .dashboard-card {
+    padding: 12px;
+
+    border-radius: 10px;
+  }
+
+  .user-dashboard-page .dashboard-card-header {
+    padding-bottom: 10px;
+  }
+
+  .user-dashboard-page .dashboard-card-header h4 {
+    font-size: 14px;
+  }
+
+  .user-dashboard-page .dashboard-card-header p {
+    font-size: 8px;
+  }
+
+  .user-dashboard-page .card-header-icon {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+  }
+
+  .user-dashboard-page .info-row {
+    padding: 9px 0;
+
+    gap: 3px;
+  }
+
+  .user-dashboard-page .info-label {
+    font-size: 7.5px;
+  }
+
+  .user-dashboard-page .info-value {
+    font-size: 10.5px;
+  }
+
+  .user-dashboard-page .status-badge {
+    padding: 4px 9px;
+
+    font-size: 9px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .user-dashboard-page .dashboard {
+    margin-top: 60px !important;
+    padding: 2px 4px 14px !important;
+  }
+
+  /* Welcome */
+
+  .user-dashboard-page .dashboard-welcome {
+    min-height: 88px;
+
+    padding: 10px;
+
+    border-radius: 9px;
+  }
+
+  .user-dashboard-page .dashboard-welcome h2 {
+    font-size: 13.5px;
+  }
+
+  .user-dashboard-page .dashboard-welcome p {
+    margin-top: 4px;
+
+    font-size: 7.5px;
+  }
+
+  .user-dashboard-page .welcome-icon {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+  }
+
+  /* Statistics */
+
+  .user-dashboard-page .dashboard-stats {
+    margin-top: 5px !important;
+    margin-bottom: 6px !important;
+
+    --bs-gutter-x: 3px;
+    --bs-gutter-y: 4px;
+  }
+
+  .user-dashboard-page .dashboard-stats > [class*="col-"] {
+    padding-left: 1.5px !important;
+    padding-right: 1.5px !important;
+  }
+
+  .user-dashboard-page .dashboard-stat-card {
+    min-height: 73px;
+
+    padding: 7px;
+
+    gap: 5px;
+
+    border-radius: 8px;
+  }
+
+  .user-dashboard-page .stat-icon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+  }
+
+  .user-dashboard-page .dashboard-stat-card h6 {
+    font-size: 6px;
+
+    letter-spacing: 0.15px;
+  }
+
+  .user-dashboard-page .dashboard-stat-card h3 {
+    font-size: 14px;
+
+    margin: 1px 0;
+  }
+
+  .user-dashboard-page .dashboard-stat-card span {
+    font-size: 6px;
+  }
+
+  /* Account card */
+
+  .user-dashboard-page .dashboard-card {
+    padding: 10px;
+
+    border-radius: 9px;
+  }
+
+  .user-dashboard-page .dashboard-card-header {
+    padding-bottom: 9px;
+  }
+
+  .user-dashboard-page .dashboard-card-header h4 {
+    font-size: 13px;
+  }
+
+  .user-dashboard-page .dashboard-card-header p {
+    font-size: 7.5px;
+  }
+
+  .user-dashboard-page .card-header-icon {
+    width: 29px;
+    height: 29px;
+    min-width: 29px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+  }
+
+  .user-dashboard-page .info-row {
+    padding: 8px 0;
+  }
+
+  .user-dashboard-page .info-label {
+    font-size: 7px;
+  }
+
+  .user-dashboard-page .info-value {
+    font-size: 10px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .user-dashboard-page *,
+  .user-dashboard-page *::before,
+  .user-dashboard-page *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -1,0 +1,795 @@
+/* =========================================================
+   ADMIN USERS PAGE
+   ========================================================= */
+
+.admin-users-page {
+  width: 100%;
+  min-width: 0;
+}
+
+.admin-users-page .dashboard {
+  margin-top: 60px !important;
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 30px;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.admin-users-page .usersHeading {
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #212529;
+  background: skyblue;
+    box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+   ========================================================= */
+
+.admin-users-page .admin-users-table-wrapper {
+  width: 100%;
+  background: #ffffff;
+  border-color: #dee2e6 !important;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.admin-users-page .table {
+  margin: 0;
+  width: 100%;
+}
+
+.admin-users-page .table th {
+  padding: 13px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.admin-users-page .table td {
+  padding: 12px 10px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.admin-users-page .table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.admin-users-page .table tbody tr:hover {
+  background-color: #f5f8fb;
+}
+
+
+/* =========================================================
+   ROLE BADGE
+   ========================================================= */
+
+.admin-users-page .admin-role-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #e7f3ff;
+  color: #1971c2;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   NO USERS
+   ========================================================= */
+
+.admin-users-page .admin-no-users {
+  padding: 35px 15px !important;
+  color: #6c757d;
+}
+
+
+/* =========================================================
+   ADMIN COUNT
+   ========================================================= */
+
+.admin-users-page .admin-users-count {
+  margin-top: 10px;
+  padding: 8px 4px;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+#dark .admin-users-page {
+  background: #101318;
+}
+
+#dark .admin-users-page .dashboard {
+  color: #f1f3f5;
+}
+
+#dark .admin-users-page .usersHeading {
+  color: #f1f3f5;
+  background: linear-gradient(
+    135deg,
+   #171b23 0%,
+   #000000 50%,
+   #1d2530 100%) !important;
+  border: 1px solid #303846;
+}
+
+
+/* Table container */
+#dark .admin-users-page .admin-users-table-wrapper {
+  background: #171b23;
+  border-color: #303846 !important;
+}
+
+
+/* Table */
+#dark .admin-users-page .table {
+  color: #f1f3f5;
+  background: #171b23;
+}
+
+#dark .admin-users-page .table > :not(caption) > * > * {
+  border-bottom-color: #303846;
+}
+
+
+/* Table header */
+#dark .admin-users-page .table thead {
+  background: #1d232d;
+}
+
+#dark .admin-users-page .table thead th {
+  background: #1d232d;
+  color: #f1f3f5;
+  border-color: #303846;
+}
+
+
+#dark .admin-users-page .table tbody td {
+  color: #dce1e7;
+   background: #171b23 !important;
+  border-color: #303846;
+}
+
+
+/* Row hover */
+#dark .admin-users-page .table tbody tr:hover {
+  background-color: #202833;
+}
+
+
+/* Role badge */
+#dark .admin-users-page .admin-role-badge {
+  background: #1b2d40;
+  color: #4dabf7;
+  border: 1px solid #29445e;
+}
+
+
+/* Empty state */
+#dark .admin-users-page .admin-no-users {
+  color: #aeb7c4;
+}
+
+
+/* Admin count */
+#dark .admin-users-page .admin-users-count {
+  color: #aeb7c4;
+}
+
+#dark .admin-users-page .admin-users-count strong {
+  color: #4dabf7;
+}
+```css
+/* =========================================================
+   ADMIN STATISTICS CARDS
+   ========================================================= */
+
+.adminStats {
+  width: 100%;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+
+/* =========================================================
+   STAT CARD
+   ========================================================= */
+
+.adminStatCard {
+  position: relative;
+
+  width: 100%;
+  min-height: 112px;
+
+  padding: 18px;
+
+  display: flex;
+  align-items: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e4e9f0;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 8px rgba(15, 23, 42, 0.03),
+    0 8px 20px rgba(15, 23, 42, 0.04);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+
+/* Decorative glow */
+
+.adminStatCard::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: -45px;
+  bottom: -50px;
+
+  border-radius: 50%;
+
+  background: rgba(13, 110, 253, 0.04);
+
+  pointer-events: none;
+}
+
+
+/* Hover */
+
+.adminStatCard:hover {
+  transform: translateY(-3px);
+
+  border-color: #d6deea;
+
+  box-shadow:
+    0 8px 18px rgba(15, 23, 42, 0.07),
+    0 15px 30px rgba(15, 23, 42, 0.05);
+}
+
+
+/* =========================================================
+   STAT ICON
+   ========================================================= */
+
+.adminStatIcon {
+  width: 48px;
+  height: 48px;
+
+  min-width: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 13px;
+
+  border-radius: 11px;
+
+  font-size: 20px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+.adminStatCard:hover .adminStatIcon {
+  transform: scale(1.06);
+}
+
+
+/* =========================================================
+   INDIVIDUAL ICON COLORS
+   ========================================================= */
+
+.adminStatUsers .adminStatIcon {
+  background: #eaf2ff;
+  color: #0d6efd;
+}
+
+
+.adminStatProducts .adminStatIcon {
+  background: #eaf8f2;
+  color: #198754;
+}
+
+
+.adminStatOrders .adminStatIcon {
+  background: #fff4e5;
+  color: #f59f00;
+}
+
+
+.adminStatRevenue .adminStatIcon {
+  background: #f0ebff;
+  color: #7950f2;
+}
+
+
+/* =========================================================
+   STAT CONTENT
+   ========================================================= */
+
+.adminStatContent {
+  min-width: 0;
+}
+
+
+.adminStatLabel {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #7b8798;
+
+  font-size: 0.72rem;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.45px;
+}
+
+
+.adminStatContent h3 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 1.35rem;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  letter-spacing: -0.3px;
+}
+
+
+.adminStatContent small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #8a94a6;
+
+  font-size: 0.68rem;
+}
+
+
+/* =========================================================
+   POSITIVE STAT
+   ========================================================= */
+
+.statPositive {
+  color: #198754;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+#dark .adminStatCard {
+  background: #151a21;
+
+  border-color: #2a323d;
+
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.2),
+    0 12px 25px rgba(0, 0, 0, 0.18);
+}
+
+
+#dark .adminStatCard:hover {
+  background: #181e26;
+
+  border-color: #384352;
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.3),
+    0 15px 30px rgba(0, 0, 0, 0.22);
+}
+
+
+#dark .adminStatCard::after {
+  background: rgba(77, 171, 247, 0.03);
+}
+
+
+#dark .adminStatLabel {
+  color: #8491a3;
+}
+
+
+#dark .adminStatContent h3 {
+  color: #edf2f7;
+}
+
+
+#dark .adminStatContent small {
+  color: #7f8b9c;
+}
+
+
+/* =========================================================
+   DARK ICON BACKGROUNDS
+   ========================================================= */
+
+#dark .adminStatUsers .adminStatIcon {
+  background: rgba(13, 110, 253, 0.14);
+
+  color: #4dabf7;
+}
+
+
+#dark .adminStatProducts .adminStatIcon {
+  background: rgba(32, 201, 151, 0.12);
+
+  color: #20c997;
+}
+
+
+#dark .adminStatOrders .adminStatIcon {
+  background: rgba(245, 159, 0, 0.12);
+
+  color: #ffb52e;
+}
+
+
+#dark .adminStatRevenue .adminStatIcon {
+  background: rgba(121, 80, 242, 0.14);
+
+  color: #9775fa;
+}
+
+
+#dark .statPositive {
+  color: #20c997;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  .adminStatCard {
+    min-height: 105px;
+
+    padding: 15px;
+  }
+
+
+  .adminStatIcon {
+    width: 43px;
+    height: 43px;
+
+    min-width: 43px;
+
+    margin-right: 11px;
+
+    font-size: 18px;
+  }
+
+
+  .adminStatContent h3 {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  .adminStats {
+    --bs-gutter-x: 10px !important;
+    --bs-gutter-y: 10px !important;
+
+    margin-bottom: 12px !important;
+  }
+
+
+  .adminStatCard {
+    min-height: 96px;
+
+    padding: 13px;
+
+    border-radius: 10px;
+  }
+
+
+  .adminStatIcon {
+    width: 40px;
+    height: 40px;
+
+    min-width: 40px;
+
+    margin-right: 9px;
+
+    border-radius: 9px;
+
+    font-size: 17px;
+  }
+
+
+  .adminStatLabel {
+    font-size: 0.62rem;
+
+    letter-spacing: 0.3px;
+  }
+
+
+  .adminStatContent h3 {
+    font-size: 1.08rem;
+  }
+
+
+  .adminStatContent small {
+    font-size: 0.6rem;
+
+    margin-top: 4px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .adminStats {
+    --bs-gutter-x: 8px !important;
+    --bs-gutter-y: 8px !important;
+  }
+
+
+  .adminStatCard {
+    min-height: 88px;
+
+    padding: 10px;
+  }
+
+
+  .adminStatIcon {
+    width: 34px;
+    height: 34px;
+
+    min-width: 34px;
+
+    margin-right: 7px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+  }
+
+
+  .adminStatLabel {
+    font-size: 0.56rem;
+  }
+
+
+  .adminStatContent h3 {
+    font-size: 0.95rem;
+  }
+
+
+  .adminStatContent small {
+    font-size: 0.53rem;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .adminStatCard {
+    min-height: 80px;
+
+    padding: 8px;
+  }
+
+
+  .adminStatIcon {
+    width: 30px;
+    height: 30px;
+
+    min-width: 30px;
+
+    margin-right: 6px;
+
+    font-size: 12px;
+  }
+
+
+  .adminStatLabel {
+    font-size: 0.5rem;
+  }
+
+
+  .adminStatContent h3 {
+    font-size: 0.85rem;
+  }
+
+
+  .adminStatContent small {
+    font-size: 0.48rem;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .adminStatCard,
+  .adminStatIcon {
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+   Same ratio as CreateCategory / CreateProduct
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+  .admin-users-page {
+    width: 100% !important;
+    overflow-x: hidden;
+  }
+
+  .admin-users-page .dashboard {
+    width: 100% !important;
+    min-height: calc(100vh - 60px);
+    margin-top: 45px !important;
+    padding: 10px 8px 25px !important;
+    overflow-x: hidden;
+  }
+}
+
+
+@media (max-width: 767.98px) {
+  .admin-users-page {
+    width: 100% !important;
+    overflow-x: hidden;
+  }
+
+  .admin-users-page .dashboard {
+    width: 100% !important;
+    min-height: calc(100vh - 60px);
+    margin-top: 45px !important;
+    padding: 10px 8px 25px !important;
+    overflow-x: hidden;
+  }
+
+  .admin-users-page .dashboard > .row {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  /* Admin menu */
+  .admin-users-page .col-md-3 {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 0 15px 0 !important;
+  }
+
+  /* Main content */
+  .admin-users-page .col-md-9 {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .admin-users-page .usersHeading {
+    margin-bottom: 12px;
+    padding: 9px 10px;
+    font-size: 23px;
+  }
+
+
+  /* Table */
+  .admin-users-page .table th,
+  .admin-users-page .table td {
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+
+  .admin-users-page .admin-users-table-wrapper {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .admin-users-page .dashboard {
+    margin-top: 50px !important;
+    padding: 8px 6px 20px !important;
+  }
+
+  .admin-users-page .usersHeading {
+    font-size: 21px;
+    padding: 8px 8px;
+  }
+
+  .admin-users-page .table th,
+  .admin-users-page .table td {
+    padding: 9px 7px;
+    font-size: 12px;
+  }
+
+  .admin-users-page .admin-role-badge {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .admin-users-page .admin-users-count {
+    font-size: 13px;
+  }
+}
+
+
+@media (max-width: 360px) {
+  .admin-users-page .dashboard {
+    padding: 7px 5px 18px !important;
+  }
+
+  .admin-users-page .usersHeading {
+    font-size: 19px;
+  }
+
+  .admin-users-page .table th,
+  .admin-users-page .table td {
+    padding: 8px 6px;
+    font-size: 11px;
+  }
+}
+

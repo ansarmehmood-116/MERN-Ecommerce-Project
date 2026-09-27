@@ -1,21 +1,20 @@
-import React from 'react'
-import{Link} from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./LayoutStyles/Footer.css";
 
 const Footer = () => {
   return (
-    // <div className='bg-dark text-light p-3'> this is bootstrap class we have added 
-      <div className='footer'>
+    // <div className='bg-dark text-light p-3'> this is bootstrap class we have added
+    <div className="site-footer">
+    <div className="footer">
       {/* p-3 for padding */}
-      <h4 className='text-center'>All Rights Reserved &copy; AnserTec</h4>
+      <h4 className="text-center">All Rights Reserved &copy; AnserTec</h4>
       <p className="text-center m-3">
         {/* m-3 used for margin all */}
-        <Link to='/about'>About</Link>
-        |
-        <Link to='/contact'>Contact</Link>
-        |
-        <Link to='/policy'>Privacy Policy</Link>
+        <Link to="/about">About</Link>|<Link to="/contact">Contact</Link>|
+        <Link to="/policy">Privacy Policy</Link>
       </p>
-      {/* here we have used Link property of react-router-dom this this is because of the
+      {/* here we have used Link property of react-router-dom this is because of the
       reasons below: Link is primarily used for navigation purposes in React Router. It doesn't
       come with any built-in styling features we also can call this anchor <tag> and select
       it with selector a in css. 
@@ -32,9 +31,9 @@ const Footer = () => {
       rules in CSS, and React Router takes care of applying the active class as needed based on
       the current route.*/}
     </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Footer
-// now we will wrap our app.js and all pages to be created in Layout we will import layout
-// in that pages
+export default Footer;
+// now we will wrap our app.js and all pages to be created in Layout we will import layout in that pages
