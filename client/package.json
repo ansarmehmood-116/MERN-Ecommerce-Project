@@ -13,6 +13,7 @@
     "braintree-web-drop-in-react": "^1.2.1",
     "effect": "^3.6.6",
     "framer-motion": "^11.3.28",
+    "html2canvas": "^1.4.1",
     "lucide-react": "^1.47.0",
     "moment": "^2.30.1",
     "punycode": "^2.3.1",
