@@ -1382,7 +1382,7 @@ body {
     max-width: 520px;
     margin: 0 auto !important;
     flex: none;
-    border-radius: 15px 2px 15 2px !important;
+    border-radius: 15px 2px 15px 2px !important;
     overflow: hidden;
   }
 

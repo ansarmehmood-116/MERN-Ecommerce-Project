@@ -286,7 +286,7 @@
   }
 
   .out-stock-page .productBox > .card > .card-img-top {
-    height: 200px !important;
+    height: 300px !important;
   }
 
   /* Card body */
@@ -353,7 +353,7 @@
   }
 
   .out-stock-page .productBox > .card > .card-img-top {
-    height: 190px !important;
+    height: 280px !important;
   }
 
   .out-stock-page .productBox .card-body {
@@ -377,7 +377,7 @@
    VERY SMALL MOBILE
    ========================================================= */
 
-@media (max-width: 360px) {
+@media (max-width: 370px) {
 
   .out-stock-page .dashboard {
     padding: 7px 5px 18px !important;
@@ -389,16 +389,17 @@
 
   .out-stock-page .productBox {
     width: calc(100vw - 25px) !important;
-
-    height: 370px !important;
+    height: 360px !important;
   }
 
   .out-stock-page .productBox > .card > .card-img-top {
-    height: 180px !important;
+    height: 260px !important;
+    object-fit: cover !important;
   }
 
   .out-stock-page .productBox .card-body {
-    padding: 11px !important;
+    padding: 10px !important;
+    min-height: 0;
   }
 
   .out-stock-page .productBox .card-name-price .card-title {

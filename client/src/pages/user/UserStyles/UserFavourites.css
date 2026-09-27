@@ -904,7 +904,7 @@
   .favourite-page .favourite-card {
     width: 100%;
 
-    border-radius: 11px;
+       border-radius: 17px 2px 17px 2px !important;
   }
 
   .favourite-page .favourite-image-wrapper {
@@ -1067,10 +1067,11 @@
 
   .favourite-page .favouriteProductCard {
     padding: 10px 40px !important;
+        border-radius: 17px 2px 17px 2px !important;
   }
 
   .favourite-page .favourite-image-wrapper {
-    height: 280px;
+    height: 350px;
 
     min-height: 210px;
   }
@@ -1080,7 +1081,7 @@
      ======================================================= */
 
   .favourite-page .favourite-content {
-    padding: 13px;
+    padding: 15px;
   }
 
   .favourite-page .favourite-content .card-name-price {
@@ -1089,7 +1090,6 @@
 
   .favourite-page .favourite-content .card-name-price h5 {
     min-height: 36px;
-
     font-size: 14px;
   }
 
@@ -1103,9 +1103,7 @@
 
   .favourite-page .favourite-content > p {
     min-height: 0;
-
-    margin: 4px 0 1px;
-
+    margin: 0px 0px 4px 0px;
     font-size: 10px;
   }
 
@@ -1185,13 +1183,11 @@
 
   .favourite-page {
     margin-top: 8px !important;
-
     padding: 2px 0 15px !important;
   }
 
   .favourite-page .favourite-header {
     min-height: 72px;
-
     padding: 10px;
   }
 
@@ -1213,11 +1209,11 @@
 
   .favourite-page .favouriteProductCard {
     padding: 8px 20px !important;
+    border-radius: 17px 2px 17px 2px !important;
   }
 
   .favourite-page .favourite-image-wrapper {
-    height: 165px;
-
+    height: 280px;
     min-height: 165px;
   }
 
