@@ -1689,7 +1689,7 @@ body {
   .homepage-page .products-section .productBox {
     width: 100% !important;
     max-width: 100%;
-    border-radius: 15px 2px 15 2px !important;
+    border-radius: 15px 2px 15px 2px !important;
   }
 
 
@@ -1792,6 +1792,7 @@ body {
      --------------------------------------------------------- */
   .homepage-page .mobile-carousel {
     padding-top: 50px;
+    width: 100% !important;
   }
 
   .homepage-page .carousel-item {
@@ -1799,10 +1800,22 @@ body {
        Still square.
        Never use 0fr here.
     */
-    height: 94vw;
+    /* height: 94vw; */
+    /* width: 70px !important; */
+    width: 100% !important;
+    height: 320px;
     min-height: 0;
     max-height: 350px;
-    width: 70px !important;
+    overflow: hidden;
+  }
+
+   .homepage-page .img1,
+  .homepage-page .img2,
+  .homepage-page .img3 {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center;
   }
 
   .homepage-page .img1-heading,
@@ -1880,7 +1893,7 @@ body {
     width: 100% !important;
     max-width: 100%;
     margin: 0 !important;
-    border-radius: 15px 2px 15 2px !important;
+    border-radius: 15px 2px 15px 2px !important;
   }
 
 

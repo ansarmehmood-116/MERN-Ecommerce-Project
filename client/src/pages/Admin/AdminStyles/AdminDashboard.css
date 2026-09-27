@@ -26,7 +26,7 @@
    ========================================================= */
 .AdmindetailsCard {
   width: 100%;
-  /* min-height: 72vh; */
+  /* min-height: 68.5vh !important; */
   overflow: hidden;
   background: #ffffff;
   border: 1px solid #e4e9f0 !important;

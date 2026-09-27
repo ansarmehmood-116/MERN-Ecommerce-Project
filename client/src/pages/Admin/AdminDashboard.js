@@ -39,7 +39,7 @@ const AdminDashboard = () => {
 
           {/* Main Content Area */}
           <div className="col-md-9" data-aos="fade-up">
-            <div className="card border-0 AdmindetailsCard shadow-sm rounded-3 d-flex flex-column" style={{ height: "72vh" }}>
+            <div className="card border-0 AdmindetailsCard shadow rounded-3 d-flex flex-column">
               
               {/* Header Banner */}
               <div className="adminDetails card-header border-bottom p-3 d-flex align-items-center justify-content-between">
