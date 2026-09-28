@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import AdminMenu from "../../components/Layout/AdminMenu";
@@ -10,7 +10,6 @@ import { Select } from "antd";
 import "./AdminStyles/AdminOrders.css";
 import { AiOutlineReload } from "react-icons/ai";
 //__________________________________________________________________________
-
 // const AdminOrders = () => {
 //  //here we have filled the useState with enum we have
 //  //created in orders model.
@@ -22,9 +21,7 @@ import { AiOutlineReload } from "react-icons/ai";
 //     "cancel",
 //   ]);
 //______________________________________________
-
 const { Option } = Select; //we have destructured these option from select.
-
 const AdminOrders = () => {
   //Use context for orders
   const [
@@ -37,9 +34,11 @@ const AdminOrders = () => {
     hasMore,
     loadbtnstate,
   ] = useOrders();
+  // ________For FILTERING ORDERS TYPES_______
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("All");
   //const [changeStatus, setCHangeStatus] = useState("");
   //______________________________________________
-
   //if we donot want to use the context orderProvider then use following function manually here but it will not accessable anywhere except this page.
   // const [auth, setAuth] = useAuth();
   // const [orders, setOrders] = useState([]);
@@ -55,7 +54,6 @@ const AdminOrders = () => {
   //     if (auth?.token) getOrders();
   // }, [auth?.token]);
   //_______________________________________________________________________________
-
   const getAvailableStatuses = (currentStatus) => {
     switch (currentStatus) {
       case "Not Process":
@@ -70,7 +68,6 @@ const AdminOrders = () => {
         return [];
     }
   };
-
   const handleChange = async (orderId, value) => {
     try {
       const { data } = await axios.put(
@@ -89,9 +86,25 @@ const AdminOrders = () => {
       getOrders();
     }
   };
-
   //_________________________________________________________________________
-
+  // _______ONLY FOR ORDER FILTERING________
+  const filteredOrders = useMemo(() => {
+    const search = searchTerm.trim().toLowerCase();
+    return orders.filter((order) => {
+      const customerName = order?.buyer?.name?.toLowerCase() || "";
+      const customerEmail = order?.buyer?.email?.toLowerCase() || "";
+      const orderId = order?._id?.toLowerCase() || "";
+      const matchesSearch =
+        !search ||
+        customerName.includes(search) ||
+        customerEmail.includes(search) ||
+        orderId.includes(search);
+      const matchesStatus =
+        statusFilter === "All" || order?.status === statusFilter;
+      return matchesSearch && matchesStatus;
+    });
+  }, [orders, searchTerm, statusFilter]);
+  // _______________________________________________________
   // OLD groupProducts function is no longer needed
   // because Order Schema V2 already stores quantity directly.
   // const groupProducts = (products) => {
@@ -105,9 +118,7 @@ const AdminOrders = () => {
   //     return acc;
   //   }, []);
   // };
-
   //_______________________________________________________________________
-
   //delete an order__for this backend controller exists in orderController__
   // const handleDelete = async (orderId) => {
   //   try {
@@ -125,7 +136,6 @@ const AdminOrders = () => {
   //   }
   // };
   //____________________________________________________________________
-
   return (
     <Layout title={"All Orders Data"}>
       {/*this wraper is just for css classes leakage prevention */}
@@ -138,10 +148,39 @@ const AdminOrders = () => {
               <AdminMenu />
             </div>
             <div className="col-md-9">
-              <h1 className="text-center ordersHeading p-1 rounded-2 d-flex align-items-center justify-content-center gap-2">
+              <h1 className="text-center ordersHeading p-2 rounded-2 d-flex align-items-center justify-content-center gap-2">
                 <span className="mb-1">🛒</span>
                 <span className="mb-1">All Orders</span>
               </h1>
+              <div className="admin-orders-filters">
+                <div className="admin-orders-search-wrap">
+                  <input
+                    type="text"
+                    placeholder="Search by customer, email or order ID..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="admin-orders-search"
+                  />
+                  <span className="admin-orders-result-count">
+                    <strong>{filteredOrders.length}</strong>
+                    <span>
+                      {filteredOrders.length === 1 ? "order" : "orders"}
+                    </span>
+                  </span>
+                </div>
+                <select
+                  value={statusFilter}
+                  onChange={(e) => setStatusFilter(e.target.value)}
+                  className="admin-orders-status-filter"
+                >
+                  <option value="All">All Orders</option>
+                  <option value="Not Process">Not Process</option>
+                  <option value="Processing">Processing</option>
+                  <option value="Shipped">Shipped</option>
+                  <option value="delivered">Delivered</option>
+                  <option value="cancel">Cancelled</option>
+                </select>
+              </div>
               {loading ? (
                 <div
                   className="d-flex justify-content-center align-items-center"
@@ -151,9 +190,10 @@ const AdminOrders = () => {
                     <span className="visually-hidden">Loading...</span>
                   </div>
                 </div>
-              ) : orders && orders.length > 0 ? (
+              ) : orders && orders?.length > 0 ? (
                 <>
-                  {orders?.map((o, i) => {
+                  {/* {orders?.map((o, i) => { this was showing all orders */}
+                  {filteredOrders?.map((o, i) => {
                     // const groupedProducts = groupProducts(o?.products);
                     return (
                       <div
@@ -277,15 +317,15 @@ const AdminOrders = () => {
                               className="card mb-2 p-2 flex-row align-items-center shadow-sm border-0"
                               key={item?.product?._id}
                               //  key={p._id} used with groupedProduct fucntion above when there was no purchase time price and quantity so we just simply rendered order with products and grouped duplicate products with same product_id and count the quantity and price but now we have changed orderModel to Version 2 see in orderModel and saving orderProducts with quantity and price so it remains unchanged when price of product chnaged later. Aik or chez:- item?.product?.name aur item?.product?.description Products collection se aa rahe hain orderModel mai ham ne ref:Product jo lagaya hai matlab productModel collection ka reference order k andar, isliye product ke andar se field access karni padti hai, item.price aur item.quantity Order ke andar directly stored hain — ye purchase ke waqt ka snapshot hai, isliye item.product.price ya item.product.quantity nahi.Matlab V2 structure: item.product = kaunsa product, aur item.price / item.quantity = us order mein us product ko kis price par aur kitni quantity mein khareeda gaya.
-                              // Old	                                      V2
-                              // groupProducts(o.products)	       Direct o.products
-                              // p._id	                           item.product._id
-                              // p.name	                           item.product.name
-                              // p.description	               item.product.description
-                              // p.price	             item.price ✅ purchase-time price
-                              // p.quantity	           item.quantity ✅ stored quantity
-                              // o.products.length	   reduce() se actual quantity
-                              // —	                   Product Total = price × quantity
+                              // Old                                        V2
+                              // groupProducts(o.products)         Direct o.products
+                              // p._id                             item.product._id
+                              // p.name                            item.product.name
+                              // p.description                     item.product.description
+                              // p.price                           item.price ✅ purchase-time price
+                              // p.quantity                        item.quantity ✅ stored quantity
+                              // o.products.length                 reduce() se actual quantity
+                              // —                                 Product Total = price × quantity
                             >
                               <div className="col-auto">
                                 <img
@@ -300,9 +340,20 @@ const AdminOrders = () => {
                                 />
                               </div>
                               <div className="col ms-3">
-                                <h6 className="fw-bold mb-1">
-                                  {item?.product?.name}
-                                </h6>
+                                <div className="d-flex align-items-center justify-content-between mb-1">
+                                  <h6 className="fw-bold mb-0">
+                                    {item?.product?.name}
+                                  </h6>
+                                  {item?.product?.shipping ? (
+                                    <span className="badge bg-info text-dark shipping-required">
+                                      🚚 Ship
+                                    </span>
+                                  ) : (
+                                    <span className="badge bg-secondary shipping-not-required">
+                                      No Shipping
+                                    </span>
+                                  )}
+                                </div>
                                 <p className="text-muted small mb-1">
                                   {item?.product?.description?.substring(0, 50)}
                                   ...
@@ -356,7 +407,8 @@ const AdminOrders = () => {
                     No Orders Placed Yet
                   </h4>
                   <p className="text-muted mb-4">
-                    Looks like customers haven't bought anything from your store yet.
+                    Looks like customers haven't bought anything from your store
+                    yet.
                   </p>
                 </div>
               )}

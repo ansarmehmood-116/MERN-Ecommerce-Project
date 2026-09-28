@@ -17,8 +17,8 @@
 //  ├── product: ABC                   |
 //  │   quantity: 3                    |
 //  │   price: 20                      |
-//  │                                  | 
-//  └── product: XYZ                   |  
+//  │                                  |
+//  └── product: XYZ                   |
 //      quantity: 2                    |
 //      price: 50                      |
 // e.g                                 |
@@ -89,9 +89,24 @@ const orderSchema = new mongoose.Schema(
           required: true,
           min: 0,
         },
+        // Product shipping snapshot
+        shipping: {
+          type: Boolean,
+          default: false,
+        },
       },
     ],
-
+    
+    shippingAddress: {
+      name: String,
+      phone: String,
+      address: String,
+      city: String,
+      state: String,
+      postalCode: String,
+      country: String,
+    },
+    
     payment: {},
 
     buyer: {
@@ -103,16 +118,10 @@ const orderSchema = new mongoose.Schema(
     status: {
       type: String,
       default: "Not Process",
-      enum: [
-        "Not Process",
-        "Processing",
-        "Shipped",
-        "delivered",
-        "cancel",
-      ],
+      enum: ["Not Process", "Processing", "Shipped", "delivered", "cancel"],
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 //for database Queries optimization
 orderSchema.index({ createdAt: -1 });

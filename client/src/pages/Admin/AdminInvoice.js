@@ -325,6 +325,71 @@ const Invoice = ({ order: propOrder }) => {
                 </div>
               </div>
               {/* =========================================================
+                    SHIPPING ADDRESS
+                    Every order in this store requires shipping
+              ========================================================= */}
+              {order?.shippingAddress && (
+                <div className="invoice-shipping-section mb-4">
+                  {" "}
+                  <div className="invoice-shipping-header">
+                    {" "}
+                    <div className="invoice-shipping-icon">🚚</div>
+                    <div>
+                      <h6 className="invoice-shipping-title mb-1">
+                        Shipping Address
+                      </h6>
+                      <p className="invoice-shipping-subtitle mb-0">
+                        Delivery information for this order
+                      </p>
+                    </div>
+                  </div>
+                  <div className="invoice-shipping-content">
+                    <div className="invoice-shipping-person">
+                      <span className="invoice-shipping-label">Recipient</span>
+                      <strong>{order.shippingAddress.name || "N/A"}</strong>
+                    </div>
+
+                    <div className="invoice-shipping-grid">
+                      <div className="invoice-shipping-item">
+                        <span className="invoice-shipping-label">Phone</span>
+                        <span>{order.shippingAddress.phone || "N/A"}</span>
+                      </div>
+
+                      <div className="invoice-shipping-item invoice-shipping-address">
+                        <span className="invoice-shipping-label">Address</span>
+                        <span>{order.shippingAddress.address || "N/A"}</span>
+                      </div>
+
+                      <div className="invoice-shipping-item">
+                        <span className="invoice-shipping-label">City</span>
+                        <span>{order.shippingAddress.city || "N/A"}</span>
+                      </div>
+
+                      {order.shippingAddress.state && (
+                        <div className="invoice-shipping-item">
+                          <span className="invoice-shipping-label">State</span>
+                          <span>{order.shippingAddress.state}</span>
+                        </div>
+                      )}
+
+                      {order.shippingAddress.postalCode && (
+                        <div className="invoice-shipping-item">
+                          <span className="invoice-shipping-label">
+                            Postal Code
+                          </span>
+                          <span>{order.shippingAddress.postalCode}</span>
+                        </div>
+                      )}
+
+                      <div className="invoice-shipping-item">
+                        <span className="invoice-shipping-label">Country</span>
+                        <span>{order.shippingAddress.country || "N/A"}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* =========================================================
                   V2 PRODUCT TABLE
                   ========================================================= */}
               <div className="table-responsive mb-4">

@@ -35,6 +35,7 @@ html {
   margin-top: 10px;
   font-size: 20px;
 }
+
 /* ========================================= CART PRODUCTS SECTION ========================================= */
 .cart-page .card {
   min-height: 150px !important;
@@ -51,6 +52,7 @@ html {
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
+
 /* Product name */
 .cart-page .card h6 {
   color: #212529;
@@ -90,26 +92,150 @@ html {
   color: #212529;
   /* margin-top: -140px !important; */
 }
+
 .cart-page .cart-summary h2 {
   margin-bottom: 8px;
   color: #212529;
   font-size: 26px;
   font-weight: 600;
 }
+
 .cart-page .cart-summary p {
   color: #6c757d;
 }
+
 .cart-page .cart-summary hr {
   border-color: #dee2e6;
   opacity: 1;
 }
+
 .cart-page .cart-summary h4 {
   color: #198754;
 }
+
 .cart-page .cart-summary h5 {
   color: #495057;
   word-break: break-word;
 }
+
+
+/* =========================================================
+   SHIPPING ADDRESS FORM
+   Light Mode
+   ========================================================= */
+
+.cart-page .shipping-address-form {
+  width: 100%;
+  margin-top: 15px;
+  padding: 16px;
+
+  text-align: left;
+
+  background: #f8fafc;
+  border: 1px solid #dfe4ea;
+  border-radius: 10px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cart-page .shipping-address-form h4 {
+  margin: 0 0 13px;
+  color: #212529;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.cart-page .shipping-address-form .form-control {
+  width: 100%;
+  min-height: 42px;
+
+  padding: 9px 11px;
+
+  background-color: #ffffff;
+  color: #212529;
+
+  border: 1px solid #ced4da;
+  border-radius: 7px;
+
+  font-size: 14px;
+
+  outline: none;
+
+  box-shadow: none;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cart-page .shipping-address-form .form-control::placeholder {
+  color: #8a939d;
+  opacity: 1;
+}
+
+.cart-page .shipping-address-form .form-control:focus {
+  background-color: #ffffff;
+  color: #212529;
+  border-color: #138781;
+
+  box-shadow: 0 0 0 3px rgba(19, 135, 129, 0.12);
+}
+
+.cart-page .shipping-address-form .form-control:hover {
+  border-color: #adb5bd;
+}
+
+
+/* =========================================================
+   SHIPPING ADDRESS — DARK MODE
+   ========================================================= */
+
+#dark .cart-page .shipping-address-form {
+  background: #171b23 !important;
+  border-color: #303846 !important;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+#dark .cart-page .shipping-address-form h4 {
+  color: #f1f3f5 !important;
+}
+
+#dark .cart-page .shipping-address-form .form-control {
+  background-color: #1b2029 !important;
+  color: #f1f3f5 !important;
+
+  border-color: #3b4350 !important;
+
+  box-shadow: none;
+}
+
+#dark .cart-page .shipping-address-form .form-control::placeholder {
+  color: #8f9baa !important;
+  opacity: 1;
+}
+
+#dark .cart-page .shipping-address-form .form-control:hover {
+  border-color: #4a5565 !important;
+}
+
+#dark .cart-page .shipping-address-form .form-control:focus {
+  background-color: #202833 !important;
+  color: #f1f3f5 !important;
+
+  border-color: #138781 !important;
+
+  box-shadow: 0 0 0 3px rgba(19, 135, 129, 0.18) !important;
+}
+
 
 /* ================================
    QUANTITY CONTROL
@@ -120,11 +246,13 @@ html {
   align-items: center;
   gap: 12px;
 }
+
 .cart-page .quantity-label {
   font-size: 14px;
   font-weight: 600;
   color: #555;
 }
+
 .cart-page .quantity-selector {
   display: flex;
   align-items: center;
@@ -158,6 +286,8 @@ html {
 .cart-page .quantity-selector .btn-link:hover {
   color: #084298;
 }
+
+
 /* //______________________________________________________________// */
 
 /* ========== DARK MODE - ANALYTICS PALETTE ========== */
@@ -165,6 +295,7 @@ html {
   background: #101318;
   color: #f1f3f5;
 }
+
 /* Cart heading */
 #dark .cart-page .cartHead h1 {
   /* background: #211a2b9b !important; */
@@ -181,6 +312,7 @@ html {
 #dark .cart-page .cartHead h1 > p {
   color: #aeb7c4;
 }
+
 /* Product cards */
 #dark .cart-page .card {
   background: #171b23;
@@ -199,30 +331,38 @@ html {
 #dark .cart-page .card h6 {
   color: #f1f3f5;
 }
+
 #dark .cart-page .card p.text-muted {
   color: #aeb7c4 !important;
 }
+
 #dark .cart-page .card .itemPrice.text-primary {
   color: #4dabf7 !important;
 }
+
 /* Quantity */
 #dark .cart-page .quantity-label {
   color: #dce1e7 !important;
 }
+
 #dark .cart-page .itemTotal {
   color: #dce1e7 !important;
 }
+
 #dark .cart-page .quantity-selector {
   background: #1b2029;
   border-color: #303846;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
+
 #dark .cart-page .quantity-value {
   color: #f1f3f5;
 }
+
 #dark .cart-page .quantity-selector .btn-link {
   color: #4dabf7;
 }
+
 #dark .cart-page .quantity-selector .btn-link:hover {
   color: #74c0fc;
 }
@@ -231,21 +371,27 @@ html {
 #dark .cart-page .cart-summary {
   color: #f1f3f5;
 }
+
 #dark .cart-page .cart-summary h2 {
   color: #f1f3f5;
 }
+
 #dark .cart-page .cart-summary p {
   color: #aeb7c4;
 }
+
 #dark .cart-page .cart-summary hr {
   border-color: #303846;
 }
+
 #dark .cart-page .cart-summary h4 {
   color: #51cf66;
 }
+
 #dark .cart-page .cart-summary h5 {
   color: #dce1e7;
 }
+
 
 /* ____________________________________________________________ */
 
@@ -254,11 +400,13 @@ html {
    Desktop / Tablet design remains untouched
    Remove button stays on RIGHT SIDE
    ============================================================ */
+
 /* ============================================================
    MOBILE — 767px AND BELOW
    ============================================================ */
 
 @media (max-width: 767.98px) {
+
   /* ----------------------------------------------------------
      PRODUCT LIST
      ---------------------------------------------------------- */
@@ -270,9 +418,36 @@ html {
     margin: 0 !important;
   }
 
+
+  /* ----------------------------------------------------------
+     SHIPPING ADDRESS
+     Mobile
+     ---------------------------------------------------------- */
+
+  .cart-page .shipping-address-form {
+    margin-top: 13px;
+    margin-bottom: 14px !important;
+    padding: 13px !important;
+    border-radius: 9px;
+  }
+
+  .cart-page .shipping-address-form h4 {
+    margin-bottom: 11px;
+    font-size: 18px;
+  }
+
+  .cart-page .shipping-address-form .form-control {
+    min-height: 40px;
+    padding: 8px 10px;
+    font-size: 13px;
+    border-radius: 7px;
+  }
+
+
   /* ----------------------------------------------------------
      PRODUCT CARD
      ---------------------------------------------------------- */
+
   .cart-page .col-md-7 > .card {
     display: grid !important;
     /* border: 2px solid red !important; */
@@ -307,6 +482,7 @@ html {
     overflow: hidden;
   }
 
+
   /* ----------------------------------------------------------
      IMAGE
      ---------------------------------------------------------- */
@@ -335,6 +511,7 @@ html {
     border-radius: 9px !important;
   }
 
+
   /* ----------------------------------------------------------
      PRODUCT DETAILS
      ---------------------------------------------------------- */
@@ -354,6 +531,7 @@ html {
     /* justify-content: flex-start !important; */
     overflow: hidden;
   }
+
 
   /* ----------------------------------------------------------
      PRODUCT NAME
@@ -375,6 +553,7 @@ html {
     word-break: break-word;
   }
 
+
   /* ----------------------------------------------------------
      DESCRIPTION
      ---------------------------------------------------------- */
@@ -395,6 +574,7 @@ html {
     word-break: break-word;
   }
 
+
   /* ----------------------------------------------------------
      PRICE
      ---------------------------------------------------------- */
@@ -410,9 +590,11 @@ html {
     white-space: nowrap;
   }
 
+
   /* ----------------------------------------------------------
      QUANTITY AREA
      ---------------------------------------------------------- */
+
   .cart-page .col-md-7 > .card .quantity-control {
     width: 100% !important;
     min-width: 0;
@@ -493,42 +675,42 @@ html {
   }
 
 
-/* ----------------------------------------------------------
-   REMOVE BUTTON — CENTERED
-   ---------------------------------------------------------- */
-.cart-page .col-md-7 > .card > .col-md-3 {
-  grid-column: 2;
-  grid-row: 1;
+  /* ----------------------------------------------------------
+     REMOVE BUTTON — CENTERED
+     ---------------------------------------------------------- */
 
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 0;
-  margin-left: 80px !important;
-  padding: 20px !important;
-  display: flex !important;
+  .cart-page .col-md-7 > .card > .col-md-3 {
+    grid-column: 2;
+    grid-row: 1;
 
-  align-items: center !important;
-  justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
+    margin-left: 80px !important;
+    padding: 20px !important;
+    display: flex !important;
 
-  align-self: center;
-  pointer-events: auto;
-}
+    align-items: center !important;
+    justify-content: center !important;
 
-.cart-page .col-md-7 > .card > .col-md-3 .btn-danger {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content:end !important;
-  width: auto !important;
-  min-width: 0 !important;
-  /* margin-left:40vw !important; */
-  padding: 4px 9px !important;
-  font-size: 11px !important;
-  line-height: 1.3;
-  white-space: nowrap;
-  border-radius: 6px;
-  flex-shrink: 0;
-}
+    align-self: center;
+    pointer-events: auto;
+  }
 
+  .cart-page .col-md-7 > .card > .col-md-3 .btn-danger {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: end !important;
+    width: auto !important;
+    min-width: 0 !important;
+    /* margin-left:40vw !important; */
+    padding: 4px 9px !important;
+    font-size: 11px !important;
+    line-height: 1.3;
+    white-space: nowrap;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
 
 
   /* ----------------------------------------------------------
@@ -546,14 +728,43 @@ html {
   }
 }
 
+
 /* ============================================================
    SMALL MOBILE — 575px AND BELOW
    ============================================================ */
 
 @media (max-width: 575.98px) {
+
   .cart-page .col-md-7 {
     padding: 0 5px !important;
   }
+
+
+  /* ----------------------------------------------------------
+     SHIPPING ADDRESS
+     Small Mobile
+     ---------------------------------------------------------- */
+
+  .cart-page .shipping-address-form {
+    margin-top: 10px;
+    margin-bottom: 12px !important;
+    padding: 11px !important;
+    border-radius: 8px;
+  }
+
+  .cart-page .shipping-address-form h4 {
+    margin-bottom: 9px;
+    font-size: 17px;
+  }
+
+  .cart-page .shipping-address-form .form-control {
+    min-height: 39px;
+    padding: 8px 9px;
+    margin-bottom: 8px !important;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+
 
   /* Card */
 
@@ -570,6 +781,7 @@ html {
     border-radius: 9px;
   }
 
+
   /* Image */
 
   .cart-page .col-md-7 > .card > .col-auto {
@@ -584,6 +796,7 @@ html {
     border-radius: 8px !important;
   }
 
+
   /* Product name */
 
   .cart-page .col-md-7 > .card > .col-md-6 h6 {
@@ -591,6 +804,7 @@ html {
 
     line-height: 1.3;
   }
+
 
   /* Description */
 
@@ -602,11 +816,13 @@ html {
     -webkit-line-clamp: 2;
   }
 
+
   /* Price */
 
   .cart-page .col-md-7 > .card > .col-md-6 .itemPrice {
     font-size: 11px !important;
   }
+
 
   /* Quantity */
 
@@ -646,6 +862,7 @@ html {
     font-size: 10px !important;
   }
 
+
   /* Remove */
 
   .cart-page .col-md-7 > .card > .col-md-3 {
@@ -659,14 +876,43 @@ html {
   }
 }
 
+
 /* ============================================================
    VERY SMALL MOBILE — 400px AND BELOW
    ============================================================ */
 
 @media (max-width: 400px) {
+
   .cart-page .col-md-7 {
     padding: 0 3px !important;
   }
+
+
+  /* ----------------------------------------------------------
+     SHIPPING ADDRESS
+     Very Small Mobile
+     ---------------------------------------------------------- */
+
+  .cart-page .shipping-address-form {
+    margin-top: 8px;
+    margin-bottom: 10px !important;
+    padding: 9px !important;
+    border-radius: 7px;
+  }
+
+  .cart-page .shipping-address-form h4 {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .cart-page .shipping-address-form .form-control {
+    min-height: 37px;
+    padding: 7px 8px;
+    margin-bottom: 7px !important;
+    font-size: 11px;
+    border-radius: 6px;
+  }
+
 
   .cart-page .col-md-7 > .card {
     grid-template-columns: 64px minmax(0, 1fr);
@@ -678,6 +924,7 @@ html {
 
     border-radius: 8px;
   }
+
 
   /* Image */
 
@@ -693,6 +940,7 @@ html {
     border-radius: 7px !important;
   }
 
+
   /* Product name */
 
   .cart-page .col-md-7 > .card > .col-md-6 h6 {
@@ -700,6 +948,7 @@ html {
 
     line-height: 1.25;
   }
+
 
   /* Description */
 
@@ -711,11 +960,13 @@ html {
     -webkit-line-clamp: 1;
   }
 
+
   /* Price */
 
   .cart-page .col-md-7 > .card > .col-md-6 .itemPrice {
     font-size: 10px !important;
   }
+
 
   /* Quantity */
 
@@ -753,6 +1004,7 @@ html {
     font-size: 9px !important;
   }
 
+
   /* Remove */
 
   .cart-page .col-md-7 > .card > .col-md-3 {
@@ -766,11 +1018,37 @@ html {
   }
 }
 
+
 /* ============================================================
    EXTREMELY SMALL — 350px AND BELOW
    ============================================================ */
 
 @media (max-width: 350px) {
+
+  /* ----------------------------------------------------------
+     SHIPPING ADDRESS
+     Extremely Small
+     ---------------------------------------------------------- */
+
+  .cart-page .shipping-address-form {
+    margin-top: 7px;
+    margin-bottom: 9px !important;
+    padding: 8px !important;
+  }
+
+  .cart-page .shipping-address-form h4 {
+    margin-bottom: 7px;
+    font-size: 15px;
+  }
+
+  .cart-page .shipping-address-form .form-control {
+    min-height: 35px;
+    padding: 6px 7px;
+    margin-bottom: 6px !important;
+    font-size: 10px;
+  }
+
+
   .cart-page .col-md-7 > .card {
     grid-template-columns: 58px minmax(0, 1fr);
 
@@ -778,6 +1056,7 @@ html {
 
     padding: 6px !important;
   }
+
 
   /* Image */
 
@@ -791,11 +1070,13 @@ html {
     height: 58px !important;
   }
 
+
   /* Product name */
 
   .cart-page .col-md-7 > .card > .col-md-6 h6 {
     font-size: 11px !important;
   }
+
 
   /* Description */
 
@@ -803,11 +1084,13 @@ html {
     font-size: 8px !important;
   }
 
+
   /* Price */
 
   .cart-page .col-md-7 > .card > .col-md-6 .itemPrice {
     font-size: 9px !important;
   }
+
 
   /* Quantity */
 
@@ -837,6 +1120,7 @@ html {
     font-size: 8px !important;
   }
 
+
   /* Remove */
 
   .cart-page .col-md-7 > .card > .col-md-3 {
@@ -849,3 +1133,4 @@ html {
     font-size: 8px !important;
   }
 }
+

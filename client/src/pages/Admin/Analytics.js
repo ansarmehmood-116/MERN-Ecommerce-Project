@@ -135,37 +135,29 @@ const Analytics = () => {
         {/* ================= KPI CARDS ================= */}
         <div className="row g-3 mb-4">
           {/* Customers */}
-
           <div className="col-xl-3 col-md-6">
             <div className="analytics-card">
               <div className="analytics-icon">
                 <FaUsers />
               </div>
-
               <div>
                 <span>Total Customers</span>
-
                 <h3>{customers?.total || 0}</h3>
-
                 <small>+{customers?.new || 0} new</small>
               </div>
             </div>
           </div>
 
           {/* Orders */}
-
           <div className="col-xl-3 col-md-6">
             <div className="analytics-card">
               <div className="analytics-icon">
                 <FaShoppingCart />
                 {/* 🛒 */}
               </div>
-
               <div>
                 <span>Total Orders</span>
-
                 <h3>{orders?.total || 0}</h3>
-
                 <small>{orders?.delivered || 0} delivered</small>
               </div>
             </div>
@@ -228,7 +220,6 @@ const Analytics = () => {
           <div className="sales-summary">
             <div>
               <span>Total Sales</span>
-
               <strong>${Number(sales?.total || 0).toFixed(2)}</strong>
             </div>
 
@@ -418,6 +409,25 @@ const Analytics = () => {
               </div>
 
               <div className="inventory-list">
+                {/* Total Stock Value */}
+                <div className="inventory-item stock-value-item">
+                  <FaDollarSign />
+
+                  <span>Total Stock Value</span>
+
+                  <strong>
+                    $
+                    {Number(products?.totalStockValue || 0).toLocaleString(
+                      "en-US",
+                      {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      },
+                    )}
+                  </strong>
+                </div>
+
+                {/* Total Products */}
                 <div className="inventory-item">
                   <FaBoxOpen />
 
@@ -426,6 +436,7 @@ const Analytics = () => {
                   <strong>{products?.total || 0}</strong>
                 </div>
 
+                {/* Out of Stock */}
                 <div className="inventory-item">
                   <FaTimesCircle />
 
@@ -434,6 +445,7 @@ const Analytics = () => {
                   <strong>{products?.outOfStock || 0}</strong>
                 </div>
 
+                {/* Low Stock */}
                 <div className="inventory-item">
                   <FaExclamationTriangle />
 

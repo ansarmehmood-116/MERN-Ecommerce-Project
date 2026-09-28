@@ -190,3 +190,384 @@
     opacity: 1;
   }
 }
+
+/* =========================================================
+INVOICE SHIPPING ADDRESS
+Added Section - Existing Invoice Design Preserved
+========================================================= */
+
+.invoice-shipping-section {
+width: 100%;
+margin-top: 4px;
+padding: 0;
+
+background: #f8fafc;
+border: 1px solid #dbe3ec;
+border-radius: 12px;
+
+overflow: hidden;
+
+box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+
+transition:
+background-color 0.2s ease,
+border-color 0.2s ease,
+box-shadow 0.2s ease;
+}
+
+/* =========================================================
+SHIPPING HEADER
+========================================================= */
+
+.invoice-shipping-header {
+display: flex;
+align-items: center;
+gap: 12px;
+
+padding: 13px 16px;
+
+background: linear-gradient(
+135deg,
+#eef9ff 0%,
+#f8fbff 100%
+);
+
+border-bottom: 1px solid #dbe3ec;
+}
+
+.invoice-shipping-icon {
+width: 38px;
+height: 38px;
+flex: 0 0 38px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+background: #e0f2fe;
+border: 1px solid #bae6fd;
+border-radius: 9px;
+
+font-size: 18px;
+line-height: 1;
+}
+
+.invoice-shipping-title {
+color: #0f172a;
+
+font-size: 14px;
+font-weight: 800;
+
+letter-spacing: 0.3px;
+text-transform: uppercase;
+}
+
+.invoice-shipping-subtitle {
+color: #64748b;
+font-size: 11px;
+}
+
+/* =========================================================
+SHIPPING CONTENT
+========================================================= */
+
+.invoice-shipping-content {
+padding: 15px 16px;
+}
+
+.invoice-shipping-person {
+display: flex;
+flex-direction: column;
+gap: 3px;
+
+margin-bottom: 13px;
+padding-bottom: 12px;
+
+border-bottom: 1px dashed #d5dde7;
+}
+
+.invoice-shipping-person strong {
+color: #172033;
+
+font-size: 14px;
+line-height: 1.4;
+}
+
+/* =========================================================
+SHIPPING GRID
+========================================================= */
+
+.invoice-shipping-grid {
+display: grid;
+
+grid-template-columns: repeat(2, minmax(0, 1fr));
+
+gap: 10px 14px;
+}
+
+.invoice-shipping-item {
+min-width: 0;
+
+display: flex;
+flex-direction: column;
+gap: 3px;
+
+padding: 9px 10px;
+
+background: #ffffff;
+
+border: 1px solid #e2e8f0;
+border-radius: 8px;
+
+transition:
+background-color 0.2s ease,
+border-color 0.2s ease;
+}
+
+.invoice-shipping-item > span:last-child {
+color: #263244;
+
+font-size: 12px;
+font-weight: 600;
+line-height: 1.45;
+
+overflow-wrap: anywhere;
+word-break: break-word;
+}
+
+.invoice-shipping-label {
+color: #7a8797;
+
+font-size: 9px;
+font-weight: 800;
+
+letter-spacing: 0.7px;
+text-transform: uppercase;
+}
+
+.invoice-shipping-address {
+grid-column: span 2;
+}
+
+/* =========================================================
+DARK MODE
+========================================================= */
+
+#dark .invoice-shipping-section {
+background: #171c25 !important;
+border-color: #303846 !important;
+
+box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+}
+
+#dark .invoice-shipping-header {
+background: linear-gradient(
+135deg,
+#172631 0%,
+#1a202b 100%
+) !important;
+
+border-bottom-color: #303846 !important;
+}
+
+#dark .invoice-shipping-icon {
+background: #17313c !important;
+border-color: #285766 !important;
+}
+
+#dark .invoice-shipping-title {
+color: #f1f5f9 !important;
+}
+
+#dark .invoice-shipping-subtitle {
+color: #94a3b8 !important;
+}
+
+#dark .invoice-shipping-content {
+background: #171c25 !important;
+}
+
+#dark .invoice-shipping-person {
+border-bottom-color: #343d4b !important;
+}
+
+#dark .invoice-shipping-person strong {
+color: #f1f5f9 !important;
+}
+
+#dark .invoice-shipping-item {
+background: #1d2430 !important;
+border-color: #343d4b !important;
+}
+
+#dark .invoice-shipping-item > span:last-child {
+color: #dbe4ee !important;
+}
+
+#dark .invoice-shipping-label {
+color: #8d9aaa !important;
+}
+
+/* =========================================================
+TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+.invoice-shipping-header {
+padding: 12px 13px;
+gap: 10px;
+}
+
+.invoice-shipping-icon {
+width: 35px;
+height: 35px;
+flex-basis: 35px;
+font-size: 17px;
+border-radius: 8px;
+
+}
+
+.invoice-shipping-title {
+font-size: 13px;
+}
+
+.invoice-shipping-subtitle {
+font-size: 10px;
+}
+
+.invoice-shipping-content {
+padding: 13px;
+}
+
+.invoice-shipping-grid {
+gap: 8px;
+}
+
+.invoice-shipping-item {
+padding: 8px 9px;
+}
+
+.invoice-shipping-item > span:last-child {
+font-size: 11px;
+}
+}
+
+/* =========================================================
+SMALL PHONES
+========================================================= */
+
+@media (max-width: 575.98px) {
+.invoice-shipping-section {
+border-radius: 9px;
+}
+
+.invoice-shipping-header {
+padding: 10px 11px;
+}
+
+.invoice-shipping-icon {
+width: 32px;
+height: 32px;
+flex-basis: 32px;
+font-size: 15px;
+
+
+}
+
+.invoice-shipping-title {
+font-size: 12px;
+}
+
+.invoice-shipping-subtitle {
+font-size: 9px;
+}
+
+.invoice-shipping-content {
+padding: 11px;
+}
+
+.invoice-shipping-person {
+margin-bottom: 10px;
+padding-bottom: 10px;
+}
+
+.invoice-shipping-person strong {
+font-size: 13px;
+}
+
+.invoice-shipping-grid {
+grid-template-columns: 1fr;
+gap: 7px;
+}
+
+.invoice-shipping-address {
+grid-column: span 1;
+}
+
+.invoice-shipping-item {
+padding: 8px;
+}
+
+.invoice-shipping-label {
+font-size: 8px;
+}
+
+.invoice-shipping-item > span:last-child {
+font-size: 10.5px;
+}
+}
+
+/* =========================================================
+VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+.invoice-shipping-header {
+padding: 9px 10px;
+}
+
+.invoice-shipping-icon {
+width: 29px;
+height: 29px;
+flex-basis: 29px;
+font-size: 14px;
+
+}
+
+.invoice-shipping-title {
+font-size: 11px;
+}
+
+.invoice-shipping-subtitle {
+font-size: 8px;
+}
+
+.invoice-shipping-content {
+padding: 9px;
+}
+
+.invoice-shipping-person strong {
+font-size: 12px;
+}
+
+.invoice-shipping-item {
+padding: 7px;
+}
+
+.invoice-shipping-item > span:last-child {
+font-size: 10px;
+}
+}
+
+/* =========================================================
+IMAGE EXPORT / CANVAS SUPPORT
+Keep Shipping Section Solid During html2canvas
+========================================================= */
+
+.invoice-shipping-section,
+.invoice-shipping-header,
+.invoice-shipping-content,
+.invoice-shipping-item {
+-webkit-print-color-adjust: exact;
+print-color-adjust: exact;
+}

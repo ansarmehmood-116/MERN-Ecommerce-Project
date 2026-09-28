@@ -40,7 +40,7 @@ export const brainTreePaymentController = async (req, res) => {
   let reservedProducts = [];
 
   try {
-    const { nonce, cart } = req.body;
+    const { nonce, cart, shippingAddress } = req.body;
 
     // 1. Validate payment/cart data
     if (!nonce) {
@@ -57,12 +57,23 @@ export const brainTreePaymentController = async (req, res) => {
       });
     }
 
+    if (
+      !shippingAddress?.name ||
+      !shippingAddress?.phone ||
+      !shippingAddress?.address ||
+      !shippingAddress?.city ||
+      !shippingAddress?.country
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Shipping address is required for this order.",
+      });
+    }
+
     // 2. Group duplicate products
     const groupedProducts = cart.reduce((acc, item) => {
       const productId = item._id.toString();
-
       const existing = acc.find((product) => product.productId === productId);
-
       if (existing) {
         existing.quantity += 1;
       } else {
@@ -146,7 +157,7 @@ export const brainTreePaymentController = async (req, res) => {
       return sum + item.price * item.quantity;
     }, 0);
 
-    // 7. Process Braintree payment
+    // 8. Process Braintree payment
     gateway.transaction.sale(
       {
         amount: total.toFixed(2),
@@ -254,6 +265,18 @@ export const brainTreePaymentController = async (req, res) => {
         try {
           const order = await new orderModel({
             products: orderProducts,
+
+            // ________Only this is added for shippin address_______
+            shippingAddress: {
+              name: shippingAddress.name,
+              phone: shippingAddress.phone,
+              address: shippingAddress.address,
+              city: shippingAddress.city,
+              state: shippingAddress.state || "",
+              postalCode: shippingAddress.postalCode || "",
+              country: shippingAddress.country,
+            },
+            // ____________________________________________
             payment: result,
             buyer: req.user._id,
             status: "Not Process",

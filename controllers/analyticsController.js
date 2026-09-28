@@ -51,7 +51,6 @@ export const trackVisitController = async (req, res) => {
   }
 };
 
-
 /*
 |--------------------------------------------------------------------------
 | ANALYTICS
@@ -81,19 +80,13 @@ export const getAnalyticsController = async (req, res) => {
       periodStart.setDate(periodStart.getDate() - 29);
       periodStart.setHours(0, 0, 0, 0);
     } else if (period === "thisMonth") {
-      periodStart = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        1
-      );
+      periodStart = new Date(now.getFullYear(), now.getMonth(), 1);
     } else {
       return res.status(400).json({
         success: false,
-        message:
-          "Invalid period. Use 7days, 30days, or thisMonth.",
+        message: "Invalid period. Use 7days, 30days, or thisMonth.",
       });
     }
-
 
     /*
     |--------------------------------------------------------------------------
@@ -107,7 +100,6 @@ export const getAnalyticsController = async (req, res) => {
     const tomorrowStart = new Date(todayStart);
     tomorrowStart.setDate(tomorrowStart.getDate() + 1);
 
-
     /*
     |--------------------------------------------------------------------------
     | WEEK
@@ -118,19 +110,13 @@ export const getAnalyticsController = async (req, res) => {
     weekStart.setDate(weekStart.getDate() - 6);
     weekStart.setHours(0, 0, 0, 0);
 
-
     /*
     |--------------------------------------------------------------------------
     | MONTH
     |--------------------------------------------------------------------------
     */
 
-    const monthStart = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      1
-    );
-
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
 
     /*
     |--------------------------------------------------------------------------
@@ -145,7 +131,6 @@ export const getAnalyticsController = async (req, res) => {
       "payment.success": true,
       status: { $ne: "cancel" },
     };
-
 
     /*
     |--------------------------------------------------------------------------
@@ -165,19 +150,14 @@ export const getAnalyticsController = async (req, res) => {
           _id: null,
           totalSales: {
             $sum: {
-              $multiply: [
-                "$products.price",
-                "$products.quantity",
-              ],
+              $multiply: ["$products.price", "$products.quantity"],
             },
           },
         },
       },
     ]);
 
-    const totalSales =
-      totalSalesResult[0]?.totalSales || 0;
-
+    const totalSales = totalSalesResult[0]?.totalSales || 0;
 
     /*
     |--------------------------------------------------------------------------
@@ -203,19 +183,14 @@ export const getAnalyticsController = async (req, res) => {
           _id: null,
           sales: {
             $sum: {
-              $multiply: [
-                "$products.price",
-                "$products.quantity",
-              ],
+              $multiply: ["$products.price", "$products.quantity"],
             },
           },
         },
       },
     ]);
 
-    const todaySales =
-      todaySalesResult[0]?.sales || 0;
-
+    const todaySales = todaySalesResult[0]?.sales || 0;
 
     /*
     |--------------------------------------------------------------------------
@@ -241,19 +216,14 @@ export const getAnalyticsController = async (req, res) => {
           _id: null,
           sales: {
             $sum: {
-              $multiply: [
-                "$products.price",
-                "$products.quantity",
-              ],
+              $multiply: ["$products.price", "$products.quantity"],
             },
           },
         },
       },
     ]);
 
-    const weeklySales =
-      weeklySalesResult[0]?.sales || 0;
-
+    const weeklySales = weeklySalesResult[0]?.sales || 0;
 
     /*
     |--------------------------------------------------------------------------
@@ -279,19 +249,14 @@ export const getAnalyticsController = async (req, res) => {
           _id: null,
           sales: {
             $sum: {
-              $multiply: [
-                "$products.price",
-                "$products.quantity",
-              ],
+              $multiply: ["$products.price", "$products.quantity"],
             },
           },
         },
       },
     ]);
 
-    const monthlySales =
-      monthlySalesResult[0]?.sales || 0;
-
+    const monthlySales = monthlySalesResult[0]?.sales || 0;
 
     /*
     |--------------------------------------------------------------------------
@@ -300,10 +265,7 @@ export const getAnalyticsController = async (req, res) => {
     */
 
     const successfulOrderCount =
-      await orderModel.countDocuments(
-        successfulOrderMatch
-      );
-
+      await orderModel.countDocuments(successfulOrderMatch);
 
     /*
     |--------------------------------------------------------------------------
@@ -312,10 +274,7 @@ export const getAnalyticsController = async (req, res) => {
     */
 
     const averageOrderValue =
-      successfulOrderCount > 0
-        ? totalSales / successfulOrderCount
-        : 0;
-
+      successfulOrderCount > 0 ? totalSales / successfulOrderCount : 0;
 
     /*
     |--------------------------------------------------------------------------
@@ -323,15 +282,14 @@ export const getAnalyticsController = async (req, res) => {
     |--------------------------------------------------------------------------
     */
 
-    const orderStatusResult =
-      await orderModel.aggregate([
-        {
-          $group: {
-            _id: "$status",
-            count: { $sum: 1 },
-          },
+    const orderStatusResult = await orderModel.aggregate([
+      {
+        $group: {
+          _id: "$status",
+          count: { $sum: 1 },
         },
-      ]);
+      },
+    ]);
 
     const orderStatuses = {
       notProcess: 0,
@@ -363,16 +321,13 @@ export const getAnalyticsController = async (req, res) => {
       }
     });
 
-
     /*
     |--------------------------------------------------------------------------
     | TOTAL ORDERS
     |--------------------------------------------------------------------------
     */
 
-    const totalOrders =
-      await orderModel.countDocuments();
-
+    const totalOrders = await orderModel.countDocuments();
 
     /*
     |--------------------------------------------------------------------------
@@ -380,9 +335,7 @@ export const getAnalyticsController = async (req, res) => {
     |--------------------------------------------------------------------------
     */
 
-    const totalCustomers =
-      await userModel.countDocuments();
-
+    const totalCustomers = await userModel.countDocuments();
 
     /*
     |--------------------------------------------------------------------------
@@ -393,14 +346,12 @@ export const getAnalyticsController = async (req, res) => {
     |
     */
 
-    const newCustomers =
-      await userModel.countDocuments({
-        createdAt: {
-          $gte: periodStart,
-          $lte: now,
-        },
-      });
-
+    const newCustomers = await userModel.countDocuments({
+      createdAt: {
+        $gte: periodStart,
+        $lte: now,
+      },
+    });
 
     /*
     |--------------------------------------------------------------------------
@@ -408,14 +359,11 @@ export const getAnalyticsController = async (req, res) => {
     |--------------------------------------------------------------------------
     */
 
-    const customersWithOrdersResult =
-      await orderModel.distinct("buyer");
+    const customersWithOrdersResult = await orderModel.distinct("buyer");
 
-    const customersWithOrders =
-      customersWithOrdersResult.filter(
-        (id) => id != null
-      ).length;
-
+    const customersWithOrders = customersWithOrdersResult.filter(
+      (id) => id != null,
+    ).length;
 
     /*
     |--------------------------------------------------------------------------
@@ -423,22 +371,42 @@ export const getAnalyticsController = async (req, res) => {
     |--------------------------------------------------------------------------
     */
 
-    const totalProducts =
-      await productModel.countDocuments();
+    const totalProducts = await productModel.countDocuments();
 
-    const outOfStock =
-      await productModel.countDocuments({
-        quantity: 0,
-      });
+    const outOfStock = await productModel.countDocuments({
+      quantity: 0,
+    });
 
-    const lowStock =
-      await productModel.countDocuments({
-        quantity: {
-          $gt: 0,
-          $lte: 5,
+    const lowStock = await productModel.countDocuments({
+      quantity: {
+        $gt: 0,
+        $lte: 5,
+      },
+    });
+
+    // -----------------------------------------------------------------------
+    // ___________________TOTAL STOCK VALUE_____________________
+    // _______________________________________________________________________
+
+    const stockValueResult = await productModel.aggregate([
+      {
+        $match: {
+          quantity: { $gt: 0 },
         },
-      });
+      },
+      {
+        $group: {
+          _id: null,
+          totalStockValue: {
+            $sum: {
+              $multiply: ["$quantity", "$price"],
+            },
+          },
+        },
+      },
+    ]);
 
+    const totalStockValue = stockValueResult[0]?.totalStockValue || 0;
 
     /*
     |--------------------------------------------------------------------------
@@ -449,85 +417,74 @@ export const getAnalyticsController = async (req, res) => {
     |
     */
 
-    const bestSellingProducts =
-      await orderModel.aggregate([
-        {
-          $match: successfulOrderMatch,
-        },
+    const bestSellingProducts = await orderModel.aggregate([
+      {
+        $match: successfulOrderMatch,
+      },
 
-        {
-          $unwind: "$products",
-        },
+      {
+        $unwind: "$products",
+      },
 
-        {
-          $group: {
-            _id: "$products.product",
+      {
+        $group: {
+          _id: "$products.product",
 
-            soldQuantity: {
-              $sum: "$products.quantity",
-            },
+          soldQuantity: {
+            $sum: "$products.quantity",
+          },
 
-            revenue: {
-              $sum: {
-                $multiply: [
-                  "$products.price",
-                  "$products.quantity",
-                ],
-              },
+          revenue: {
+            $sum: {
+              $multiply: ["$products.price", "$products.quantity"],
             },
           },
         },
+      },
 
-        {
-          $sort: {
-            soldQuantity: -1,
+      {
+        $sort: {
+          soldQuantity: -1,
+        },
+      },
+
+      {
+        $limit: 10,
+      },
+
+      {
+        $lookup: {
+          from: "products",
+          localField: "_id",
+          foreignField: "_id",
+          as: "product",
+        },
+      },
+
+      {
+        $unwind: {
+          path: "$product",
+          preserveNullAndEmptyArrays: true,
+        },
+      },
+
+      {
+        $project: {
+          _id: 1,
+
+          name: {
+            $ifNull: ["$product.name", "Deleted Product"],
+          },
+
+          soldQuantity: 1,
+          revenue: 1,
+
+          currentStock: {
+            $ifNull: ["$product.quantity", 0],
           },
         },
-
-        {
-          $limit: 10,
-        },
-
-        {
-          $lookup: {
-            from: "products",
-            localField: "_id",
-            foreignField: "_id",
-            as: "product",
-          },
-        },
-
-        {
-          $unwind: {
-            path: "$product",
-            preserveNullAndEmptyArrays: true,
-          },
-        },
-
-        {
-          $project: {
-            _id: 1,
-
-            name: {
-              $ifNull: [
-                "$product.name",
-                "Deleted Product",
-              ],
-            },
-
-            soldQuantity: 1,
-            revenue: 1,
-
-            currentStock: {
-              $ifNull: [
-                "$product.quantity",
-                0,
-              ],
-            },
-          },
-        },
-      ]);
-
+      },
+    ]);
 
     /*
     |--------------------------------------------------------------------------
@@ -535,11 +492,9 @@ export const getAnalyticsController = async (req, res) => {
     |--------------------------------------------------------------------------
     */
 
-    const successfulPayments =
-      await paymentAttemptModel.countDocuments({
-        success: true,
-      });
-
+    const successfulPayments = await paymentAttemptModel.countDocuments({
+      success: true,
+    });
 
     /*
     |--------------------------------------------------------------------------
@@ -547,11 +502,9 @@ export const getAnalyticsController = async (req, res) => {
     |--------------------------------------------------------------------------
     */
 
-    const failedPayments =
-      await paymentAttemptModel.countDocuments({
-        success: false,
-      });
-      
+    const failedPayments = await paymentAttemptModel.countDocuments({
+      success: false,
+    });
 
     /*
     |--------------------------------------------------------------------------
@@ -559,9 +512,7 @@ export const getAnalyticsController = async (req, res) => {
     |--------------------------------------------------------------------------
     */
 
-    const totalVisits =
-      await visitModel.countDocuments();
-
+    const totalVisits = await visitModel.countDocuments();
 
     /*
     |--------------------------------------------------------------------------
@@ -569,14 +520,12 @@ export const getAnalyticsController = async (req, res) => {
     |--------------------------------------------------------------------------
     */
 
-    const todayVisits =
-      await visitModel.countDocuments({
-        createdAt: {
-          $gte: todayStart,
-          $lt: tomorrowStart,
-        },
-      });
-
+    const todayVisits = await visitModel.countDocuments({
+      createdAt: {
+        $gte: todayStart,
+        $lt: tomorrowStart,
+      },
+    });
 
     /*
     |--------------------------------------------------------------------------
@@ -584,12 +533,9 @@ export const getAnalyticsController = async (req, res) => {
     |--------------------------------------------------------------------------
     */
 
-    const uniqueVisitorsResult =
-      await visitModel.distinct("visitorId");
+    const uniqueVisitorsResult = await visitModel.distinct("visitorId");
 
-    const uniqueVisitors =
-      uniqueVisitorsResult.length;
-
+    const uniqueVisitors = uniqueVisitorsResult.length;
 
     /*
     |--------------------------------------------------------------------------
@@ -597,57 +543,55 @@ export const getAnalyticsController = async (req, res) => {
     |--------------------------------------------------------------------------
     */
 
-    const visitsOverTime =
-      await visitModel.aggregate([
-        {
-          $match: {
-            createdAt: {
-              $gte: periodStart,
-              $lte: now,
-            },
+    const visitsOverTime = await visitModel.aggregate([
+      {
+        $match: {
+          createdAt: {
+            $gte: periodStart,
+            $lte: now,
           },
         },
+      },
 
-        {
-          $group: {
-            _id: {
-              $dateToString: {
-                format: "%Y-%m-%d",
-                date: "$createdAt",
-              },
-            },
-
-            visits: {
-              $sum: 1,
-            },
-
-            uniqueVisitors: {
-              $addToSet: "$visitorId",
+      {
+        $group: {
+          _id: {
+            $dateToString: {
+              format: "%Y-%m-%d",
+              date: "$createdAt",
             },
           },
-        },
 
-        {
-          $project: {
-            _id: 0,
+          visits: {
+            $sum: 1,
+          },
 
-            date: "$_id",
-
-            visits: 1,
-
-            uniqueVisitors: {
-              $size: "$uniqueVisitors",
-            },
+          uniqueVisitors: {
+            $addToSet: "$visitorId",
           },
         },
+      },
 
-        {
-          $sort: {
-            date: 1,
+      {
+        $project: {
+          _id: 0,
+
+          date: "$_id",
+
+          visits: 1,
+
+          uniqueVisitors: {
+            $size: "$uniqueVisitors",
           },
         },
-      ]);
+      },
 
+      {
+        $sort: {
+          date: 1,
+        },
+      },
+    ]);
 
     /*
     |--------------------------------------------------------------------------
@@ -655,68 +599,63 @@ export const getAnalyticsController = async (req, res) => {
     |--------------------------------------------------------------------------
     */
 
-    const salesOverTime =
-      await orderModel.aggregate([
-        {
-          $match: {
-            ...successfulOrderMatch,
+    const salesOverTime = await orderModel.aggregate([
+      {
+        $match: {
+          ...successfulOrderMatch,
 
-            createdAt: {
-              $gte: periodStart,
-              $lte: now,
-            },
+          createdAt: {
+            $gte: periodStart,
+            $lte: now,
           },
         },
+      },
 
-        {
-          $unwind: "$products",
-        },
+      {
+        $unwind: "$products",
+      },
 
-        {
-          $group: {
-            _id: {
-              $dateToString: {
-                format: "%Y-%m-%d",
-                date: "$createdAt",
-              },
-            },
-
-            sales: {
-              $sum: {
-                $multiply: [
-                  "$products.price",
-                  "$products.quantity",
-                ],
-              },
-            },
-
-            orders: {
-              $addToSet: "$_id",
+      {
+        $group: {
+          _id: {
+            $dateToString: {
+              format: "%Y-%m-%d",
+              date: "$createdAt",
             },
           },
-        },
 
-        {
-          $project: {
-            _id: 0,
-
-            date: "$_id",
-
-            sales: 1,
-
-            orders: {
-              $size: "$orders",
+          sales: {
+            $sum: {
+              $multiply: ["$products.price", "$products.quantity"],
             },
           },
-        },
 
-        {
-          $sort: {
-            date: 1,
+          orders: {
+            $addToSet: "$_id",
           },
         },
-      ]);
+      },
 
+      {
+        $project: {
+          _id: 0,
+
+          date: "$_id",
+
+          sales: 1,
+
+          orders: {
+            $size: "$orders",
+          },
+        },
+      },
+
+      {
+        $sort: {
+          date: 1,
+        },
+      },
+    ]);
 
     /*
     |--------------------------------------------------------------------------
@@ -724,23 +663,15 @@ export const getAnalyticsController = async (req, res) => {
     |--------------------------------------------------------------------------
     */
 
-    const recentOrders =
-      await orderModel
-        .find({})
-        .populate(
-          "buyer",
-          "name email phone"
-        )
-        .populate(
-          "products.product",
-          "name price"
-        )
-        .sort({
-          createdAt: -1,
-        })
-        .limit(10)
-        .lean();
-
+    const recentOrders = await orderModel
+      .find({})
+      .populate("buyer", "name email phone")
+      .populate("products.product", "name price")
+      .sort({
+        createdAt: -1,
+      })
+      .limit(10)
+      .lean();
 
     /*
     |--------------------------------------------------------------------------
@@ -750,7 +681,6 @@ export const getAnalyticsController = async (req, res) => {
 
     const paymentRevenue = totalSales;
 
-
     /*
     |--------------------------------------------------------------------------
     | FINAL RESPONSE
@@ -759,7 +689,6 @@ export const getAnalyticsController = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-
       period,
 
       sales: {
@@ -767,80 +696,49 @@ export const getAnalyticsController = async (req, res) => {
         today: Number(todaySales.toFixed(2)),
         weekly: Number(weeklySales.toFixed(2)),
         monthly: Number(monthlySales.toFixed(2)),
-        averageOrderValue: Number(
-          averageOrderValue.toFixed(2)
-        ),
+        averageOrderValue: Number(averageOrderValue.toFixed(2)),
       },
 
       orders: {
         total: totalOrders,
-
-        processing:
-          orderStatuses.processing,
-
-        shipped:
-          orderStatuses.shipped,
-
-        delivered:
-          orderStatuses.delivered,
-
-        cancelled:
-          orderStatuses.cancelled,
-
-        notProcess:
-          orderStatuses.notProcess,
+        processing: orderStatuses.processing,
+        shipped: orderStatuses.shipped,
+        delivered: orderStatuses.delivered,
+        cancelled: orderStatuses.cancelled,
+        notProcess: orderStatuses.notProcess,
       },
 
       customers: {
         total: totalCustomers,
-
         new: newCustomers,
-
-        withOrders:
-          customersWithOrders,
+        withOrders: customersWithOrders,
       },
 
       products: {
         total: totalProducts,
-
         outOfStock,
-
         lowStock,
-
-        bestSelling:
-          bestSellingProducts,
+        totalStockValue: Number(totalStockValue.toFixed(2)),
+        bestSelling: bestSellingProducts,
       },
 
       payments: {
-        successful:
-          successfulPayments,
-
-        failed:
-          failedPayments,
-
-        revenue:
-          Number(paymentRevenue.toFixed(2)),
+        successful: successfulPayments,
+        failed: failedPayments,
+        revenue: Number(paymentRevenue.toFixed(2)),
       },
 
       visits: {
         total: totalVisits,
-
         today: todayVisits,
-
         unique: uniqueVisitors,
-
         overTime: visitsOverTime,
       },
-
       salesOverTime,
-
       recentOrders,
     });
   } catch (error) {
-    console.error(
-      "GET ANALYTICS ERROR:",
-      error
-    );
+    console.error("GET ANALYTICS ERROR:", error);
 
     return res.status(500).json({
       success: false,

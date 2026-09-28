@@ -72,6 +72,7 @@ The application also includes a responsive interface with **light/dark theme sup
 * Successful payment tracking
 * Failed payment attempt tracking
 * Transaction IDs for successful payments
+* Shipping configuration
 
 ### 🔐 Payment & Inventory Flow
 
@@ -211,14 +212,11 @@ Product cards display the stored rating summary without making separate review A
 
 Detailed reviews are loaded on the product details page through a reusable:
 
-```text
 ReviewsSection
  ├── ReviewSummary
  ├── ReviewForm
  └── ReviewList
-```
 
----
 
 # ❤️ Favourite Products
 
@@ -234,7 +232,6 @@ Customers can save products to their favourites.
 
 The favourite functionality is designed as a reusable frontend feature so the same interaction can be used across different product displays.
 
----
 
 # 📊 Admin Dashboard & Analytics
 
@@ -335,7 +332,6 @@ The dashboard also provides fixed KPI values for:
 * Inventory management
 * Product quantity tracking
 * Category assignment
-* Shipping configuration
 
 ### Category Management
 

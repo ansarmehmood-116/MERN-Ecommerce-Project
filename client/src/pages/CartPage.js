@@ -12,6 +12,15 @@ import "../styles/CartStyles.css";
 const CartPage = () => {
   const [auth, setAuth] = useAuth();
   const [cart, setCart] = useCart();
+  const [shippingAddress, setShippingAddress] = useState({
+    name: "",
+    phone: "",
+    address: "",
+    city: "",
+    state: "",
+    postalCode: "",
+    country: "",
+  });
   const [clientToken, setClientToken] = useState(""); //with braintree API
   const [instance, setInstance] = useState(""); //with braintree API
   const [loading, setLoading] = useState(false);
@@ -175,7 +184,7 @@ const CartPage = () => {
   //       }),
   //     );
 
-         //If you don't use Promise.all, you would need to handle each asynchronous operation individually,which can lead to several issues.Sequential Execution: Without Promise.all, you would typically handle each asynchronous request one after the other, leading to slower execution.
+  //If you don't use Promise.all, you would need to handle each asynchronous operation individually,which can lead to several issues.Sequential Execution: Without Promise.all, you would typically handle each asynchronous request one after the other, leading to slower execution.
   //     // for (const item of groupedCartItems) {
   //     //   await axios.post(`/api/v1/payment/reduce-quantity`, {
   //     //     productId: item._id,
@@ -199,9 +208,10 @@ const CartPage = () => {
     try {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post("/api/v1/payment/braintree/payment", {
+      const {data}= await axios.post("/api/v1/payment/braintree/payment", {
         nonce,
         cart,
+        shippingAddress,
       });
 
       if (data?.success) {
@@ -275,7 +285,7 @@ const CartPage = () => {
                       Price : ${p.price}
                     </span>
                     {/* <p>Quantity : {p.quantity}</p> */}
-                    
+
                     {/* Quantity Controls */}
                     <div className="quantity-control d-flex align-items-center gap-2">
                       <span className="quantity-label small fw-semibold text-secondary">
@@ -327,6 +337,108 @@ const CartPage = () => {
               <p>Total | Checkout | Payment</p>
               <hr />
               <h4 className="text-success ">Total : {totalPrice()} </h4>
+
+              {/* _________ONLY IF SHIPPING REQUIRED_________ */}
+              {groupedCartItems.length > 0 && (
+                <div className="shipping-address-form mb-3">
+                  <h4>Shipping Address</h4>
+                  <input
+                    type="text"
+                    className="form-control mb-2"
+                    placeholder="Full Name"
+                    value={shippingAddress.name}
+                    onChange={(e) =>
+                      setShippingAddress({
+                        ...shippingAddress,
+                        name: e.target.value,
+                      })
+                    }
+                    required
+                  />
+
+                  <input
+                    type="tel"
+                    className="form-control mb-2"
+                    placeholder="Phone Number"
+                    value={shippingAddress.phone}
+                    onChange={(e) =>
+                      setShippingAddress({
+                        ...shippingAddress,
+                        phone: e.target.value,
+                      })
+                    }
+                    required
+                  />
+
+                  <input
+                    type="text"
+                    className="form-control mb-2"
+                    placeholder="Street Address"
+                    value={shippingAddress.address}
+                    onChange={(e) =>
+                      setShippingAddress({
+                        ...shippingAddress,
+                        address: e.target.value,
+                      })
+                    }
+                    required
+                  />
+
+                  <input
+                    type="text"
+                    className="form-control mb-2"
+                    placeholder="City"
+                    value={shippingAddress.city}
+                    onChange={(e) =>
+                      setShippingAddress({
+                        ...shippingAddress,
+                        city: e.target.value,
+                      })
+                    }
+                    required
+                  />
+
+                  <input
+                    type="text"
+                    className="form-control mb-2"
+                    placeholder="State (Optional)"
+                    value={shippingAddress.state}
+                    onChange={(e) =>
+                      setShippingAddress({
+                        ...shippingAddress,
+                        state: e.target.value,
+                      })
+                    }
+                  />
+
+                  <input
+                    type="text"
+                    className="form-control mb-2"
+                    placeholder="Postal Code (Optional)"
+                    value={shippingAddress.postalCode}
+                    onChange={(e) =>
+                      setShippingAddress({
+                        ...shippingAddress,
+                        postalCode: e.target.value,
+                      })
+                    }
+                  />
+
+                  <input
+                    type="text"
+                    className="form-control mb-2"
+                    placeholder="Country"
+                    value={shippingAddress.country}
+                    onChange={(e) =>
+                      setShippingAddress({
+                        ...shippingAddress,
+                        country: e.target.value,
+                      })
+                    }
+                    required
+                  />
+                </div>
+              )}
               {auth?.user?.address ? (
                 <div className="mb-3">
                   <h4>Current Address</h4>
@@ -381,7 +493,15 @@ const CartPage = () => {
                     <button
                       className="btn btn-primary mb-2 mt-2 w-100"
                       onClick={handlePayment}
-                      disabled={loading || !instance || !auth?.user?.address}
+                      disabled={
+                        loading ||
+                        !instance ||
+                            !shippingAddress.name.trim() ||
+                            !shippingAddress.phone.trim() ||
+                            !shippingAddress.address.trim() ||
+                            !shippingAddress.city.trim() ||
+                            !shippingAddress.country.trim() ||
+                        !auth?.user?.address}
                     >
                       {loading ? "Processing ...." : "Make Payment"}
                     </button>
