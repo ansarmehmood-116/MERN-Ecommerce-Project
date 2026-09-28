@@ -202,48 +202,65 @@
     font-size: 16px;
   }
 
+   /* Container structure update */
   .navbar .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
+    min-height: 56px;
   }
 
   .desktop-brand {
     display: none !important;
   }
 
-  .mobile-brand {
+  /* .mobile-brand {
     display: block;
     position: absolute;
-
     left: 50%;
     top: 50%;
-
-    transform: translate(-50%, -50%);
-
+    
     margin: 0;
     padding: 0;
-
-    z-index: 2;
+    z-index: 10;
+  } */
+  /* Centered Mobile Brand Fix */
+  .mobile-brand {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; 
+    pointer-events: auto;
   }
 
   .mobile-brand .navbar-brand {
     display: block;
-    font-size: 14px;
+    font-size: 15px !important;
+    font-weight: 780 !important;
     line-height: 1;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     white-space: nowrap;
     margin: 0;
+    color: inherit;
   }
 
   .navbar-toggler {
     position: relative;
-    z-index: 3;
-
+    z-index: 11;
     margin-left: 0;
     margin-right: auto;
-
     border-color: #6c757d;
   }
-
+  
+ /* Dark mode fix for mobile brand */
+#dark .mobile-brand .navbar-brand {
+  color: #f1f3f5 !important;
+}
   .navbar-toggler:focus {
     box-shadow: none;
   }
@@ -333,8 +350,8 @@
   }
 
   .mobile-brand .navbar-brand {
-    font-size: 12px;
-    letter-spacing: 1px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
   }
 
   .navbar-toggler {

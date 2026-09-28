@@ -89,7 +89,8 @@
 }
 @media (max-width: 991px) {
  .Theme-Container{
-  top:13px;
+  top:20px;
+  right: 10px !important;
   z-index: 9999 !important;
  }
 }
