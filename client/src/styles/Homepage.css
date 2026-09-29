@@ -1578,7 +1578,7 @@ body {
     background: white !important;
     margin-top: 20px !important;
     padding: 9px 9px 9px 9px !important;
-    height: 270px !important;
+    height: 280px !important;
     overflow: hidden !important;
     /* border: 2px solid red !important; */
   }
@@ -1590,7 +1590,7 @@ body {
        360px screen = ~331px hero
     */
     /* height: 75vw; */
-    height: 245px !important; /* this is only for carousel padding */
+    height: 260px !important; /* this is only for carousel padding */
     min-height: 0;
     max-height: 360px;
     border-radius: 15px 15px 15px 15px !important;
@@ -1618,7 +1618,7 @@ body {
   }
 
   .homepage-page .img3-heading {
-    top: 40%;
+    top: 50%;
   }
 
 
@@ -1633,13 +1633,13 @@ body {
 
   .homepage-page .detail-box .heading2 {
     font-size: 1.75rem;
-    line-height: 1.08;
+    line-height: 1.05;
   }
 
   .homepage-page .detail-box p {
     margin-top: 10px;
     font-size: 0.74rem;
-    line-height: 1.4;
+    line-height: 1.3;
   }
 
   .homepage-page .detail-box .btn-box {
@@ -1817,7 +1817,7 @@ body {
     */
     width: 100% !important;
     /* height: 320px; */
-    height: 245px;
+    height: 260px;
     min-height: 0;
     max-height: 350px;
     overflow: hidden;
@@ -1841,7 +1841,7 @@ body {
   /* Sale hero */
   .homepage-page .detail-box {
     left: 7%;
-    width: 86%;
+    width: 70%;
   }
 
   .homepage-page .detail-box .heading2 {
