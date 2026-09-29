@@ -1575,12 +1575,14 @@ body {
     padding-top: 52px;
   }
   .homepage-page .carousel-inner{
-    background: white !important;
     margin-top: 20px !important;
     padding: 9px 9px 9px 9px !important;
     height: 280px !important;
     overflow: hidden !important;
     /* border: 2px solid red !important; */
+  }
+    #light .homepage-page .carousel-inner{
+   background: white !important;
   }
   .homepage-page .carousel-item {
     /*
