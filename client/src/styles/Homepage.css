@@ -552,7 +552,7 @@ body {
 .homepage-page .noFilters {
   position: absolute;
   top: -100vh;
-  left: 10.7vw;
+  left: 11vw;
   width: 20rem;
   height: 90vh;
   padding: 30px;
@@ -568,9 +568,10 @@ body {
 .homepage-page .filters {
   position: absolute;
   top: 17vh;
-  left: 10.7vw;
+  left: 11vw;
   width: 20rem;
-  height: 90vh;
+  height: auto;
+  max-height: 90vh;
   background: rgb(141, 210, 237);
   border: 1px solid var(--border);
   padding: 30px;

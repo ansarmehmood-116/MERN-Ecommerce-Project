@@ -38,8 +38,53 @@ import { useTheme } from "./context/themeContext";
 import VisitTracker from "./components/VisitTracker";
 import "./App.css";
 
+//____only for pull down effect refresh____
+import { useEffect, useRef } from "react";
+
 function App() {
   const [theme, setTheme] = useTheme();
+
+//_________________________________________________
+// As for microsoft edge i have already set the properties in APP.css for rubber band and pull drag of page from view port problem so that was later set with properties in App.css while now i am using chrome for localhost and live host so it has automatically no rubber-band pull drag problem so it also voids the page refresh with touch pull down/drag so i have set the following useEffect to refresh on pull down/drag with touch 
+const touchStartY = useRef(0);
+const touchStartX = useRef(0);
+useEffect(() => {
+  const handleTouchStart = (e) => {
+    if (e.touches.length !== 1) return;
+    // Sirf page ke bilkul top par
+    if (window.scrollY !== 0) return;
+    touchStartY.current = e.touches[0].clientY;
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (window.scrollY !== 0) return;
+    if (e.changedTouches.length !== 1) return;
+    const endY = e.changedTouches[0].clientY;
+    const endX = e.changedTouches[0].clientX;
+    const pullDistance = endY - touchStartY.current;
+    const horizontalDistance = Math.abs(endX - touchStartX.current);
+
+    // Horizontal swipe ko ignore karo
+    if (horizontalDistance > Math.abs(pullDistance)) return;
+    // 90px downward pull ke baad refresh
+    if (pullDistance >= 90) {
+      window.location.reload();
+    }
+  };
+  window.addEventListener("touchstart", handleTouchStart, {
+    passive: true,
+  });
+  window.addEventListener("touchend", handleTouchEnd, {
+    passive: true,
+  });
+  return () => {
+    window.removeEventListener("touchstart", handleTouchStart);
+    window.removeEventListener("touchend", handleTouchEnd);
+  };
+}, []);
+// __________________________________________________
+
   return (
     <>
       {/* <Layout>

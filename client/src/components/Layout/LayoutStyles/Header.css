@@ -205,10 +205,10 @@
    /* Container structure update */
   .navbar .container-fluid {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     position: relative;
-    min-height: 56px;
+    min-height: 50px;
   }
 
   .desktop-brand {
@@ -252,20 +252,24 @@
   .navbar-toggler {
     position: relative;
     z-index: 11;
+    margin-top: 8px;
     margin-left: 0;
     margin-right: auto;
     border-color: #6c757d;
   }
   
+  .navbar-toggler:focus {
+  box-shadow: none;
+  outline: none !important;
+  border-color: #7dc3e8 !important; /* Click / Focus pe Black border */
+}
+ 
  /* Dark mode fix for mobile brand */
 #dark .mobile-brand .navbar-brand {
   color: #f1f3f5 !important;
 }
-  .navbar-toggler:focus {
-    box-shadow: none;
-  }
-
-  .navbar-collapse {
+ 
+.navbar-collapse {
     width: 100%;
   }
 
