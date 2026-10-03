@@ -354,7 +354,7 @@
   .transaction-history-page .dashboard {
     width: 100% !important;
     min-height: calc(100vh - 60px);
-    margin-top: 45px !important;
+    margin-top: 47px !important;
     padding: 10px 8px 25px !important;
     overflow-x: hidden;
   }
@@ -432,7 +432,7 @@
 @media (max-width: 480px) {
 
   .transaction-history-page .dashboard {
-    margin-top: 60px !important;
+    margin-top: 63px !important;
     padding: 8px 6px 20px !important;
   }
 
@@ -472,7 +472,7 @@
 @media (max-width: 360px) {
 
   .transaction-history-page .dashboard {
-    padding: 7px 5px 18px !important;
+    padding: 8px 5px 18px !important;
   }
 
   .transaction-history-page .TransactionHeading h2 {
