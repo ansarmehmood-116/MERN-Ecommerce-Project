@@ -780,7 +780,7 @@
       No additional top margin/padding is added here.
     */
     margin-top: 60px !important;
-    padding: 5px 5px 20px !important;
+    padding: 6px 6px 20px !important;
     min-height: calc(100vh - 60px);
   }
 
@@ -1059,8 +1059,8 @@
 @media (max-width: 480px) {
 
   .user-dashboard-page .dashboard {
-    margin-top: 55px !important;
-    padding: 7px !important;
+    margin-top: 60px !important;
+    padding: 6px !important;
   }
 
   /* Welcome */
@@ -1192,7 +1192,7 @@
 
   .user-dashboard-page .dashboard {
     margin-top: 60px !important;
-    padding: 2px 4px 14px !important;
+    padding: 6px !important;
   }
 
   /* Welcome */

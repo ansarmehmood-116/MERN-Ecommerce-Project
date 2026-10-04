@@ -349,64 +349,7 @@ text-transform: uppercase;
 grid-column: span 2;
 }
 
-/* =========================================================
-DARK MODE
-========================================================= */
 
-#dark .invoice-shipping-section {
-background: #171c25 !important;
-border-color: #303846 !important;
-
-box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
-}
-
-#dark .invoice-shipping-header {
-background: linear-gradient(
-135deg,
-#172631 0%,
-#1a202b 100%
-) !important;
-
-border-bottom-color: #303846 !important;
-}
-
-#dark .invoice-shipping-icon {
-background: #17313c !important;
-border-color: #285766 !important;
-}
-
-#dark .invoice-shipping-title {
-color: #f1f5f9 !important;
-}
-
-#dark .invoice-shipping-subtitle {
-color: #94a3b8 !important;
-}
-
-#dark .invoice-shipping-content {
-background: #171c25 !important;
-}
-
-#dark .invoice-shipping-person {
-border-bottom-color: #343d4b !important;
-}
-
-#dark .invoice-shipping-person strong {
-color: #f1f5f9 !important;
-}
-
-#dark .invoice-shipping-item {
-background: #1d2430 !important;
-border-color: #343d4b !important;
-}
-
-#dark .invoice-shipping-item > span:last-child {
-color: #dbe4ee !important;
-}
-
-#dark .invoice-shipping-label {
-color: #8d9aaa !important;
-}
 
 /* =========================================================
 TABLET / MOBILE

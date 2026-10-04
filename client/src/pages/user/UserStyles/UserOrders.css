@@ -54,12 +54,12 @@
 .user-orders-page .card .d-flex {
   flex-wrap: wrap;
 }
-.user-orders-page .UserOrdersLodmoreContainer{
- width: 100%;
- margin: 30px 0 0 !important;
- padding: 10px !important;
- display: flex;
- justify-content: center;
+.user-orders-page .UserOrdersLodmoreContainer {
+  width: 100%;
+  margin: 30px 0 0 !important;
+  padding: 10px !important;
+  display: flex;
+  justify-content: center;
 }
 .user-orders-page .loadmore {
   max-width: 100%;
@@ -179,8 +179,8 @@
    ========================================================= */
 @media (min-width: 768px) and (max-width: 991px) {
   .user-orders-page .dashboard {
-    margin-top: 55px !important;
-    padding: 14px !important;
+    margin-top: 60px !important;
+    padding: 8px !important;
   }
   .user-orders-page .dashboard > .row {
     --bs-gutter-x: 12px;
@@ -215,14 +215,14 @@
   }
   .user-orders-page .dashboard {
     width: 100% !important;
-    min-height: calc(100vh - 60px);
-    margin-top: 45px !important;
-    padding: 10px 8px 25px !important;
+    min-height: calc(100vh - 60px) !important;
+    margin-top: 60px !important;
+    padding: 18px 12px 25px !important;
     overflow-x: hidden;
   }
   .user-orders-page .dashboard > .row {
-    width: 100%;
-    margin: 0 !important;
+     /* --bs-gutter-x: 12px;
+    --bs-gutter-y: 8px; */
   }
   /* Preserve the existing Bootstrap columns; only make them stack cleanly. */
   .user-orders-page .col-md-3,
@@ -312,11 +312,7 @@
     background-color: #101318 !important;
   }
   #dark .user-orders-page .ordersHeading {
-    background: linear-gradient(
-      135deg,
-      #171b23 0%,
-      #1d2530 100%
-    ) !important;
+    background: linear-gradient(135deg, #171b23 0%, #1d2530 100%) !important;
     color: #f1f3f5 !important;
   }
   #dark .user-orders-page .shadow.rounded-2 {
@@ -348,8 +344,8 @@
    ========================================================= */
 @media (max-width: 480px) {
   .user-orders-page .dashboard {
-    margin-top: 46px !important;
-    padding: 8px 6px 20px !important;
+  margin-top: 60px !important;
+  padding: 14px 14px 20px !important;
   }
   .user-orders-page .ordersHeading {
     min-height: 38px;
@@ -386,7 +382,7 @@
     font-size: 8px !important;
     gap: 5px !important;
   }
-  }
+}
 
 /* =========================================================
    VERY SMALL PHONES
@@ -394,7 +390,8 @@
    ========================================================= */
 @media (max-width: 360px) {
   .user-orders-page .dashboard {
-    padding: 7px 5px 18px !important;
+  margin-top: 60px !important;
+  padding: 14px 14px 15px !important;
   }
   .user-orders-page .ordersHeading {
     font-size: 15px !important;
@@ -422,7 +419,7 @@
   .user-orders-page .card .d-flex {
     font-size: 7px !important;
   }
-  }
+}
 
 /* =========================================================
    PRODUCT SHIPPING BADGE

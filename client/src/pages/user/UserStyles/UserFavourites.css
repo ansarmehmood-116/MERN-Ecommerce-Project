@@ -753,7 +753,6 @@
 
   .favourite-page {
     margin-top: 55px !important;
-
     padding: 10px 10px 30px !important;
   }
 
@@ -816,21 +815,15 @@
 
   .favourite-page {
     width: 100% !important;
-
-    min-height: calc(100vh - 50px);
-
-    margin-top: 53px !important;
-
-    padding: 10px 8px 25px !important;
-
+    min-height: calc(100vh - 60px);
+    margin-top: 60px !important;
+    padding: 6px 6px 25px !important;
     overflow-x: hidden;
   }
 
   .favourite-page > .row {
     width: 100%;
-
     margin: 0 !important;
-
     --bs-gutter-x: 0;
     --bs-gutter-y: 10px;
   }
@@ -840,7 +833,6 @@
   .favourite-page > .row > .col-md-3,
   .favourite-page > .row > .col-md-9 {
     width: 100%;
-
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
@@ -1036,9 +1028,8 @@
 @media (max-width: 480px) {
 
   .favourite-page {
-    margin-top: 55px !important;
-
-    padding: 7px 6px 20px !important;
+    margin-top: 60px !important;
+    padding: 6px 6px 20px !important;
   }
 
   .favourite-page .favourite-header {
@@ -1182,8 +1173,8 @@
 @media (max-width: 360px) {
 
   .favourite-page {
-    margin-top: 8px !important;
-    padding: 2px 0 15px !important;
+    margin-top: 60px !important;
+    padding: 6px 6 15px !important;
   }
 
   .favourite-page .favourite-header {

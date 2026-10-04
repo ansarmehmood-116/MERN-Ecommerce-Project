@@ -79,7 +79,7 @@ const Profile = () => {
         <div className="row g-3">
           
           {/* User Navigation Sidebar */}
-          <div className=" col-lg-3 col-md-12">
+          <div className="col-md-12 col-lg-3">
             <UserMenu />
           </div>
 
