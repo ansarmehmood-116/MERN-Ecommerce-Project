@@ -839,12 +839,12 @@
   .admin-products-page .productBox {
     width: calc(100vw - 25px) !important;
 
-    height: 370px !important;
+    height: 310px !important;
   }
 
 
   .admin-products-page .card-image-wrapper {
-    height: 180px !important;
+    height: 230px !important;
   }
 
 

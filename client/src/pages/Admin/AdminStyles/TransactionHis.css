@@ -492,7 +492,7 @@
 @media (max-width: 480px) {
   .transaction-history-page .dashboard {
     margin-top: 60px !important;
-    padding: 12px 8px 20px !important;
+    padding: 11px 8px 20px !important;
   }
 
   /* Heading */
@@ -548,7 +548,7 @@
 
 @media (max-width: 360px) {
   .transaction-history-page .dashboard {
-    padding: 4px 5px 18px !important;
+    padding: 10px 5px 18px !important;
   }
 
   /* Heading */

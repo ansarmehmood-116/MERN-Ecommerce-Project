@@ -663,7 +663,7 @@
 @media (max-width: 480px) {
   .Admindashboard {
     margin-top: 50px !important;
-    padding: 8px 6px 20px !important;
+    padding: 8.1px 6px 20px !important;
   }
 
   .Admindashboard .col-md-3 {
@@ -722,6 +722,7 @@
    ======================================================== */
 @media (max-width: 360px) {
   .Admindashboard {
+    padding-top:6.5px !important;
     padding-left: 5px !important;
     padding-right: 5px !important;
   }
