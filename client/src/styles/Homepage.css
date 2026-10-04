@@ -1577,7 +1577,7 @@ body {
   }
   .homepage-page .carousel-inner{
     margin-top: 12px !important;
-    padding: 9px 9px 9px 9px !important;
+    padding: 9px 8px 9px 8px !important;
     height: 280px !important;
     overflow: hidden !important;
     /* border: 2px solid red !important; */
@@ -1596,7 +1596,7 @@ body {
     height: 260px !important; /* this is only for carousel padding */
     min-height: 0;
     max-height: 360px;
-    border-radius: 15px 15px 15px 15px !important;
+    border-radius: 12px 12px 12px 12px !important;
     /* margin-bottom: 10px !important; */
   }
 
@@ -1812,14 +1812,22 @@ body {
     width: 100% !important;
   }  
   
-  
+  .homepage-page .carousel-inner{
+    margin-top: 14px !important;
+    padding: 9px 6px 9px 5px !important;
+    height: 280px !important;
+    overflow: hidden !important;
+    /* border: 2px solid red !important; */
+  }
+    #light .homepage-page .carousel-inner{
+   background: white !important;
+  }
   .homepage-page .carousel-item {
     /*
        Still square.
        Never use 0fr here.
     */
     width: 100% !important;
-    /* height: 320px; */
     height: 260px;
     min-height: 0;
     max-height: 350px;

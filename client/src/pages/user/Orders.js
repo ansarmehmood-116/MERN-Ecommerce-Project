@@ -81,8 +81,8 @@ const Orders = () => {
 
             <div className="col-md-9">
               <h1 className="text-center ordersHeading p-1 rounded-2 d-flex align-items-center justify-content-center gap-2">
-                <span className="mb-1">🛒</span>
-                <span className="mb-1">All Orders</span>
+                <span className="mb-1 mt-1">🛒</span>
+                <span className="mb-1 mt-1">All Orders</span>
               </h1>
 
               {loading ? (
