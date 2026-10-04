@@ -324,28 +324,15 @@
 
 
 /* =========================================================
-   RESPONSIVE — SAME RATIO AS CREATE CATEGORY
+   RESPONSIVE
+   Same clean structure as Admin Users
+   ========================================================= */
+
+/* =========================================================
+   TABLET
    ========================================================= */
 
 @media (max-width: 991.98px) {
-
-  .transaction-history-page .dashboard {
-    width: 100%;
-    min-height: calc(100vh - 60px);
-    margin-top: 45px !important;
-    padding: 10px 8px 25px !important;
-    overflow-x: hidden;
-  }
-
-}
-
-
-/* =========================================================
-   TABLET / MOBILE
-   ========================================================= */
-
-@media (max-width: 767.98px) {
-
   .transaction-history-page {
     width: 100% !important;
     overflow-x: hidden;
@@ -354,14 +341,67 @@
   .transaction-history-page .dashboard {
     width: 100% !important;
     min-height: calc(100vh - 60px);
-    margin-top: 47px !important;
-    padding: 10px 8px 25px !important;
+    margin-top: 60px !important;
+    padding: 4px 8px 25px !important;
     overflow-x: hidden;
   }
 
+  .transaction-history-page .TransactionHeading {
+    width: 100%;
+    margin-bottom: 15px !important;
+    padding: 9px 10px !important;
+  }
+
+  .transaction-history-page .TransactionHeading h2 {
+    font-size: 1.3rem;
+  }
+
+  .transaction-history-page .row {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .transaction-history-page .col-md-8,
+  .transaction-history-page .col-md-4 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .transaction-history-page .form-control,
+  .transaction-history-page .form-select {
+    width: 100%;
+  }
+
+  .transaction-history-page .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .transaction-history-page table {
+    min-width: 1050px !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+  .transaction-history-page {
+    width: 100% !important;
+    overflow-x: hidden;
+  }
+  .transaction-history-page .dashboard {
+    width: 100% !important;
+    min-height: calc(100vh - 60px);
+    margin-top: 60px !important;
+    padding: 13px 8px 25px !important;
+    overflow-x: hidden;
+  }
 
   /* Heading */
-
   .transaction-history-page .TransactionHeading {
     min-height: 48px;
     margin-bottom: 15px !important;
@@ -370,6 +410,7 @@
 
   .transaction-history-page .TransactionHeading h2 {
     font-size: 1.15rem;
+    line-height: 1.2;
     padding: 0 55px;
   }
 
@@ -377,51 +418,70 @@
     font-size: 0.75rem;
     padding: 5px 7px;
     margin-left: 8px !important;
+    white-space: nowrap;
   }
 
-
   /* Search + filter */
-
   .transaction-history-page .row {
     width: 100%;
-    margin-left: 0;
-    margin-right: 0;
   }
 
   .transaction-history-page .col-md-8,
   .transaction-history-page .col-md-4 {
     width: 100%;
-    padding-left: 0;
-    padding-right: 0;
   }
 
   .transaction-history-page .form-control,
   .transaction-history-page .form-select {
     width: 100%;
+    min-height: 40px;
     font-size: 0.88rem;
   }
 
-
   /* Table */
-
   .transaction-history-page .table-responsive {
-    padding: 8px !important;
+    width: 100%;
+    padding: 7px !important;
     border-radius: 7px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .transaction-history-page table {
     min-width: 1050px;
   }
 
-
-  /* Load more */
-
-  .transaction-history-page .m-2.p-3 {
-    margin: 8px 0 !important;
-    padding: 12px 0 !important;
-    text-align: center;
+  /* Inline correction */
+  .transaction-history-page td.bg-light {
+    padding: 10px !important;
   }
 
+  .transaction-history-page .card {
+    width: 100%;
+    padding: 12px !important;
+  }
+
+  .transaction-history-page .card .col-md-4,
+  .transaction-history-page .card .col-md-8 {
+    width: 100%;
+  }
+
+  .transaction-history-page .card .d-flex {
+    flex-wrap: wrap;
+  }
+
+  /* Load more */
+  .transaction-history-page .load-more-container {
+    width: 100%;
+    margin: 12px 0 8px !important;
+    padding: 8px 0 !important;
+  }
+
+  .transaction-history-page .loadmore {
+    min-width: 160px;
+    max-width: 100%;
+    padding: 10px 18px;
+  }
 }
 
 
@@ -430,19 +490,21 @@
    ========================================================= */
 
 @media (max-width: 480px) {
-
   .transaction-history-page .dashboard {
-    margin-top: 63px !important;
-    padding: 8px 6px 20px !important;
+    margin-top: 60px !important;
+    padding: 12px 8px 20px !important;
   }
 
+  /* Heading */
   .transaction-history-page .TransactionHeading {
     min-height: 44px;
+    margin-bottom: 12px !important;
     padding: 7px !important;
   }
 
   .transaction-history-page .TransactionHeading h2 {
     font-size: 1rem;
+    line-height: 1.15;
     padding: 0 48px;
   }
 
@@ -452,6 +514,14 @@
     margin-left: 5px !important;
   }
 
+  /* Search + filter */
+  .transaction-history-page .form-control,
+  .transaction-history-page .form-select {
+    min-height: 38px;
+    font-size: 0.82rem;
+  }
+
+  /* Table */
   .transaction-history-page .table-responsive {
     margin-top: 8px;
     padding: 6px !important;
@@ -462,17 +532,29 @@
     font-size: 0.78rem;
   }
 
+  /* Load more */
+  .transaction-history-page .loadmore {
+    width: 100%;
+    max-width: 260px;
+    min-width: 0;
+    padding: 9px 14px;
+  }
 }
 
 
 /* =========================================================
-   VERY SMALL MOBILE
+   VERY SMALL PHONES
    ========================================================= */
 
 @media (max-width: 360px) {
-
   .transaction-history-page .dashboard {
-    padding: 8px 5px 18px !important;
+    padding: 4px 5px 18px !important;
+  }
+
+  /* Heading */
+  .transaction-history-page .TransactionHeading {
+    min-height: 42px;
+    padding: 6px !important;
   }
 
   .transaction-history-page .TransactionHeading h2 {
@@ -482,7 +564,41 @@
 
   .transaction-history-page .TransactionHeading .btn {
     font-size: 0.65rem;
+    padding: 4px 5px;
   }
 
+  /* Search + filter */
+  .transaction-history-page .form-control,
+  .transaction-history-page .form-select {
+    min-height: 36px;
+    font-size: 0.78rem;
+  }
+
+  /* Table */
+  .transaction-history-page .table-responsive {
+    padding: 5px !important;
+  }
+
+  .transaction-history-page table th,
+  .transaction-history-page table td {
+    font-size: 0.72rem;
+  }
+
+  /* Load more */
+  .transaction-history-page .loadmore {
+    max-width: 230px;
+    font-size: 0.8rem;
+  }
 }
 
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .transaction-history-page .btn,
+  .transaction-history-page .loadmore {
+    transition: none !important;
+  }
+}

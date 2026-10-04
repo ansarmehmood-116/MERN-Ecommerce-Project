@@ -499,8 +499,8 @@
   .Admindashboard {
     width: 100% !important;
     min-height: calc(100vh - 60px);
-    margin-top: 45px !important;
-    padding: 10px 8px 25px !important;
+    margin-top: 60px !important;
+    padding: 2px 8px 25px !important;
     overflow-x: hidden;
   }
 

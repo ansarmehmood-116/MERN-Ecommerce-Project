@@ -520,13 +520,9 @@
 
   .admin-products-page .dashboard {
     width: 100% !important;
-
     min-height: calc(100vh - 60px);
-
-    margin-top: 45px !important;
-
-    padding: 10px 8px 25px !important;
-
+    margin-top: 60px !important;
+    padding: 2px 8px 25px !important;
     overflow-x: hidden;
   }
 
@@ -540,12 +536,9 @@
   /* =====================================================
      LEFT — ADMIN PANEL
      ===================================================== */
-
   .admin-products-page .col-md-3 {
     width: 100% !important;
-
     padding: 0 !important;
-
     margin: 0 0 15px 0 !important;
   }
 
@@ -556,15 +549,12 @@
 
   .admin-products-page .AdminProducts {
     width: 100% !important;
-
     padding: 0 !important;
-
     margin: 0 !important;
   }
 
 
   /* Heading */
-
   .admin-products-page .productsHeading {
     font-size: 1.7rem;
     margin-bottom: 5px;
@@ -582,9 +572,7 @@
 
   .admin-products-page .AdminProducts > .card {
     width: 100% !important;
-
     margin-bottom: 20px !important;
-
     padding: 10px !important;
   }
 
@@ -608,14 +596,13 @@
 
   .admin-products-page .productBox {
     width: 18rem !important;
-    height: 400px !important;
-
+    height: 320px !important;
     margin: 6px !important;
   }
 
 
   .admin-products-page .card-image-wrapper {
-    height: 200px !important;
+    height: 230px !important;
   }
 
 
@@ -678,7 +665,6 @@
 
   .admin-products-page .dashboard {
     margin-top: 50px !important;
-
     padding: 8px 6px 20px !important;
   }
 
@@ -695,9 +681,7 @@
 
   .admin-products-page .col-md-3 {
     width: 100% !important;
-
     padding: 0 !important;
-
     margin: 0 0 15px 0 !important;
   }
 
@@ -708,9 +692,7 @@
 
   .admin-products-page .AdminProducts {
     width: 100% !important;
-
     padding: 0 !important;
-
     margin: 0 !important;
   }
 
@@ -723,7 +705,6 @@
 
   .admin-products-page .headLine {
     font-size: 0.82rem;
-
     margin-bottom: 12px;
   }
 
@@ -759,12 +740,12 @@
 
     max-width: 18rem !important;
 
-    height: 380px !important;
+    height: 310px !important;
   }
 
 
   .admin-products-page .card-image-wrapper {
-    height: 190px !important;
+    height: 230px !important;
   }
 
 
