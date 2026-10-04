@@ -620,7 +620,6 @@ input[type="password"]::-ms-clear {
   transform: translateX(4px);
 }
 
-
 /* =========================================================
    SPINNER
    ========================================================= */
@@ -637,6 +636,38 @@ input[type="password"]::-ms-clear {
   animation: loginSpin 0.7s linear infinite;
 }
 
+/* =========================================================
+   REGISTER PROMPT
+   ========================================================= */
+
+.register-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 17px;
+  color: #6b7280;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.register-prompt button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #4dabf7;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    text-decoration 0.2s ease;
+}
+
+.register-prompt button:hover {
+  color: #228be6;
+  text-decoration: underline;
+}
 
 /* =========================================================
    FOOTER
@@ -840,7 +871,17 @@ input[type="password"]::-ms-clear {
   background: #4dabf7;
   color: #ffffff;
 }
+#dark .register-prompt {
+  color: #7f8997;
+}
 
+#dark .register-prompt button {
+  color: #4dabf7;
+}
+
+#dark .register-prompt button:hover {
+  color: #74c0fc;
+}
 
 /* =========================================================
    ANIMATIONS
@@ -967,27 +1008,22 @@ input[type="password"]::-ms-clear {
 
 @media (max-width: 576px) {
   .login-page {
-    min-height: calc(100vh - 55px);
-
-    margin-top: 55px;
-
+    min-height: calc(100vh - 60px);
+    margin-top: 60px !important;
     padding: 14px 8px 20px;
-
     align-items: flex-start;
   }
 
   .login-wrapper {
     width: 100%;
-
     border-radius: 14px;
-
+    border-top: 6px solid #56b8f9 !important;
     box-shadow:
       0 15px 40px rgba(15, 23, 42, 0.08);
   }
 
   .login-form-side {
     width: 100%;
-
     padding: 28px 17px 24px;
   }
 
@@ -1012,8 +1048,7 @@ input[type="password"]::-ms-clear {
 
   .login-eyebrow {
     margin-bottom: 8px;
-
-    font-size: 10px;
+    font-size: 13px;
     letter-spacing: 1.7px;
   }
 

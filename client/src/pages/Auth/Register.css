@@ -1139,9 +1139,9 @@
 
 @media (max-width: 576px) {
   .register-page {
-    margin-top: 55px;
+    margin-top: 60px;
 
-    min-height: calc(100vh - 55px);
+    min-height: calc(100vh - 60px);
 
     padding: 14px 8px 20px;
   }
@@ -1149,7 +1149,7 @@
 
   .register-wrapper {
     border-radius: 14px;
-
+   border-top: 6px solid #56b8f9 !important;
     box-shadow:
       0 15px 40px
       rgba(15, 23, 42, 0.08);

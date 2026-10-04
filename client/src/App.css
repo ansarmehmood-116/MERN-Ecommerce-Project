@@ -8,7 +8,6 @@
   color: #dfe4ea;
 }
 
-
 /* 1. Page Pull-Down / Pull-Up/rubber-bands Bounce Effect Ko Lock Karein */
 html {
   width: 100%;
@@ -52,3 +51,44 @@ main {
 3__flex-basis: auto (Initial Size): Element ki shuruaati height/width uske andar ke content ke hisab se set hogi.
 __Short me: Jab aap <main> par flex: 1 0 auto; lagate hain, to Header aur Footer ke beech jitni bhi jagah bachti hai, <main> us poori space ko cover kar leta hai. Is wajah se Footer hamesha screen ke bottom par rehta hai aur page kabhi ajeeb tarah se stretch nahi hota! */
 /* _________________________________________________________________________ */
+
+/* =========================================================
+   MOBILE PULL-TO-REFRESH INDICATOR
+   ========================================================= */
+.pull-refresh-indicator {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 999999;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: transform 0.1s ease-out;
+}
+
+.pull-refresh-arrow {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffffff 0%, #eef8ff 100%);
+  color: #168bd2;
+  border: 2px solid #9ed7f5;
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 4px 14px rgba(22, 139, 210, 0.22);
+}
+
+/* Dark Mode */
+#dark .pull-refresh-arrow {
+  background: linear-gradient(135deg, #182638 0%, #12202d 100%);
+  color: #4dd4cf;
+  border-color: #3c7778;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}

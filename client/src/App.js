@@ -39,47 +39,101 @@ import VisitTracker from "./components/VisitTracker";
 import "./App.css";
 
 //____only for pull down effect refresh____
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
   const [theme, setTheme] = useTheme();
 
-//_________________________________________________
-// As for microsoft edge i have already set the properties in APP.css for rubber band and pull drag of page from view port problem so that was later set with properties in App.css while now i am using chrome for localhost and live host so it has automatically no rubber-band pull drag problem so it also voids the page refresh with touch pull down/drag so i have set the following useEffect to refresh on pull down/drag with touch 
+  //_____________________________________________
+  //____only for pull down effect refresh____
+  // As for microsoft edge i have already set the properties in APP.css for rubber band and pull drag of page from view port problem so that was later set with properties in App.css while now i am using chrome for localhost and live host so it has automatically no rubber-band pull drag problem so it also voids the page refresh with touch pull down/drag so i have set the following useEffect to refresh on pull down/drag with touch
 const touchStartY = useRef(0);
 const touchStartX = useRef(0);
+const startedAtTop = useRef(false);
+const pullDistanceRef = useRef(0);
+
+const [pullDistance, setPullDistance] = useState(0);
+const [isPulling, setIsPulling] = useState(false);
+
 useEffect(() => {
   const handleTouchStart = (e) => {
     if (e.touches.length !== 1) return;
-    // Sirf page ke bilkul top par
-    if (window.scrollY !== 0) return;
+    // The gesture must START when the page is already at the top.
+    if (window.scrollY !== 0) {
+      startedAtTop.current = false;
+      return;
+    }
+    startedAtTop.current = true;
     touchStartY.current = e.touches[0].clientY;
     touchStartX.current = e.touches[0].clientX;
+    pullDistanceRef.current = 0;
+    setPullDistance(0);
+    setIsPulling(false);
   };
 
-  const handleTouchEnd = (e) => {
-    if (window.scrollY !== 0) return;
-    if (e.changedTouches.length !== 1) return;
-    const endY = e.changedTouches[0].clientY;
-    const endX = e.changedTouches[0].clientX;
-    const pullDistance = endY - touchStartY.current;
-    const horizontalDistance = Math.abs(endX - touchStartX.current);
+  const handleTouchMove = (e) => {
+    if (!startedAtTop.current) return;
+    if (e.touches.length !== 1) return;
+    const currentY = e.touches[0].clientY;
+    const currentX = e.touches[0].clientX;
+    const distance = currentY - touchStartY.current;
+    const horizontalDistance = Math.abs(
+      currentX - touchStartX.current
+    );
 
-    // Horizontal swipe ko ignore karo
-    if (horizontalDistance > Math.abs(pullDistance)) return;
-    // 90px downward pull ke baad refresh
-    if (pullDistance >= 90) {
-      window.location.reload();
+    // Ignore horizontal swipes.
+    if (horizontalDistance > Math.abs(distance)) {
+      pullDistanceRef.current = 0;
+      setPullDistance(0);
+      setIsPulling(false);
+      return;
     }
+
+    // Only respond to downward movement.
+    if (distance <= 0) {
+      pullDistanceRef.current = 0;
+      setPullDistance(0);
+      setIsPulling(false);
+      return;
+    }
+
+    // Maximum pull distance = 90px.
+    const limitedDistance = Math.min(distance, 90);
+    pullDistanceRef.current = limitedDistance;
+    setPullDistance(limitedDistance);
+    setIsPulling(true);
   };
+
+  const handleTouchEnd = () => {
+    if (!startedAtTop.current) return;
+    const finalPullDistance = pullDistanceRef.current;
+    // Reset gesture state first.
+    startedAtTop.current = false;
+    pullDistanceRef.current = 0;
+    if (finalPullDistance >= 90) {
+      window.location.reload();
+      return;
+    }
+
+    setPullDistance(0);
+    setIsPulling(false);
+  };
+
   window.addEventListener("touchstart", handleTouchStart, {
     passive: true,
   });
+
+  window.addEventListener("touchmove", handleTouchMove, {
+    passive: true,
+  });
+
   window.addEventListener("touchend", handleTouchEnd, {
     passive: true,
   });
+
   return () => {
     window.removeEventListener("touchstart", handleTouchStart);
+    window.removeEventListener("touchmove", handleTouchMove);
     window.removeEventListener("touchend", handleTouchEnd);
   };
 }, []);
@@ -94,6 +148,30 @@ useEffect(() => {
       {/* as react is not SEO (search engine optimization) friendly so it is not showing the page title in server bar on which are currently at so we will work also on it,as much it is optimized our website will be of high ranking display first for search for this we will add and find some keywords to be high ranked */}
 
       <div id={theme}>
+
+        {/* only for touch pull down refresh */}
+        {isPulling && (
+          <div
+            className="pull-refresh-indicator"
+            style={{
+              transform: `translate(-50%, ${Math.min(pullDistance, 90)}px)`,
+            }}
+          >
+            <div
+              className="pull-refresh-arrow"
+              style={{
+                transform: `rotate(${Math.min(
+                  (pullDistance / 90) * 360,
+                  360,
+                )}deg)`,
+              }}
+            >
+              ↻
+            </div>
+          </div>
+        )}
+        {/* ________________________________ */}
+
         <VisitTracker />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -103,20 +181,20 @@ useEffect(() => {
           <Route path="/category/:slug" element={<CategoryProduct />} />
           <Route path="/search" element={<SearchProductDisplay />} />
           {/* _________________________________________________________________ */}
-          
+
           {/* private routes, now first of all here the private route will check then inside the dashboard we will access other pages which are nested inside dashboard which is wrapped in private route */}
-          
+
           {/* USER PANNEL */}
           <Route path="/dashboard" element={<PrivateRoute />}>
             {/* these are is nested route */}
             <Route path="user" element={<Dashboard />} />
             <Route path="user/orders" element={<Orders />} />
             <Route path="user/profile" element={<Profile />} />
-            <Route path="user/favourites" element={<Favourites />}/>
+            <Route path="user/favourites" element={<Favourites />} />
             <Route path="user/invoice/:orderId" element={<UserInvoicePage />} />
           </Route>
           {/* ___________________________________________________________________ */}
-          
+
           {/* ADMIN PANNEL*/}
           <Route path="/dashboard" element={<AdminRoute />}>
             <Route path="admin" element={<AdminDashboard />} />
@@ -126,7 +204,10 @@ useEffect(() => {
             <Route path="admin/Products" element={<Products />} />
             <Route path="admin/OutStocked" element={<OutStocked />} />
             <Route path="admin/adminUsers" element={<AdminUsers />} />
-            <Route path="admin/invoice/:orderId" element={<AdminInvoicePage />} />
+            <Route
+              path="admin/invoice/:orderId"
+              element={<AdminInvoicePage />}
+            />
             <Route path="admin/users" element={<Users />} />
             <Route path="admin/orders" element={<AdminOrders />} />
             <Route path="/dashboard/admin/analytics" element={<Analytics />} />

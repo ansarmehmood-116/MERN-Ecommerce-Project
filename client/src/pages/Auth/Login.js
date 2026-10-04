@@ -62,7 +62,6 @@ const Login = () => {
     <Layout>
       <div className="login-page">
         <div className="login-wrapper">
-
           {/* ================= LEFT SIDE ================= */}
           <div className="login-showcase">
             <div className="showcase-overlay"></div>
@@ -80,8 +79,8 @@ const Login = () => {
               </h1>
 
               <p>
-                Discover a smarter way to shop. Sign in to continue your
-                journey and access your personalized shopping experience.
+                Discover a smarter way to shop. Sign in to continue your journey
+                and access your personalized shopping experience.
               </p>
 
               <div className="showcase-features">
@@ -111,120 +110,113 @@ const Login = () => {
           {/* ================= LOGIN SIDE ================= */}
           <div className="login-form-side">
             <div className="login-card">
+              <div className="mobile-login-content">
+                <div className="login-header">
+                  <span className="login-eyebrow">WELCOME BACK !</span>
+                  <h2>Sign in to your account</h2>
+                  <p>Enter your details below to continue.</p>
+                </div>
 
-              <div className="mobile-brand">
-                <div className="mobile-brand-icon">Y</div>
-                <span>YourStore</span>
-              </div>
+                <form onSubmit={handleSubmit}>
+                  {/* EMAIL */}
+                  <div className="login-field">
+                    <label htmlFor="login-email">Email Address</label>
 
-              <div className="login-header">
-                <span className="login-eyebrow">WELCOME BACK</span>
-                <h2>Sign in to your account</h2>
-                <p>
-                  Enter your details below to continue.
+                    <div className="input-wrapper">
+                      <Mail className="input-icon" size={19} />
+
+                      <input
+                        type="email"
+                        id="login-email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@example.com"
+                        autoComplete="email"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  {/* PASSWORD */}
+                  <div className="login-field">
+                    <div className="password-label-row">
+                      <label htmlFor="login-password">Password</label>
+
+                      <button
+                        type="button"
+                        className="forgot-link"
+                        onClick={() => navigate("/forgot-password")}
+                      >
+                        Forgot password?
+                      </button>
+                    </div>
+
+                    <div className="input-wrapper">
+                      <LockKeyhole className="input-icon" size={19} />
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        id="login-password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Enter your password"
+                        autoComplete="current-password"
+                        required
+                      />
+
+                      <button
+                        type="button"
+                        className="password-toggle"
+                        onClick={() => setShowPassword((prev) => !prev)}
+                        aria-label={
+                          showPassword ? "Hide password" : "Show password"
+                        }
+                      >
+                        {showPassword ? (
+                          <EyeOff size={19} />
+                        ) : (
+                          <Eye size={19} />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* LOGIN BUTTON */}
+                  <button
+                    type="submit"
+                    className="login-submit"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <>
+                        <span className="login-spinner"></span>
+                        Signing in...
+                      </>
+                    ) : (
+                      <>
+                        Sign In
+                        <span className="login-arrow">→</span>
+                      </>
+                    )}
+                  </button>
+                </form>
+
+                <div className="register-prompt">
+                  <span>Not registered yet?</span>
+                  <button type="button" onClick={() => navigate("/register")}>
+                    Create an account
+                  </button>
+                </div>
+
+                <div className="login-divider">
+                  <span>Secure authentication</span>
+                </div>
+
+                <p className="login-footer-text">
+                  By signing in, you agree to our terms and privacy policy.
                 </p>
               </div>
-
-              <form onSubmit={handleSubmit}>
-
-                {/* EMAIL */}
-                <div className="login-field">
-                  <label htmlFor="login-email">Email Address</label>
-
-                  <div className="input-wrapper">
-                    <Mail className="input-icon" size={19} />
-
-                    <input
-                      type="email"
-                      id="login-email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="you@example.com"
-                      autoComplete="email"
-                      required
-                    />
-                  </div>
-                </div>
-
-                {/* PASSWORD */}
-                <div className="login-field">
-                  <div className="password-label-row">
-                    <label htmlFor="login-password">Password</label>
-
-                    <button
-                      type="button"
-                      className="forgot-link"
-                      onClick={() => navigate("/forgot-password")}
-                    >
-                      Forgot password?
-                    </button>
-                  </div>
-
-                  <div className="input-wrapper">
-                    <LockKeyhole className="input-icon" size={19} />
-                    <input
-                      type={showPassword ? "text" : "password"}
-                      id="login-password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      placeholder="Enter your password"
-                      autoComplete="current-password"
-                      required
-                    />
-
-                    <button
-                      type="button"
-                      className="password-toggle"
-                      onClick={() =>
-                        setShowPassword((prev) => !prev)
-                      }
-                      aria-label={
-                        showPassword
-                          ? "Hide password"
-                          : "Show password"
-                      }
-                    >
-                      {showPassword ? (
-                        <EyeOff size={19} />
-                      ) : (
-                        <Eye size={19} />
-                      )}
-                    </button>
-                  </div>
-                </div>
-
-                {/* LOGIN BUTTON */}
-                <button
-                  type="submit"
-                  className="login-submit"
-                  disabled={loading}
-                >
-                  {loading ? (
-                    <>
-                      <span className="login-spinner"></span>
-                      Signing in...
-                    </>
-                  ) : (
-                    <>
-                      Sign In
-                      <span className="login-arrow">→</span>
-                    </>
-                  )}
-                </button>
-
-              </form>
-
-              <div className="login-divider">
-                <span>Secure authentication</span>
-              </div>
-
-              <p className="login-footer-text">
-                By signing in, you agree to our terms and privacy policy.
-              </p>
-
             </div>
           </div>
-
         </div>
       </div>
     </Layout>
