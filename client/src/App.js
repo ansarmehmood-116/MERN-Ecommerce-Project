@@ -104,20 +104,24 @@ useEffect(() => {
     setIsPulling(true);
   };
 
-  const handleTouchEnd = () => {
-    if (!startedAtTop.current) return;
-    const finalPullDistance = pullDistanceRef.current;
-    // Reset gesture state first.
-    startedAtTop.current = false;
-    pullDistanceRef.current = 0;
-    if (finalPullDistance >= 90) {
-      window.location.reload();
-      return;
-    }
+ const handleTouchEnd = () => {
+  if (!startedAtTop.current) return;
 
-    setPullDistance(0);
-    setIsPulling(false);
-  };
+  const finalPullDistance = pullDistanceRef.current;
+
+  // Reset gesture state immediately.
+  startedAtTop.current = false;
+  pullDistanceRef.current = 0;
+
+  // Hide the indicator immediately on finger release.
+  setPullDistance(0);
+  setIsPulling(false);
+
+  // Refresh only after hiding the indicator.
+  if (finalPullDistance >= 90) {
+    window.location.reload();
+  }
+};
 
   window.addEventListener("touchstart", handleTouchStart, {
     passive: true,
