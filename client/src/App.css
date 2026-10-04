@@ -8,7 +8,7 @@
   color: #dfe4ea;
 }
 
-/* 1. Page Pull-Down / Pull-Up/rubber-bands Bounce Effect Ko Lock Karein */
+/* 1. Page Pull-Down / Pull-Up/rubber-bands Bounce Effect Ko Lock Karein only for Micro soft Eedge, chrome by default have not this problem */
 html {
   width: 100%;
   margin: 0;
@@ -26,7 +26,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  /* Scroll restoration ko smooth aur functional rakhne ke liye */
   scroll-behavior: smooth;
 }
 
