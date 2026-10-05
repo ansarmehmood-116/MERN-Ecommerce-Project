@@ -740,14 +740,20 @@
 
     max-width: 18rem !important;
 
-    height: 310px !important;
+    height: 340px !important;
   }
 
 
   .admin-products-page .card-image-wrapper {
-    height: 230px !important;
+    height: 250px !important;
   }
-
+  
+  .admin-products-page .card-image-wrapper img{
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
 
   /* =====================================================
      PRODUCT BODY
@@ -838,15 +844,20 @@
 
   .admin-products-page .productBox {
     width: calc(100vw - 25px) !important;
-
-    height: 310px !important;
+    height: 335px !important;
   }
 
 
   .admin-products-page .card-image-wrapper {
-    height: 230px !important;
+    height: 260px !important;
   }
-
+  
+  .admin-products-page .card-image-wrapper img{
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
 
   /* Product body */
 

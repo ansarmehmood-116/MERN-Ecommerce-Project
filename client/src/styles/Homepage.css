@@ -1693,8 +1693,8 @@ body {
      PRODUCT GRID
      --------------------------------------------------------- */
   .homepage-page .products-section .col-md-12 > .d-flex {
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 15px !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 5px !important;
   }
 
 
@@ -1715,13 +1715,14 @@ body {
   .homepage-page .products-section .card-image-wrapper {
     width: 100%;
     aspect-ratio: 1 / 1;
-    height: 320px;
+    height: 200px;
   }
 
   .homepage-page .products-section .card-img-top {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover;
+    object-position: center;
   }
 
 
