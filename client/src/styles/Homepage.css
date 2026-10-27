@@ -1605,7 +1605,7 @@ body {
   .homepage-page .img3 {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover;
+     object-fit: fill !important;
     object-position: center;
   }
 
@@ -1693,8 +1693,8 @@ body {
      PRODUCT GRID
      --------------------------------------------------------- */
   .homepage-page .products-section .col-md-12 > .d-flex {
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 15px !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 5px !important;
   }
 
 
@@ -1715,13 +1715,14 @@ body {
   .homepage-page .products-section .card-image-wrapper {
     width: 100%;
     aspect-ratio: 1 / 1;
-    height: 320px;
+    height: 200px;
   }
 
   .homepage-page .products-section .card-img-top {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover;
+    object-position: center;
   }
 
 
@@ -1839,7 +1840,7 @@ body {
   .homepage-page .img3 {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover;
+    object-fit: fill !important;
     object-position: center;
   }
 
@@ -1989,4 +1990,102 @@ body {
     white-space: normal;
     text-align: right;
   }
+}
+
+
+
+/* =========================================================
+   PREMIUM HOMEPAGE TRUST BADGES
+   ========================================================= */
+.homepage-page .homepage-trust-strip {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  gap: 18px;
+  width: calc(100% - clamp(28px, 6vw, 88px));
+  max-width: 1240px;
+  margin: 26px auto 20px;
+  padding: 22px 28px;
+  background: linear-gradient(135deg, #ffffff 0%, #f5fbff 55%, #ffffff 100%);
+  border: 1px solid rgba(3, 191, 227, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 12px 34px rgba(15, 35, 55, 0.07), 0 2px 8px rgba(3, 191, 227, 0.05);
+}
+.homepage-page .homepage-trust-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 0;
+}
+.homepage-page .homepage-trust-icon {
+  flex: 0 0 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(3, 191, 227, 0.2);
+  border-radius: 14px;
+  background: linear-gradient(145deg, #e8faff, #f4fbff);
+  color: #0789b5;
+  font-size: 22px;
+  font-weight: 800;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+.homepage-page .homepage-trust-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.homepage-page .homepage-trust-copy strong {
+  color: #172b3d;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.homepage-page .homepage-trust-copy small {
+  color: #718096;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.homepage-page .homepage-trust-divider {
+  display: none;
+}
+#dark .homepage-page .homepage-trust-strip {
+  background: linear-gradient(135deg, #171b23 0%, #1b2632 55%, #171b23 100%);
+  border-color: rgba(77, 171, 247, 0.22);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.22), 0 2px 8px rgba(77, 171, 247, 0.04);
+}
+#dark .homepage-page .homepage-trust-icon {
+  background: linear-gradient(145deg, #1b3445, #1a2937);
+  border-color: rgba(77, 171, 247, 0.25);
+  color: #4dabf7;
+  box-shadow: none;
+}
+#dark .homepage-page .homepage-trust-copy strong {
+  color: #f1f3f5;
+}
+#dark .homepage-page .homepage-trust-copy small {
+  color: #aeb7c4;
+}
+@media (max-width: 991px) {
+  .homepage-page .homepage-trust-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 16px;
+    padding: 22px;
+  }
+  .homepage-page .homepage-trust-item {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 767px) {
+  .homepage-page .homepage-trust-strip {
+    display: none !important;
+  }
+
 }

@@ -599,7 +599,7 @@
 @media (max-width: 480px) {
 
   .update-product-page .dashboard {
-    margin-top: 42px !important;
+    margin-top: 50px !important;
     padding: 8px 6px 20px !important;
   }
 
@@ -685,7 +685,7 @@
 @media (max-width: 360px) {
 
   .update-product-page .dashboard {
-    padding: 7px 5px 18px !important;
+   padding: 7px 5px 18px !important;
   }
 
   .update-product-page .UpdateProdHeading h2 {

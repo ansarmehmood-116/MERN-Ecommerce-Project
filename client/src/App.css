@@ -65,7 +65,6 @@ __Short me: Jab aap <main> par flex: 1 0 auto; lagate hain, to Header aur Footer
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  transition: transform 0.1s ease-out;
 }
 
 .pull-refresh-arrow {
@@ -75,7 +74,8 @@ __Short me: Jab aap <main> par flex: 1 0 auto; lagate hain, to Header aur Footer
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ffffff 0%, #eef8ff 100%);
+  /* background: linear-gradient(135deg, #ffffff 0%, #eef8ff 100%); */
+  background: transparent;
   color: #168bd2;
   border: 2px solid #9ed7f5;
   font-size: 27px;
@@ -86,7 +86,8 @@ __Short me: Jab aap <main> par flex: 1 0 auto; lagate hain, to Header aur Footer
 
 /* Dark Mode */
 #dark .pull-refresh-arrow {
-  background: linear-gradient(135deg, #182638 0%, #12202d 100%);
+  /* background: linear-gradient(135deg, #182638 0%, #12202d 100%); */
+    background: transparent;
   color: #4dd4cf;
   border-color: #3c7778;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);

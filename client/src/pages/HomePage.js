@@ -203,19 +203,19 @@ const Homepage = () => {
           <div className="carousel-inner">
             <div className="carousel-item">
               <img
-                src="images/ecommerce1.jpg"
+                src="images/premium.jpeg"
                 className="d-block w-100 img1 img"
                 alt="banner-image"
               />
               {/* <h1 className="img1-heading">Ecommerce Application</h1> */}
               <h1 className="img1-heading">
-                <Typewriter
+                {/* <Typewriter
                   options={{
                     strings: ["Ecommerce", "Store", "Application"],
                     autoStart: true,
                     loop: true,
                   }}
-                />
+                /> */}
               </h1>
             </div>
             <div className="carousel-item active">
@@ -229,7 +229,7 @@ const Homepage = () => {
                   <div className="row">
                     <div className="col-md-7 col-lg-6">
                       <h1 className="heading2">
-                        <span>Sale 20% Off</span>
+                        <span>Sale 30% Off</span>
                         <br />
                         On Everything
                       </h1>
@@ -304,6 +304,42 @@ const Homepage = () => {
             <span className="visually-hidden">Next</span>
           </button>
         </div>
+
+         {/* PREMIUM TRUST BADGES - added without changing existing homepage code */}
+        <section className="homepage-trust-strip" aria-label="Shopping benefits">
+          <div className="homepage-trust-item">
+            <span className="homepage-trust-icon" aria-hidden="true">✓</span>
+            <span className="homepage-trust-copy">
+              <strong>Secure Checkout</strong>
+              <small>Your checkout, protected</small>
+            </span>
+          </div>
+          <span className="homepage-trust-divider" aria-hidden="true"></span>
+          <div className="homepage-trust-item">
+            <span className="homepage-trust-icon" aria-hidden="true">◆</span>
+            <span className="homepage-trust-copy">
+              <strong>Quality Products</strong>
+              <small>Chosen with care</small>
+            </span>
+          </div>
+          <span className="homepage-trust-divider" aria-hidden="true"></span>
+          <div className="homepage-trust-item">
+            <span className="homepage-trust-icon" aria-hidden="true">↗</span>
+            <span className="homepage-trust-copy">
+              <strong>Reliable Delivery</strong>
+              <small>Delivered to your door</small>
+            </span>
+          </div>
+          <span className="homepage-trust-divider" aria-hidden="true"></span>
+          <div className="homepage-trust-item">
+            <span className="homepage-trust-icon" aria-hidden="true">♡</span>
+            <span className="homepage-trust-copy">
+              <strong>Customer First</strong>
+              <small>A better shopping experience</small>
+            </span>
+          </div>
+        </section>
+
         <div className="products-section">
           {/* side bar */}
           <span className="filterButton" onClick={handleToggle}>
